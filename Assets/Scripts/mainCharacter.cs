@@ -32,8 +32,8 @@ public class mainCharacter : MonoBehaviour
     private bool archers = true;
     private float timerArchers;
     private float canFireArchers = 0;
-    private float fireSpeedArchers = 5;
-    private float arrowLifeTime = 20;
+    private float fireSpeedArchers = 30;
+    private float arrowLifeTime = 2;
     public GameObject arrow;
     public Transform arrowSpawnPoint;
 
