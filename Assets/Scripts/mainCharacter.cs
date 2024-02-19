@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class mainCharacter : MonoBehaviour
@@ -55,6 +56,7 @@ public class mainCharacter : MonoBehaviour
     public GameObject balistaArrow;
     public Transform balistaArrowSpawnPoint;
 
+    public static float Rotation;
 
     void Start() //Happens on start
     {
@@ -69,6 +71,11 @@ public class mainCharacter : MonoBehaviour
         maxShieldHealth = 0;
         totalCurrentShieldHealth = maxShieldHealth;
 
+    }
+
+    void Update()
+    {
+        Rotation = transform.localEulerAngles.z;
     }
 
     void FixedUpdate() //Happens on every frame
