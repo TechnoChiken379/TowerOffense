@@ -759,7 +759,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 54.1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9076,7 +9076,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 35.8
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9292,6 +9292,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 340616156535381566, guid: d12539f9382e3ce4c8c229b70dacb94e, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 793899272}
+    - target: {fileID: 340616156535381566, guid: d12539f9382e3ce4c8c229b70dacb94e, type: 3}
+      propertyPath: shieldBar
+      value: 
+      objectReference: {fileID: 1631214522}
     - target: {fileID: 406320279106244812, guid: d12539f9382e3ce4c8c229b70dacb94e, type: 3}
       propertyPath: m_Name
       value: MainCharacter

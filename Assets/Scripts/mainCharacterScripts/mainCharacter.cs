@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class mainCharacter : MonoBehaviour
 {
@@ -13,9 +14,11 @@ public class mainCharacter : MonoBehaviour
     //Health, Shield vars
     public float maxHealth;
     private float totalCurrentHealth;
+    public Slider healthBar;
 
     public float maxShieldHealth;
     private float totalCurrentShieldHealth;
+    public Slider shieldBar;
 
     //Health upgrades
     private bool healthUpgrade1 = false;
@@ -37,15 +40,21 @@ public class mainCharacter : MonoBehaviour
         //Starting health = Current health
         maxHealth = 100;
         totalCurrentHealth = maxHealth;
+        healthBar.maxValue = maxHealth;
+        healthBar.minValue = 0;
+        healthBar.value = totalCurrentHealth;
 
         //Starting shield health = Current shield health
         maxShieldHealth = 0;
         totalCurrentShieldHealth = maxShieldHealth;
+        shieldBar.maxValue = maxShieldHealth;
+        shieldBar.minValue = 0;
+        shieldBar.value = totalCurrentShieldHealth;
     }
 
     void Update()
     {
-
+        
     }
 
     void FixedUpdate() //Happens on every frame
