@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2144276926313897998}
   m_Layer: 0
   m_Name: Balista
-  m_TagString: Untagged
+  m_TagString: mainCharacter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 340616156535381566}
   m_Layer: 0
   m_Name: MainCharacter
-  m_TagString: Untagged
+  m_TagString: mainCharacter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,7 +56,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406320279106244812}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -79,7 +79,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   maxHealth: 0
+  healthBar: {fileID: 0}
   maxShieldHealth: 0
+  shieldBar: {fileID: 0}
 --- !u!1 &1412418808797885923
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +93,7 @@ GameObject:
   - component: {fileID: 9185761591822539758}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: mainCharacter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,10 +125,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3128494108527396339}
   - component: {fileID: 7162371630684143075}
-  - component: {fileID: 1440795851813695990}
   m_Layer: 0
   m_Name: Shooting
-  m_TagString: Untagged
+  m_TagString: mainCharacter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,25 +162,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d6d13bcac67304595886a0d9a21bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationCheck: 0
   arrow: {fileID: 3069797098432816370, guid: 9662a36e826451e4585a8545b81f2eb8, type: 3}
   arrowSpawnPoint: {fileID: 8582599497340703648}
   cannonRound: {fileID: 6230678805625410844, guid: 7f47ac0aa750b92439127fe7384ed23b, type: 3}
   cannonRoundSpawnPoint: {fileID: 6299696027451699254}
   balistaArrow: {fileID: 3330178691903697465, guid: 3b04532a7c39aae49abe09572aff4ecc, type: 3}
   balistaArrowSpawnPoint: {fileID: 2144276926313897998}
---- !u!114 &1440795851813695990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1612350192978273056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ba1e0dbef8d74e468d8ad5cac2c1d3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationCheck: 0
 --- !u!1 &1900420943490816718
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +180,7 @@ GameObject:
   - component: {fileID: 6299696027451699254}
   m_Layer: 0
   m_Name: Cannons
-  m_TagString: Untagged
+  m_TagString: mainCharacter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -222,7 +211,7 @@ GameObject:
   - component: {fileID: 8582599497340703648}
   m_Layer: 0
   m_Name: Archers
-  m_TagString: Untagged
+  m_TagString: mainCharacter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -255,7 +244,7 @@ GameObject:
   - component: {fileID: 8856050766079878169}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: mainCharacter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -347,7 +336,7 @@ GameObject:
   - component: {fileID: 3532103338332837104}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: mainCharacter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -430,7 +419,7 @@ GameObject:
   - component: {fileID: 4063693593598733426}
   m_Layer: 0
   m_Name: Hud
-  m_TagString: Untagged
+  m_TagString: mainCharacter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
