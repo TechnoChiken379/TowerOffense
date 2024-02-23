@@ -6,13 +6,14 @@ using UnityEngine;
 
 public class shootingScript : MonoBehaviour
 {
-    public static float Rotation;
+    public float rotationCheck;
+    private float angle;
 
     //Archers
     private bool archers = true;
     private float timerArchers;
-    private float canFireArchers = 0.5f;
-    private float fireSpeedArchers = 27;
+    private float canFireArchers = 0.2f;
+    private float fireSpeedArchers = 17;
     private float arrowLifeTime = 3;
     public GameObject arrow;
     public Transform arrowSpawnPoint;
@@ -35,11 +36,9 @@ public class shootingScript : MonoBehaviour
     public GameObject balistaArrow;
     public Transform balistaArrowSpawnPoint;
 
-    public float angle;
-
     void Start()
     {
-        Rotation = transform.localEulerAngles.z;
+
     }
 
     void Update()
@@ -66,7 +65,7 @@ public class shootingScript : MonoBehaviour
 
     public void FireArchers() //Archers
     {
-        if (Input.GetMouseButton(0) && timerArchers >= canFireArchers)
+        if (Input.GetMouseButton(0) && timerArchers >= canFireArchers && archers == true)
         {
             GameObject spawnedBullet = Instantiate(arrow, arrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
             spawnedBullet.GetComponent<Rigidbody2D>().velocity = arrowSpawnPoint.right * fireSpeedArchers;
@@ -77,7 +76,7 @@ public class shootingScript : MonoBehaviour
 
     public void FireCannons() //Cannons
     {
-        if (Input.GetMouseButton(0) && timerCannons >= canFireCannons)
+        if (Input.GetMouseButton(0) && timerCannons >= canFireCannons && cannons == true)
         {
             GameObject spawnedBullet = Instantiate(cannonRound, cannonRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
             spawnedBullet.GetComponent<Rigidbody2D>().velocity = cannonRoundSpawnPoint.right * fireSpeedCannons;
@@ -88,12 +87,29 @@ public class shootingScript : MonoBehaviour
 
     public void FireBalista() //Balista
     {
-        if (Input.GetMouseButton(0) && timerBalista >= canFireBalista)
+        if (Input.GetMouseButton(0) && timerBalista >= canFireBalista && balista == true)
         {
             GameObject spawnedBullet = Instantiate(balistaArrow, balistaArrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
             spawnedBullet.GetComponent<Rigidbody2D>().velocity = balistaArrowSpawnPoint.right * fireSpeedBalista;
             Destroy(spawnedBullet, balistaArrowLifeTime);
             timerBalista = 0f;
         }
+    }
+
+    public void TurnAroundSpawnPoints()
+    {
+        if (90f > angle && 0f < angle)
+        {
+            transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+        if (360f > angle && 270f < angle)
+        {
+            transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+        if (270f > angle && 90f < angle)
+        {
+            transform.localRotation = Quaternion.Euler(180f, 0f, 0f);
+        }
+        rotationCheck = angle;
     }
 }
