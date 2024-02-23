@@ -123,6 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3128494108527396339}
   - component: {fileID: 7162371630684143075}
+  - component: {fileID: 1440795851813695990}
   m_Layer: 0
   m_Name: Shooting
   m_TagString: Untagged
@@ -163,9 +164,22 @@ MonoBehaviour:
   arrow: {fileID: 3069797098432816370, guid: 9662a36e826451e4585a8545b81f2eb8, type: 3}
   arrowSpawnPoint: {fileID: 8582599497340703648}
   cannonRound: {fileID: 6230678805625410844, guid: 7f47ac0aa750b92439127fe7384ed23b, type: 3}
-  cannonRoundSpawnPoint: {fileID: 0}
+  cannonRoundSpawnPoint: {fileID: 6299696027451699254}
   balistaArrow: {fileID: 3330178691903697465, guid: 3b04532a7c39aae49abe09572aff4ecc, type: 3}
-  balistaArrowSpawnPoint: {fileID: 0}
+  balistaArrowSpawnPoint: {fileID: 2144276926313897998}
+--- !u!114 &1440795851813695990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612350192978273056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba1e0dbef8d74e468d8ad5cac2c1d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationCheck: 0
 --- !u!1 &1900420943490816718
 GameObject:
   m_ObjectHideFlags: 0

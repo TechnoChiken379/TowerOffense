@@ -1430,6 +1430,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 1440795851813695990, guid: d12539f9382e3ce4c8c229b70dacb94e, type: 3}
+      propertyPath: rotationCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2144276926313897998, guid: d12539f9382e3ce4c8c229b70dacb94e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2144276926313897998, guid: d12539f9382e3ce4c8c229b70dacb94e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2144276926313897998, guid: d12539f9382e3ce4c8c229b70dacb94e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3531460026641330860, guid: d12539f9382e3ce4c8c229b70dacb94e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

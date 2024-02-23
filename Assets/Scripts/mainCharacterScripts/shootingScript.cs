@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEditor;
 using UnityEngine;
 
@@ -10,38 +11,39 @@ public class shootingScript : MonoBehaviour
     //Archers
     private bool archers = true;
     private float timerArchers;
-    private float canFireArchers = 0;
-    private float fireSpeedArchers = 30;
-    private float arrowLifeTime = 2;
+    private float canFireArchers = 0.5f;
+    private float fireSpeedArchers = 27;
+    private float arrowLifeTime = 3;
     public GameObject arrow;
     public Transform arrowSpawnPoint;
 
     //Cannons
-    private bool cannons = false;
+    private bool cannons = true;
     private float timerCannons;
-    private float canFireCannons;
-    private float fireSpeedCannons;
-    private float cannonRoundLifeTime;
+    private float canFireCannons = 2;
+    private float fireSpeedCannons = 34;
+    private float cannonRoundLifeTime = 2.7f;
     public GameObject cannonRound;
     public Transform cannonRoundSpawnPoint;
 
     //Balista
-    private bool balista = false;
+    private bool balista = true;
     private float timerBalista;
-    private float canFireBalista;
-    private float fireSpeedBalista;
-    private float balistaArrowLifeTime;
+    private float canFireBalista = 3;
+    private float fireSpeedBalista = 42;
+    private float balistaArrowLifeTime = 2;
     public GameObject balistaArrow;
     public Transform balistaArrowSpawnPoint;
 
+    public float angle;
+
     void Start()
     {
-        Debug.Log("update");
+        Rotation = transform.localEulerAngles.z;
     }
 
     void Update()
     {
-        Debug.Log("update");
         LookAtMe();
 
         FireArchers(); //Archers script
@@ -56,19 +58,17 @@ public class shootingScript : MonoBehaviour
 
     public void LookAtMe()
     {
-        Rotation = transform.localEulerAngles.z;
         var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     public void FireArchers() //Archers
     {
-        Debug.Log("can shoot");
         if (Input.GetMouseButton(0) && timerArchers >= canFireArchers)
         {
-            Debug.Log("Shooting");
-            GameObject spawnedBullet = Instantiate(arrow, arrowSpawnPoint.position, Quaternion.identity);
+            GameObject spawnedBullet = Instantiate(arrow, arrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
             spawnedBullet.GetComponent<Rigidbody2D>().velocity = arrowSpawnPoint.right * fireSpeedArchers;
             Destroy(spawnedBullet, arrowLifeTime);
             timerArchers = 0f;
@@ -79,7 +79,7 @@ public class shootingScript : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && timerCannons >= canFireCannons)
         {
-            GameObject spawnedBullet = Instantiate(cannonRound, cannonRoundSpawnPoint.position, Quaternion.identity);
+            GameObject spawnedBullet = Instantiate(cannonRound, cannonRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
             spawnedBullet.GetComponent<Rigidbody2D>().velocity = cannonRoundSpawnPoint.right * fireSpeedCannons;
             Destroy(spawnedBullet, cannonRoundLifeTime);
             timerCannons = 0f;
@@ -90,7 +90,7 @@ public class shootingScript : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && timerBalista >= canFireBalista)
         {
-            GameObject spawnedBullet = Instantiate(balistaArrow, balistaArrowSpawnPoint.position, Quaternion.identity);
+            GameObject spawnedBullet = Instantiate(balistaArrow, balistaArrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
             spawnedBullet.GetComponent<Rigidbody2D>().velocity = balistaArrowSpawnPoint.right * fireSpeedBalista;
             Destroy(spawnedBullet, balistaArrowLifeTime);
             timerBalista = 0f;
