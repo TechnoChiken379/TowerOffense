@@ -275,7 +275,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6202046906235884543, guid: d12539f9382e3ce4c8c229b70dacb94e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1444,12 +1445,6 @@ MonoBehaviour:
   speed: 0
   maxHealth: 0
   maxShieldHealth: 0
-  arrow: {fileID: 3069797098432816370, guid: 9662a36e826451e4585a8545b81f2eb8, type: 3}
-  arrowSpawnPoint: {fileID: 1547725725}
-  cannonRound: {fileID: 6230678805625410844, guid: 7f47ac0aa750b92439127fe7384ed23b, type: 3}
-  cannonRoundSpawnPoint: {fileID: 1547725725}
-  balistaArrow: {fileID: 3330178691903697465, guid: 3b04532a7c39aae49abe09572aff4ecc, type: 3}
-  balistaArrowSpawnPoint: {fileID: 1547725725}
 --- !u!212 &1547725724
 SpriteRenderer:
   m_ObjectHideFlags: 0
