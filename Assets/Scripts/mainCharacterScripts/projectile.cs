@@ -4,7 +4,7 @@ using UnityEngine;
 public class projectile : MonoBehaviour
 {
     public GameObject player;
-    public float speed = 10f;
+    public float speed = 3f;
     public Vector3 movePosition;
     private float playerX;
     private float targetX;
@@ -25,7 +25,7 @@ public class projectile : MonoBehaviour
         dist = targetX - playerX;
         nextX = Mathf.MoveTowards(transform.position.x, targetX, speed * Time.deltaTime);
         baseY = Mathf.Lerp(player.transform.position.y, mousePointerPosition.target.transform.position.y, (nextX - playerX) / dist);
-        height = 2 * (nextX - playerX) * (nextX - targetX) / (-0.25f * dist * dist);
+        height = 1 * (nextX - playerX) * (nextX - targetX) / (-0.25f * dist * dist);
         movePosition = new Vector3(nextX, baseY + height, transform.position.z);
         transform.rotation = LookAtTarget(movePosition - transform.position);
         transform.position = movePosition;
