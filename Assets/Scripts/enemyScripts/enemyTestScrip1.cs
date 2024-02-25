@@ -11,12 +11,19 @@ public class enemyTestScrip1 : MonoBehaviour
     private Transform player;
     public float distanceToPlayer;
 
+    public float enemyTest1Health = 100f;
+
+
     private float speed = 2f; //movement speed
+
     private float closeEnough = 3f; //how close does the enemy want to get
     private float toClose = 2f; //how far does the enemy want to stay away from player
+
     private float timer = 0f; //timer to keep track of time before moving
     private float moveTime = 0.1f; //time to start moving
+
     private float engageDistance = 10f; //at what distance should the enemy start going to the player
+
 
     ////attack (work in progress)
     //public float rotationCheck;
