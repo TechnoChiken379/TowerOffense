@@ -6,8 +6,6 @@ TagManager:
   tags:
   - mainCharacter
   - Enemy
-  - archer
-  - test
   layers:
   - Default
   - TransparentFX

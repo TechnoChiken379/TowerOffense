@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2144276926313897998}
   m_Layer: 0
   m_Name: Balista
-  m_TagString: mainCharacter
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 9185761591822539758}
   m_Layer: 0
   m_Name: Player
-  m_TagString: mainCharacter
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 7162371630684143075}
   m_Layer: 0
   m_Name: Shooting
-  m_TagString: mainCharacter
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationCheck: 0
+  mousePointer: {fileID: 9180837579170946275, guid: 2503ce52c62b76c4f806902f657223e7, type: 3}
   arrow: {fileID: 3069797098432816370, guid: 9662a36e826451e4585a8545b81f2eb8, type: 3}
   arrowSpawnPoint: {fileID: 8582599497340703648}
   cannonRound: {fileID: 6230678805625410844, guid: 7f47ac0aa750b92439127fe7384ed23b, type: 3}
@@ -180,7 +181,7 @@ GameObject:
   - component: {fileID: 6299696027451699254}
   m_Layer: 0
   m_Name: Cannons
-  m_TagString: mainCharacter
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -211,7 +212,7 @@ GameObject:
   - component: {fileID: 8582599497340703648}
   m_Layer: 0
   m_Name: Archers
-  m_TagString: archer
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -336,7 +337,7 @@ GameObject:
   - component: {fileID: 3532103338332837104}
   m_Layer: 0
   m_Name: Body
-  m_TagString: mainCharacter
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -419,7 +420,7 @@ GameObject:
   - component: {fileID: 4063693593598733426}
   m_Layer: 0
   m_Name: Hud
-  m_TagString: mainCharacter
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
