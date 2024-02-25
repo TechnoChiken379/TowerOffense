@@ -17,26 +17,34 @@ public class shootingScript : MonoBehaviour
     private Vector2 worldMousePosition;
     private Vector2 mousePosition;
 
-    //Archers
+    public static float syncTimer;
+
+    #region Weapon Vars
+    //Boolean Weapons
     private bool archers = true;
-    private float timerArchers;
-    private float canFireArchers = 0.2f;
-    public GameObject arrow;
-    public Transform arrowSpawnPoint;
-
-    //Cannons
     private bool cannons = true;
-    private float timerCannons;
-    private float canFireCannons = 2;
-    public GameObject cannonRound;
-    public Transform cannonRoundSpawnPoint;
-
-    //Balista
     private bool balista = true;
-    private float timerBalista;
+
+    //Can Fire Weapons
+    private float canFireArchers = 0.2f;
+    private float canFireCannons = 2;
     private float canFireBalista = 3;
+
+    //Game Objects Weapons
+    public GameObject arrow;
+    public GameObject cannonRound;
     public GameObject balistaArrow;
+
+    //Spawn Point Weapons
+    public Transform arrowSpawnPoint;
+    public Transform cannonRoundSpawnPoint;
     public Transform balistaArrowSpawnPoint;
+
+    //Weapon Timers
+    private float timerArchers;
+    private float timerCannons;
+    private float timerBalista;
+    #endregion
 
     void Start()
     {
@@ -45,8 +53,10 @@ public class shootingScript : MonoBehaviour
 
     void Update()
     {
+        syncTimer += Time.deltaTime;
+
         LookAtMe();
-        TurnAroundSpawnPoints();
+        //TurnAroundSpawnPoints();
 
         FireArchers(); //Archers script
         timerArchers += Time.deltaTime; //Timer for readyToFire
@@ -73,7 +83,9 @@ public class shootingScript : MonoBehaviour
         {
             spawnedBullet = arrow;
             spawnedMousePointer = Instantiate(mousePointer, worldMousePosition, Quaternion.Euler(0, 0, angle));
+            spawnedMousePointer.name = (syncTimer.ToString());
             spawnedBullet = Instantiate(arrow, arrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
+            spawnedBullet.name = (syncTimer.ToString());
 
             timerArchers = 0f;
         }
@@ -85,7 +97,9 @@ public class shootingScript : MonoBehaviour
         {
             spawnedBullet = cannonRound;
             spawnedMousePointer = Instantiate(mousePointer, worldMousePosition, Quaternion.Euler(0, 0, angle));
+            spawnedMousePointer.name = (syncTimer.ToString());
             spawnedBullet = Instantiate(cannonRound, cannonRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
+            spawnedBullet.name = (syncTimer.ToString());
 
             timerCannons = 0f;
         }
@@ -97,7 +111,9 @@ public class shootingScript : MonoBehaviour
         {
             spawnedBullet = balistaArrow;
             spawnedMousePointer = Instantiate(mousePointer, worldMousePosition, Quaternion.Euler(0, 0, angle));
+            spawnedMousePointer.name = (syncTimer.ToString());
             spawnedBullet = Instantiate(balistaArrow, balistaArrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
+            spawnedBullet.name = (syncTimer.ToString());
 
             timerBalista = 0f;
         }

@@ -4,6 +4,7 @@ using UnityEngine;
 public class projectile : MonoBehaviour
 {
     public GameObject player;
+    [SerializeField]public GameObject target;
     public static float speed = 10f;
     public static float heightNum = 0.5f;
     public Vector3 movePosition;
@@ -14,9 +15,15 @@ public class projectile : MonoBehaviour
     private float baseY;
     private float height;
 
+    private float a;
+
+    
+
     void Start()
     {
+        float.TryParse(gameObject.name, out a);
         player = GameObject.FindGameObjectWithTag("mainCharacter");
+        target = GameObject.Find(a.ToString());
     }
 
     void Update()
@@ -30,10 +37,13 @@ public class projectile : MonoBehaviour
         movePosition = new Vector3(nextX, baseY + height, transform.position.z);
         transform.rotation = LookAtTarget(movePosition - transform.position);
         transform.position = movePosition;
-        if (movePosition == mousePointerPosition.target.transform.position)
+        if (movePosition ==mousePointerPosition.target.transform.position)
         {
-            Destroy(gameObject);
-            Destroy(shootingScript.spawnedMousePointer);
+            if (gameObject.name == shootingScript.spawnedMousePointer.name)
+            {
+                Destroy(shootingScript.spawnedMousePointer);
+                Destroy(gameObject);
+            }
         }
     }
     public static Quaternion LookAtTarget(Vector2 r)

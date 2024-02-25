@@ -5,5 +5,16 @@ using UnityEngine;
 public class mousePointerPosition : MonoBehaviour
 {
     public static GameObject target;
-    void Update() { target = gameObject; }
+    private float b;
+
+    void Start()
+    {
+        float.TryParse(gameObject.name, out b);
+        target = gameObject;
+    }
+
+    void Update() 
+    {
+
+    }
 }
