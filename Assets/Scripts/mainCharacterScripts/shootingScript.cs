@@ -12,7 +12,7 @@ public class shootingScript : MonoBehaviour
     private float angle;
 
     private GameObject spawnedBullet;
-    private GameObject spawnedMousePointer;
+    public static GameObject spawnedMousePointer;
     public GameObject mousePointer;
     private Vector2 worldMousePosition;
     private Vector2 mousePosition;
@@ -21,7 +21,6 @@ public class shootingScript : MonoBehaviour
     private bool archers = true;
     private float timerArchers;
     private float canFireArchers = 0.2f;
-    private float arrowLifeTime = 3;
     public GameObject arrow;
     public Transform arrowSpawnPoint;
 
@@ -29,7 +28,6 @@ public class shootingScript : MonoBehaviour
     private bool cannons = true;
     private float timerCannons;
     private float canFireCannons = 2;
-    private float cannonRoundLifeTime = 2.7f;
     public GameObject cannonRound;
     public Transform cannonRoundSpawnPoint;
 
@@ -37,7 +35,6 @@ public class shootingScript : MonoBehaviour
     private bool balista = true;
     private float timerBalista;
     private float canFireBalista = 3;
-    private float balistaArrowLifeTime = 2;
     public GameObject balistaArrow;
     public Transform balistaArrowSpawnPoint;
 
@@ -49,6 +46,7 @@ public class shootingScript : MonoBehaviour
     void Update()
     {
         LookAtMe();
+        TurnAroundSpawnPoints();
 
         FireArchers(); //Archers script
         timerArchers += Time.deltaTime; //Timer for readyToFire
@@ -62,8 +60,9 @@ public class shootingScript : MonoBehaviour
 
     public void LookAtMe()
     {
-        var dirc = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-        angle = Mathf.Atan2(dirc.y, dirc.x) * Mathf.Rad2Deg;
+        mousePosition = Input.mousePosition;
+        worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        angle = Mathf.Atan2(worldMousePosition.y, worldMousePosition.x) * Mathf.Rad2Deg;
         //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
@@ -72,14 +71,10 @@ public class shootingScript : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && timerArchers >= canFireArchers && archers == true)
         {
-            mousePosition = Input.mousePosition;
-            worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-            spawnedMousePointer = Instantiate(mousePointer, worldMousePosition, Quaternion.Euler(0, 0, angle));
-
             spawnedBullet = arrow;
+            spawnedMousePointer = Instantiate(mousePointer, worldMousePosition, Quaternion.Euler(0, 0, angle));
             spawnedBullet = Instantiate(arrow, arrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
-            Destroy(spawnedBullet, arrowLifeTime);
-            Destroy(spawnedMousePointer, arrowLifeTime);
+
             timerArchers = 0f;
         }
     }
@@ -88,14 +83,10 @@ public class shootingScript : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && timerCannons >= canFireCannons && cannons == true)
         {
-            mousePosition = Input.mousePosition;
-            worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-            spawnedMousePointer = Instantiate(mousePointer, worldMousePosition, Quaternion.Euler(0, 0, angle));
-
             spawnedBullet = cannonRound;
+            spawnedMousePointer = Instantiate(mousePointer, worldMousePosition, Quaternion.Euler(0, 0, angle));
             spawnedBullet = Instantiate(cannonRound, cannonRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
-            Destroy(spawnedBullet, cannonRoundLifeTime);
-            Destroy(spawnedMousePointer, cannonRoundLifeTime);
+
             timerCannons = 0f;
         }
     }
@@ -104,14 +95,10 @@ public class shootingScript : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && timerBalista >= canFireBalista && balista == true)
         {
-            mousePosition = Input.mousePosition;
-            worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-            spawnedMousePointer = Instantiate(mousePointer, worldMousePosition, Quaternion.Euler(0, 0, angle));
-
             spawnedBullet = balistaArrow;
+            spawnedMousePointer = Instantiate(mousePointer, worldMousePosition, Quaternion.Euler(0, 0, angle));
             spawnedBullet = Instantiate(balistaArrow, balistaArrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
-            Destroy(spawnedBullet, balistaArrowLifeTime);
-            Destroy(spawnedMousePointer, balistaArrowLifeTime);
+
             timerBalista = 0f;
         }
     }
