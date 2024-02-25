@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 3513101696158425740}
   - component: {fileID: 4961292509610716726}
   - component: {fileID: 8530101217623891018}
+  - component: {fileID: 1270959157766758373}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -157,8 +158,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc87cf2294336248887166ad747c83e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mousePointerPrefab: {fileID: 9180837579170946275, guid: 2503ce52c62b76c4f806902f657223e7, type: 3}
+--- !u!114 &1270959157766758373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3069797098432816370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117fb5827d9deaf42b39de834e1ef8c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   player: {fileID: 406320279106244812, guid: d12539f9382e3ce4c8c229b70dacb94e, type: 3}
-  target: {fileID: 6116284462072944387, guid: 22fabdd36c164874c9de980da73dc7ba, type: 3}
+  target: {fileID: 9180837579170946275, guid: 2503ce52c62b76c4f806902f657223e7, type: 3}
   speed: 10
   launchHeight: 2
   movePosition: {x: 0, y: 0, z: 0}
