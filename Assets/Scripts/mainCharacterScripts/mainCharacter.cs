@@ -52,11 +52,6 @@ public class mainCharacter : MonoBehaviour
         shieldBar.value = totalCurrentShieldHealth;
     }
 
-    void Update()
-    {
-        
-    }
-
     void FixedUpdate() //Happens on every frame
     {
         Movement(); //Movement script
