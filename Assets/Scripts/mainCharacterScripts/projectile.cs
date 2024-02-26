@@ -59,7 +59,7 @@ public class projectile : MonoBehaviour
         if (movePosition ==mousePointerPosition.target.transform.position)
         {
             //Destroy mousePointer game object first
-            Destroy(shootingScript.spawnedMousePointer);
+            //Destroy(shootingScript.spawnedMousePointer);
             //Destroy current gameObject
             Destroy(gameObject);
         }
