@@ -119,9 +119,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7bfe4fa6ece0f42be08ab10f8f1682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 3531460026641330860, guid: d12539f9382e3ce4c8c229b70dacb94e, type: 3}
-  arcHeight: 1
-  speed: 1
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  duration: 1
+  maxHeightY: 3
+  player: {fileID: 0}
+  target: {fileID: 7057391366974541217, guid: c70ac0a86ba004a47819ba139192bafe, type: 3}
 --- !u!1 &9133356944999340302
 GameObject:
   m_ObjectHideFlags: 0

@@ -121,7 +121,6 @@ public class enemyTestScrip1 : MonoBehaviour
 
             //Vector3 directionToPlayer = (player.position - bulletSpawnPoint.position).normalized;
             //spawnedBullet.GetComponent<Rigidbody2D>().velocity = directionToPlayer * fireSpeed;
-            Debug.Log("attacking");
 
             //Destroy(enemySpawnPointBullet, 2);
             Destroy(enemySpawnedBullet, 2);

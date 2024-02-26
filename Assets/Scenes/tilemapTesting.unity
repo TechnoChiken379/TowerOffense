@@ -9045,7 +9045,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1258187730}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 406c496c31ff63a4c9738ab5e07fc234, type: 3}
   m_Name: 
@@ -9061,7 +9061,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1258187730}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -10131,7 +10131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7162371630684143075, guid: d12539f9382e3ce4c8c229b70dacb94e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7162371630684143075, guid: d12539f9382e3ce4c8c229b70dacb94e, type: 3}
       propertyPath: mousePointer
@@ -10198,7 +10198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1869722887059525995, guid: 22fabdd36c164874c9de980da73dc7ba, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6116284462072944387, guid: 22fabdd36c164874c9de980da73dc7ba, type: 3}
       propertyPath: m_Name
