@@ -132,6 +132,7 @@ MonoBehaviour:
   distanceToPlayer: 0
   enemyTest1Health: 100
   bullet: {fileID: 2214770678981885083, guid: d3ff45b680bb9f54ea30b6fe3d3db722, type: 3}
+  bulletSpawn: {fileID: 7057391366974541217, guid: c70ac0a86ba004a47819ba139192bafe, type: 3}
   bulletSpawnPoint: {fileID: 5493004471625378853}
 --- !u!1 &6116284462072944387
 GameObject:
