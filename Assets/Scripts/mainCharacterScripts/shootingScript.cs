@@ -53,10 +53,7 @@ public class shootingScript : MonoBehaviour
 
     void Update()
     {
-        syncTimer += Time.deltaTime;
-
         LookAtMe();
-        //TurnAroundSpawnPoints();
 
         FireArchers(); //Archers script
         timerArchers += Time.deltaTime; //Timer for readyToFire
@@ -83,9 +80,7 @@ public class shootingScript : MonoBehaviour
         {
             spawnedBullet = arrow;
             spawnedMousePointer = Instantiate(mousePointer, worldMousePosition, Quaternion.Euler(0, 0, angle));
-            spawnedMousePointer.name = (syncTimer.ToString());
             spawnedBullet = Instantiate(arrow, arrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
-            spawnedBullet.name = ((syncTimer+1).ToString());
 
             timerArchers = 0f;
         }
@@ -97,9 +92,7 @@ public class shootingScript : MonoBehaviour
         {
             spawnedBullet = cannonRound;
             spawnedMousePointer = Instantiate(mousePointer, worldMousePosition, Quaternion.Euler(0, 0, angle));
-            spawnedMousePointer.name = (syncTimer.ToString());
             spawnedBullet = Instantiate(cannonRound, cannonRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
-            spawnedBullet.name = ((syncTimer+2).ToString());
 
             timerCannons = 0f;
         }
@@ -111,28 +104,9 @@ public class shootingScript : MonoBehaviour
         {
             spawnedBullet = balistaArrow;
             spawnedMousePointer = Instantiate(mousePointer, worldMousePosition, Quaternion.Euler(0, 0, angle));
-            spawnedMousePointer.name = (syncTimer.ToString());
             spawnedBullet = Instantiate(balistaArrow, balistaArrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
-            spawnedBullet.name = (syncTimer.ToString());
 
             timerBalista = 0f;
         }
-    }
-
-    public void TurnAroundSpawnPoints()
-    {
-        if (90f > angle && 0f < angle)
-        {
-            transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
-        }
-        if (360f > angle && 270f < angle)
-        {
-            transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
-        }
-        if (270f > angle && 90f < angle)
-        {
-            transform.localRotation = Quaternion.Euler(180f, 0f, 0f);
-        }
-        rotationCheck = angle;
     }
 }

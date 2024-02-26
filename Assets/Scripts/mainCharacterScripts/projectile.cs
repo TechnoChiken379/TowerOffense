@@ -39,11 +39,8 @@ public class projectile : MonoBehaviour
         transform.position = movePosition;
         if (movePosition ==mousePointerPosition.target.transform.position)
         {
-            if (gameObject.name == shootingScript.spawnedMousePointer.name)
-            {
-                Destroy(shootingScript.spawnedMousePointer);
-                Destroy(gameObject);
-            }
+            Destroy(shootingScript.spawnedMousePointer);
+            Destroy(gameObject);
         }
     }
     public static Quaternion LookAtTarget(Vector2 r)
