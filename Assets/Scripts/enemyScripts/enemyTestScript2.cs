@@ -4,20 +4,41 @@ using UnityEngine;
 
 public class EnemyTestScript2 : MonoBehaviour
 {
-    private GameObject enemyTest1;
-    [SerializeField] public GameObject target;
-    public float speed = 10f;
-    public float heightNum = 0.5f;
-    public Vector3 movePosition;
-    private float playerX;
-    private float targetX;
-    private float nextX;
-    private float dist;
-    private float baseY;
-    private float height;
+    public AnimationCurve curve;
 
-    void Start()
+    [SerializeField] private float duration = 1.0f;
+
+    [SerializeField] private float maxHeightY = 3.0f;
+    public GameObject player;
+
+    private void Start()
     {
-        enemyTest1 = GameObject.FindGameObjectWithTag("Enemy");
+        player = GameObject.FindGameObjectWithTag("mainCharacter");
     }
+    private void Update()
+    {
+        Curve(transform.position, player.transform.position);
+    }
+    public IEnumerator Curve(Vector3 start, Vector3 finish)
+    {
+        var timePast = 0f;
+
+
+        //temp vars
+        while (timePast < duration)
+        {
+            timePast += Time.deltaTime;
+
+            var linearTime = timePast / duration; //0 to 1 time
+            var heightTime = curve.Evaluate(linearTime); //value from curve
+
+            var height = Mathf.Lerp(0f, maxHeightY, heightTime); //clamped between the max height and 0
+
+            transform.position =
+                Vector3.Lerp(start, finish, linearTime) + new Vector3(0f, height, 0f); //adding values on y axis
+
+            yield return null;
+        }
+    }
+
 }

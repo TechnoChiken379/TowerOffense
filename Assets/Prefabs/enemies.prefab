@@ -25,11 +25,11 @@ Transform:
   m_GameObject: {fileID: 1816738147787202274}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8047505, y: -0.21, z: 9.910461}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.1330451, z: 0}
+  m_LocalScale: {x: 5, y: 3.333333, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1605165796124781727}
+  m_Father: {fileID: 6841086612815714386}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2658153285916775044
 GameObject:
@@ -61,7 +61,8 @@ Transform:
   m_LocalPosition: {x: -0.8047505, y: -0.24991357, z: 9.910461}
   m_LocalScale: {x: 0.2, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5493004471625378853}
   m_Father: {fileID: 1605165796124781727}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7176268712079481819
@@ -133,7 +134,7 @@ MonoBehaviour:
   enemyTest1Health: 100
   bullet: {fileID: 2214770678981885083, guid: d3ff45b680bb9f54ea30b6fe3d3db722, type: 3}
   bulletSpawn: {fileID: 7057391366974541217, guid: c70ac0a86ba004a47819ba139192bafe, type: 3}
-  bulletSpawnPoint: {fileID: 5493004471625378853}
+  bulletSpawnPoint: {fileID: 6841086612815714386}
 --- !u!1 &6116284462072944387
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +165,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6841086612815714386}
-  - {fileID: 5493004471625378853}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

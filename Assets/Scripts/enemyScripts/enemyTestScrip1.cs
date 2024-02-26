@@ -84,7 +84,6 @@ public class enemyTestScrip1 : MonoBehaviour
                 Debug.Log("State.Idle");
                 break;
             case "State.attack":
-                Debug.Log("State.Attack");
                 Attack();
                 break;
             case "State.Move":
@@ -118,14 +117,13 @@ public class enemyTestScrip1 : MonoBehaviour
     {
         if (attackTimer >= canAttack)
         {
-            GameObject enemySpawnPointBullet = Instantiate(bulletSpawn, player.position, Quaternion.identity);
             GameObject enemySpawnedBullet = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
 
             //Vector3 directionToPlayer = (player.position - bulletSpawnPoint.position).normalized;
             //spawnedBullet.GetComponent<Rigidbody2D>().velocity = directionToPlayer * fireSpeed;
             Debug.Log("attacking");
 
-            Destroy(enemySpawnPointBullet, 2);
+            //Destroy(enemySpawnPointBullet, 2);
             Destroy(enemySpawnedBullet, 2);
             attackTimer = 0f;
         }
