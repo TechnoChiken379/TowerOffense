@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class enemyTestScrip1 : MonoBehaviour
 {
+    public static GameObject enemySpawnedBullet;
+
     public string state = "State.Idle"; //what does the enemy want to do
 
     private Transform player;
@@ -117,13 +119,13 @@ public class enemyTestScrip1 : MonoBehaviour
     {
         if (attackTimer >= canAttack)
         {
-            GameObject spawnedBullet = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
+            enemySpawnedBullet = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
 
             //Vector3 directionToPlayer = (player.position - bulletSpawnPoint.position).normalized;
             //spawnedBullet.GetComponent<Rigidbody2D>().velocity = directionToPlayer * fireSpeed;
             Debug.Log("attacking");
 
-            Destroy(spawnedBullet, 2);
+            Destroy(enemySpawnedBullet, 2);
             attackTimer = 0f;
         }
     }
