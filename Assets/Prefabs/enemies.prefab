@@ -130,10 +130,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: State.Idle
   distanceToPlayer: 0
-  rotationCheck: 0
-  mousePointer: {fileID: 0}
-  arrow: {fileID: 2214770678981885083, guid: d3ff45b680bb9f54ea30b6fe3d3db722, type: 3}
-  arrowSpawnPoint: {fileID: 5493004471625378853}
+  enemyTest1Health: 100
+  bullet: {fileID: 2214770678981885083, guid: d3ff45b680bb9f54ea30b6fe3d3db722, type: 3}
+  bulletSpawnPoint: {fileID: 5493004471625378853}
 --- !u!1 &6116284462072944387
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,20 +25,13 @@ public class enemyTestScrip1 : MonoBehaviour
     private float engageDistance = 10f; //at what distance should the enemy start going to the player
 
 
-    ////attack (work in progress)
-    //public float rotationCheck;
-    //private float angle;
+    //attack (work in progress)
+    private float attackTimer;
+    private float canAttack = 0.2f;
 
-    //private GameObject spawnedBullet;
-    //public static GameObject spawnedMousePointer;
-    //public GameObject mousePointer;
-    //private Vector2 worldMousePosition;
-    //private Vector2 mousePosition;
+    public GameObject bullet;
+    public Transform bulletSpawnPoint;
 
-    //private float timerArchers;
-    //private float canFireArchers = 0.5f;
-    //public GameObject arrow;
-    //public Transform arrowSpawnPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -75,7 +68,7 @@ public class enemyTestScrip1 : MonoBehaviour
             if (distanceToPlayer < closeEnough && distanceToPlayer > toClose) //attack player if within the right range to do so
             {
                 state = "State.attack";
-                //timerArchers += Time.deltaTime;
+                attackTimer += Time.deltaTime;
             }
         } else //idle if the enemy is out of range of the player
         {
@@ -91,7 +84,7 @@ public class enemyTestScrip1 : MonoBehaviour
                 break;
             case "State.attack":
                 Debug.Log("State.Attack");
-                //Attack();
+                Attack();
                 break;
             case "State.Move":
                 Move();
@@ -120,15 +113,18 @@ public class enemyTestScrip1 : MonoBehaviour
             transform.Translate((player.position - transform.position).normalized * Time.deltaTime * -speed);
         }
     }
-    //public void Attack()
-    //{
-    //    if (timerArchers >= canFireArchers)
-    //    {
-    //        spawnedBullet = arrow;
-    //        spawnedMousePointer = Instantiate(mousePointer, worldMousePosition, Quaternion.Euler(0, 0, angle));
-    //        spawnedBullet = Instantiate(arrow, arrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
+    public void Attack()
+    {
+        if (attackTimer >= canAttack)
+        {
+            GameObject spawnedBullet = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
 
-    //        timerArchers = 0f;
-    //    }
-    //}
+            //Vector3 directionToPlayer = (player.position - bulletSpawnPoint.position).normalized;
+            //spawnedBullet.GetComponent<Rigidbody2D>().velocity = directionToPlayer * fireSpeed;
+            Debug.Log("attacking");
+
+            Destroy(spawnedBullet, 2);
+            attackTimer = 0f;
+        }
+    }
 }

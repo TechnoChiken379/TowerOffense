@@ -2,43 +2,57 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyTestScript2 : MonoBehaviour
+public class EnemyTestScript2 : MonoBehaviour
 {
-//    public GameObject player;
-//    public static float speed = 10f;
-//    public static float heightNum = 0.5f;
-//    public Vector3 movePosition;
-//    private float playerX;
-//    private float targetX;
-//    private float nextX;
-//    private float dist;
-//    private float baseY;
-//    private float height;
+    private Transform player;
 
-//    void Start()
-//    {
-//        player = GameObject.FindGameObjectWithTag("mainCharacter");
-//    }
+    const float projectileHeight = 1f;
+    const float projectileSpeed = 1f;
 
-//    void Update()
-//    {
-//        playerX = player.transform.position.x;
-//        targetX = mousePointerPosition.target.transform.position.x;
-//        dist = targetX - playerX;
-//        nextX = Mathf.MoveTowards(transform.position.x, targetX, speed * Time.deltaTime);
-//        baseY = Mathf.Lerp(player.transform.position.y, mousePointerPosition.target.transform.position.y, (nextX - playerX) / dist);
-//        height = heightNum * (nextX - playerX) * (nextX - targetX) / (-0.25f * dist * dist);
-//        movePosition = new Vector3(nextX, baseY + height, transform.position.z);
-//        transform.rotation = LookAtTarget(movePosition - transform.position);
-//        transform.position = movePosition;
-//        if (movePosition == mousePointerPosition.target.transform.position)
-//        {
-//            Destroy(gameObject);
-//            Destroy(shootingScript.spawnedMousePointer);
-//        }
-//    }
-//    public static Quaternion LookAtTarget(Vector2 r)
-//    {
-//        return Quaternion.Euler(0, 0, Mathf.Atan2(r.y, r.x) * Mathf.Rad2Deg);
-//    }
+    Vector3 startPos;
+    Vector3 endPos;
+    float fireLerp = 1;
+    bool isFiring = false;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("mainCharacter").transform;
+    }
+
+    void FireProjectile(Vector3 firePoint, Vector3 targetPos)
+    {
+        startPos = firePoint;
+        endPos = targetPos;
+
+        // Setting the fire lerp to 0 will begin the fire animation
+        fireLerp = 0;
+        isFiring = true;
+    }
+
+    void Update()
+    {
+        if (isFiring)
+        {
+            if (fireLerp < 1)
+            {
+                Vector3 newProjectilePos = CalculateTrajectory(startPos, endPos, fireLerp);
+                transform.position = newProjectilePos;
+
+                fireLerp += projectileSpeed * Time.deltaTime;
+            }
+            else
+            {
+                isFiring = false;
+            }
+        }
+    }
+
+    Vector3 CalculateTrajectory(Vector3 firePos, Vector3 targetPos, float t)
+    {
+        Vector3 linearProgress = Vector3.Lerp(firePos, targetPos, t);
+        float perspectiveOffset = Mathf.Sin(t * Mathf.PI) * projectileHeight;
+
+        Vector3 trajectoryPos = linearProgress + (Vector3.up * perspectiveOffset);
+        return trajectoryPos;
+    }
 }

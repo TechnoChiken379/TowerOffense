@@ -73,8 +73,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7bfe4fa6ece0f42be08ab10f8f1682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  movePosition: {x: 0, y: 0, z: 0}
+  player: {fileID: 3531460026641330860, guid: d12539f9382e3ce4c8c229b70dacb94e, type: 3}
+  enemyTest1: {fileID: 1605165796124781727, guid: 22fabdd36c164874c9de980da73dc7ba, type: 3}
 --- !u!1 &9133356944999340302
 GameObject:
   m_ObjectHideFlags: 0
