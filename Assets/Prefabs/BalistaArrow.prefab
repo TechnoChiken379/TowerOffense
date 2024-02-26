@@ -74,7 +74,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 406320279106244812, guid: d12539f9382e3ce4c8c229b70dacb94e, type: 3}
-  speed: 10
+  target: {fileID: 0}
+  speed: 100
+  heightNum: 0.5
   movePosition: {x: 0, y: 0, z: 0}
 --- !u!1 &8047949624647388608
 GameObject:

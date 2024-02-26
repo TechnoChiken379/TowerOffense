@@ -5,8 +5,8 @@ public class projectile : MonoBehaviour
 {
     public GameObject player;
     [SerializeField]public GameObject target;
-    public static float speed = 10f;
-    public static float heightNum = 0.5f;
+    public float speed = 10f;
+    public float heightNum = 0.5f;
     public Vector3 movePosition;
     private float playerX;
     private float targetX;
