@@ -15,15 +15,9 @@ public class projectile : MonoBehaviour
     private float baseY;
     private float height;
 
-    private float a;
-
-    
-
     void Start()
     {
-        float.TryParse(gameObject.name, out a);
         player = GameObject.FindGameObjectWithTag("mainCharacter");
-        target = GameObject.Find(a.ToString());
     }
 
     void Update()

@@ -17,8 +17,6 @@ public class shootingScript : MonoBehaviour
     private Vector2 worldMousePosition;
     private Vector2 mousePosition;
 
-    public static float syncTimer;
-
     #region Weapon Vars
     //Boolean Weapons
     private bool archers = true;
