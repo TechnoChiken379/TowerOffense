@@ -27,7 +27,7 @@ public class enemyTestScrip1 : MonoBehaviour
 
     //attack (work in progress)
     private float attackTimer;
-    private float canAttack = 0.2f;
+    private float canAttack = 0.5f;
 
     public GameObject bullet;
     public GameObject bulletSpawn;

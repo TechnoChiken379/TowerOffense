@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5493004471625378853}
   m_Layer: 0
   m_Name: enemyArrowSpawnPoint
-  m_TagString: Untagged
+  m_TagString: spawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
