@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyTestScript2 : MonoBehaviour
+public class enemyProjectileTestScript1 : MonoBehaviour
 {
     private GameObject player;
     [SerializeField] public GameObject enemyWayPoint;
