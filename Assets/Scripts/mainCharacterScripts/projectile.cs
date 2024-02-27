@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
+
 public class projectile : MonoBehaviour
 {
     [SerializeField] public GameObject playerWayPoint;
@@ -20,6 +23,9 @@ public class projectile : MonoBehaviour
     private float baseY;
     private float height;
 
+    private float angle;
+    private float signedAngle;
+
     void Start()
     {
         mousePosition = Input.mousePosition;
@@ -27,52 +33,42 @@ public class projectile : MonoBehaviour
 
         projectileSpawn = Instantiate(playerWayPoint, transform.position, Quaternion.identity);
         targetSpawn = Instantiate(playerWayPoint, worldMousePosition, Quaternion.identity);
+
+        calculateAngle();
+        determineSpeed();
     }
 
     void Update()
     {
-        ////var playerX = position.x GameObject with tag("mainCharacter")
-        //playerX = projectileSpawn.transform.position.x;
+        if (angle > 82.5f && angle < 97.5f)
+        {
+            projectileLine();
+        }
+        else
+        {
+            projectileTrajectory();
+        }
+        
+        transform.rotation = LookAtTarget(movePosition - transform.position);
+        transform.position = movePosition;
+        if (Vector3.Distance(movePosition, targetSpawn.transform.position) < 0.1f) { Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn); }
+    }
 
-        ////var targetX = GameObject mousePointer position.x
-        //targetX = targetSpawn.transform.position.x;
+    //dunno about this shit = look at target
+    public static Quaternion LookAtTarget(Vector2 r)
+    {
+        return Quaternion.Euler(0, 0, Mathf.Atan2(r.y, r.x) * Mathf.Rad2Deg);
+    }
 
-        ////dist = Distance = target.x - player.x
-        //dist = targetX - playerX;
+    public void projectileLine()
+    {
+        Vector3 direction = (targetSpawn.transform.position - transform.position).normalized;
 
-        ////nextX = position a naar position b * (speed?)
-        ////rechte lijn naar
-        //nextX = Mathf.MoveTowards(transform.position.x, targetX, speed * Time.deltaTime);
+        movePosition = transform.position + direction * (speed * 5f) * Time.deltaTime;
+    }
 
-        ////Weet ik niet veel van af
-        ////Linearly interpolates = ga van a naar b door (MoveTowards - Player.x Position gedeeld door distance)
-        //baseY = Mathf.Lerp(projectileSpawn.transform.position.y, targetSpawn.transform.position.y, (nextX - playerX) / dist);
-
-        ////Hoe hoog dat het object kan
-        ////Hoogte = een int * (MoveTowards - Player.x) * (MoveTowards - Target.x) gedeeld door (-0.25 * Distance * Disrance) (geen idee waarom die 0.25)
-        //height = heightNum * (nextX - playerX) * (nextX - targetX) / (-0.25f * dist * dist);
-
-        ////Ga naar nieuwe vector 3 positie
-        ////X = MoveTowards
-        ////Y = baseY (Lerp(Linearly interpolates))
-        ////Z = current gameObject z.position
-        //movePosition = new Vector3(nextX, baseY + height, transform.position.z);
-
-        ////Verandert de rotation naar de methode LookAtTarget(Move position - de current gameObject. position)
-        //transform.rotation = LookAtTarget(movePosition - transform.position);
-
-        ////Verandert de position van de current gameObject naar de nieuwe positie (movePosition)
-        //transform.position = movePosition;
-
-        ////If gameObject (= object where this script is on) is on target position (mouse pointer)
-        //if (movePosition == targetSpawn.transform.position)
-        //{
-        //    //Destroy mousePointer game object first
-        //    //Destroy(shootingScript.spawnedMousePointer);
-        //    //Destroy current gameObject
-        //    Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
-        //}
-
+    public void projectileTrajectory()
+    {
         playerX = projectileSpawn.transform.position.x;
         targetX = targetSpawn.transform.position.x;
 
@@ -82,15 +78,36 @@ public class projectile : MonoBehaviour
         height = heightNum * (nextX - playerX) * (nextX - targetX) / (-0.25f * dist * dist);
 
         movePosition = new Vector3(nextX, baseY + height, transform.position.z);
-
-        transform.rotation = LookAtTarget(movePosition - transform.position);
-        transform.position = movePosition;
-        if (movePosition == targetSpawn.transform.position) { Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn); }
     }
 
-    //dunno about this shit = look at target
-    public static Quaternion LookAtTarget(Vector2 r)
+    public void calculateAngle()
     {
-        return Quaternion.Euler(0, 0, Mathf.Atan2(r.y, r.x) * Mathf.Rad2Deg);
+        if (projectileSpawn != null && targetSpawn != null)
+        {
+            Vector2 direction = targetSpawn.transform.position - projectileSpawn.transform.position;
+            angle = Vector2.Angle(Vector2.right, direction);
+
+            signedAngle = Vector2.SignedAngle(Vector2.right, direction);
+
+            if (signedAngle < 0)
+            {
+                signedAngle += 360;
+            }
+
+            Debug.Log("Angle: " + angle);
+            Debug.Log("Signed Angle: " + signedAngle);
+        }
+        else
+        {
+            Debug.LogError("Please assign both projectileSpawn and targetSpawn in the inspector.");
+        }
+    }
+
+    public void determineSpeed()
+    {
+        if (angle > 70 && angle < 110)
+        {
+            speed *= 0.2f;
+        }
     }
 }
