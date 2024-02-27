@@ -16,9 +16,9 @@ public class shootingScript : MonoBehaviour
 
     #region Weapon Vars
     //Boolean Weapons
-    private bool archers = true;
-    private bool cannons = true;
-    private bool balista = true;
+    public static bool archers = true;
+    public static bool cannons = true;
+    public static bool balista = true;
 
     //Can Fire Weapons
     private float canFireArchers = 0.2f;
