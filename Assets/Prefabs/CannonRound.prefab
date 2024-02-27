@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117fb5827d9deaf42b39de834e1ef8c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 406320279106244812, guid: d12539f9382e3ce4c8c229b70dacb94e, type: 3}
+  playerWayPoint: {fileID: 4911268722836765765, guid: eca2473bc2553df4da746bfa1b0c78ff, type: 3}
   speed: 10
+  heightNum: 0.5
   movePosition: {x: 0, y: 0, z: 0}
