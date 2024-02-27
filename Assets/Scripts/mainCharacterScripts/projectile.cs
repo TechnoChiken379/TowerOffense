@@ -54,7 +54,6 @@ public class projectile : MonoBehaviour
         if (Vector3.Distance(movePosition, targetSpawn.transform.position) < 0.1f) { Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn); }
     }
 
-    //dunno about this shit = look at target
     public static Quaternion LookAtTarget(Vector2 r)
     {
         return Quaternion.Euler(0, 0, Mathf.Atan2(r.y, r.x) * Mathf.Rad2Deg);
@@ -93,9 +92,6 @@ public class projectile : MonoBehaviour
             {
                 signedAngle += 360;
             }
-
-            Debug.Log("Angle: " + angle);
-            Debug.Log("Signed Angle: " + signedAngle);
         }
         else
         {

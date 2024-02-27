@@ -1,7 +1,10 @@
 using System.Buffers.Text;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class enemyProjectileTestScript1 : MonoBehaviour
 {
@@ -23,14 +26,43 @@ public class enemyProjectileTestScript1 : MonoBehaviour
     private float baseY;
     private float height;
 
+    private float angle;
+    private float signedAngle;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("mainCharacter");
         projectileSpawn = Instantiate(enemyWayPoint, transform.position, Quaternion.identity);
         targetSpawn = Instantiate(enemyWayPoint, player.transform.position, Quaternion.identity);
+
+        calculateAngle();
+        determineSpeed();
+    }
+    void Update()
+    {
+        if (angle > 82.5f && angle < 97.5f)
+        {
+            projectileLine();
+        }
+        else
+        {
+            projectileTrajectory();
+        }
+
+        transform.rotation = LookAtTarget(movePosition - transform.position);
+        transform.position = movePosition; 
+        if (Vector3.Distance(movePosition, targetSpawn.transform.position) < 0.1f) { Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn); }
+    }
+    public static Quaternion LookAtTarget(Vector2 r) { return Quaternion.Euler(0, 0, Mathf.Atan2(r.y, r.x) * Mathf.Rad2Deg); }
+
+    public void projectileLine()
+    {
+        Vector3 direction = (targetSpawn.transform.position - transform.position).normalized;
+
+        movePosition = transform.position + direction * (speed * 6f) * Time.deltaTime;
     }
 
-    void Update()
+    public void projectileTrajectory()
     {
         enemyX = projectileSpawn.transform.position.x;
         targetX = targetSpawn.transform.position.x;
@@ -41,12 +73,37 @@ public class enemyProjectileTestScript1 : MonoBehaviour
         height = heightNum * (nextX - enemyX) * (nextX - targetX) / (-0.25f * dist * dist);
 
         movePosition = new Vector3(nextX, baseY + height, transform.position.z);
-
-        transform.rotation = LookAtTarget(movePosition - transform.position);
-        transform.position = movePosition; 
-        if (movePosition == targetSpawn.transform.position) { Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn); }
     }
-    public static Quaternion LookAtTarget(Vector2 r) { return Quaternion.Euler(0, 0, Mathf.Atan2(r.y, r.x) * Mathf.Rad2Deg); }
 
+    public void calculateAngle()
+    {
+        if (projectileSpawn != null && targetSpawn != null)
+        {
+            Vector2 direction = targetSpawn.transform.position - projectileSpawn.transform.position;
+            angle = Vector2.Angle(Vector2.right, direction);
 
+            signedAngle = Vector2.SignedAngle(Vector2.right, direction);
+
+            if (signedAngle < 0)
+            {
+                signedAngle += 360;
+            }
+        }
+        else
+        {
+            Debug.LogError("Please assign both projectileSpawn and targetSpawn in the inspector.");
+        }
+    }
+
+    public void determineSpeed()
+    {
+        if (angle > 55 && angle < 70 || angle > 110 && angle < 125)
+        {
+            speed *= 0.5f;
+        }
+        else if (angle >= 70 && angle <= 110)
+        {
+            speed *= 0.25f;
+        }
+    }
 }
