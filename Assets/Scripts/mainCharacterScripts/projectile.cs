@@ -64,7 +64,7 @@ public class projectile : MonoBehaviour
     {
         Vector3 direction = (targetSpawn.transform.position - transform.position).normalized;
 
-        movePosition = transform.position + direction * (speed * 5f) * Time.deltaTime;
+        movePosition = transform.position + direction * (speed * 6f) * Time.deltaTime;
     }
 
     public void projectileTrajectory()
@@ -105,9 +105,12 @@ public class projectile : MonoBehaviour
 
     public void determineSpeed()
     {
-        if (angle > 70 && angle < 110)
+        if (angle > 55 && angle < 70 || angle > 110 && angle < 125)
         {
-            speed *= 0.2f;
+            speed *= 0.5f;
+        } else if (angle >= 70 && angle <= 110)
+        {
+            speed *= 0.25f;
         }
     }
 }
