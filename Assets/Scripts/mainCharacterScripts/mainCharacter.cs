@@ -20,11 +20,11 @@ public class mainCharacter : MonoBehaviour
     private float totalCurrentShieldHealth;
     public Slider shieldBar;
 
-    private bool hotKey1 = false;
-    private bool hotKey2 = false;
-    private bool hotKey3 = false;
-    private bool hotKey4Speciale = false;
-    private float hotKeyTimer = 0;
+    public static bool hotKey1 = false;
+    public static bool hotKey2 = false;
+    public static bool hotKey3 = false;
+    public static bool hotKey4 = false;
+    public static float hotKeyTimer = 0;
 
     //Health upgrades
     private bool healthUpgrade1 = false;
@@ -104,20 +104,20 @@ public class mainCharacter : MonoBehaviour
     }
     void HotKey2()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha2) && hotKey2 == false) { hotKey2 = true; Debug.Log(hotKey2); shootingScript.cannons = true; }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && hotKey2 == true) { hotKey2 = false; Debug.Log(hotKey2); shootingScript.cannons = false; }
+        if (hotKey2 == false) { hotKey2 = true; Debug.Log(hotKey2); shootingScript.archers = true; }
+        else if (hotKey2 == true) { hotKey2 = false; Debug.Log(hotKey2); shootingScript.archers = false; }
         hotKeyTimer = 0;
     }
     void HotKey3()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha3) && hotKey3 == false) { hotKey3 = true; Debug.Log(hotKey3); shootingScript.balista = true; }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && hotKey3 == true) { hotKey3 = false; Debug.Log(hotKey3); shootingScript.balista = false; }
+        if (hotKey3 == false) { hotKey3 = true; Debug.Log(hotKey3); shootingScript.archers = true; }
+        else if (hotKey3 == true) { hotKey3 = false; Debug.Log(hotKey3); shootingScript.archers = false; }
         hotKeyTimer = 0;
     }
     void HotKey4()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha4) && hotKey4Speciale == false) { hotKey4Speciale = true; Debug.Log(hotKey4Speciale); }
-        else if (Input.GetKeyDown(KeyCode.Alpha4) && hotKey4Speciale == true) { hotKey4Speciale = false; Debug.Log(hotKey4Speciale); }
+        if (hotKey4 == false) { hotKey4 = true; Debug.Log(hotKey4); shootingScript.archers = true; }
+        else if (hotKey4 == true) { hotKey4 = false; Debug.Log(hotKey4); shootingScript.archers = false; }
         hotKeyTimer = 0;
     }
 }
