@@ -75,7 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerWayPoint: {fileID: 4911268722836765765, guid: eca2473bc2553df4da746bfa1b0c78ff, type: 3}
   speed: 10
-  heightNum: 0.5
+  heightNum: 3
   movePosition: {x: 0, y: 0, z: 0}
 --- !u!1 &8047949624647388608
 GameObject:

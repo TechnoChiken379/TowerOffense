@@ -28,7 +28,6 @@ public class enemyProjectileTestScript1 : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("mainCharacter");
         projectileSpawn = Instantiate(enemyWayPoint, transform.position, Quaternion.identity);
         targetSpawn = Instantiate(enemyWayPoint, player.transform.position, Quaternion.identity);
-
     }
 
     void Update()
