@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7bfe4fa6ece0f42be08ab10f8f1682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 7057391366974541217, guid: c70ac0a86ba004a47819ba139192bafe, type: 3}
+  enemyWayPoint: {fileID: 7057391366974541217, guid: c70ac0a86ba004a47819ba139192bafe, type: 3}
   targetSpawn: {fileID: 0}
   movePosition: {x: 0, y: 0, z: 0}
 --- !u!1 &9133356944999340302

@@ -6,9 +6,9 @@ using UnityEngine;
 public class EnemyTestScript2 : MonoBehaviour
 {
     private GameObject player;
-    private GameObject spawnPoint;
-    [SerializeField] public GameObject target;
-    public GameObject targetSpawn;
+    [SerializeField] public GameObject enemyWayPoint;
+    private GameObject projectileSpawn;
+    private GameObject targetSpawn;
 
     private float speed = 3f;
     private float heightNum = 0.5f;
@@ -26,25 +26,26 @@ public class EnemyTestScript2 : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("mainCharacter");
-        spawnPoint = GameObject.FindGameObjectWithTag("spawnPoint");
-        targetSpawn = Instantiate(target, player.transform.position, Quaternion.identity);
+        projectileSpawn = Instantiate(enemyWayPoint, transform.position, Quaternion.identity);
+        targetSpawn = Instantiate(enemyWayPoint, player.transform.position, Quaternion.identity);
+
     }
 
     void Update()
     {
-        enemyX = spawnPoint.transform.position.x;
+        enemyX = projectileSpawn.transform.position.x;
         targetX = targetSpawn.transform.position.x;
 
         dist = targetX - enemyX;
         nextX = Mathf.MoveTowards(transform.position.x, targetX, speed * Time.deltaTime);
-        baseY = Mathf.Lerp(spawnPoint.transform.position.y, targetSpawn.transform.position.y, (nextX - enemyX) / dist);
+        baseY = Mathf.Lerp(projectileSpawn.transform.position.y, targetSpawn.transform.position.y, (nextX - enemyX) / dist);
         height = heightNum * (nextX - enemyX) * (nextX - targetX) / (-0.25f * dist * dist);
 
         movePosition = new Vector3(nextX, baseY + height, transform.position.z);
 
         transform.rotation = LookAtTarget(movePosition - transform.position);
         transform.position = movePosition; 
-        if (movePosition == targetSpawn.transform.position) { Destroy(gameObject); Destroy(targetSpawn); }
+        if (movePosition == targetSpawn.transform.position) { Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn); }
     }
     public static Quaternion LookAtTarget(Vector2 r) { return Quaternion.Euler(0, 0, Mathf.Atan2(r.y, r.x) * Mathf.Rad2Deg); }
 

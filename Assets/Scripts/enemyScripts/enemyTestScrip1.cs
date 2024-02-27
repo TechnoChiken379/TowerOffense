@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,7 @@ public class enemyTestScrip1 : MonoBehaviour
     public string state = "State.Idle"; //what does the enemy want to do
 
     private Transform player;
+    private GameObject[] enemies;
     public float distanceToPlayer;
 
     public float enemyTest1Health = 100f;
@@ -18,6 +20,10 @@ public class enemyTestScrip1 : MonoBehaviour
 
     private float closeEnough = 3f; //how close does the enemy want to get
     private float toClose = 2f; //how far does the enemy want to stay away from player
+
+    private float enemyNearBy = 2f; //how far does it try to stay away from other enemies
+    private float distanceToEnemy;
+    private int enemyCount = 0;
 
     private float timer = 0f; //timer to keep track of time before moving
     private float moveTime = 0.1f; //time to start moving
@@ -43,14 +49,19 @@ public class enemyTestScrip1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        distanceToPlayer = Vector2.Distance(transform.position, player.position); //look for distance from player
+        EnemyCheck(); //check for nearby enemies
         StateConditions(); //check what should the enemy should want to do
         ExecuteConditions(); //try to do what the enemy should want to do
     }
 
     public void StateConditions()
     {
-        if (distanceToPlayer <= engageDistance) //check if the enemy is within range of the player
+        if (distanceToEnemy <= enemyNearBy)
+        {
+            state = "State.SpreadOut";
+        }
+         else if (distanceToPlayer <= engageDistance) //check if the enemy is within range of the player
         {
 
             if (distanceToPlayer >= closeEnough) //move to the player if far away
@@ -92,11 +103,24 @@ public class enemyTestScrip1 : MonoBehaviour
             case "State.Retreat":
                 Retreat();
                 break;
+            case "State.SpreadOut":
+                SpreadOut();
+                break;
             default: 
                 
             break;
         }
     }
+    
+    public void EnemyCheck()
+    {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
+        }
+    }
+
     public void Move()
     {
         timer += Time.deltaTime;
@@ -113,6 +137,17 @@ public class enemyTestScrip1 : MonoBehaviour
             transform.Translate((player.position - transform.position).normalized * Time.deltaTime * -speed);
         }
     }
+    public void SpreadOut()
+    {
+        timer += Time.deltaTime;
+        if (timer >= moveTime)
+        {
+            foreach (GameObject enemy in enemies)
+            {
+                transform.Translate((enemies[1].transform.position - transform.position).normalized * Time.deltaTime * -speed);
+            }
+        }
+    }
     public void Attack()
     {
         if (attackTimer >= canAttack)
@@ -122,8 +157,7 @@ public class enemyTestScrip1 : MonoBehaviour
             //Vector3 directionToPlayer = (player.position - bulletSpawnPoint.position).normalized;
             //spawnedBullet.GetComponent<Rigidbody2D>().velocity = directionToPlayer * fireSpeed;
 
-            //Destroy(enemySpawnPointBullet, 2);
-            Destroy(enemySpawnedBullet, 2);
+            //Destroy(enemySpawnedBullet, 2);
             attackTimer = 0f;
         }
     }
