@@ -12,7 +12,7 @@ public class mainCharacter : MonoBehaviour
 
     //Health, Shield vars
     public float maxHealth;
-    private float totalCurrentHealth;
+    public static float totalCurrentHealth;
     public Slider healthBar;
 
     public float maxShieldHealth;
@@ -47,6 +47,8 @@ public class mainCharacter : MonoBehaviour
 
     void Update() //Happens on every frame
     {
+        healthBar.value = totalCurrentHealth;
+
         hotKeyTimer += Time.deltaTime;
         HotKeyManagment();
 

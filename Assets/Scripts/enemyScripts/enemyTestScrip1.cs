@@ -176,10 +176,7 @@ public class enemyTestScrip1 : MonoBehaviour
             attackTimer = 0f;
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-    }
+ 
     public void DamageDealt(float damageAmount)
     {
         enemyTestHP -= damageAmount;
@@ -187,6 +184,14 @@ public class enemyTestScrip1 : MonoBehaviour
         if (enemyTestHP <= 0)
         {
             //add resources
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("mainCharacter") || collision.gameObject.CompareTag("Arrow") || collision.gameObject.CompareTag("Trabuchet") || collision.gameObject.CompareTag("Cannon Round"))
+        {
             Destroy(gameObject);
         }
     }

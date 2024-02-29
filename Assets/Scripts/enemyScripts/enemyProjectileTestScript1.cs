@@ -28,6 +28,8 @@ public class enemyProjectileTestScript1 : MonoBehaviour
     private float angle;
     private float signedAngle;
 
+    public static float enemyArrowDamageAmount = 3;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("mainCharacter");
@@ -110,8 +112,8 @@ public class enemyProjectileTestScript1 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("mainCharacter"))
         {
-            //characterCube.HP -= 10 * controlScript.controlDamage;
-            Destroy(gameObject);
+            mainCharacter.totalCurrentHealth -= enemyArrowDamageAmount;
+            Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
         }
     }
 }
