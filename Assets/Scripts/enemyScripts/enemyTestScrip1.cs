@@ -1,9 +1,11 @@
 using System;
+using System.Buffers.Text;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.GraphicsBuffer;
 
 public class enemyTestScrip1 : MonoBehaviour
 {
@@ -41,13 +43,10 @@ public class enemyTestScrip1 : MonoBehaviour
     private Transform closestEnemy;
 
     public GameObject enemyCoinPrefab;
-    public GameObject spawnedEnemyCoin;
-    public Vector3 spawnedEnemyCoinPosition;
-    public Vector3 MoveTo;
-    public float coinGoToPosition;
-    public float coinSpeed = 2;
-
-
+    private GameObject spawnedEnemyCoin;
+    private GameObject coinTarget;
+    public GameObject coinTargetPrefab;
+    private Vector3 coinTargetPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -55,8 +54,6 @@ public class enemyTestScrip1 : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("mainCharacter").transform;
 
         enemyTestHP = enemyTestMaxHP;
-
-
     }
 
     // Update is called once per frame
@@ -191,9 +188,11 @@ public class enemyTestScrip1 : MonoBehaviour
     {
         enemyTestHP -= damageAmount;
 
-        if (enemyTestHP <= 0)
+        if (enemyTestHP >= 0)
         {
             spawnedEnemyCoin = Instantiate(enemyCoinPrefab, gameObject.transform.position, Quaternion.identity);
+            coinTargetPosition = new Vector3(spawnedEnemyCoin.transform.position.x, (spawnedEnemyCoin.transform.position.y + 2), spawnedEnemyCoin.transform.position.z);
+            coinTarget = Instantiate(coinTargetPrefab, (coinTargetPosition), Quaternion.identity);
 
             //Destroy(gameObject);
         }

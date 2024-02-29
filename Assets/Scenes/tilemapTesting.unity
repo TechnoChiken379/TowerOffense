@@ -1507,6 +1507,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemies (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6116284462072944387, guid: 22fabdd36c164874c9de980da73dc7ba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6841086612815714386, guid: 22fabdd36c164874c9de980da73dc7ba, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -10502,6 +10506,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemies (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6116284462072944387, guid: 22fabdd36c164874c9de980da73dc7ba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11448,6 +11456,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemies (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6116284462072944387, guid: 22fabdd36c164874c9de980da73dc7ba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11846,6 +11858,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1869722887059525995, guid: 22fabdd36c164874c9de980da73dc7ba, type: 3}
+      propertyPath: enemyCoinPrefab
+      value: 
+      objectReference: {fileID: 1571411932394843814, guid: ebd7fea600410ea45a155f1bd947a849, type: 3}
+    - target: {fileID: 1869722887059525995, guid: 22fabdd36c164874c9de980da73dc7ba, type: 3}
+      propertyPath: coinTargetPrefab
+      value: 
+      objectReference: {fileID: 8070704321751214925, guid: c5bd3a24bf36f5143b3d486badda6ad6, type: 3}
     - target: {fileID: 6116284462072944387, guid: 22fabdd36c164874c9de980da73dc7ba, type: 3}
       propertyPath: m_Name
       value: enemies
