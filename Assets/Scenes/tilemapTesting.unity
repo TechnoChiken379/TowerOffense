@@ -1943,10 +1943,10 @@ MonoBehaviour:
   HotKey2: {fileID: 0}
   HotKey3: {fileID: 0}
   HotKey4: {fileID: 0}
-  image1: {fileID: 0}
-  image2: {fileID: 0}
-  image3: {fileID: 0}
-  image4: {fileID: 0}
+  image1: {fileID: 377210118}
+  image2: {fileID: 261869563}
+  image3: {fileID: 258141024}
+  image4: {fileID: 2085461336}
 --- !u!1 &940166735
 GameObject:
   m_ObjectHideFlags: 0
