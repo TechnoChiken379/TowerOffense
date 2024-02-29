@@ -20,10 +20,10 @@ public class mainCharacter : MonoBehaviour
     private float totalCurrentShieldHealth;
     public Slider shieldBar;
 
-    public static bool hotKey1 = false;
-    public static bool hotKey2 = false;
-    public static bool hotKey3 = false;
-    public static bool hotKey4 = false;
+    public static bool hotKey1 = true;
+    public static bool hotKey2 = true;
+    public static bool hotKey3 = true;
+    public static bool hotKey4 = true;
     public static float hotKeyTimer = 0;
 
     //Health upgrades
@@ -104,20 +104,20 @@ public class mainCharacter : MonoBehaviour
     }
     void HotKey2()
     {
-        if (hotKey2 == false) { hotKey2 = true; Debug.Log(hotKey2); shootingScript.archers = true; }
-        else if (hotKey2 == true) { hotKey2 = false; Debug.Log(hotKey2); shootingScript.archers = false; }
+        if (hotKey2 == false) { hotKey2 = true; Debug.Log(hotKey2); shootingScript.cannons = true; }
+        else if (hotKey2 == true) { hotKey2 = false; Debug.Log(hotKey2); shootingScript.cannons = false; }
         hotKeyTimer = 0;
     }
     void HotKey3()
     {
-        if (hotKey3 == false) { hotKey3 = true; Debug.Log(hotKey3); shootingScript.archers = true; }
-        else if (hotKey3 == true) { hotKey3 = false; Debug.Log(hotKey3); shootingScript.archers = false; }
+        if (hotKey3 == false) { hotKey3 = true; Debug.Log(hotKey3); shootingScript.balista = true; }
+        else if (hotKey3 == true) { hotKey3 = false; Debug.Log(hotKey3); shootingScript.balista = false; }
         hotKeyTimer = 0;
     }
     void HotKey4()
     {
-        if (hotKey4 == false) { hotKey4 = true; Debug.Log(hotKey4); shootingScript.archers = true; }
-        else if (hotKey4 == true) { hotKey4 = false; Debug.Log(hotKey4); shootingScript.archers = false; }
-        hotKeyTimer = 0;
+        //if (hotKey4 == false) { hotKey4 = true; Debug.Log(hotKey4); shootingScript.archers = true; }
+        //else if (hotKey4 == true) { hotKey4 = false; Debug.Log(hotKey4); shootingScript.archers = false; }
+        //hotKeyTimer = 0;
     }
 }
