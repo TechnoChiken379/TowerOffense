@@ -7,6 +7,10 @@ TagManager:
   - mainCharacter
   - Enemy
   - spawnPoint
+  - Enemy Arrow
+  - Arrow
+  - Trabuchet
+  - Cannon Round
   layers:
   - Default
   - TransparentFX
@@ -15,9 +19,9 @@ TagManager:
   - Water
   - UI
   - Enemy
-  - 
-  - 
-  - 
+  - EnemyProjectile
+  - MainCharacter
+  - MainCharacterProjectile
   - 
   - 
   - 

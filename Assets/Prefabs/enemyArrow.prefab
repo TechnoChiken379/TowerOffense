@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5474804006181964412}
   - component: {fileID: 7724522641723207024}
   - component: {fileID: 4869422113295155377}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: enemyArrow
   m_TagString: Enemy Arrow
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 100
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -57,10 +57,10 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 704
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &7724522641723207024
 BoxCollider2D:
@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2739004259016831713}
   - component: {fileID: 7483729195900664273}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

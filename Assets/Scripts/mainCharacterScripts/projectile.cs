@@ -109,4 +109,11 @@ public class projectile : MonoBehaviour
             speed *= 0.25f;
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
+        }
+    }
 }

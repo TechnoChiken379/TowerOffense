@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2144276926313897998}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Balista
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3531460026641330860}
   - component: {fileID: 340616156535381566}
-  m_Layer: 0
+  - component: {fileID: 2607390075396406277}
+  - component: {fileID: 2517511659281857664}
+  m_Layer: 8
   m_Name: MainCharacter
   m_TagString: mainCharacter
   m_Icon: {fileID: 0}
@@ -82,6 +84,78 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   maxShieldHealth: 0
   shieldBar: {fileID: 0}
+--- !u!61 &2607390075396406277
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406320279106244812}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 1}
+  m_EdgeRadius: 0
+--- !u!50 &2517511659281857664
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406320279106244812}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1000
+  m_LinearDrag: 10
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1412418808797885923
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +165,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9185761591822539758}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3128494108527396339}
   - component: {fileID: 7162371630684143075}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shooting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6299696027451699254}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cannons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8582599497340703648}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Archers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +316,7 @@ GameObject:
   - component: {fileID: 9061109250440532093}
   - component: {fileID: 3920969214599349153}
   - component: {fileID: 8856050766079878169}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -334,7 +408,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2277501494678043324}
   - component: {fileID: 3532103338332837104}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +491,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4063693593598733426}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
