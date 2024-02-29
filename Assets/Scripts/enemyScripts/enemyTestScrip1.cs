@@ -34,6 +34,10 @@ public class enemyTestScrip1 : MonoBehaviour
     public GameObject bulletSpawn;
     public Transform bulletSpawnPoint;
 
+    //spreat out from other enemies
+    private GameObject[] enemies;
+    private Transform closestEnemy;
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,15 +48,19 @@ public class enemyTestScrip1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        FindClosestEnemies(); //locate closest enemy
         StateConditions(); //check what should the enemy should want to do
         ExecuteConditions(); //try to do what the enemy should want to do
     }
 
     public void StateConditions()
     {
-        if (distanceToPlayer <= engageDistance) //check if the enemy is within range of the player
+        if (closestEnemy != null && Vector3.Distance(closestEnemy.position, transform.position) < 1f)
+        {
+            state = "State.SpreadOut";
+        }
+        else if (distanceToPlayer <= engageDistance) //check if the enemy is within range of the player
         {
 
             if (distanceToPlayer >= closeEnough) //move to the player if far away
@@ -82,7 +90,7 @@ public class enemyTestScrip1 : MonoBehaviour
     {
         switch (state)
         {
-            case "State.Idle": //idle 
+            case "State.Idle": 
                 Debug.Log("State.Idle");
                 break;
             case "State.attack":
@@ -121,6 +129,39 @@ public class enemyTestScrip1 : MonoBehaviour
     }
     public void SpreadOut()
     {
+        timer += Time.deltaTime;
+        if (timer >= moveTime && closestEnemy != null)
+        {
+            transform.Translate((closestEnemy.position - transform.position).normalized * Time.deltaTime * -speed);
+        }
+    }
+
+    void FindClosestEnemies()
+    {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        closestEnemy = GetClosestEnemy(enemies);
+    }
+
+    Transform GetClosestEnemy(GameObject[] enemiesArray)
+    {
+        float closestDistance = Mathf.Infinity;
+
+        foreach (GameObject enemy in enemiesArray)
+        {
+            if (enemy != gameObject)
+            {
+                float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
+
+                if (distanceToEnemy < closestDistance)
+                {
+                    closestDistance = distanceToEnemy;
+                    closestEnemy = enemy.transform;
+                }
+            }
+        }
+
+        return closestEnemy;
     }
     public void Attack()
     {
@@ -128,10 +169,6 @@ public class enemyTestScrip1 : MonoBehaviour
         {
             GameObject enemySpawnedBullet = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
 
-            //Vector3 directionToPlayer = (player.position - bulletSpawnPoint.position).normalized;
-            //spawnedBullet.GetComponent<Rigidbody2D>().velocity = directionToPlayer * fireSpeed;
-
-            //Destroy(enemySpawnedBullet, 2);
             attackTimer = 0f;
         }
     }
