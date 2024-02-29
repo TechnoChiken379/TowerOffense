@@ -40,6 +40,14 @@ public class enemyTestScrip1 : MonoBehaviour
     private GameObject[] enemies;
     private Transform closestEnemy;
 
+    public GameObject enemyCoinPrefab;
+    public GameObject spawnedEnemyCoin;
+    public Vector3 spawnedEnemyCoinPosition;
+    public Vector3 MoveTo;
+    public float coinGoToPosition;
+    public float coinSpeed = 2;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +55,8 @@ public class enemyTestScrip1 : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("mainCharacter").transform;
 
         enemyTestHP = enemyTestMaxHP;
+
+
     }
 
     // Update is called once per frame
@@ -183,8 +193,9 @@ public class enemyTestScrip1 : MonoBehaviour
 
         if (enemyTestHP <= 0)
         {
-            //add resources
-            Destroy(gameObject);
+            spawnedEnemyCoin = Instantiate(enemyCoinPrefab, gameObject.transform.position, Quaternion.identity);
+
+            //Destroy(gameObject);
         }
     }
 
