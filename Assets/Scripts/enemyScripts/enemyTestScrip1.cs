@@ -12,7 +12,7 @@ public class enemyTestScrip1 : MonoBehaviour
     private Transform player;
     public float distanceToPlayer;
 
-    public float enemyTest1Health = 100f;
+    public float enemyTest1Health = 25f;
 
 
     private float speed = 3f; //movement speed
@@ -190,8 +190,12 @@ public class enemyTestScrip1 : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("mainCharacter") || collision.gameObject.CompareTag("Arrow") || collision.gameObject.CompareTag("Trabuchet") || collision.gameObject.CompareTag("Cannon Round"))
+        if (collision.gameObject.CompareTag("mainCharacter")/* || collision.gameObject.CompareTag("Arrow") || collision.gameObject.CompareTag("Trabuchet") || collision.gameObject.CompareTag("Cannon Round")*/)
         {
+            //resources.wood += 100;
+            //resources.stone += 100;
+            //resources.steel += 100;
+            //resources.gold += 10;
             Destroy(gameObject);
         }
     }

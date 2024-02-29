@@ -5,7 +5,7 @@ using UnityEngine;
 public class resources : MonoBehaviour
 {
     //var
-    public static int wood = 10;
+    public static int wood = 0;
     public static int stone = 0;
     public static int steel = 0;
     public static int gold = 0;

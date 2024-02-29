@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static Unity.Collections.Unicode;
 
 public class projectile : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class projectile : MonoBehaviour
     private float angle;
     private float signedAngle;
 
+    //damage
+    private float damageAmount = 0f;
+
     void Start()
     {
         mousePosition = Input.mousePosition;
@@ -36,6 +40,7 @@ public class projectile : MonoBehaviour
 
         calculateAngle();
         determineSpeed();
+        determineDamage();
     }
 
     void Update()
@@ -109,10 +114,31 @@ public class projectile : MonoBehaviour
             speed *= 0.25f;
         }
     }
+
+    public void determineDamage()
+    {
+        if (gameObject.name == "Arrow(Clone)")
+        {
+            Debug.Log("damage set");
+            damageAmount = 5;
+        }
+        if (gameObject.name == "CannonRound(Clone)")
+        {
+            Debug.Log("damage set");
+
+            damageAmount = 20;
+        }
+        if (gameObject.name == "Trabuchet(Clone)")
+        {
+            Debug.Log("damage set");
+            damageAmount = 30;
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.TryGetComponent<enemyTestScrip1>(out enemyTestScrip1 enemyComponent))
         {
+            enemyComponent.DamageDealt(damageAmount);
             Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
         }
     }
