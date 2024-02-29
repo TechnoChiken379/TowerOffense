@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,18 +24,6 @@ public class mainCharacter : MonoBehaviour
     public static bool hotKey3 = true;
     public static bool hotKey4 = true;
     public static float hotKeyTimer = 0;
-
-    //Health upgrades
-    private bool healthUpgrade1 = false;
-    private bool healthUpgrade2 = false;
-    private bool healthUpgrade3 = false;
-    private bool healthUpgrade4 = false;
-    private bool healthUpgrade5 = false;
-
-    //Shield upgrades
-    private bool shieldUpgrade1 = false;
-    private bool shieldUpgrade2 = false;
-    private bool shieldUpgrade3 = false;
 
     void Start() //Happens on start
     {
@@ -64,21 +51,6 @@ public class mainCharacter : MonoBehaviour
         HotKeyManagment();
 
         Movement(); //Movement script
-        UpgradesManager(); //Upgrades script
-        
-    }
-
-    void UpgradesManager()
-    {
-        if (healthUpgrade1 == true) maxHealth = 120;
-        if (healthUpgrade2 == true && healthUpgrade1 == true) maxHealth = 140;
-        if (healthUpgrade3 == true && healthUpgrade2 == true) maxHealth = 170;
-        if (healthUpgrade4 == true && healthUpgrade3 == true) maxHealth = 210;
-        if (healthUpgrade5 == true && healthUpgrade4 == true) maxHealth = 250;
-
-        if (shieldUpgrade1 == true) maxShieldHealth = 20;
-        if (shieldUpgrade2 == true && shieldUpgrade1 == true) maxShieldHealth = 50;
-        if (shieldUpgrade3 == true && shieldUpgrade2 == true) maxShieldHealth = 100;
     }
 
     void Movement() //Movement Script
@@ -90,34 +62,34 @@ public class mainCharacter : MonoBehaviour
 
     void HotKeyManagment()
     {
-        if (Input.GetKey(KeyCode.Alpha1) && hotKeyTimer > 0.7f) HotKey1();
-        if (Input.GetKey(KeyCode.Alpha2) && hotKeyTimer > 0.7f) HotKey2();
-        if (Input.GetKey(KeyCode.Alpha3) && hotKeyTimer > 0.7f) HotKey3();
-        if (Input.GetKey(KeyCode.Alpha4) && hotKeyTimer > 0.7f) HotKey4();
+        if (Input.GetKey(KeyCode.Alpha1) && hotKeyTimer > 0.3f) HotKey1();
+        if (Input.GetKey(KeyCode.Alpha2) && hotKeyTimer > 0.3f) HotKey2();
+        if (Input.GetKey(KeyCode.Alpha3) && hotKeyTimer > 0.3f) HotKey3();
+        if (Input.GetKey(KeyCode.Alpha4) && hotKeyTimer > 0.3f) HotKey4();
     }
 
     void HotKey1()
     {
-        if (hotKey1 == false) { hotKey1 = true; Debug.Log(hotKey1); shootingScript.archers = true; }
-        else if (hotKey1 == true) { hotKey1 = false; Debug.Log(hotKey1); shootingScript.archers = false; }
+        if (hotKey1 == false) { hotKey1 = true; Debug.Log(hotKey1); shootingScript.archers = true; buttons.buttonImage1.color = buttons.colorButtonOnTrue; }
+        else if (hotKey1 == true) { hotKey1 = false; Debug.Log(hotKey1); shootingScript.archers = false; buttons.buttonImage1.color = buttons.colorButtonOnFalse; }
         hotKeyTimer = 0;
     }
     void HotKey2()
     {
-        if (hotKey2 == false) { hotKey2 = true; Debug.Log(hotKey2); shootingScript.cannons = true; }
-        else if (hotKey2 == true) { hotKey2 = false; Debug.Log(hotKey2); shootingScript.cannons = false; }
+        if (hotKey2 == false) { hotKey2 = true; Debug.Log(hotKey2); shootingScript.cannons = true; buttons.buttonImage2.color = buttons.colorButtonOnTrue; }
+        else if (hotKey2 == true) { hotKey2 = false; Debug.Log(hotKey2); shootingScript.cannons = false; buttons.buttonImage2.color = buttons.colorButtonOnFalse; }
         hotKeyTimer = 0;
     }
     void HotKey3()
     {
-        if (hotKey3 == false) { hotKey3 = true; Debug.Log(hotKey3); shootingScript.balista = true; }
-        else if (hotKey3 == true) { hotKey3 = false; Debug.Log(hotKey3); shootingScript.balista = false; }
+        if (hotKey3 == false) { hotKey3 = true; Debug.Log(hotKey3); shootingScript.balista = true; buttons.buttonImage3.color = buttons.colorButtonOnTrue; }
+        else if (hotKey3 == true) { hotKey3 = false; Debug.Log(hotKey3); shootingScript.balista = false; buttons.buttonImage3.color = buttons.colorButtonOnFalse; }
         hotKeyTimer = 0;
     }
     void HotKey4()
     {
-        //if (hotKey4 == false) { hotKey4 = true; Debug.Log(hotKey4); shootingScript.archers = true; }
-        //else if (hotKey4 == true) { hotKey4 = false; Debug.Log(hotKey4); shootingScript.archers = false; }
+        //if (hotKey4 == false) { hotKey4 = true; Debug.Log(hotKey4); shootingScript.archers = true; buttons.buttonImage4.color = buttons.colorButtonOnTrue; }
+        //else if (hotKey4 == true) { hotKey4 = false; Debug.Log(hotKey4); shootingScript.archers = false; buttons.buttonImage4.color = buttons.colorButtonOnFalse; }
         //hotKeyTimer = 0;
     }
 }
