@@ -25,6 +25,8 @@ public class enemyTestScrip1 : MonoBehaviour
 
     private float engageDistance = 10f; //at what distance should the enemy start going to the player
 
+    //health
+    public static float enemyTestHP, enemyTestMaxHP = 25f;
 
     //attack (work in progress)
     private float attackTimer;
@@ -43,6 +45,8 @@ public class enemyTestScrip1 : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("mainCharacter").transform;
+
+        enemyTestHP = enemyTestMaxHP;
     }
 
     // Update is called once per frame
@@ -170,6 +174,20 @@ public class enemyTestScrip1 : MonoBehaviour
             GameObject enemySpawnedBullet = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
 
             attackTimer = 0f;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+    }
+    public void DamageDealt(float damageAmount)
+    {
+        enemyTestHP -= damageAmount;
+
+        if (enemyTestHP <= 0)
+        {
+            //add resources
+            Destroy(gameObject);
         }
     }
 }

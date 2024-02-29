@@ -4,7 +4,6 @@ using System.Linq.Expressions;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class shootingScript : MonoBehaviour
 {

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class enemyProjectileTestScript1 : MonoBehaviour
 {
@@ -104,6 +103,15 @@ public class enemyProjectileTestScript1 : MonoBehaviour
         else if (angle >= 70 && angle <= 110)
         {
             speed *= 0.4f;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("mainCharacter"))
+        {
+            //characterCube.HP -= 10 * controlScript.controlDamage;
+            Destroy(gameObject);
         }
     }
 }
