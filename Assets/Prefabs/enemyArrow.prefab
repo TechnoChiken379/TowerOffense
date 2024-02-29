@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5474804006181964412}
   - component: {fileID: 7724522641723207024}
   - component: {fileID: 4869422113295155377}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: enemyArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2739004259016831713}
   - component: {fileID: 7483729195900664273}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
