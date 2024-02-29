@@ -1328,7 +1328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1605165796124781727, guid: 22fabdd36c164874c9de980da73dc7ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.910461
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1605165796124781727, guid: 22fabdd36c164874c9de980da73dc7ba, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1362,9 +1362,17 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2658153285916775044, guid: 22fabdd36c164874c9de980da73dc7ba, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6116284462072944387, guid: 22fabdd36c164874c9de980da73dc7ba, type: 3}
       propertyPath: m_Name
       value: enemies (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841086612815714386, guid: 22fabdd36c164874c9de980da73dc7ba, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11238,6 +11246,10 @@ PrefabInstance:
       propertyPath: mousePointer
       value: 
       objectReference: {fileID: 9180837579170946275, guid: 2503ce52c62b76c4f806902f657223e7, type: 3}
+    - target: {fileID: 9061109250440532093, guid: d12539f9382e3ce4c8c229b70dacb94e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11267,7 +11279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1605165796124781727, guid: 22fabdd36c164874c9de980da73dc7ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.910461
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1605165796124781727, guid: 22fabdd36c164874c9de980da73dc7ba, type: 3}
       propertyPath: m_LocalRotation.w
