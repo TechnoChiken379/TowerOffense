@@ -28,10 +28,10 @@ public class enemyProjectileTestScript1 : MonoBehaviour
     private float angle;
     private float signedAngle;
 
-    public static float enemyArrowDamageAmount = 3;
+    public static float enemyArrowDamageAmount = 5;
 
     private void Start()
-    {
+    { 
         player = GameObject.FindGameObjectWithTag("mainCharacter");
         projectileSpawn = Instantiate(enemyWayPoint, transform.position, Quaternion.identity);
         targetSpawn = Instantiate(enemyWayPoint, player.transform.position, Quaternion.identity);
@@ -112,7 +112,8 @@ public class enemyProjectileTestScript1 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("mainCharacter"))
         {
-            mainCharacter.totalCurrentHealth -= enemyArrowDamageAmount;
+            //mainCharacter.totalCurrentHealth -= enemyArrowDamageAmount;
+            mainCharacter.TakenDamageCalculation(enemyArrowDamageAmount);
             Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
         }
     }

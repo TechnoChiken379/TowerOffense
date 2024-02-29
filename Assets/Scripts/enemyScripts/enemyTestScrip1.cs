@@ -190,12 +190,8 @@ public class enemyTestScrip1 : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("mainCharacter")/* || collision.gameObject.CompareTag("Arrow") || collision.gameObject.CompareTag("Trabuchet") || collision.gameObject.CompareTag("Cannon Round")*/)
+        if (collision.gameObject.CompareTag("mainCharacter"))
         {
-            //resources.wood += 100;
-            //resources.stone += 100;
-            //resources.steel += 100;
-            //resources.gold += 10;
             Destroy(gameObject);
         }
     }
