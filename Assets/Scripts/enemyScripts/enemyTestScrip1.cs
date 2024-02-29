@@ -17,7 +17,7 @@ public class enemyTestScrip1 : MonoBehaviour
 
     private float speed = 2f; //movement speed
 
-    private float closeEnough = 3f; //how close does the enemy want to get
+    private float closeEnough = 4f; //how close does the enemy want to get
     private float toClose = 2f; //how far does the enemy want to stay away from player
 
     private float timer = 0f; //timer to keep track of time before moving
