@@ -137,6 +137,12 @@ MonoBehaviour:
   bullet: {fileID: 2214770678981885083, guid: d3ff45b680bb9f54ea30b6fe3d3db722, type: 3}
   bulletSpawn: {fileID: 7057391366974541217, guid: c70ac0a86ba004a47819ba139192bafe, type: 3}
   bulletSpawnPoint: {fileID: 6841086612815714386}
+  enemyCoinPrefab: {fileID: 0}
+  spawnedEnemyCoin: {fileID: 0}
+  spawnedEnemyCoinPosition: {x: 0, y: 0, z: 0}
+  MoveTo: {x: 0, y: 0, z: 0}
+  coinGoToPosition: 0
+  coinSpeed: 2
 --- !u!61 &7175010725296375294
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -208,7 +214,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &6116284462072944387
 GameObject:
   m_ObjectHideFlags: 0

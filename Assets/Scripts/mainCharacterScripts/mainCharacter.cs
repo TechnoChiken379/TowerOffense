@@ -10,15 +10,19 @@ public class mainCharacter : MonoBehaviour
     private float moveX;
     private float moveY;
 
+
     //Health, Shield vars
     public float maxHealth;
     public static float totalCurrentHealth;
     public Slider healthBar;
 
     public float maxShieldHealth;
-    private float totalCurrentShieldHealth;
+    public static float totalCurrentShieldHealth;
     public Slider shieldBar;
 
+    
+
+    //hotkeys
     public static bool hotKey1 = true;
     public static bool hotKey2 = true;
     public static bool hotKey3 = true;
@@ -38,7 +42,7 @@ public class mainCharacter : MonoBehaviour
         healthBar.value = totalCurrentHealth;
 
         //Starting shield health = Current shield health
-        maxShieldHealth = 0;
+        maxShieldHealth = 50;
         totalCurrentShieldHealth = maxShieldHealth;
         shieldBar.maxValue = maxShieldHealth;
         shieldBar.minValue = 0;
@@ -48,6 +52,7 @@ public class mainCharacter : MonoBehaviour
     void Update() //Happens on every frame
     {
         healthBar.value = totalCurrentHealth;
+        shieldBar.value = totalCurrentShieldHealth;
 
         hotKeyTimer += Time.deltaTime;
         HotKeyManagment();
@@ -93,5 +98,42 @@ public class mainCharacter : MonoBehaviour
         //if (hotKey4 == false) { hotKey4 = true; Debug.Log(hotKey4); shootingScript.archers = true; buttons.buttonImage4.color = buttons.colorButtonOnTrue; }
         //else if (hotKey4 == true) { hotKey4 = false; Debug.Log(hotKey4); shootingScript.archers = false; buttons.buttonImage4.color = buttons.colorButtonOnFalse; }
         //hotKeyTimer = 0;
+    }
+
+    //public static void TakenDamageCalculation(float damageTaken)
+    //{
+    //    if (mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2))
+    //    {
+    //        mainCharacter.totalCurrentShieldHealth -= (damageTaken / 2);
+    //        mainCharacter.totalCurrentHealth -= (damageTaken / 2);
+    //    }
+    //    else if (mainCharacter.totalCurrentShieldHealth > 0 && !(mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2)))
+    //    {
+    //        damageTaken -= mainCharacter.totalCurrentShieldHealth;
+    //        mainCharacter.totalCurrentShieldHealth = 0;
+    //        mainCharacter.totalCurrentHealth -= damageTaken;
+    //    } else if (mainCharacter.totalCurrentShieldHealth == 0f)
+    //    {
+    //        mainCharacter.totalCurrentHealth -= damageTaken;
+    //    }
+    //}
+
+    public static void TakenDamageCalculation(float damageTaken)
+    {
+        if (mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2))
+        {
+            mainCharacter.totalCurrentShieldHealth -= (damageTaken / 2);
+            mainCharacter.totalCurrentHealth -= (damageTaken / 4);
+        }
+        else if (mainCharacter.totalCurrentShieldHealth > 0 && !(mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2)))
+        {
+            damageTaken -= mainCharacter.totalCurrentShieldHealth;
+            mainCharacter.totalCurrentShieldHealth = 0;
+            mainCharacter.totalCurrentHealth -= (damageTaken / 2);
+        }
+        else if (mainCharacter.totalCurrentShieldHealth == 0f)
+        {
+            mainCharacter.totalCurrentHealth -= damageTaken;
+        }
     }
 }

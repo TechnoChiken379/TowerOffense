@@ -119,18 +119,14 @@ public class projectile : MonoBehaviour
     {
         if (gameObject.name == "Arrow(Clone)")
         {
-            Debug.Log("damage set");
             damageAmount = 5;
         }
         if (gameObject.name == "CannonRound(Clone)")
         {
-            Debug.Log("damage set");
-
             damageAmount = 20;
         }
         if (gameObject.name == "Trabuchet(Clone)")
         {
-            Debug.Log("damage set");
             damageAmount = 30;
         }
     }
