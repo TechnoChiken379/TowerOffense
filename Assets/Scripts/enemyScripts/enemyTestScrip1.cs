@@ -14,9 +14,6 @@ public class enemyTestScrip1 : MonoBehaviour
     private Transform player;
     public float distanceToPlayer;
 
-    public float enemyTest1Health = 25f;
-
-
     private float speed = 3f; //movement speed
 
     private float closeEnough = 4f; //how close does the enemy want to get
@@ -28,7 +25,7 @@ public class enemyTestScrip1 : MonoBehaviour
     private float engageDistance = 10f; //at what distance should the enemy start going to the player
 
     //health
-    public static float enemyTestHP, enemyTestMaxHP = 25f;
+    public float enemyTestHP, enemyTestMaxHP = 25f;
 
     //attack
     private float attackTimer;
@@ -185,7 +182,7 @@ public class enemyTestScrip1 : MonoBehaviour
     {
         enemyTestHP -= damageAmount;
 
-        if (enemyTestHP >= 0)
+        if (enemyTestHP <= 0)
         {
             GameObject enemyDroppedResources = Instantiate(deathDrop, deathDropPoint.position, Quaternion.identity);
             Destroy(gameObject);

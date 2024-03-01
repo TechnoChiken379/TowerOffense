@@ -167,10 +167,9 @@ MonoBehaviour:
   distanceToPlayer: 0
   enemyTest1Health: 100
   bullet: {fileID: 2214770678981885083, guid: d3ff45b680bb9f54ea30b6fe3d3db722, type: 3}
-  bulletSpawn: {fileID: 0}
   bulletSpawnPoint: {fileID: 6841086612815714386}
-  enemyCoinPrefab: {fileID: 0}
-  coinTargetPrefab: {fileID: 0}
+  deathDrop: {fileID: 1571411932394843814, guid: ebd7fea600410ea45a155f1bd947a849, type: 3}
+  deathDropPoint: {fileID: 8595486114224927762}
 --- !u!61 &7175010725296375294
 BoxCollider2D:
   m_ObjectHideFlags: 0
