@@ -58,28 +58,34 @@ public class enemyDeathDropTestScript1 : MonoBehaviour
 
         transform.rotation = LookAtTarget(movePosition - transform.position);
         transform.position = movePosition; 
-        if (Vector3.Distance(movePosition, targetSpawn.transform.position) < 0.1f) { Destroy(targetSpawn); Destroy(projectileSpawn); }
+        if (projectileSpawn != null && targetSpawn != null && Vector3.Distance(movePosition, targetSpawn.transform.position) < 0.1f) { Destroy(targetSpawn); Destroy(projectileSpawn); }
     }
     public static Quaternion LookAtTarget(Vector2 r) { return Quaternion.Euler(0, 0, Mathf.Atan2(r.y, r.x) * Mathf.Rad2Deg); }
 
     public void projectileLine()
     {
-        Vector3 direction = (targetSpawn.transform.position - transform.position).normalized;
+        if (projectileSpawn != null && targetSpawn != null)
+        {
+            Vector3 direction = (targetSpawn.transform.position - transform.position).normalized;
 
-        movePosition = transform.position + direction * (speed * 3f) * Time.deltaTime;
+            movePosition = transform.position + direction * (speed * 3f) * Time.deltaTime;
+        }
     }
 
     public void projectileTrajectory()
     {
-        enemyX = projectileSpawn.transform.position.x;
-        targetX = targetSpawn.transform.position.x;
+        if (projectileSpawn != null && targetSpawn != null)
+        {
+            enemyX = projectileSpawn.transform.position.x;
+            targetX = targetSpawn.transform.position.x;
 
-        dist = targetX - enemyX;
-        nextX = Mathf.MoveTowards(transform.position.x, targetX, speed * Time.deltaTime);
-        baseY = Mathf.Lerp(projectileSpawn.transform.position.y, targetSpawn.transform.position.y, (nextX - enemyX) / dist);
-        height = heightNum * (nextX - enemyX) * (nextX - targetX) / (-0.25f * dist * dist);
+            dist = targetX - enemyX;
+            nextX = Mathf.MoveTowards(transform.position.x, targetX, speed * Time.deltaTime);
+            baseY = Mathf.Lerp(projectileSpawn.transform.position.y, targetSpawn.transform.position.y, (nextX - enemyX) / dist);
+            height = heightNum * (nextX - enemyX) * (nextX - targetX) / (-0.25f * dist * dist);
 
-        movePosition = new Vector3(nextX, baseY + height, transform.position.z);
+            movePosition = new Vector3(nextX, baseY + height, transform.position.z);
+        }
     }
 
     public void calculateAngle()
@@ -118,8 +124,6 @@ public class enemyDeathDropTestScript1 : MonoBehaviour
     {
         randomXLocation = Random.Range(-1.0f, 1.0f);
         randomYLocation = Random.Range(-1.0f, 1.0f);
-
-        Debug.Log(randomXLocation + ", " + randomYLocation);
 
         targetLocation.x = transform.position.x + randomXLocation;
         targetLocation.y = transform.position.y + randomYLocation;
