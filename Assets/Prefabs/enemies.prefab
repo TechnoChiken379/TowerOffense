@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6841086612815714386}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2424198304078378438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8595486114224927762}
+  m_Layer: 0
+  m_Name: deathDropPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8595486114224927762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2424198304078378438}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 3.333333, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6841086612815714386}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2658153285916775044
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,6 +96,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5493004471625378853}
+  - {fileID: 8595486114224927762}
   m_Father: {fileID: 1605165796124781727}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7176268712079481819
@@ -135,14 +167,9 @@ MonoBehaviour:
   distanceToPlayer: 0
   enemyTest1Health: 100
   bullet: {fileID: 2214770678981885083, guid: d3ff45b680bb9f54ea30b6fe3d3db722, type: 3}
-  bulletSpawn: {fileID: 7057391366974541217, guid: c70ac0a86ba004a47819ba139192bafe, type: 3}
   bulletSpawnPoint: {fileID: 6841086612815714386}
-  enemyCoinPrefab: {fileID: 0}
-  spawnedEnemyCoin: {fileID: 0}
-  spawnedEnemyCoinPosition: {x: 0, y: 0, z: 0}
-  MoveTo: {x: 0, y: 0, z: 0}
-  coinGoToPosition: 0
-  coinSpeed: 2
+  deathDrop: {fileID: 1571411932394843814, guid: ebd7fea600410ea45a155f1bd947a849, type: 3}
+  deathDropPoint: {fileID: 8595486114224927762}
 --- !u!61 &7175010725296375294
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -30,23 +30,20 @@ public class enemyTestScrip1 : MonoBehaviour
     //health
     public static float enemyTestHP, enemyTestMaxHP = 25f;
 
-    //attack (work in progress)
+    //attack
     private float attackTimer;
     private float canAttack = 0.5f;
 
     public GameObject bullet;
-    public GameObject bulletSpawn;
     public Transform bulletSpawnPoint;
+
+    //death drop
+    public GameObject deathDrop;
+    public Transform deathDropPoint;
 
     //spreat out from other enemies
     private GameObject[] enemies;
     private Transform closestEnemy;
-
-    public GameObject enemyCoinPrefab;
-    private GameObject spawnedEnemyCoin;
-    private GameObject coinTarget;
-    public GameObject coinTargetPrefab;
-    private Vector3 coinTargetPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -190,11 +187,8 @@ public class enemyTestScrip1 : MonoBehaviour
 
         if (enemyTestHP >= 0)
         {
-            spawnedEnemyCoin = Instantiate(enemyCoinPrefab, gameObject.transform.position, Quaternion.identity);
-            coinTargetPosition = new Vector3(spawnedEnemyCoin.transform.position.x, (spawnedEnemyCoin.transform.position.y + 2), spawnedEnemyCoin.transform.position.z);
-            coinTarget = Instantiate(coinTargetPrefab, (coinTargetPosition), Quaternion.identity);
-
-            //Destroy(gameObject);
+            GameObject enemyDroppedResources = Instantiate(deathDrop, deathDropPoint.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 
