@@ -28,13 +28,19 @@ public class enemyDeathDropTestScript1 : MonoBehaviour
     private float angle;
     private float signedAngle;
 
+    //random target location
+    private Vector2 targetLocation;
+
+    float randomXLocation;
+    float randomYLocation;
+
     //public static float enemyArrowDamageAmount = 5;
 
     private void Start()
-    { 
-        player = GameObject.FindGameObjectWithTag("mainCharacter");
+    {
+        determineTargetLocation();
         projectileSpawn = Instantiate(enemyWayPoint, transform.position, Quaternion.identity);
-        targetSpawn = Instantiate(enemyWayPoint, player.transform.position, Quaternion.identity);
+        targetSpawn = Instantiate(enemyWayPoint, targetLocation, Quaternion.identity);
 
         calculateAngle();
         determineSpeed();
@@ -52,7 +58,7 @@ public class enemyDeathDropTestScript1 : MonoBehaviour
 
         transform.rotation = LookAtTarget(movePosition - transform.position);
         transform.position = movePosition; 
-        if (Vector3.Distance(movePosition, targetSpawn.transform.position) < 0.1f) { Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn); }
+        if (Vector3.Distance(movePosition, targetSpawn.transform.position) < 0.1f) { Destroy(targetSpawn); Destroy(projectileSpawn); }
     }
     public static Quaternion LookAtTarget(Vector2 r) { return Quaternion.Euler(0, 0, Mathf.Atan2(r.y, r.x) * Mathf.Rad2Deg); }
 
@@ -106,6 +112,17 @@ public class enemyDeathDropTestScript1 : MonoBehaviour
         {
             speed *= 0.4f;
         }
+    }
+
+    public void determineTargetLocation()
+    {
+        randomXLocation = Random.Range(-1.0f, 1.0f);
+        randomYLocation = Random.Range(-1.0f, 1.0f);
+
+        Debug.Log(randomXLocation + ", " + randomYLocation);
+
+        targetLocation.x = transform.position.x + randomXLocation;
+        targetLocation.y = transform.position.y + randomYLocation;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

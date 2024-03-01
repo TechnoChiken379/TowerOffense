@@ -135,7 +135,7 @@ public class projectile : MonoBehaviour
         if (collision.gameObject.TryGetComponent<enemyTestScrip1>(out enemyTestScrip1 enemyComponent))
         {
             enemyComponent.DamageDealt(damageAmount);
-            //Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
+            Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
         }
     }
 }
