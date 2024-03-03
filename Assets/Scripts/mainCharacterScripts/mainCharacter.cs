@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ public class mainCharacter : MonoBehaviour
     private float moveX;
     private float moveY;
 
+    [SerializeField] int cameraMoveIntensityResistance; //the amount of Resistance for the intensity fo the camera move sway
 
     //Health, Shield vars
     public float maxHealth;
@@ -20,7 +22,7 @@ public class mainCharacter : MonoBehaviour
     public static float totalCurrentShieldHealth;
     public Slider shieldBar;
 
-    
+    private GameObject mainCamera;
 
     //hotkeys
     public static bool hotKey1 = true;
@@ -47,6 +49,8 @@ public class mainCharacter : MonoBehaviour
         shieldBar.maxValue = maxShieldHealth;
         shieldBar.minValue = 0;
         shieldBar.value = totalCurrentShieldHealth;
+
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     void Update() //Happens on every frame
@@ -65,6 +69,16 @@ public class mainCharacter : MonoBehaviour
         moveX = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         moveY = Input.GetAxis("Vertical") * speed * Time.deltaTime;
         transform.position += new Vector3(moveX, moveY, 0);
+        CameraMovementOnPlayerMovement();
+    }
+
+    void CameraMovementOnPlayerMovement()
+    {
+        Vector2 pz = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        float posX = Mathf.Lerp(mainCamera.transform.position.x, transform.position.x + (pz.x / cameraMoveIntensityResistance), 2f * Time.deltaTime);
+        float posY = Mathf.Lerp(mainCamera.transform.position.y, transform.position.y + (pz.y / cameraMoveIntensityResistance), 2f * Time.deltaTime);
+
+        mainCamera.transform.position = new Vector3(posX, posY, mainCamera.transform.position.z);
     }
 
     void HotKeyManagment()
