@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +22,8 @@ public class buttons : MonoBehaviour
     public Image image2;
     public Image image3;
     public Image image4;
+
+    public GameObject mainMenuImage;
 
     private void Start()
     {
@@ -61,4 +64,8 @@ public class buttons : MonoBehaviour
         //mainCharacter.hotKeyTimer = 0;
     }
 
+    public void MainMenuStart()
+    {
+        mainMenuImage.SetActive(true);
+    }
 }
