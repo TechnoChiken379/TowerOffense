@@ -22,6 +22,10 @@ public class mainCharacter : MonoBehaviour
     public static float totalCurrentShieldHealth;
     public Slider shieldBar;
 
+    public float maxRepairHealth;
+    public static float totalCurrentRepairHealth;
+    public Slider healthRepairBar;
+
     private GameObject mainCamera;
 
     //hotkeys
@@ -30,6 +34,13 @@ public class mainCharacter : MonoBehaviour
     public static bool hotKey3 = true;
     public static bool hotKey4 = true;
     public static float hotKeyTimer = 0;
+
+    //repair
+    public static float repairCompensation = 0.2f; //how much you can repair of every single point of damage (x100 to get procent)
+    public static float totalRepairCompensation = 0f; //total HP you can repair right now
+    private bool repairing = false;
+    private float repairTime = 10f;
+
 
     void Start() //Happens on start
     {
@@ -50,26 +61,40 @@ public class mainCharacter : MonoBehaviour
         shieldBar.minValue = 0;
         shieldBar.value = totalCurrentShieldHealth;
 
+        //starting repair health = current repair health
+        maxRepairHealth = maxHealth;
+        totalCurrentRepairHealth = maxRepairHealth;
+        healthRepairBar.maxValue = maxRepairHealth;
+        healthRepairBar.minValue = 0;
+        healthRepairBar.value = totalCurrentRepairHealth;
+
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     void Update() //Happens on every frame
     {
+        totalCurrentRepairHealth = totalCurrentHealth + totalRepairCompensation;
+
         healthBar.value = totalCurrentHealth;
+        healthRepairBar.value = totalCurrentRepairHealth;
         shieldBar.value = totalCurrentShieldHealth;
 
         hotKeyTimer += Time.deltaTime;
         HotKeyManagment();
 
+        Repairing();
         Movement(); //Movement script
     }
 
     void Movement() //Movement Script
     {
-        moveX = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-        moveY = Input.GetAxis("Vertical") * speed * Time.deltaTime;
-        transform.position += new Vector3(moveX, moveY, 0);
-        CameraMovementOnPlayerMovement();
+        if (!repairing)
+        {
+            moveX = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+            moveY = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+            transform.position += new Vector3(moveX, moveY, 0);
+            CameraMovementOnPlayerMovement();
+        }
     }
 
     void CameraMovementOnPlayerMovement()
@@ -132,6 +157,19 @@ public class mainCharacter : MonoBehaviour
     //    }
     //}
 
+    public void Repairing()
+    {
+        if (Input.GetKey(KeyCode.F) && totalRepairCompensation > 0f)
+        {
+            repairing = true;
+
+            resources.wood -= 0.01f;
+
+            totalCurrentHealth = Mathf.MoveTowards(totalCurrentHealth, totalCurrentHealth + totalRepairCompensation, repairTime * Time.deltaTime);
+            totalRepairCompensation = Mathf.MoveTowards(totalRepairCompensation, 0f, repairTime * Time.deltaTime);
+        } else { repairing = false; }
+    }
+
     public static void TakenDamageCalculation(float damageTaken)
     {
         if (mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2))
@@ -148,6 +186,22 @@ public class mainCharacter : MonoBehaviour
         else if (mainCharacter.totalCurrentShieldHealth == 0f)
         {
             mainCharacter.totalCurrentHealth -= damageTaken;
+        }
+    }
+
+    public static void DetermineTotalRepairValue(float damageTaken)
+    {
+        if (mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2))
+        {
+            totalRepairCompensation += repairCompensation * damageTaken / 2;
+        }
+        else if (mainCharacter.totalCurrentShieldHealth > 0 && !(mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2)))
+        {
+            totalRepairCompensation += repairCompensation * damageTaken / 2;
+        }
+        else if (mainCharacter.totalCurrentShieldHealth == 0f)
+        {
+            totalRepairCompensation += repairCompensation * damageTaken;
         }
     }
 }

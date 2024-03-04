@@ -114,6 +114,7 @@ public class enemyProjectileTestScript1 : MonoBehaviour
         {
             //mainCharacter.totalCurrentHealth -= enemyArrowDamageAmount;
             mainCharacter.TakenDamageCalculation(enemyArrowDamageAmount);
+            mainCharacter.DetermineTotalRepairValue(enemyArrowDamageAmount);
             Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
         }
     }
