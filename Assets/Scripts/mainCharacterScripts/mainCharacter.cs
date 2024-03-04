@@ -159,11 +159,16 @@ public class mainCharacter : MonoBehaviour
 
     public void Repairing()
     {
-        if (Input.GetKey(KeyCode.F) && totalRepairCompensation > 0f)
+        if (Input.GetKey(KeyCode.F) && totalRepairCompensation > 0f 
+            && resources.wood > 0f
+            && resources.stone > 0f
+            && resources.steel > 0f)
         {
             repairing = true;
 
-            resources.wood -= 0.01f;
+            resources.wood -= 0.1f;
+            resources.stone -= 0.1f;
+            resources.steel -= 0.1f;
 
             totalCurrentHealth = Mathf.MoveTowards(totalCurrentHealth, totalCurrentHealth + totalRepairCompensation, repairTime * Time.deltaTime);
             totalRepairCompensation = Mathf.MoveTowards(totalRepairCompensation, 0f, repairTime * Time.deltaTime);

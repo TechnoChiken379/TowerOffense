@@ -196,7 +196,7 @@ public class enemyTestScrip1 : MonoBehaviour
             resources.wood += 100;
             resources.stone += 100;
             resources.steel += 100;
-            resources.gold += 100;
+            resources.gold += 10;
 
             Destroy(gameObject);
         }

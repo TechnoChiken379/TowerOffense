@@ -133,9 +133,9 @@ public class enemyDeathDropTestScript1 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("mainCharacter"))
         {
-            resources.wood += 10;
-            resources.stone += 10;
-            resources.steel += 10;
+            resources.wood += 100;
+            resources.stone += 100;
+            resources.steel += 100;
             resources.gold += 10;
 
             Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
