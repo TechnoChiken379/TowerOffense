@@ -11,6 +11,7 @@ TagManager:
   - Arrow
   - Trabuchet
   - Cannon Round
+  - ButtonTabList
   layers:
   - Default
   - TransparentFX
