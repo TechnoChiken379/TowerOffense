@@ -38,8 +38,8 @@ public class mainCharacter : MonoBehaviour
     //repair
     public static float repairCompensation = 0.25f; //how much you can repair of every single point of damage (x100 to get procent)
     public static float totalRepairCompensation = 0f; //total HP you can repair right now
-    private bool repairing = false;
-    private float repairTime = 10f;
+    private static bool repairing = false;
+    private static float repairTime = 10f;
 
 
     void Start() //Happens on start
@@ -157,7 +157,7 @@ public class mainCharacter : MonoBehaviour
     //    }
     //}
 
-    public void Repairing()
+    public static void Repairing()
     {
         if (Input.GetKey(KeyCode.F) && totalRepairCompensation > 0f 
             && resources.wood > 0f

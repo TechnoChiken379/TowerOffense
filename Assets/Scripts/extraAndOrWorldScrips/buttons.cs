@@ -29,6 +29,8 @@ public class buttons : MonoBehaviour
     public GameObject mainMenuCredits;
     public GameObject mainMenuSettings;
 
+    public static bool repairing = false;
+
     private void Start()
     {
         buttonImage1 = image1;
@@ -79,6 +81,7 @@ public class buttons : MonoBehaviour
         mainMenuImage.SetActive(true);
         mainMenuText.SetActive(false);
     }
+
     public void Settings()
     {
         mainMenuImage.SetActive(false);
@@ -87,6 +90,7 @@ public class buttons : MonoBehaviour
         mainMenuCredits.SetActive(false);
         mainMenuSettings.SetActive(true);
     }
+
     public void Play()
     {
         mainMenuImage.SetActive(false);
@@ -95,6 +99,7 @@ public class buttons : MonoBehaviour
         mainMenuCredits.SetActive(false);
         mainMenuSettings.SetActive(false);
     }
+
     public void Credits()
     {
         mainMenuImage.SetActive(false);
