@@ -25,6 +25,9 @@ public class buttons : MonoBehaviour
 
     public GameObject mainMenuImage;
     public GameObject mainMenuText;
+    public GameObject mainMenuPlay;
+    public GameObject mainMenuCredits;
+    public GameObject mainMenuSettings;
 
     private void Start()
     {
@@ -36,8 +39,11 @@ public class buttons : MonoBehaviour
         colorButtonOnTrue.a = 0.9f;
         colorButtonOnFalse.a = 0.5f;
 
-        mainMenuImage.SetActive(false);
         mainMenuText.SetActive(true);
+        mainMenuImage.SetActive(false);
+        mainMenuPlay.SetActive(false);
+        mainMenuCredits.SetActive(false);
+        mainMenuSettings.SetActive(false);
     }
 
     public void HotKey1Methode()
@@ -72,5 +78,29 @@ public class buttons : MonoBehaviour
     {
         mainMenuImage.SetActive(true);
         mainMenuText.SetActive(false);
+    }
+    public void Settings()
+    {
+        mainMenuImage.SetActive(false);
+        mainMenuText.SetActive(false);
+        mainMenuPlay.SetActive(false);
+        mainMenuCredits.SetActive(false);
+        mainMenuSettings.SetActive(true);
+    }
+    public void Play()
+    {
+        mainMenuImage.SetActive(false);
+        mainMenuText.SetActive(false);
+        mainMenuPlay.SetActive(true);
+        mainMenuCredits.SetActive(false);
+        mainMenuSettings.SetActive(false);
+    }
+    public void Credits()
+    {
+        mainMenuImage.SetActive(false);
+        mainMenuText.SetActive(false);
+        mainMenuPlay.SetActive(false);
+        mainMenuCredits.SetActive(true);
+        mainMenuSettings.SetActive(false);
     }
 }
