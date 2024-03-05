@@ -43,6 +43,8 @@ GameObject:
   - component: {fileID: 340616156535381566}
   - component: {fileID: 2607390075396406277}
   - component: {fileID: 2517511659281857664}
+  - component: {fileID: 124786951133168118}
+  - component: {fileID: 7204326165440324724}
   m_Layer: 8
   m_Name: MainCharacter
   m_TagString: mainCharacter
@@ -81,9 +83,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   cameraMoveIntensityResistance: 0
-  maxHealth: 0
   healthBar: {fileID: 0}
-  maxShieldHealth: 0
   shieldBar: {fileID: 0}
   maxRepairHealth: 0
   healthRepairBar: {fileID: 0}
@@ -159,6 +159,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &124786951133168118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406320279106244812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4175bd21cee859740bffa137dacf98b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7204326165440324724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406320279106244812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555b9d5f5e4441448a3887fa3ffa100e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1412418808797885923
 GameObject:
   m_ObjectHideFlags: 0
