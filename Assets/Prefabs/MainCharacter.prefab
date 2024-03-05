@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2144276926313897998}
   m_Layer: 8
-  m_Name: Balista
+  m_Name: Catapult
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,10 +80,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  cameraMoveIntensityResistance: 0
   maxHealth: 0
   healthBar: {fileID: 0}
   maxShieldHealth: 0
   shieldBar: {fileID: 0}
+  maxRepairHealth: 0
+  healthRepairBar: {fileID: 0}
 --- !u!61 &2607390075396406277
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -239,10 +242,10 @@ MonoBehaviour:
   rotationCheck: 0
   arrow: {fileID: 3069797098432816370, guid: 9662a36e826451e4585a8545b81f2eb8, type: 3}
   cannonRound: {fileID: 6230678805625410844, guid: 7f47ac0aa750b92439127fe7384ed23b, type: 3}
-  balistaArrow: {fileID: 3330178691903697465, guid: 3b04532a7c39aae49abe09572aff4ecc, type: 3}
+  catapultPayload: {fileID: 3330178691903697465, guid: 3b04532a7c39aae49abe09572aff4ecc, type: 3}
   arrowSpawnPoint: {fileID: 8582599497340703648}
   cannonRoundSpawnPoint: {fileID: 6299696027451699254}
-  balistaArrowSpawnPoint: {fileID: 2144276926313897998}
+  catapultRoundSpawnPoint: {fileID: 2144276926313897998}
 --- !u!1 &1900420943490816718
 GameObject:
   m_ObjectHideFlags: 0

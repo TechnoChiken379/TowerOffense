@@ -62,8 +62,8 @@ public class buttons : MonoBehaviour
 
     public void HotKey3Methode()
     {
-        if (mainCharacter.hotKey3 == false) { mainCharacter.hotKey3 = true; Debug.Log(mainCharacter.hotKey3); shootingScript.balista = true; buttonImage3.color = colorButtonOnTrue; }
-        else if (mainCharacter.hotKey3 == true) { mainCharacter.hotKey3 = false; Debug.Log(mainCharacter.hotKey3); shootingScript.balista = false; buttonImage3.color = colorButtonOnFalse; }
+        if (mainCharacter.hotKey3 == false) { mainCharacter.hotKey3 = true; Debug.Log(mainCharacter.hotKey3); shootingScript.catapult = true; buttonImage3.color = colorButtonOnTrue; }
+        else if (mainCharacter.hotKey3 == true) { mainCharacter.hotKey3 = false; Debug.Log(mainCharacter.hotKey3); shootingScript.catapult = false; buttonImage3.color = colorButtonOnFalse; }
         mainCharacter.hotKeyTimer = 0;
     }
 

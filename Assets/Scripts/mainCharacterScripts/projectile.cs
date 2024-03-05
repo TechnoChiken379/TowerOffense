@@ -119,15 +119,15 @@ public class projectile : MonoBehaviour
     {
         if (gameObject.name == "Arrow(Clone)")
         {
-            damageAmount = 5;
+            damageAmount = upgradeWeapons.damageAmountArrows;
         }
         if (gameObject.name == "CannonRound(Clone)")
         {
-            damageAmount = 20;
+            damageAmount = upgradeWeapons.damageAmountRound;
         }
-        if (gameObject.name == "Trabuchet(Clone)")
+        if (gameObject.name == "CatapultPayload(Clone)")
         {
-            damageAmount = 30;
+            damageAmount = upgradeWeapons.damageAmountPayload;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

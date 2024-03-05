@@ -128,8 +128,8 @@ public class mainCharacter : MonoBehaviour
     }
     void HotKey3()
     {
-        if (hotKey3 == false) { hotKey3 = true; Debug.Log(hotKey3); shootingScript.balista = true; buttons.buttonImage3.color = buttons.colorButtonOnTrue; }
-        else if (hotKey3 == true) { hotKey3 = false; Debug.Log(hotKey3); shootingScript.balista = false; buttons.buttonImage3.color = buttons.colorButtonOnFalse; }
+        if (hotKey3 == false) { hotKey3 = true; Debug.Log(hotKey3); shootingScript.catapult = true; buttons.buttonImage3.color = buttons.colorButtonOnTrue; }
+        else if (hotKey3 == true) { hotKey3 = false; Debug.Log(hotKey3); shootingScript.catapult = false; buttons.buttonImage3.color = buttons.colorButtonOnFalse; }
         hotKeyTimer = 0;
     }
     void HotKey4()

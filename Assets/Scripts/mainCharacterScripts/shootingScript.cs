@@ -17,27 +17,22 @@ public class shootingScript : MonoBehaviour
     //Boolean Weapons
     public static bool archers = true;
     public static bool cannons = true;
-    public static bool balista = true;
-
-    //Can Fire Weapons
-    private float canFireArchers = 0.2f;
-    private float canFireCannons = 2;
-    private float canFireBalista = 3;
+    public static bool catapult = true;
 
     //Game Objects Weapons
     public GameObject arrow;
     public GameObject cannonRound;
-    public GameObject balistaArrow;
+    public GameObject catapultPayload;
 
     //Spawn Point Weapons
     public Transform arrowSpawnPoint;
     public Transform cannonRoundSpawnPoint;
-    public Transform balistaArrowSpawnPoint;
+    public Transform catapultRoundSpawnPoint;
 
     //Weapon Timers
     private float timerArchers;
     private float timerCannons;
-    private float timerBalista;
+    private float timerCatapult;
     #endregion
 
     void Start()
@@ -55,8 +50,8 @@ public class shootingScript : MonoBehaviour
         FireCannons(); //Cannons script
         timerCannons += Time.deltaTime; //Timer for readyToFire
 
-        FireBalista(); //Balista script
-        timerBalista += Time.deltaTime; //Timer for readyToFire
+        FireCatapult(); //Catapult script
+        timerCatapult += Time.deltaTime; //Timer for readyToFire
     }
 
     public void LookAtMe()
@@ -70,7 +65,7 @@ public class shootingScript : MonoBehaviour
 
     public void FireArchers() //Archers
     {
-        if (Input.GetMouseButton(0) && timerArchers >= canFireArchers && archers == true)
+        if (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true)
         {
             GameObject spawnedBullet = Instantiate(arrow, arrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
 
@@ -80,7 +75,7 @@ public class shootingScript : MonoBehaviour
 
     public void FireCannons() //Cannons
     {
-        if (Input.GetMouseButton(0) && timerCannons >= canFireCannons && cannons == true)
+        if (Input.GetMouseButton(0) && timerCannons >= upgradeWeapons.canFireCannons && cannons == true)
         {
             GameObject spawnedBullet = Instantiate(cannonRound, cannonRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
 
@@ -88,13 +83,13 @@ public class shootingScript : MonoBehaviour
         }
     }
 
-    public void FireBalista() //Balista
+    public void FireCatapult() //Balista
     {
-        if (Input.GetMouseButton(0) && timerBalista >= canFireBalista && balista == true)
+        if (Input.GetMouseButton(0) && timerCatapult >= upgradeWeapons.canFireCatapult && catapult == true)
         {
-            GameObject spawnedBullet = Instantiate(balistaArrow, balistaArrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
+            GameObject spawnedBullet = Instantiate(catapultPayload, catapultRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
 
-            timerBalista = 0f;
+            timerCatapult = 0f;
         }
     }
 }
