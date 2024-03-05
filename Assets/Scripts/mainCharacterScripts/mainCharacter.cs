@@ -36,7 +36,7 @@ public class mainCharacter : MonoBehaviour
     public static float hotKeyTimer = 0;
 
     //repair
-    public static float repairCompensation = 0.2f; //how much you can repair of every single point of damage (x100 to get procent)
+    public static float repairCompensation = 0.25f; //how much you can repair of every single point of damage (x100 to get procent)
     public static float totalRepairCompensation = 0f; //total HP you can repair right now
     private bool repairing = false;
     private float repairTime = 10f;
@@ -173,6 +173,7 @@ public class mainCharacter : MonoBehaviour
             totalCurrentHealth = Mathf.MoveTowards(totalCurrentHealth, totalCurrentHealth + totalRepairCompensation, repairTime * Time.deltaTime);
             totalRepairCompensation = Mathf.MoveTowards(totalRepairCompensation, 0f, repairTime * Time.deltaTime);
         } else { repairing = false; }
+        Debug.Log(totalRepairCompensation);
     }
 
     public static void TakenDamageCalculation(float damageTaken)
@@ -198,11 +199,11 @@ public class mainCharacter : MonoBehaviour
     {
         if (mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2))
         {
-            totalRepairCompensation += repairCompensation * damageTaken / 2;
+            totalRepairCompensation += (repairCompensation * damageTaken) / 4;
         }
         else if (mainCharacter.totalCurrentShieldHealth > 0 && !(mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2)))
         {
-            totalRepairCompensation += repairCompensation * damageTaken / 2;
+            totalRepairCompensation += (repairCompensation * damageTaken) / 4;
         }
         else if (mainCharacter.totalCurrentShieldHealth == 0f)
         {
