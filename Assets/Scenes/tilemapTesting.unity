@@ -1725,7 +1725,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -284.99997, y: 65.999985}
+  m_AnchoredPosition: {x: -284.99994, y: 65.99997}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &761944698
@@ -1907,7 +1907,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 675, y: -473.7718}
+  m_AnchoredPosition: {x: 675, y: -473.77185}
   m_SizeDelta: {x: -1758, y: -1065.5437}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &900968405
@@ -2077,6 +2077,7 @@ MonoBehaviour:
   image2: {fileID: 261869563}
   image3: {fileID: 258141024}
   image4: {fileID: 2085461336}
+  mainMenuImage: {fileID: 0}
 --- !u!1 &940166735
 GameObject:
   m_ObjectHideFlags: 0
@@ -11239,7 +11240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8584906, g: 0.8569349, b: 0.1652189, a: 1}
+  m_Color: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11402,6 +11403,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ada5bffbdb5e6f45a6e453f1535677a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showedWood: 0
+  showedStone: 0
+  showedSteel: 0
+  showedGold: 0
   woodText: {fileID: 1117907904}
   stoneText: {fileID: 2133788422}
   steelText: {fileID: 940166737}
