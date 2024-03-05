@@ -108,4 +108,13 @@ public class buttons : MonoBehaviour
         mainMenuCredits.SetActive(true);
         mainMenuSettings.SetActive(false);
     }
+
+    public void GoBack()
+    {
+        mainMenuImage.SetActive(true);
+        mainMenuText.SetActive(false);
+        mainMenuPlay.SetActive(false);
+        mainMenuCredits.SetActive(false);
+        mainMenuSettings.SetActive(false);
+    }
 }
