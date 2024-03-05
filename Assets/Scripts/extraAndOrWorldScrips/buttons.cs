@@ -24,6 +24,7 @@ public class buttons : MonoBehaviour
     public Image image4;
 
     public GameObject mainMenuImage;
+    public GameObject mainMenuText;
 
     private void Start()
     {
@@ -34,6 +35,9 @@ public class buttons : MonoBehaviour
 
         colorButtonOnTrue.a = 0.9f;
         colorButtonOnFalse.a = 0.5f;
+
+        mainMenuImage.SetActive(false);
+        mainMenuText.SetActive(true);
     }
 
     public void HotKey1Methode()
@@ -67,5 +71,6 @@ public class buttons : MonoBehaviour
     public void MainMenuStart()
     {
         mainMenuImage.SetActive(true);
+        mainMenuText.SetActive(false);
     }
 }
