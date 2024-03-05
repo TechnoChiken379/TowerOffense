@@ -14,11 +14,11 @@ public class mainCharacter : MonoBehaviour
     [SerializeField] int cameraMoveIntensityResistance; //the amount of Resistance for the intensity fo the camera move sway
 
     //Health, Shield vars
-    public float maxHealth;
+    //public float maxHealth;
     public static float totalCurrentHealth;
     public Slider healthBar;
 
-    public float maxShieldHealth;
+   //public float maxShieldHealth;
     public static float totalCurrentShieldHealth;
     public Slider shieldBar;
 
@@ -36,10 +36,10 @@ public class mainCharacter : MonoBehaviour
     public static float hotKeyTimer = 0;
 
     //repair
-    public static float repairCompensation = 0.25f; //how much you can repair of every single point of damage (x100 to get procent)
+    //public static float repairCompensation = 0.25f; //how much you can repair of every single point of damage (x100 to get procent)
     public static float totalRepairCompensation = 0f; //total HP you can repair right now
-    private static bool repairing = false;
-    private static float repairTime = 10f;
+    public static bool repairing = false;
+    //private static float repairTime = 10f;
 
 
     void Start() //Happens on start
@@ -48,21 +48,19 @@ public class mainCharacter : MonoBehaviour
         speed = 4;
 
         //Starting health = Current health
-        maxHealth = 100;
-        totalCurrentHealth = maxHealth;
-        healthBar.maxValue = maxHealth;
+        totalCurrentHealth = upgradeArmor.maxHealth;
+        healthBar.maxValue = upgradeArmor.maxHealth;
         healthBar.minValue = 0;
         healthBar.value = totalCurrentHealth;
 
         //Starting shield health = Current shield health
-        maxShieldHealth = 50;
-        totalCurrentShieldHealth = maxShieldHealth;
-        shieldBar.maxValue = maxShieldHealth;
+        totalCurrentShieldHealth = upgradeArmor.maxShieldHealth;
+        shieldBar.maxValue = upgradeArmor.maxShieldHealth;
         shieldBar.minValue = 0;
         shieldBar.value = totalCurrentShieldHealth;
 
         //starting repair health = current repair health
-        maxRepairHealth = maxHealth;
+        maxRepairHealth = upgradeArmor.maxHealth;
         totalCurrentRepairHealth = maxRepairHealth;
         healthRepairBar.maxValue = maxRepairHealth;
         healthRepairBar.minValue = 0;
@@ -159,19 +157,21 @@ public class mainCharacter : MonoBehaviour
 
     public static void Repairing()
     {
-        if (Input.GetKey(KeyCode.F) && totalRepairCompensation > 0f 
+        if (Input.GetKey(KeyCode.F) 
+            && totalRepairCompensation > 0f 
             && resources.wood > 0f
             && resources.stone > 0f
-            && resources.steel > 0f)
+            && resources.steel > 0f
+            && upgradeArmor.selfRepairLevel > 0)
         {
             repairing = true;
 
-            resources.wood -= 0.1f;
-            resources.stone -= 0.1f;
-            resources.steel -= 0.1f;
+            resources.wood -= upgradeArmor.resourceUsage;
+            resources.stone -= upgradeArmor.resourceUsage;
+            resources.steel -= upgradeArmor.resourceUsage;
 
-            totalCurrentHealth = Mathf.MoveTowards(totalCurrentHealth, totalCurrentHealth + totalRepairCompensation, repairTime * Time.deltaTime);
-            totalRepairCompensation = Mathf.MoveTowards(totalRepairCompensation, 0f, repairTime * Time.deltaTime);
+            totalCurrentHealth = Mathf.MoveTowards(totalCurrentHealth, totalCurrentHealth + totalRepairCompensation, upgradeArmor.repairTime * Time.deltaTime);
+            totalRepairCompensation = Mathf.MoveTowards(totalRepairCompensation, 0f, upgradeArmor.repairTime * Time.deltaTime);
         } else { repairing = false; }
         Debug.Log(totalRepairCompensation);
     }
@@ -199,15 +199,15 @@ public class mainCharacter : MonoBehaviour
     {
         if (mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2))
         {
-            totalRepairCompensation += (repairCompensation * damageTaken) / 4;
+            totalRepairCompensation += (upgradeArmor.repairCompensation * damageTaken) / 4;
         }
         else if (mainCharacter.totalCurrentShieldHealth > 0 && !(mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2)))
         {
-            totalRepairCompensation += (repairCompensation * damageTaken) / 4;
+            totalRepairCompensation += (upgradeArmor.repairCompensation * damageTaken) / 4;
         }
         else if (mainCharacter.totalCurrentShieldHealth == 0f)
         {
-            totalRepairCompensation += repairCompensation * damageTaken;
+            totalRepairCompensation += upgradeArmor.repairCompensation * damageTaken;
         }
     }
 }
