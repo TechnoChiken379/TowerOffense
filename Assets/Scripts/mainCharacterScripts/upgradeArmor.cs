@@ -39,7 +39,11 @@ public class upgradeArmor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        HealthStart();
+        ShieldStart();
+        SelfRepairStart();
+
+        LevelUp(); //for testing
     }
     #region start
     void HealthStart()
@@ -177,4 +181,23 @@ public class upgradeArmor : MonoBehaviour
     #region update
 
     #endregion
+
+    void LevelUp()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            healthLevel++;
+            Debug.Log(healthLevel);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            shieldLevel++;
+            Debug.Log(shieldLevel);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            selfRepairLevel++;
+            Debug.Log(selfRepairLevel);
+        }
+    }
 }

@@ -14,7 +14,7 @@ public class upgradeWeapons : MonoBehaviour
     public static float damageAmountArrows = 1;
 
     //cannons
-    public static int culverinLevel = 0;
+    public static int culverinLevel = 1;
     public static bool bombard = false;
     public static bool falconet = false;
 
@@ -22,7 +22,7 @@ public class upgradeWeapons : MonoBehaviour
     public static float damageAmountRound = 5;
 
     //catapult
-    public static int onagerLevel = 0;
+    public static int onagerLevel = 1;
     public static bool trebuchet = false;
     public static bool mangonel = false;
 

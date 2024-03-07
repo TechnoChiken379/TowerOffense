@@ -47,35 +47,16 @@ public class mainCharacter : MonoBehaviour
         //Movement speed
         speed = 4;
 
-        //Starting health = Current health
-        totalCurrentHealth = upgradeArmor.maxHealth;
-        healthBar.maxValue = upgradeArmor.maxHealth;
-        healthBar.minValue = 0;
-        healthBar.value = totalCurrentHealth;
-
-        //Starting shield health = Current shield health
-        totalCurrentShieldHealth = upgradeArmor.maxShieldHealth;
-        shieldBar.maxValue = upgradeArmor.maxShieldHealth;
-        shieldBar.minValue = 0;
-        shieldBar.value = totalCurrentShieldHealth;
-
-        //starting repair health = current repair health
-        maxRepairHealth = upgradeArmor.maxHealth;
-        totalCurrentRepairHealth = maxRepairHealth;
-        healthRepairBar.maxValue = maxRepairHealth;
-        healthRepairBar.minValue = 0;
-        healthRepairBar.value = totalCurrentRepairHealth;
+        setValuesStart();
 
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     void Update() //Happens on every frame
     {
-        totalCurrentRepairHealth = totalCurrentHealth + totalRepairCompensation;
+        Test(); //for testing
 
-        healthBar.value = totalCurrentHealth;
-        healthRepairBar.value = totalCurrentRepairHealth;
-        shieldBar.value = totalCurrentShieldHealth;
+        setValuesUpdate();
 
         hotKeyTimer += Time.deltaTime;
         HotKeyManagment();
@@ -135,6 +116,61 @@ public class mainCharacter : MonoBehaviour
         //if (hotKey4 == false) { hotKey4 = true; Debug.Log(hotKey4); shootingScript.archers = true; buttons.buttonImage4.color = buttons.colorButtonOnTrue; }
         //else if (hotKey4 == true) { hotKey4 = false; Debug.Log(hotKey4); shootingScript.archers = false; buttons.buttonImage4.color = buttons.colorButtonOnFalse; }
         //hotKeyTimer = 0;
+    }
+
+    void setValuesStart()
+    {
+        //Starting health = Current health
+        totalCurrentHealth = upgradeArmor.maxHealth;
+        healthBar.maxValue = upgradeArmor.maxHealth;
+        healthBar.minValue = 0;
+        healthBar.value = totalCurrentHealth;
+
+        //Starting shield health = Current shield health
+        totalCurrentShieldHealth = upgradeArmor.maxShieldHealth;
+        shieldBar.maxValue = upgradeArmor.maxShieldHealth;
+        shieldBar.minValue = 0;
+        shieldBar.value = totalCurrentShieldHealth;
+
+        //starting repair health = current repair health
+        maxRepairHealth = upgradeArmor.maxHealth;
+        healthRepairBar.maxValue = maxRepairHealth;
+        healthRepairBar.minValue = 0;
+        healthRepairBar.value = totalCurrentRepairHealth;
+        totalCurrentRepairHealth = maxRepairHealth;
+    }
+
+    void setValuesUpdate()
+    {
+        //Updating health = Current health
+        healthBar.maxValue = upgradeArmor.maxHealth;
+        healthBar.minValue = 0;
+        healthBar.value = totalCurrentHealth;
+
+        //Updating shield health = Current shield health
+        shieldBar.maxValue = upgradeArmor.maxShieldHealth;
+        shieldBar.minValue = 0;
+        shieldBar.value = totalCurrentShieldHealth;
+
+        //Updating repair health = current repair health
+        maxRepairHealth = upgradeArmor.maxHealth;
+        healthRepairBar.maxValue = maxRepairHealth;
+        healthRepairBar.minValue = 0;
+        healthRepairBar.value = totalCurrentRepairHealth;
+        totalCurrentRepairHealth = totalCurrentHealth + totalRepairCompensation;
+    }
+
+    void Test()
+    {
+
+        if ((Input.GetKeyDown(KeyCode.Alpha8)))
+        {
+            totalCurrentHealth = upgradeArmor.maxHealth;
+        }
+        if ((Input.GetKeyDown(KeyCode.Alpha9)))
+        {
+            totalCurrentShieldHealth = upgradeArmor.maxShieldHealth;
+        }
     }
 
     //public static void TakenDamageCalculation(float damageTaken)
