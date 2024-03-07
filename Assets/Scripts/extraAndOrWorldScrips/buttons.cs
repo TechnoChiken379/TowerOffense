@@ -28,10 +28,11 @@ public class buttons : MonoBehaviour
     public GameObject mainMenuPlay;
     public GameObject mainMenuCredits;
     public GameObject mainMenuSettings;
+    private Animator mainMenuAnimator;
 
     public static bool repairing = false;
 
-    private void Start()
+    void Start()
     {
         buttonImage1 = image1;
         buttonImage2 = image2;
@@ -46,6 +47,7 @@ public class buttons : MonoBehaviour
         mainMenuPlay.SetActive(false);
         mainMenuCredits.SetActive(false);
         mainMenuSettings.SetActive(false);
+        mainMenuAnimator = mainMenuImage.GetComponent<Animator>();
     }
 
     public void HotKey1Methode()
@@ -84,6 +86,7 @@ public class buttons : MonoBehaviour
 
     public void Settings()
     {
+        mainMenuAnimator.enabled = false;
         mainMenuImage.SetActive(false);
         mainMenuText.SetActive(false);
         mainMenuPlay.SetActive(false);
@@ -93,6 +96,7 @@ public class buttons : MonoBehaviour
 
     public void Play()
     {
+        mainMenuAnimator.enabled = false;
         mainMenuImage.SetActive(false);
         mainMenuText.SetActive(false);
         mainMenuPlay.SetActive(true);
@@ -102,6 +106,7 @@ public class buttons : MonoBehaviour
 
     public void Credits()
     {
+        mainMenuAnimator.enabled = false;
         mainMenuImage.SetActive(false);
         mainMenuText.SetActive(false);
         mainMenuPlay.SetActive(false);
@@ -111,6 +116,7 @@ public class buttons : MonoBehaviour
 
     public void GoBack()
     {
+        mainMenuAnimator.enabled = false;
         mainMenuImage.SetActive(true);
         mainMenuText.SetActive(false);
         mainMenuPlay.SetActive(false);
