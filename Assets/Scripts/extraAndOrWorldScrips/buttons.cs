@@ -25,6 +25,7 @@ public class buttons : MonoBehaviour
 
     public GameObject mainMenuImage;
     public GameObject mainMenuText;
+    public GameObject mainMenuTabList;
     public GameObject mainMenuPlay;
     public GameObject mainMenuCredits;
     public GameObject mainMenuSettings;
@@ -43,7 +44,8 @@ public class buttons : MonoBehaviour
         colorButtonOnFalse.a = 0.5f;
 
         mainMenuText.SetActive(true);
-        mainMenuImage.SetActive(false);
+        mainMenuImage.SetActive(true);
+        mainMenuTabList.SetActive(false);
         mainMenuPlay.SetActive(false);
         mainMenuCredits.SetActive(false);
         mainMenuSettings.SetActive(false);
@@ -80,15 +82,14 @@ public class buttons : MonoBehaviour
 
     public void MainMenuStart()
     {
-        mainMenuImage.SetActive(true);
         mainMenuText.SetActive(false);
+        mainMenuTabList.SetActive(true);
     }
 
     public void Settings()
     {
-        mainMenuAnimator.enabled = false;
-        mainMenuImage.SetActive(false);
-        mainMenuText.SetActive(false);
+        //mainMenuAnimator.enabled = false;
+        mainMenuTabList.SetActive(false);
         mainMenuPlay.SetActive(false);
         mainMenuCredits.SetActive(false);
         mainMenuSettings.SetActive(true);
@@ -96,9 +97,8 @@ public class buttons : MonoBehaviour
 
     public void Play()
     {
-        mainMenuAnimator.enabled = false;
-        mainMenuImage.SetActive(false);
-        mainMenuText.SetActive(false);
+        //mainMenuAnimator.enabled = false;
+        mainMenuTabList.SetActive(false);
         mainMenuPlay.SetActive(true);
         mainMenuCredits.SetActive(false);
         mainMenuSettings.SetActive(false);
@@ -106,9 +106,8 @@ public class buttons : MonoBehaviour
 
     public void Credits()
     {
-        mainMenuAnimator.enabled = false;
-        mainMenuImage.SetActive(false);
-        mainMenuText.SetActive(false);
+        //mainMenuAnimator.enabled = false;
+        mainMenuTabList.SetActive(false);
         mainMenuPlay.SetActive(false);
         mainMenuCredits.SetActive(true);
         mainMenuSettings.SetActive(false);
@@ -116,9 +115,8 @@ public class buttons : MonoBehaviour
 
     public void GoBack()
     {
-        mainMenuAnimator.enabled = false;
-        mainMenuImage.SetActive(true);
-        mainMenuText.SetActive(false);
+        //mainMenuAnimator.enabled = false;
+        mainMenuTabList.SetActive(true);
         mainMenuPlay.SetActive(false);
         mainMenuCredits.SetActive(false);
         mainMenuSettings.SetActive(false);
