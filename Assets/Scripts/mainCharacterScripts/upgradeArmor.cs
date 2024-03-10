@@ -25,28 +25,27 @@ public class upgradeArmor : MonoBehaviour
     public static bool selfRepairLightRepair = false;
 
     public static float repairCompensation = 0.25f; //how much you can repair of every single point of damage (x100 to get procent)
-    public static float repairTime = 2.5f; //the higher the faster
+    public static float repairTime = 0; //the higher the faster
+    public static float repairTimeBase = 2.5f;
     public static float resourceUsage = 0.1f;
 
-    // Start is called before the first frame update
     void Start()
     {
-        HealthStart();
-        ShieldStart();
-        SelfRepairStart();
+        HealthUpgrades();
+        ShieldUpgrades();
+        SelfRepairUpgrades();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        HealthStart();
-        ShieldStart();
-        SelfRepairStart();
+        HealthUpgrades();
+        ShieldUpgrades();
+        SelfRepairUpgrades();
 
         LevelUp(); //for testing
     }
-    #region start
-    void HealthStart()
+    #region Upgrades
+    void HealthUpgrades()
     {
         if (healthLevel == 1) 
         {
@@ -88,23 +87,23 @@ public class upgradeArmor : MonoBehaviour
         }
     }
 
-    void ShieldStart()
+    void ShieldUpgrades()
     {
         if (shieldLevel == 1)
         {
-            maxShieldHealth = 25f;
+            maxShieldHealth = 50f;
         }
         else if (shieldLevel == 2)
         {
-            maxShieldHealth = 50f;
+            maxShieldHealth = 100f;
         }
         else if (shieldLevel == 3)
         {
-            maxShieldHealth = 75f;
+            maxShieldHealth = 150f;
         }
         else if (shieldLevel == 4)
         {
-            maxShieldHealth = 100f;
+            maxShieldHealth = 200f;
 
             if (shieldHeavyArmor == true)
             {
@@ -117,7 +116,7 @@ public class upgradeArmor : MonoBehaviour
         }
         else if (shieldLevel == 5)
         {
-            maxShieldHealth = 125f;
+            maxShieldHealth = 250f;
 
             if (shieldHeavyArmor == true)
             {
@@ -130,27 +129,29 @@ public class upgradeArmor : MonoBehaviour
         }
     }
 
-    void SelfRepairStart()
+    void SelfRepairUpgrades()
     {
+        repairTimeBase = maxHealth * 0.025f;
+
         if (selfRepairLevel == 1)
         {
             repairCompensation = 0.20f;
-            repairTime = 2.5f;
+            repairTime = repairTimeBase * 1f;
         }
         else if (selfRepairLevel == 2)
         {
             repairCompensation = 0.25f;
-            repairTime = 4.375f;
+            repairTime = repairTimeBase * 1.75f;
         }
         else if (selfRepairLevel == 3)
         {
             repairCompensation = 0.30f;
-            repairTime = 6.25f;
+            repairTime = repairTimeBase * 2.5f;
         }
         else if (selfRepairLevel == 4)
         {
             repairCompensation = 0.35f;
-            repairTime = 8.125f;
+            repairTime = repairTimeBase * 3.25f;
 
             if (selfRepairHeavyRepair == true)
             {
@@ -164,7 +165,7 @@ public class upgradeArmor : MonoBehaviour
         else if (selfRepairLevel == 5)
         {
             repairCompensation = 0.40f;
-            repairTime = 10f;
+            repairTime = repairTimeBase * 4f;
 
             if (selfRepairHeavyRepair == true)
             {
@@ -178,26 +179,22 @@ public class upgradeArmor : MonoBehaviour
     }
     #endregion
 
-    #region update
-
-    #endregion
-
     void LevelUp()
     {
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             healthLevel++;
-            Debug.Log(healthLevel);
+            Debug.Log("Health lvl: " + healthLevel);
         }
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             shieldLevel++;
-            Debug.Log(shieldLevel);
+            Debug.Log("Shield lvl: " + shieldLevel);
         }
         if (Input.GetKeyDown(KeyCode.Alpha7))
         {
             selfRepairLevel++;
-            Debug.Log(selfRepairLevel);
+            Debug.Log("SelfRepair lvl: " + selfRepairLevel);
         }
     }
 }
