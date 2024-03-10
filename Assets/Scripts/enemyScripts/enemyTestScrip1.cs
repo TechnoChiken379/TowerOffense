@@ -96,7 +96,7 @@ public class enemyTestScrip1 : MonoBehaviour
         switch (state)
         {
             case "State.Idle": 
-                Debug.Log("State.Idle");
+                //Debug.Log("State.Idle");
                 break;
             case "State.attack":
                 Attack();
