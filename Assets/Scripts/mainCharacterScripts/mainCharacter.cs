@@ -220,21 +220,61 @@ public class mainCharacter : MonoBehaviour
 
     public static void TakenDamageCalculation(float damageTaken)
     {
-        if (mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2))
+        if (!upgradeArmor.shieldHeavyArmor && !upgradeArmor.shieldLightArmor) //no armor upgrades
         {
-            mainCharacter.totalCurrentShieldHealth -= (damageTaken / 2);
-            mainCharacter.totalCurrentHealth -= (damageTaken / 4);
+            if (mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2))
+            {
+                mainCharacter.totalCurrentShieldHealth -= (damageTaken / 2);
+                mainCharacter.totalCurrentHealth -= (damageTaken / 4);
+            }
+            else if (mainCharacter.totalCurrentShieldHealth > 0 && !(mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2)))
+            {
+                damageTaken -= mainCharacter.totalCurrentShieldHealth;
+                mainCharacter.totalCurrentShieldHealth = 0;
+                mainCharacter.totalCurrentHealth -= (damageTaken / 2);
+            }
+            else if (mainCharacter.totalCurrentShieldHealth == 0f)
+            {
+                mainCharacter.totalCurrentHealth -= damageTaken;
+            }
         }
-        else if (mainCharacter.totalCurrentShieldHealth > 0 && !(mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2)))
+        if (upgradeArmor.shieldHeavyArmor && !upgradeArmor.shieldLightArmor) //heavy armor upgrade
         {
-            damageTaken -= mainCharacter.totalCurrentShieldHealth;
-            mainCharacter.totalCurrentShieldHealth = 0;
-            mainCharacter.totalCurrentHealth -= (damageTaken / 2);
+            if (mainCharacter.totalCurrentShieldHealth >= damageTaken)
+            {
+                mainCharacter.totalCurrentShieldHealth -= damageTaken;
+            }
+            else if (mainCharacter.totalCurrentShieldHealth > 0 && !(mainCharacter.totalCurrentShieldHealth >= damageTaken))
+            {
+                damageTaken -= mainCharacter.totalCurrentShieldHealth;
+                mainCharacter.totalCurrentShieldHealth = 0;
+                mainCharacter.totalCurrentHealth -= damageTaken;
+            }
+            else if (mainCharacter.totalCurrentShieldHealth == 0f)
+            {
+                mainCharacter.totalCurrentHealth -= damageTaken;
+            }
         }
-        else if (mainCharacter.totalCurrentShieldHealth == 0f)
+        if (!upgradeArmor.shieldHeavyArmor && upgradeArmor.shieldLightArmor) //light armor upgrade
         {
-            mainCharacter.totalCurrentHealth -= damageTaken;
+            if (mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2))
+            {
+                mainCharacter.totalCurrentShieldHealth -= (damageTaken / 2);
+                mainCharacter.totalCurrentHealth -= (damageTaken / 4);
+            }
+            else if (mainCharacter.totalCurrentShieldHealth > 0 && !(mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2)))
+            {
+                damageTaken -= mainCharacter.totalCurrentShieldHealth;
+                mainCharacter.totalCurrentShieldHealth = 0;
+                mainCharacter.totalCurrentHealth -= (damageTaken / 2);
+            }
+            else if (mainCharacter.totalCurrentShieldHealth == 0f)
+            {
+                mainCharacter.totalCurrentHealth -= damageTaken;
+            }
         }
+
+
     }
 
     public static void DetermineTotalRepairValue(float damageTaken)
