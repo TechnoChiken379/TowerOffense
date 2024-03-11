@@ -46,10 +46,6 @@ public class buttons : MonoBehaviour
 
         mainMenuText.SetActive(true);
         mainMenuImage.SetActive(true);
-        //mainMenuTabList.SetActive(false);
-        //mainMenuPlay.SetActive(false);
-        //mainMenuCredits.SetActive(false);
-        //mainMenuSettings.SetActive(false);
     }
 
     public void HotKey1Methode()
