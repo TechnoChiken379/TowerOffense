@@ -56,6 +56,7 @@ public class enemyTestScrip1 : MonoBehaviour
     {
         distanceToPlayer = Vector2.Distance(transform.position, player.position);
         FindClosestEnemies(); //locate closest enemy
+        SpreadOut();
         StateConditions(); //check what should the enemy should want to do
         ExecuteConditions(); //try to do what the enemy should want to do
     }
@@ -64,13 +65,8 @@ public class enemyTestScrip1 : MonoBehaviour
     {
         if (distanceToPlayer <= engageDistance) { upgradeArmor.canRegenerating = false; upgradeArmor.leftCombat = 0f; };
 
-        if (closestEnemy != null && Vector3.Distance(closestEnemy.position, transform.position) < 1f)
+        if (distanceToPlayer <= engageDistance) //check if the enemy is within range of the player
         {
-            state = "State.SpreadOut";
-        }
-        else if (distanceToPlayer <= engageDistance) //check if the enemy is within range of the player
-        {
-
             if (distanceToPlayer >= closeEnough) //move to the player if far away
             {
                 state = "State.Move";
@@ -99,7 +95,6 @@ public class enemyTestScrip1 : MonoBehaviour
         switch (state)
         {
             case "State.Idle": 
-                //Debug.Log("State.Idle");
                 //do nothing
                 break;
             case "State.attack":
@@ -110,9 +105,6 @@ public class enemyTestScrip1 : MonoBehaviour
                 break;
             case "State.Retreat":
                 Retreat();
-                break;
-            case "State.SpreadOut":
-                SpreadOut();
                 break;
             default: 
                 
@@ -138,10 +130,10 @@ public class enemyTestScrip1 : MonoBehaviour
     }
     public void SpreadOut()
     {
-        timer += Time.deltaTime;
-        if (timer >= moveTime && closestEnemy != null)
+        if (closestEnemy != null && Vector3.Distance(closestEnemy.position, transform.position) < 1f)
         {
-            transform.Translate((closestEnemy.position - transform.position).normalized * Time.deltaTime * -speed);
+            Vector3 directionToEnemy = (transform.position - closestEnemy.position).normalized;
+            transform.Translate(directionToEnemy * Time.deltaTime * speed);
         }
     }
 
