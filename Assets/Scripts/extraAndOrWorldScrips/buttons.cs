@@ -46,10 +46,10 @@ public class buttons : MonoBehaviour
 
         mainMenuText.SetActive(true);
         mainMenuImage.SetActive(true);
-        mainMenuTabList.SetActive(false);
-        mainMenuPlay.SetActive(false);
-        mainMenuCredits.SetActive(false);
-        mainMenuSettings.SetActive(false);
+        //mainMenuTabList.SetActive(false);
+        //mainMenuPlay.SetActive(false);
+        //mainMenuCredits.SetActive(false);
+        //mainMenuSettings.SetActive(false);
     }
 
     public void HotKey1Methode()
@@ -80,13 +80,7 @@ public class buttons : MonoBehaviour
         //mainCharacter.hotKeyTimer = 0;
     }
 
-    //public void MainMenuStart()
-    //{
-    //    mainMenuText.SetActive(false);
-    //    mainMenuTabList.SetActive(true);
-    //}
-
-    public void MainMenuStart() { mainMenuAnimation.SetBool("MainMenuStart", true); }
+    public void MainMenuStart() { mainMenuAnimation.SetBool("MainMenuStart", true); mainMenuText.SetActive(false); mainMenuTabList.SetActive(true); }
     public void MainMenuGoBack() { mainMenuAnimation.SetBool("MainMenuGoBack", true); }
     public void Play() { mainMenuAnimation.SetBool("Play", true); }
     public void PlaySaves() { mainMenuAnimation.SetBool("PlaySaves", true); }
