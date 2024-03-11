@@ -34,6 +34,9 @@ public class upgradeArmor : MonoBehaviour
     public static float repairTimeBase = 2.5f;
     public static float resourceUsage = 0.1f;
 
+    public static bool moveWhileRepairing = false;
+    public static bool shootWhileRepairing = false;
+
     void Start()
     {
         HealthUpgrades();
@@ -181,11 +184,17 @@ public class upgradeArmor : MonoBehaviour
             {
                 repairCompensation = 0.525f;
                 repairTime = repairTimeBase * 3.25f;
-            }
+
+                moveWhileRepairing = false;
+                shootWhileRepairing = true;
+}
             if (selfRepairLightRepair == true)
             {
                 repairCompensation = 0.35f;
                 repairTime = repairTimeBase * 4.875f;
+
+                moveWhileRepairing = true;
+                shootWhileRepairing = false;
             }
         }
         else if (selfRepairLevel == 5)
@@ -197,11 +206,17 @@ public class upgradeArmor : MonoBehaviour
             {
                 repairCompensation = 0.60f;
                 repairTime = repairTimeBase * 4f;
+
+                moveWhileRepairing = false;
+                shootWhileRepairing = true;
             }
             if (selfRepairLightRepair == true)
             {
                 repairCompensation = 0.40f;
                 repairTime = repairTimeBase * 6f;
+
+                moveWhileRepairing = true;
+                shootWhileRepairing = false;
             }
         }
     }

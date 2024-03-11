@@ -67,7 +67,9 @@ public class mainCharacter : MonoBehaviour
 
     void Movement() //Movement Script
     {
-        if (!repairing)
+        if ((!repairing && !upgradeArmor.moveWhileRepairing) || 
+            (!repairing && upgradeArmor.moveWhileRepairing) || 
+            (repairing && upgradeArmor.moveWhileRepairing))
         {
             moveX = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
             moveY = Input.GetAxis("Vertical") * speed * Time.deltaTime;

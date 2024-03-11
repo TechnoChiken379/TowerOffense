@@ -65,7 +65,7 @@ public class shootingScript : MonoBehaviour
 
     public void FireArchers() //Archers
     {
-        if (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && upgradeWeapons.bowLevel > 0)
+        if (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing /*&& !upgradeArmor.shootWhileRepairing*/ && upgradeWeapons.bowLevel > 0)
         {
             GameObject spawnedBullet = Instantiate(arrow, arrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
 
@@ -75,7 +75,7 @@ public class shootingScript : MonoBehaviour
 
     public void FireCannons() //Cannons
     {
-        if (Input.GetMouseButton(0) && timerCannons >= upgradeWeapons.canFireCannons && cannons == true && !mainCharacter.repairing && upgradeWeapons.culverinLevel > 0)
+        if (Input.GetMouseButton(0) && timerCannons >= upgradeWeapons.canFireCannons && cannons == true && !mainCharacter.repairing /*&& !upgradeArmor.shootWhileRepairing*/ && upgradeWeapons.culverinLevel > 0)
         {
             GameObject spawnedBullet = Instantiate(cannonRound, cannonRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
 
@@ -85,7 +85,7 @@ public class shootingScript : MonoBehaviour
 
     public void FireCatapult() //Balista
     {
-        if (Input.GetMouseButton(0) && timerCatapult >= upgradeWeapons.canFireCatapult && catapult == true && !mainCharacter.repairing && upgradeWeapons.onagerLevel > 0)
+        if (Input.GetMouseButton(0) && timerCatapult >= upgradeWeapons.canFireCatapult && catapult == true && !mainCharacter.repairing /*&& !upgradeArmor.shootWhileRepairing*/ && upgradeWeapons.onagerLevel > 0)
         {
             GameObject spawnedBullet = Instantiate(catapultPayload, catapultRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
 
