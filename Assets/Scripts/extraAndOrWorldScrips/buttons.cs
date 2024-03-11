@@ -32,9 +32,7 @@ public class buttons : MonoBehaviour
 
     public static bool repairing = false;
 
-    public Animator playAnimation;
-    public Animator settingsAnimation;
-    public Animator creditsAnimation;
+    public Animator mainMenuAnimation;
 
     void Start()
     {
@@ -82,29 +80,21 @@ public class buttons : MonoBehaviour
         //mainCharacter.hotKeyTimer = 0;
     }
 
-    public void MainMenuStart()
-    {
-        mainMenuText.SetActive(false);
-        mainMenuTabList.SetActive(true);
-    }
+    //public void MainMenuStart()
+    //{
+    //    mainMenuText.SetActive(false);
+    //    mainMenuTabList.SetActive(true);
+    //}
 
-    public void Settings()
-    {
-      
-    }
-
-    public void Play()
-    {
-        playAnimation.SetBool("Play", true);
-    }
-
-    public void Credits()
-    {
-
-    }
-
-    public void GoBack()
-    {
-       
-    }
+    public void MainMenuStart() { mainMenuAnimation.SetBool("MainMenuStart", true); }
+    public void MainMenuGoBack() { mainMenuAnimation.SetBool("MainMenuGoBack", true); }
+    public void Play() { mainMenuAnimation.SetBool("Play", true); }
+    public void PlaySaves() { mainMenuAnimation.SetBool("PlaySaves", true); }
+    public void SavesGoBack() { mainMenuAnimation.SetBool("SavesGoBack", true); }
+    public void Settings() { mainMenuAnimation.SetBool("Settings", true); }
+    public void SettingsAudio() { mainMenuAnimation.SetBool("SettingsAudio", true); }
+    public void AudioGoBack() { mainMenuAnimation.SetBool("AudioGoBack", true); }
+    public void SettingsKeyBinds() { mainMenuAnimation.SetBool("SettingsKeyBinds", true); }
+    public void KeyBindsGoBack() { mainMenuAnimation.SetBool("KeyBindsGoBack", true); }
+    public void Credits() { mainMenuAnimation.SetBool("Credits", true); }
 }
