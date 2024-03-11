@@ -20,14 +20,14 @@ public class upgradeArmor : MonoBehaviour
     //armor
     public static int shieldLevel = 0;
     public static bool shieldHeavyArmor = false;
-    public static bool shieldLightArmor = false;
+    public static bool shieldLightArmor = true;
 
     public static float maxShieldHealth = 0f;
 
     //self repair
     public static int selfRepairLevel = 0;
     public static bool selfRepairHeavyRepair = false;
-    public static bool selfRepairLightRepair = false;
+    public static bool selfRepairLightRepair = true;
 
     public static float repairCompensation = 0.2f; //how much you can repair of every single point of damage (x100 to get procent)
     public static float repairTime = 0; //the higher the faster
@@ -125,28 +125,28 @@ public class upgradeArmor : MonoBehaviour
         }
         else if (shieldLevel == 4)
         {
-            maxShieldHealth = 200f;
+            //maxShieldHealth = 200f;
 
             if (shieldHeavyArmor == true)
             {
-
+                maxShieldHealth = 200f;
             }
             if (shieldLightArmor == true)
             {
-
+                maxShieldHealth = 300f;
             }
         }
         else if (shieldLevel == 5)
         {
-            maxShieldHealth = 250f;
+            //maxShieldHealth = 250f;
 
             if (shieldHeavyArmor == true)
             {
-
+                maxShieldHealth = 250f;
             }
             if (shieldLightArmor == true)
             {
-
+                maxShieldHealth = 375f;
             }
         }
     }
@@ -174,30 +174,34 @@ public class upgradeArmor : MonoBehaviour
         }
         else if (selfRepairLevel == 4)
         {
-            repairCompensation = 0.35f;
-            repairTime = repairTimeBase * 3.25f;
+            //repairCompensation = 0.35f;
+            //repairTime = repairTimeBase * 3.25f;
 
             if (selfRepairHeavyRepair == true)
             {
-
+                repairCompensation = 0.525f;
+                repairTime = repairTimeBase * 3.25f;
             }
             if (selfRepairLightRepair == true)
             {
-
+                repairCompensation = 0.35f;
+                repairTime = repairTimeBase * 4.875f;
             }
         }
         else if (selfRepairLevel == 5)
         {
-            repairCompensation = 0.40f;
-            repairTime = repairTimeBase * 4f;
+            //repairCompensation = 0.40f;
+            //repairTime = repairTimeBase * 4f;
 
             if (selfRepairHeavyRepair == true)
             {
-
+                repairCompensation = 0.60f;
+                repairTime = repairTimeBase * 4f;
             }
             if (selfRepairLightRepair == true)
             {
-
+                repairCompensation = 0.40f;
+                repairTime = repairTimeBase * 6f;
             }
         }
     }
