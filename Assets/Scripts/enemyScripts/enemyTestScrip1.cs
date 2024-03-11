@@ -14,7 +14,7 @@ public class enemyTestScrip1 : MonoBehaviour
     private Transform player;
     public float distanceToPlayer;
 
-    private float speed = 3f; //movement speed
+    private float speed = 3.5f; //movement speed
 
     private float closeEnough = 4f; //how close does the enemy want to get
     private float toClose = 2f; //how far does the enemy want to stay away from player
@@ -61,6 +61,8 @@ public class enemyTestScrip1 : MonoBehaviour
 
     public void StateConditions()
     {
+        if (distanceToPlayer <= engageDistance) { upgradeArmor.canRegenerating = false; upgradeArmor.leftCombat = 0f; };
+
         if (closestEnemy != null && Vector3.Distance(closestEnemy.position, transform.position) < 1f)
         {
             state = "State.SpreadOut";
@@ -97,6 +99,7 @@ public class enemyTestScrip1 : MonoBehaviour
         {
             case "State.Idle": 
                 //Debug.Log("State.Idle");
+                //do nothing
                 break;
             case "State.attack":
                 Attack();
