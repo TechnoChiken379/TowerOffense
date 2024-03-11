@@ -12,7 +12,7 @@ public class enemyProjectileTestScript1 : MonoBehaviour
     private GameObject projectileSpawn;
     private GameObject targetSpawn;
 
-    private float speed = 5f;
+    private float speed = 7f;
     private float heightNum = 0.5f;
     public Vector3 movePosition;
 

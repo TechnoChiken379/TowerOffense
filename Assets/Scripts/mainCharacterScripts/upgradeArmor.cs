@@ -99,7 +99,7 @@ public class upgradeArmor : MonoBehaviour
                 maxHealth = 250f;
                 if (canRegenerating && leftCombat >= startRegenerating)
                 {
-                    mainCharacter.totalCurrentHealth = Mathf.MoveTowards(mainCharacter.totalCurrentHealth, maxHealth, regeneratingTime * Time.deltaTime);
+                    mainCharacter.totalCurrentHealth = Mathf.MoveTowards(mainCharacter.totalCurrentHealth, maxHealth, regeneratingTime * 2 * Time.deltaTime);
                 }
                 canRegenerating = true;
             }

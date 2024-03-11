@@ -16,7 +16,8 @@ public class enemyTestScrip1 : MonoBehaviour
 
     private float speed = 3.5f; //movement speed
 
-    private float closeEnough = 4f; //how close does the enemy want to get
+    private float closeEnough = 5f; //how close does the enemy want to get
+    private float optimalDistance = 3f;
     private float toClose = 2f; //how far does the enemy want to stay away from player
 
     private float timer = 0f; //timer to keep track of time before moving
@@ -173,6 +174,14 @@ public class enemyTestScrip1 : MonoBehaviour
     }
     public void Attack()
     {
+        if (distanceToPlayer > optimalDistance)
+        {
+            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * (speed * 0.5f));
+        }
+        if (distanceToPlayer < optimalDistance)
+        {
+            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * -(speed * 0.5f));
+        }
         if (attackTimer >= canAttack)
         {
             GameObject enemySpawnedBullet = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
