@@ -1751,8 +1751,7 @@ MonoBehaviour:
   mainMenuPlay: {fileID: 855511939}
   mainMenuCredits: {fileID: 1328654100}
   mainMenuSettings: {fileID: 1325783072}
-  PlaySettingsCredits: {fileID: 1291498177}
-  playAnimation: {fileID: 0}
+  playAnimation: {fileID: 1291498177}
   settingsAnimation: {fileID: 0}
   creditsAnimation: {fileID: 0}
 --- !u!1 &1042890601

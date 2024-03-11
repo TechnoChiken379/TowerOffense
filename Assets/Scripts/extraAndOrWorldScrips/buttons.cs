@@ -30,12 +30,11 @@ public class buttons : MonoBehaviour
     public GameObject mainMenuCredits;
     public GameObject mainMenuSettings;
 
-    public Animator PlaySettingsCredits;
+    public static bool repairing = false;
+
     public Animator playAnimation;
     public Animator settingsAnimation;
     public Animator creditsAnimation;
-
-    public static bool repairing = false;
 
     void Start()
     {
@@ -53,7 +52,6 @@ public class buttons : MonoBehaviour
         mainMenuPlay.SetActive(false);
         mainMenuCredits.SetActive(false);
         mainMenuSettings.SetActive(false);
-        PlaySettingsCredits.enabled = false;
     }
 
     public void HotKey1Methode()
@@ -86,54 +84,27 @@ public class buttons : MonoBehaviour
 
     public void MainMenuStart()
     {
-        PlaySettingsCredits.enabled = true;
         mainMenuText.SetActive(false);
         mainMenuTabList.SetActive(true);
     }
 
     public void Settings()
     {
-        //mainMenuAnimator.enabled = false;
-        //mainMenuTabList.SetActive(false);
-        //mainMenuPlay.SetActive(false);
-        //mainMenuCredits.SetActive(false);
-        //mainMenuSettings.SetActive(true);
-        PlaySettingsCredits.enabled = false;
-        settingsAnimation.enabled = true;
+      
     }
 
     public void Play()
     {
-        //mainMenuAnimator.enabled = false;
-        //mainMenuTabList.SetActive(false);
-        //mainMenuPlay.SetActive(true);
-        //mainMenuCredits.SetActive(false);
-        //mainMenuSettings.SetActive(false);
-        PlaySettingsCredits.enabled = false;
-        playAnimation.enabled = true;
+        playAnimation.SetBool("Play", true);
     }
 
     public void Credits()
     {
-        //mainMenuAnimator.enabled = false;
-        //mainMenuTabList.SetActive(false);
-        //mainMenuPlay.SetActive(false);
-        //mainMenuCredits.SetActive(true);
-        //mainMenuSettings.SetActive(false);
-        PlaySettingsCredits.enabled = false;
-        creditsAnimation.enabled = true;
+
     }
 
     public void GoBack()
     {
-        //mainMenuAnimator.enabled = false;
-        //mainMenuTabList.SetActive(true);
-        //mainMenuPlay.SetActive(false);
-        //mainMenuCredits.SetActive(false);
-        //mainMenuSettings.SetActive(false);
-        PlaySettingsCredits.enabled = true;
-        playAnimation.enabled = false;
-        settingsAnimation.enabled = false;
-        creditsAnimation.enabled = false;
+       
     }
 }
