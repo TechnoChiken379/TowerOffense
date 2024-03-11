@@ -2215,9 +2215,14 @@ MonoBehaviour:
   image4: {fileID: 2085461336}
   mainMenuImage: {fileID: 0}
   mainMenuText: {fileID: 0}
+  mainMenuTabList: {fileID: 0}
   mainMenuPlay: {fileID: 0}
   mainMenuCredits: {fileID: 0}
   mainMenuSettings: {fileID: 0}
+  PlaySettingsCredits: {fileID: 0}
+  playAnimation: {fileID: 0}
+  settingsAnimation: {fileID: 0}
+  creditsAnimation: {fileID: 0}
 --- !u!1 &915460191
 GameObject:
   m_ObjectHideFlags: 0

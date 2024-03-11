@@ -56,22 +56,22 @@ public class upgradeWeapons : MonoBehaviour
     #region Upgrades
     void ArchersUpgrades()
     {
-        if (bowLevel == 1)
+        if (bowLevel == 1) //8.333 dps
         {
             canFireArchers = 0.6f;
             damageAmountArrows = 5f;
         }
-        else if (bowLevel == 2)
+        else if (bowLevel == 2) //20 dps (+140% dps)
         {
             canFireArchers = 0.5f;
             damageAmountArrows = 5f;
         }
-        else if (bowLevel == 3)
+        else if (bowLevel == 3) //37.5 dps (+87.5% dps)
         {
             canFireArchers = 0.4f;
             damageAmountArrows = 5f;
         }
-        else if (bowLevel == 4)
+        else if (bowLevel == 4) //66,667 dps (+77.778% dps)
         {
             canFireArchers = 0.3f;
             damageAmountArrows = 5f;
@@ -85,7 +85,7 @@ public class upgradeWeapons : MonoBehaviour
 
             }
         }
-        else if (bowLevel == 5)
+        else if (bowLevel == 5) //125 dps (+87.5 dps)
         {
             canFireArchers = 0.2f;
             damageAmountArrows = 5f;
