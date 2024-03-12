@@ -211,7 +211,6 @@ public class mainCharacter : MonoBehaviour
             totalCurrentHealth = Mathf.MoveTowards(totalCurrentHealth, totalCurrentHealth + totalRepairCompensation, upgradeArmor.repairTime * Time.deltaTime);
             totalRepairCompensation = Mathf.MoveTowards(totalRepairCompensation, 0f, upgradeArmor.repairTime * Time.deltaTime);
         } else { repairing = false; }
-        Debug.Log(totalRepairCompensation);
 
         if (totalCurrentHealth + totalRepairCompensation > upgradeArmor.maxHealth && totalRepairCompensation > 0f) 
         {
