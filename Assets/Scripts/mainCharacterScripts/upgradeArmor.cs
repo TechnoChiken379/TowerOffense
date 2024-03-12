@@ -26,8 +26,8 @@ public class upgradeArmor : MonoBehaviour
 
     //self repair
     public static int selfRepairLevel = 0;
-    public static bool selfRepairHeavyRepair = false;
-    public static bool selfRepairLightRepair = true;
+    public static bool selfRepairHeavyRepair = true;
+    public static bool selfRepairLightRepair = false;
 
     public static float repairCompensation = 0.2f; //how much you can repair of every single point of damage (x100 to get procent)
     public static float repairTime = 0; //the higher the faster
@@ -185,16 +185,16 @@ public class upgradeArmor : MonoBehaviour
                 repairCompensation = 0.525f;
                 repairTime = repairTimeBase * 3.25f;
 
-                moveWhileRepairing = false;
-                shootWhileRepairing = true;
+                //moveWhileRepairing = false;
+                //shootWhileRepairing = true;
 }
             if (selfRepairLightRepair == true)
             {
                 repairCompensation = 0.35f;
                 repairTime = repairTimeBase * 4.875f;
 
-                moveWhileRepairing = true;
-                shootWhileRepairing = false;
+                //moveWhileRepairing = true;
+                //shootWhileRepairing = false;
             }
         }
         else if (selfRepairLevel == 5)
