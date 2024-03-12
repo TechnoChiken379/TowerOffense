@@ -177,6 +177,12 @@ public class enemyTestScrip1 : MonoBehaviour
         if (attackTimer >= canAttack)
         {
             GameObject enemySpawnedBullet = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
+            enemyProjectileTestScript1 projectileScript = enemySpawnedBullet.GetComponent<enemyProjectileTestScript1>();
+
+            if (projectileScript != null)
+            {
+                projectileScript.SetEnemyScriptReference(this);
+            }
 
             attackTimer = 0f;
         }
@@ -189,8 +195,10 @@ public class enemyTestScrip1 : MonoBehaviour
         if (enemyTestHP <= 0)
         {
             GameObject enemyDroppedResources = Instantiate(deathDrop, deathDropPoint.position, Quaternion.identity);
+
             Destroy(gameObject);
         }
+        Debug.Log("enemy: " + damageAmount);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

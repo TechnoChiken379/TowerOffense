@@ -26,6 +26,13 @@ public class mainCharacter : MonoBehaviour
     public static float totalCurrentRepairHealth;
     public Slider healthRepairBar;
 
+    //damage Taken var's
+    public static float shieldDamageTakenVariable = 0.5f;
+    public static float HealthDamageTakenShieldUp = 0.25f;
+    public static float HealthDamageTakenShieldBrake = 0.5f;
+
+    private static float randomNumber;
+
     private GameObject mainCamera;
 
     //hotkeys
@@ -221,72 +228,58 @@ public class mainCharacter : MonoBehaviour
 
     public static void TakenDamageCalculation(float damageTaken)
     {
-        if (!upgradeArmor.shieldHeavyArmor && !upgradeArmor.shieldLightArmor) //no armor upgrades
+        damageTaken *= upgradeArmor.deflectDamageNotTaken;
+
+        if (upgradeArmor.ricochet)
         {
-            if (mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2))
+            if (damageTaken <= upgradeArmor.ricochetDamageLimit) 
             {
-                mainCharacter.totalCurrentShieldHealth -= (damageTaken / 2);
-                mainCharacter.totalCurrentHealth -= (damageTaken / 4);
-            }
-            else if (mainCharacter.totalCurrentShieldHealth > 0 && !(mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2)))
-            {
-                damageTaken -= mainCharacter.totalCurrentShieldHealth;
-                mainCharacter.totalCurrentShieldHealth = 0;
-                mainCharacter.totalCurrentHealth -= (damageTaken / 2);
-            }
-            else if (mainCharacter.totalCurrentShieldHealth == 0f)
-            {
-                mainCharacter.totalCurrentHealth -= damageTaken;
-            }
-        }
-        if (upgradeArmor.shieldHeavyArmor && !upgradeArmor.shieldLightArmor) //heavy armor upgrade
-        {
-            if (mainCharacter.totalCurrentShieldHealth >= damageTaken)
-            {
-                mainCharacter.totalCurrentShieldHealth -= damageTaken;
-            }
-            else if (mainCharacter.totalCurrentShieldHealth > 0 && !(mainCharacter.totalCurrentShieldHealth >= damageTaken))
-            {
-                damageTaken -= mainCharacter.totalCurrentShieldHealth;
-                mainCharacter.totalCurrentShieldHealth = 0;
-                mainCharacter.totalCurrentHealth -= damageTaken;
-            }
-            else if (mainCharacter.totalCurrentShieldHealth == 0f)
-            {
-                mainCharacter.totalCurrentHealth -= damageTaken;
-            }
-        }
-        if (!upgradeArmor.shieldHeavyArmor && upgradeArmor.shieldLightArmor) //light armor upgrade
-        {
-            if (mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2))
-            {
-                mainCharacter.totalCurrentShieldHealth -= (damageTaken / 2);
-                mainCharacter.totalCurrentHealth -= (damageTaken / 4);
-            }
-            else if (mainCharacter.totalCurrentShieldHealth > 0 && !(mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2)))
-            {
-                damageTaken -= mainCharacter.totalCurrentShieldHealth;
-                mainCharacter.totalCurrentShieldHealth = 0;
-                mainCharacter.totalCurrentHealth -= (damageTaken / 2);
-            }
-            else if (mainCharacter.totalCurrentShieldHealth == 0f)
-            {
-                mainCharacter.totalCurrentHealth -= damageTaken;
+                randomNumber = Random.Range(1, 101);
+                if (randomNumber <= upgradeArmor.ricochetchange)
+                {
+                    damageTaken = 0;
+                }
             }
         }
 
-
+        if (mainCharacter.totalCurrentShieldHealth >= (damageTaken * shieldDamageTakenVariable))
+            {
+                mainCharacter.totalCurrentShieldHealth -= (damageTaken * shieldDamageTakenVariable);
+                mainCharacter.totalCurrentHealth -= (damageTaken * HealthDamageTakenShieldUp);
+        }
+        else if (mainCharacter.totalCurrentShieldHealth > 0 && !(mainCharacter.totalCurrentShieldHealth >= (damageTaken * shieldDamageTakenVariable)))
+            {
+                damageTaken -= mainCharacter.totalCurrentShieldHealth;
+                mainCharacter.totalCurrentShieldHealth = 0;
+                mainCharacter.totalCurrentHealth -= (damageTaken * HealthDamageTakenShieldBrake);
+        }
+        else if (mainCharacter.totalCurrentShieldHealth == 0f)
+        {
+                mainCharacter.totalCurrentHealth -= damageTaken;
+        }
+        Debug.Log("player: " + damageTaken);
     }
 
     public static void DetermineTotalRepairValue(float damageTaken)
     {
-        if (mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2))
+        if (upgradeArmor.ricochet)
         {
-            totalRepairCompensation += (upgradeArmor.repairCompensation * damageTaken) / 4;
+            if (damageTaken <= upgradeArmor.ricochetDamageLimit)
+            {
+                if (randomNumber <= upgradeArmor.ricochetchange)
+                {
+                    damageTaken = 0;
+                }
+            }
         }
-        else if (mainCharacter.totalCurrentShieldHealth > 0 && !(mainCharacter.totalCurrentShieldHealth >= (damageTaken / 2)))
+
+        if (mainCharacter.totalCurrentShieldHealth >= (damageTaken * shieldDamageTakenVariable))
         {
-            totalRepairCompensation += (upgradeArmor.repairCompensation * damageTaken) / 4;
+            totalRepairCompensation += upgradeArmor.repairCompensation * damageTaken * HealthDamageTakenShieldUp;
+        }
+        else if (mainCharacter.totalCurrentShieldHealth > 0 && !(mainCharacter.totalCurrentShieldHealth >= (damageTaken * shieldDamageTakenVariable)))
+        {
+            totalRepairCompensation += upgradeArmor.repairCompensation * damageTaken * HealthDamageTakenShieldUp;
         }
         else if (mainCharacter.totalCurrentShieldHealth == 0f)
         {
