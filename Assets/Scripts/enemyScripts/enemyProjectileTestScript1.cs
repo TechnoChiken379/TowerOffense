@@ -30,6 +30,8 @@ public class enemyProjectileTestScript1 : MonoBehaviour
 
     public static float enemyArrowDamageAmount = 5;
 
+    private enemyTestScrip1 enemyScriptReference;
+
     private void Start()
     { 
         player = GameObject.FindGameObjectWithTag("mainCharacter");
@@ -108,6 +110,11 @@ public class enemyProjectileTestScript1 : MonoBehaviour
         }
     }
 
+    public void SetEnemyScriptReference(enemyTestScrip1 enemyScript)
+    {
+        enemyScriptReference = enemyScript;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("mainCharacter"))
@@ -116,6 +123,11 @@ public class enemyProjectileTestScript1 : MonoBehaviour
             mainCharacter.TakenDamageCalculation(enemyArrowDamageAmount);
             mainCharacter.DetermineTotalRepairValue(enemyArrowDamageAmount);
             Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
+
+            if (upgradeArmor.deflectDamage)
+            {
+                enemyScriptReference.DamageDealt(enemyArrowDamageAmount * (1f - upgradeArmor.deflectDamageNotTaken));
+            }
         }
     }
 }

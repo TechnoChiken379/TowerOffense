@@ -7,8 +7,8 @@ public class upgradeArmor : MonoBehaviour
     //upgrade armor
     //health
     public static int healthLevel = 1;
-    public static bool healthHeavyTank = false;
-    public static bool healthLightTank = true;
+    public static bool healthHeavyTank = true;
+    public static bool healthLightTank = false;
 
     public static float maxHealth;
 
@@ -17,12 +17,20 @@ public class upgradeArmor : MonoBehaviour
     private float startRegenerating = 5f;
     private float regeneratingTime = 2.5f;
 
+    public static bool deflectDamage = false;
+    public static float deflectDamageNotTaken = 1f;
+
     //armor
     public static int shieldLevel = 0;
     public static bool shieldHeavyArmor = false;
     public static bool shieldLightArmor = true;
 
     public static float maxShieldHealth = 0f;
+
+    public static bool ricochet = false;
+    public static float ricochetDamageLimit = 10f;
+    public static int ricochetchange = 50; //chance to make a round ricochet in procent
+
 
     //self repair
     public static int selfRepairLevel = 0;
@@ -77,7 +85,9 @@ public class upgradeArmor : MonoBehaviour
 
             if (healthHeavyTank == true)
             {
-                maxHealth = 600f;
+                maxHealth = 400f;
+                deflectDamage = true;
+                deflectDamageNotTaken = 0.8f;
             }
             if (healthLightTank == true)
             {
@@ -95,7 +105,9 @@ public class upgradeArmor : MonoBehaviour
 
             if (healthHeavyTank == true)
             {
-                maxHealth = 750f;
+                maxHealth = 500f;
+                deflectDamage = true;
+                deflectDamageNotTaken = 0.8f;
             }
             if (healthLightTank == true)
             {
@@ -133,11 +145,22 @@ public class upgradeArmor : MonoBehaviour
             if (shieldHeavyArmor == true)
             {
                 maxShieldHealth = 200f;
+
+                if (mainCharacter.shieldDamageTakenVariable != 1f || mainCharacter.HealthDamageTakenShieldUp != 0f || mainCharacter.HealthDamageTakenShieldBrake != 1f)
+                {
+                    mainCharacter.shieldDamageTakenVariable = 1f;
+                    mainCharacter.HealthDamageTakenShieldUp = 0f;
+                    mainCharacter.HealthDamageTakenShieldBrake = 1f;
+                }
             }
             if (shieldLightArmor == true)
             {
                 maxShieldHealth = 300f;
-            }
+
+                ricochet = true;
+                ricochetDamageLimit = 10f;
+                ricochetchange = 40;
+}
         }
         else if (shieldLevel == 5)
         {
@@ -146,10 +169,21 @@ public class upgradeArmor : MonoBehaviour
             if (shieldHeavyArmor == true)
             {
                 maxShieldHealth = 250f;
+
+                if (mainCharacter.shieldDamageTakenVariable != 0.75f || mainCharacter.HealthDamageTakenShieldUp != 0f || mainCharacter.HealthDamageTakenShieldBrake != 1f) 
+                {
+                    mainCharacter.shieldDamageTakenVariable = 0.75f;
+                    mainCharacter.HealthDamageTakenShieldUp = 0f;
+                    mainCharacter.HealthDamageTakenShieldBrake = 0.75f;
+                }
             }
             if (shieldLightArmor == true)
             {
                 maxShieldHealth = 375f;
+
+                ricochet = true;
+                ricochetDamageLimit = 20f;
+                ricochetchange = 60;
             }
         }
     }
