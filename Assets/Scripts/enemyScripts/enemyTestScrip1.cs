@@ -198,7 +198,6 @@ public class enemyTestScrip1 : MonoBehaviour
 
             Destroy(gameObject);
         }
-        Debug.Log("enemy: " + damageAmount);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

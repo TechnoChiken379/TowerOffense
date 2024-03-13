@@ -7,8 +7,8 @@ public class upgradeArmor : MonoBehaviour
     //upgrade armor
     //health
     public static int healthLevel = 1;
-    public static bool healthHeavyTank = true;
-    public static bool healthLightTank = false;
+    public static bool healthHeavyTank = false;
+    public static bool healthLightTank = true;
 
     public static float maxHealth;
 
@@ -34,8 +34,8 @@ public class upgradeArmor : MonoBehaviour
 
     //self repair
     public static int selfRepairLevel = 0;
-    public static bool selfRepairHeavyRepair = true;
-    public static bool selfRepairLightRepair = false;
+    public static bool selfRepairHeavyRepair = false;
+    public static bool selfRepairLightRepair = true;
 
     public static float repairCompensation = 0.2f; //how much you can repair of every single point of damage (x100 to get procent)
     public static float repairTime = 0; //the higher the faster
@@ -155,7 +155,7 @@ public class upgradeArmor : MonoBehaviour
             }
             if (shieldLightArmor == true)
             {
-                maxShieldHealth = 300f;
+                maxShieldHealth = 240f;
 
                 ricochet = true;
                 ricochetDamageLimit = 10f;
@@ -179,7 +179,7 @@ public class upgradeArmor : MonoBehaviour
             }
             if (shieldLightArmor == true)
             {
-                maxShieldHealth = 375f;
+                maxShieldHealth = 300f;
 
                 ricochet = true;
                 ricochetDamageLimit = 20f;

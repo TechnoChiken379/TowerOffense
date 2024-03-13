@@ -257,7 +257,6 @@ public class mainCharacter : MonoBehaviour
         {
                 mainCharacter.totalCurrentHealth -= damageTaken;
         }
-        Debug.Log("player: " + damageTaken);
     }
 
     public static void DetermineTotalRepairValue(float damageTaken)
