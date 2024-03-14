@@ -86,7 +86,7 @@ public class upgradeWeapons : MonoBehaviour
             if (hwacha == true)
             {
                 canFireArchers = 0.1f;
-                damageAmountArrows = 12f;
+                damageAmountArrows = 8f;
                 arrowSpeed = 7f;
                 arrowHeightNum = 1f;
             }
@@ -99,7 +99,7 @@ public class upgradeWeapons : MonoBehaviour
             if (ballista == true)
             {
                 canFireArchers = 0.6f;
-                damageAmountArrows = 64f;
+                damageAmountArrows = 96f;
                 arrowSpeed = 10f;
                 arrowHeightNum = 0.5f;
             }
