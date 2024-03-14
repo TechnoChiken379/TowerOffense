@@ -27,10 +27,17 @@ public class projectile : MonoBehaviour
     private float angle;
     private float signedAngle;
 
-    //random target location
+    //arrow/ random target location
     private Vector2 targetLocation;
     float randomXLocation;
     float randomYLocation;
+
+    //cannon/
+    public GameObject falconetCannonGrapeShot;
+    
+
+    //catapult/
+
 
     //damage
     private float damageAmount = 0f;
@@ -59,7 +66,18 @@ public class projectile : MonoBehaviour
         
         transform.rotation = LookAtTarget(movePosition - transform.position);
         transform.position = movePosition;
-        if (Vector3.Distance(movePosition, targetSpawn.transform.position) < 0.1f) { Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn); }
+        if (Vector3.Distance(movePosition, targetSpawn.transform.position) < 0.1f) 
+        { 
+            if (gameObject.name == "falconetCannonRound(Clone)")
+            {
+                for (int i = 0; i < upgradeWeapons.grapeShotAmount; i++)
+                {
+                    GameObject spawnedBullet = Instantiate(falconetCannonGrapeShot, transform.position, Quaternion.identity);
+                    Destroy(spawnedBullet, 1);
+                }
+            }
+            Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
+        }
     }
 
     public static Quaternion LookAtTarget(Vector2 r)
@@ -146,7 +164,7 @@ public class projectile : MonoBehaviour
             speed = upgradeWeapons.arrowSpeed;
             heightNum = upgradeWeapons.arrowHeightNum;
         }
-        if (gameObject.name == "CannonRound(Clone)")
+        if (gameObject.name == "CannonRound(Clone)" || gameObject.name == "bombardCannonRound(Clone)" || gameObject.name == "falconetCannonRound(Clone)")
         {
             damageAmount = upgradeWeapons.damageAmountRound;
             speed = upgradeWeapons.roundSpeed;
@@ -166,6 +184,13 @@ public class projectile : MonoBehaviour
             enemyComponent.DamageDealt(damageAmount);
             if (gameObject.name != "ballistaArrow(Clone)")
             {
+                if (gameObject.name == "falconetCannonRound(Clone)")
+                {
+                    for (int i = 0; i < upgradeWeapons.grapeShotAmount; i++)
+                    {
+                        GameObject spawnedBullet = Instantiate(falconetCannonGrapeShot, transform.position, Quaternion.identity);
+                    }
+                }
                 Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
             }
         }

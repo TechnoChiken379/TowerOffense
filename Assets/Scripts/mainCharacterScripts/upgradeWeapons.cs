@@ -17,7 +17,7 @@ public class upgradeWeapons : MonoBehaviour
 
     //cannons
     public static int culverinLevel = 0;
-    public static bool bombard = false; //big, slow reload shot (explodes on inpact dealing massive damage to 1 target)
+    public static bool bombard = false; //?big, slow reload shot (explodes on inpact dealing massive damage to 1 target)
     public static bool falconet = true; //grape shot explode on inpact
 
     public static float canFireCannons = 2;
@@ -25,10 +25,17 @@ public class upgradeWeapons : MonoBehaviour
     public static float roundSpeed = 12.5f;
     public static float roundHeightNum = 0.5f;
 
+    //grape shot
+    public static int grapeShotAmount = 10;
+
+    public static float canFireCannonsGrapeShot = 2;
+    public static float damageAmountRoundGrapeShot = 5;
+    public static float roundSpeedGrapeShot = 7f;
+
     //catapult
     public static int onagerLevel = 0;
     public static bool trebuchet = false; //big ark (hard to hit) strong payload
-    public static bool mangonel = false; //fast reload 
+    public static bool mangonel = false; //?fast reload 
 
     public static float canFireCatapult = 3;
     public static float damageAmountPayload = 10;
