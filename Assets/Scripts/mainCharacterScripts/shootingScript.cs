@@ -65,7 +65,7 @@ public class shootingScript : MonoBehaviour
 
     public void FireArchers() //Archers
     {
-        if ((Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && upgradeWeapons.bowLevel > 0) ||
+        if ((Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing /*&& !upgradeWeapons.ballista*/ && upgradeWeapons.bowLevel > 0) ||
         (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && upgradeArmor.shootWhileRepairing && upgradeWeapons.bowLevel > 0) ||
         (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && mainCharacter.repairing && upgradeArmor.shootWhileRepairing && upgradeWeapons.bowLevel > 0))
         {
