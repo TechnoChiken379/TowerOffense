@@ -41,9 +41,9 @@ public class projectile : MonoBehaviour
         worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         calculateSpawnTarget();
+        determineDamageSpeedHeight();
         calculateAngle();
         determineSpeed();
-        determineDamageSpeedHeight();
     }
 
     void Update()
