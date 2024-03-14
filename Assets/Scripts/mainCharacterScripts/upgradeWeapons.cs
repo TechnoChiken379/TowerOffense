@@ -7,11 +7,13 @@ public class upgradeWeapons : MonoBehaviour
     //weapon upgrades
     //archers
     public static int bowLevel = 1;
-    public static bool ballista = false; //strong, slow reload shot (goes through enemies)
+    public static bool ballista = true; //strong, slow reload shot (goes through enemies)
     public static bool hwacha = false; //lots of arrows
 
     public static float canFireArchers = 0.2f;
     public static float damageAmountArrows = 1;
+    public static float arrowSpeed = 7.5f;
+    public static float arrowHeightNum = 1f;
 
     //cannons
     public static int culverinLevel = 0;
@@ -20,6 +22,8 @@ public class upgradeWeapons : MonoBehaviour
 
     public static float canFireCannons = 2;
     public static float damageAmountRound = 5;
+    public static float roundSpeed = 12.5f;
+    public static float roundHeightNum = 0.5f;
 
     //catapult
     public static int onagerLevel = 0;
@@ -28,6 +32,8 @@ public class upgradeWeapons : MonoBehaviour
 
     public static float canFireCatapult = 3;
     public static float damageAmountPayload = 10;
+    public static float payloadSpeed = 10f;
+    public static float payloadHeightNum = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -74,6 +80,8 @@ public class upgradeWeapons : MonoBehaviour
             {
                 //canFireArchers = 0.6f;
                 //damageAmountArrows = 10f;
+                arrowSpeed = 10f;
+                arrowHeightNum = 0.5f;
             }
             if (hwacha == true)
             {
