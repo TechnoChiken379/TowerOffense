@@ -53,6 +53,8 @@ public class DataPersistanceManager : MonoBehaviour
         {
             dataPersistancesObj.SaveData(ref gameData);
         }
+
+        Debug.Log("Saving wood" + gameData.woodAmount);
     }
 
     private void OnApplicationQuit()
