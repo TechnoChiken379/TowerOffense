@@ -204,7 +204,7 @@ public class enemyTestScrip1 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("mainCharacter"))
         {
-            resources.wood += 100;
+            resources.woodAmount += 100;
             resources.stone += 100;
             resources.steel += 100;
             resources.gold += 10;

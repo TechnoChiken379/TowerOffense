@@ -204,14 +204,14 @@ public class mainCharacter : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.F) 
             && totalRepairCompensation > 0f 
-            && resources.wood > 0f
+            && resources.woodAmount > 0f
             && resources.stone > 0f
             && resources.steel > 0f
             && upgradeArmor.selfRepairLevel > 0)
         {
             repairing = true;
 
-            resources.wood -= upgradeArmor.resourceUsage;
+            resources.woodAmount -= upgradeArmor.resourceUsage;
             resources.stone -= upgradeArmor.resourceUsage;
             resources.steel -= upgradeArmor.resourceUsage;
 

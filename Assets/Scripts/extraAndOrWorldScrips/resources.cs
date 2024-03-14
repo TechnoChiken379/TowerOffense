@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class resources : MonoBehaviour
+public class resources : MonoBehaviour, IDataPersistance
 {
     //var
-    public static float wood = 0;
+    public static float woodAmount = 0;
     public static float stone = 0;
     public static float steel = 0;
     public static float gold = 0;
@@ -26,10 +26,19 @@ public class resources : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    public void LoadData(GameData data)
+    {
+        woodAmount = data.woodAmount;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.woodAmount = woodAmount;
+    }
+
     void Update()
     {
-        showedWood = (int)Mathf.Round(wood);
+        showedWood = (int)Mathf.Round(woodAmount);
         showedStone = (int)Mathf.Round(stone);
         showedSteel = (int)Mathf.Round(steel);
         showedGold = (int)Mathf.Round(gold);

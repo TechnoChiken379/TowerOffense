@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class GameData
 {
-    public int woodAmount;
+    public float woodAmount;
     public int stoneAmount;
     public int steelAmount;
     public int goldAmount;
