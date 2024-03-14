@@ -27,6 +27,11 @@ public class projectile : MonoBehaviour
     private float angle;
     private float signedAngle;
 
+    //random target location
+    private Vector2 targetLocation;
+    float randomXLocation;
+    float randomYLocation;
+
     //damage
     private float damageAmount = 0f;
 
@@ -35,9 +40,7 @@ public class projectile : MonoBehaviour
         mousePosition = Input.mousePosition;
         worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-        projectileSpawn = Instantiate(playerWayPoint, transform.position, Quaternion.identity);
-        targetSpawn = Instantiate(playerWayPoint, worldMousePosition, Quaternion.identity);
-
+        calculateSpawnTarget();
         calculateAngle();
         determineSpeed();
         determineDamageSpeedHeight();
@@ -84,6 +87,26 @@ public class projectile : MonoBehaviour
         movePosition = new Vector3(nextX, baseY + height, transform.position.z);
     }
 
+    public void calculateSpawnTarget()
+    {
+        if (gameObject.name != "hwachaArrow(Clone)")
+        {
+            projectileSpawn = Instantiate(playerWayPoint, transform.position, Quaternion.identity);
+            targetSpawn = Instantiate(playerWayPoint, worldMousePosition, Quaternion.identity);
+        }
+        if (gameObject.name == "hwachaArrow(Clone)")
+        {
+            randomXLocation = Random.Range(-1.0f, 1.0f);
+            randomYLocation = Random.Range(-1.0f, 1.0f);
+
+            targetLocation.x = worldMousePosition.x + randomXLocation;
+            targetLocation.y = worldMousePosition.y + randomYLocation;
+
+            projectileSpawn = Instantiate(playerWayPoint, transform.position, Quaternion.identity);
+            targetSpawn = Instantiate(playerWayPoint, targetLocation, Quaternion.identity);
+        }
+    }
+
     public void calculateAngle()
     {
         if (projectileSpawn != null && targetSpawn != null)
@@ -106,7 +129,7 @@ public class projectile : MonoBehaviour
 
     public void determineSpeed()
     {
-        if (angle > 55 && angle < 70 || angle > 110 && angle < 125)
+        if ((angle > 55 && angle < 70) || (angle > 110 && angle < 125))
         {
             speed *= 0.5f;
         } else if (angle >= 70 && angle <= 110)
@@ -117,7 +140,7 @@ public class projectile : MonoBehaviour
 
     public void determineDamageSpeedHeight()
     {
-        if (gameObject.name == "Arrow(Clone)" || gameObject.name == "ballistaArrow(Clone)")
+        if (gameObject.name == "Arrow(Clone)" || gameObject.name == "ballistaArrow(Clone)" || gameObject.name == "hwachaArrow(Clone)")
         {
             damageAmount = upgradeWeapons.damageAmountArrows;
             speed = upgradeWeapons.arrowSpeed;
@@ -141,7 +164,7 @@ public class projectile : MonoBehaviour
         if (collision.gameObject.TryGetComponent<enemyTestScrip1>(out enemyTestScrip1 enemyComponent))
         {
             enemyComponent.DamageDealt(damageAmount);
-            if (!upgradeWeapons.ballista && gameObject.name == "Arrow(Clone)")
+            if (gameObject.name != "ballistaArrow(Clone)")
             {
                 Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
             }
