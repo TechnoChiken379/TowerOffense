@@ -108,7 +108,8 @@ public class buttons : MonoBehaviour
         mainMenuAnimation.SetBool("Settings", true); 
     }
     public void SettingsAudio() 
-    { 
+    {
+        mainMenuTabList.SetActive(false);
         mainMenuAnimation.SetBool("Settings-Audio", true); 
     }
     public void AudioGoBack() 
