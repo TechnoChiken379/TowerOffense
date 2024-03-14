@@ -48,6 +48,7 @@ public class mainCharacter : MonoBehaviour
     public static bool repairing = false;
     //private static float repairTime = 10f;
 
+    Animator deathScreen;
 
     void Start() //Happens on start
     {
@@ -70,6 +71,18 @@ public class mainCharacter : MonoBehaviour
 
         Repairing();
         Movement(); //Movement script
+    }
+
+    private void DeathManager()
+    {
+        if (totalCurrentHealth <= 0)
+        {
+            deathScreen.SetBool("Is Dead", true);
+        }
+        else
+        {
+            deathScreen.SetBool("Is Dead", false);
+        }
     }
 
     void Movement() //Movement Script
