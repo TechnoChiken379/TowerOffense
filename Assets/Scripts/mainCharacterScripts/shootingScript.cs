@@ -25,6 +25,11 @@ public class shootingScript : MonoBehaviour
     public GameObject ballistaArrow;
     public GameObject hwachaArrow;
 
+    public static int hwachaAmountBeforeReload = 50;
+    public static int hwachaArrowsShot = 0;
+    private float timerhwacha;
+    private float hwachaReloadTime = 5f;
+
     //cannons
     public GameObject cannonRound;
     public GameObject bombardCannonRound;
@@ -76,6 +81,7 @@ public class shootingScript : MonoBehaviour
 
     public void FireArchers() //Archers
     {
+        //bow
         if ((Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && !upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) ||
         (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && !upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) ||
         (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && mainCharacter.repairing && upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && !upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0))
@@ -84,6 +90,7 @@ public class shootingScript : MonoBehaviour
 
             timerArchers = 0f;
         }
+        //ballista
         if ((Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && upgradeWeapons.ballista && !upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) ||
         (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && upgradeArmor.shootWhileRepairing && upgradeWeapons.ballista && !upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) ||
         (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && mainCharacter.repairing && upgradeArmor.shootWhileRepairing && upgradeWeapons.ballista && !upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0))
@@ -92,21 +99,50 @@ public class shootingScript : MonoBehaviour
 
             timerArchers = 0f;
         }
-        //if ((Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) ||
-        //(Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) ||
-        //(Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && mainCharacter.repairing && upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0))
-        //{
-        //    GameObject spawnedBullet = Instantiate(arrow, arrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
+        //hwacha
+        if ((Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) && hwachaArrowsShot < hwachaAmountBeforeReload ||
+        (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) && hwachaArrowsShot < hwachaAmountBeforeReload ||
+        (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && mainCharacter.repairing && upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) && hwachaArrowsShot < hwachaAmountBeforeReload)
+        {
+            GameObject spawnedBullet = Instantiate(hwachaArrow, arrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
+            hwachaArrowsShot++;
 
-        //    timerArchers = 0f;
-        //}
+            timerhwacha = 0;
+            timerArchers = 0f;
+        } else
+        {
+            timerhwacha += Time.deltaTime;
+            if (timerhwacha >= hwachaReloadTime)
+            {
+                hwachaArrowsShot = 0;
+            }
+        }
     }
 
     public void FireCannons() //Cannons
     {
-        if ((Input.GetMouseButton(0) && timerCannons >= upgradeWeapons.canFireCannons && cannons == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && upgradeWeapons.culverinLevel > 0) ||
-        (Input.GetMouseButton(0) && timerCannons >= upgradeWeapons.canFireCannons && cannons == true && !mainCharacter.repairing && upgradeArmor.shootWhileRepairing && upgradeWeapons.culverinLevel > 0) ||
-        (Input.GetMouseButton(0) && timerCannons >= upgradeWeapons.canFireCannons && cannons == true && mainCharacter.repairing && upgradeArmor.shootWhileRepairing && upgradeWeapons.culverinLevel > 0))
+        //culverin
+        if ((Input.GetMouseButton(0) && timerCannons >= upgradeWeapons.canFireCannons && cannons == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && !upgradeWeapons.bombard && !upgradeWeapons.falconet && upgradeWeapons.culverinLevel > 0) ||
+        (Input.GetMouseButton(0) && timerCannons >= upgradeWeapons.canFireCannons && cannons == true && !mainCharacter.repairing && upgradeArmor.shootWhileRepairing && !upgradeWeapons.bombard && !upgradeWeapons.falconet && upgradeWeapons.culverinLevel > 0) ||
+        (Input.GetMouseButton(0) && timerCannons >= upgradeWeapons.canFireCannons && cannons == true && mainCharacter.repairing && upgradeArmor.shootWhileRepairing && !upgradeWeapons.bombard && !upgradeWeapons.falconet && upgradeWeapons.culverinLevel > 0))
+        {
+            GameObject spawnedBullet = Instantiate(cannonRound, cannonRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
+
+            timerCannons = 0f;
+        }
+        //bombard
+        if ((Input.GetMouseButton(0) && timerCannons >= upgradeWeapons.canFireCannons && cannons == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && upgradeWeapons.bombard && !upgradeWeapons.falconet && upgradeWeapons.culverinLevel > 0) ||
+        (Input.GetMouseButton(0) && timerCannons >= upgradeWeapons.canFireCannons && cannons == true && !mainCharacter.repairing && upgradeArmor.shootWhileRepairing && upgradeWeapons.bombard && !upgradeWeapons.falconet && upgradeWeapons.culverinLevel > 0) ||
+        (Input.GetMouseButton(0) && timerCannons >= upgradeWeapons.canFireCannons && cannons == true && mainCharacter.repairing && upgradeArmor.shootWhileRepairing && upgradeWeapons.bombard && !upgradeWeapons.falconet && upgradeWeapons.culverinLevel > 0))
+        {
+            GameObject spawnedBullet = Instantiate(cannonRound, cannonRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
+
+            timerCannons = 0f;
+        }
+        //falconet
+        if ((Input.GetMouseButton(0) && timerCannons >= upgradeWeapons.canFireCannons && cannons == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && !upgradeWeapons.bombard && upgradeWeapons.falconet && upgradeWeapons.culverinLevel > 0) ||
+        (Input.GetMouseButton(0) && timerCannons >= upgradeWeapons.canFireCannons && cannons == true && !mainCharacter.repairing && upgradeArmor.shootWhileRepairing && !upgradeWeapons.bombard && upgradeWeapons.falconet && upgradeWeapons.culverinLevel > 0) ||
+        (Input.GetMouseButton(0) && timerCannons >= upgradeWeapons.canFireCannons && cannons == true && mainCharacter.repairing && upgradeArmor.shootWhileRepairing && !upgradeWeapons.bombard && upgradeWeapons.falconet && upgradeWeapons.culverinLevel > 0))
         {
             GameObject spawnedBullet = Instantiate(cannonRound, cannonRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
 
@@ -114,11 +150,30 @@ public class shootingScript : MonoBehaviour
         }
     }
 
-    public void FireCatapult() //Balista
+    public void FireCatapult() //catapult
     {
-        if ((Input.GetMouseButton(0) && timerCatapult >= upgradeWeapons.canFireCatapult && catapult == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && upgradeWeapons.onagerLevel > 0) ||
-        (Input.GetMouseButton(0) && timerCatapult >= upgradeWeapons.canFireCatapult && catapult == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && upgradeWeapons.onagerLevel > 0) ||
-        (Input.GetMouseButton(0) && timerCatapult >= upgradeWeapons.canFireCatapult && catapult == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && upgradeWeapons.onagerLevel > 0))
+        //onager
+        if ((Input.GetMouseButton(0) && timerCatapult >= upgradeWeapons.canFireCatapult && catapult == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && !upgradeWeapons.trebuchet && !upgradeWeapons.mangonel && upgradeWeapons.onagerLevel > 0) ||
+        (Input.GetMouseButton(0) && timerCatapult >= upgradeWeapons.canFireCatapult && catapult == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && !upgradeWeapons.trebuchet && !upgradeWeapons.mangonel && upgradeWeapons.onagerLevel > 0) ||
+        (Input.GetMouseButton(0) && timerCatapult >= upgradeWeapons.canFireCatapult && catapult == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && !upgradeWeapons.trebuchet && !upgradeWeapons.mangonel && upgradeWeapons.onagerLevel > 0))
+        {
+            GameObject spawnedBullet = Instantiate(catapultPayload, catapultRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
+
+            timerCatapult = 0f;
+        }
+        //trebuchet
+        if ((Input.GetMouseButton(0) && timerCatapult >= upgradeWeapons.canFireCatapult && catapult == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && upgradeWeapons.trebuchet && !upgradeWeapons.mangonel && upgradeWeapons.onagerLevel > 0) ||
+        (Input.GetMouseButton(0) && timerCatapult >= upgradeWeapons.canFireCatapult && catapult == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && upgradeWeapons.trebuchet && !upgradeWeapons.mangonel && upgradeWeapons.onagerLevel > 0) ||
+        (Input.GetMouseButton(0) && timerCatapult >= upgradeWeapons.canFireCatapult && catapult == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && upgradeWeapons.trebuchet && !upgradeWeapons.mangonel && upgradeWeapons.onagerLevel > 0))
+        {
+            GameObject spawnedBullet = Instantiate(catapultPayload, catapultRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
+
+            timerCatapult = 0f;
+        }
+        //mangonel
+        if ((Input.GetMouseButton(0) && timerCatapult >= upgradeWeapons.canFireCatapult && catapult == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && !upgradeWeapons.trebuchet && upgradeWeapons.mangonel && upgradeWeapons.onagerLevel > 0) ||
+        (Input.GetMouseButton(0) && timerCatapult >= upgradeWeapons.canFireCatapult && catapult == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && !upgradeWeapons.trebuchet && upgradeWeapons.mangonel && upgradeWeapons.onagerLevel > 0) ||
+        (Input.GetMouseButton(0) && timerCatapult >= upgradeWeapons.canFireCatapult && catapult == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && !upgradeWeapons.trebuchet && upgradeWeapons.mangonel && upgradeWeapons.onagerLevel > 0))
         {
             GameObject spawnedBullet = Instantiate(catapultPayload, catapultRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
 

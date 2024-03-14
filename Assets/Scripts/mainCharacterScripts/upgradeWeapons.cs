@@ -7,8 +7,8 @@ public class upgradeWeapons : MonoBehaviour
     //weapon upgrades
     //archers
     public static int bowLevel = 1;
-    public static bool ballista = true; //strong, slow reload shot (goes through enemies)
-    public static bool hwacha = false; //lots of arrows
+    public static bool ballista = false; //strong, slow reload shot (goes through enemies)
+    public static bool hwacha = true; //lots of arrows
 
     public static float canFireArchers = 0.2f;
     public static float damageAmountArrows = 1;
@@ -56,50 +56,59 @@ public class upgradeWeapons : MonoBehaviour
     #region Upgrades
     void ArchersUpgrades()
     {
-        if (bowLevel == 1) //8.333 dps
+        if (bowLevel == 1) //10 dps
         {
             canFireArchers = 0.6f;
             damageAmountArrows = 6f;
         }
-        else if (bowLevel == 2) //20 dps (+140% dps)
+        else if (bowLevel == 2) //20 dps
         {
             canFireArchers = 0.5f;
             damageAmountArrows = 10f;
         }
-        else if (bowLevel == 3) //37.5 dps (+87.5% dps)
+        else if (bowLevel == 3) //40 dps
         {
             canFireArchers = 0.4f;
             damageAmountArrows = 16f;
         }
-        else if (bowLevel == 4) //66,667 dps (+77.778% dps)
+        else if (bowLevel == 4) //80 dps
         {
-            canFireArchers = 0.3f;
-            damageAmountArrows = 24f;
+            //canFireArchers = 0.3f;
+            //damageAmountArrows = 24f;
 
             if (ballista == true)
             {
-                //canFireArchers = 0.6f;
-                //damageAmountArrows = 10f;
+                canFireArchers = 0.6f;
+                damageAmountArrows = 48f;
                 arrowSpeed = 10f;
                 arrowHeightNum = 0.5f;
             }
             if (hwacha == true)
             {
-
+                canFireArchers = 0.1f;
+                damageAmountArrows = 12f;
+                arrowSpeed = 7f;
+                arrowHeightNum = 1f;
             }
         }
-        else if (bowLevel == 5) //125 dps (+87.5 dps)
+        else if (bowLevel == 5) //160 dps
         {
-            canFireArchers = 0.2f;
-            damageAmountArrows = 32f;
+            //canFireArchers = 0.2f;
+            //damageAmountArrows = 32f;
 
             if (ballista == true)
             {
-
+                canFireArchers = 0.6f;
+                damageAmountArrows = 64f;
+                arrowSpeed = 10f;
+                arrowHeightNum = 0.5f;
             }
             if (hwacha == true)
             {
-
+                canFireArchers = 0.1f;
+                damageAmountArrows = 16f;
+                arrowSpeed = 7f;
+                arrowHeightNum = 1f;
             }
         }
     }
@@ -123,8 +132,8 @@ public class upgradeWeapons : MonoBehaviour
         }
         else if (culverinLevel == 4)
         {
-            canFireCannons = 1.5f;
-            damageAmountRound = 120f;
+            //canFireCannons = 1.5f;
+            //damageAmountRound = 120f;
 
             if (bombard == true)
             {
@@ -137,8 +146,8 @@ public class upgradeWeapons : MonoBehaviour
         }
         else if (culverinLevel == 5)
         {
-            canFireCannons = 1f;
-            damageAmountRound = 160f;
+            //canFireCannons = 1f;
+            //damageAmountRound = 160f;
 
             if (bombard == true)
             {
@@ -170,8 +179,8 @@ public class upgradeWeapons : MonoBehaviour
         }
         else if (onagerLevel == 4)
         {
-            canFireCatapult = 2.5f;
-            damageAmountPayload = 200f;
+            //canFireCatapult = 2.5f;
+            //damageAmountPayload = 200f;
 
             if (trebuchet == true)
             {
@@ -184,8 +193,8 @@ public class upgradeWeapons : MonoBehaviour
         }
         else if (onagerLevel == 5)
         {
-            canFireCatapult = 2;
-            damageAmountPayload = 320f;
+            //canFireCatapult = 2;
+            //damageAmountPayload = 320f;
 
             if (trebuchet == true)
             {
