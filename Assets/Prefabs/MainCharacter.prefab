@@ -265,8 +265,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationCheck: 0
   arrow: {fileID: 3069797098432816370, guid: 9662a36e826451e4585a8545b81f2eb8, type: 3}
+  ballistaArrow: {fileID: 3069797098432816370, guid: 773829138a653b849afa84011f6b753a, type: 3}
+  hwachaArrow: {fileID: 0}
   cannonRound: {fileID: 6230678805625410844, guid: 7f47ac0aa750b92439127fe7384ed23b, type: 3}
+  bombardCannonRound: {fileID: 0}
+  falconetCannonRound: {fileID: 0}
   catapultPayload: {fileID: 3330178691903697465, guid: 3b04532a7c39aae49abe09572aff4ecc, type: 3}
+  trebuchetCatapultPayload: {fileID: 0}
+  mangonelCatapultPayload: {fileID: 0}
   arrowSpawnPoint: {fileID: 8582599497340703648}
   cannonRoundSpawnPoint: {fileID: 6299696027451699254}
   catapultRoundSpawnPoint: {fileID: 2144276926313897998}

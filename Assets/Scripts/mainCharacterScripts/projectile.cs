@@ -14,8 +14,8 @@ public class projectile : MonoBehaviour
     private Vector2 worldMousePosition;
     private Vector2 mousePosition;
 
-    public float speed = 7f;
-    public float heightNum = 0.5f;
+    private float speed = 0f;
+    private float heightNum = 0f;
     public Vector3 movePosition;
     private float playerX;
     private float targetX;
@@ -40,7 +40,7 @@ public class projectile : MonoBehaviour
 
         calculateAngle();
         determineSpeed();
-        determineDamage();
+        determineDamageSpeedHeight();
     }
 
     void Update()
@@ -115,19 +115,25 @@ public class projectile : MonoBehaviour
         }
     }
 
-    public void determineDamage()
+    public void determineDamageSpeedHeight()
     {
-        if (gameObject.name == "Arrow(Clone)")
+        if (gameObject.name == "Arrow(Clone)" || gameObject.name == "ballistaArrow(Clone)")
         {
             damageAmount = upgradeWeapons.damageAmountArrows;
+            speed = upgradeWeapons.arrowSpeed;
+            heightNum = upgradeWeapons.arrowHeightNum;
         }
         if (gameObject.name == "CannonRound(Clone)")
         {
             damageAmount = upgradeWeapons.damageAmountRound;
+            speed = upgradeWeapons.roundSpeed;
+            heightNum = upgradeWeapons.roundHeightNum;
         }
         if (gameObject.name == "CatapultPayload(Clone)")
         {
             damageAmount = upgradeWeapons.damageAmountPayload;
+            speed = upgradeWeapons.payloadSpeed;
+            heightNum = upgradeWeapons.payloadHeightNum;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -135,7 +141,10 @@ public class projectile : MonoBehaviour
         if (collision.gameObject.TryGetComponent<enemyTestScrip1>(out enemyTestScrip1 enemyComponent))
         {
             enemyComponent.DamageDealt(damageAmount);
-            Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
+            if (!upgradeWeapons.ballista && gameObject.name == "Arrow(Clone)")
+            {
+                Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
+            }
         }
     }
 }

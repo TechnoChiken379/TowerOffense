@@ -20,9 +20,20 @@ public class shootingScript : MonoBehaviour
     public static bool catapult = true;
 
     //Game Objects Weapons
+    //archers
     public GameObject arrow;
+    public GameObject ballistaArrow;
+    public GameObject hwachaArrow;
+
+    //cannons
     public GameObject cannonRound;
+    public GameObject bombardCannonRound;
+    public GameObject falconetCannonRound;
+
+    //catapult
     public GameObject catapultPayload;
+    public GameObject trebuchetCatapultPayload;
+    public GameObject mangonelCatapultPayload;
 
     //Spawn Point Weapons
     public Transform arrowSpawnPoint;
@@ -65,14 +76,30 @@ public class shootingScript : MonoBehaviour
 
     public void FireArchers() //Archers
     {
-        if ((Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && upgradeWeapons.bowLevel > 0) ||
-        (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && upgradeArmor.shootWhileRepairing && upgradeWeapons.bowLevel > 0) ||
-        (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && mainCharacter.repairing && upgradeArmor.shootWhileRepairing && upgradeWeapons.bowLevel > 0))
+        if ((Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && !upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) ||
+        (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && !upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) ||
+        (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && mainCharacter.repairing && upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && !upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0))
         {
             GameObject spawnedBullet = Instantiate(arrow, arrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
 
             timerArchers = 0f;
         }
+        if ((Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && upgradeWeapons.ballista && !upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) ||
+        (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && upgradeArmor.shootWhileRepairing && upgradeWeapons.ballista && !upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) ||
+        (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && mainCharacter.repairing && upgradeArmor.shootWhileRepairing && upgradeWeapons.ballista && !upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0))
+        {
+            GameObject spawnedBullet = Instantiate(ballistaArrow, arrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
+
+            timerArchers = 0f;
+        }
+        //if ((Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) ||
+        //(Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) ||
+        //(Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && mainCharacter.repairing && upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0))
+        //{
+        //    GameObject spawnedBullet = Instantiate(arrow, arrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
+
+        //    timerArchers = 0f;
+        //}
     }
 
     public void FireCannons() //Cannons
