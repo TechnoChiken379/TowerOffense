@@ -36,6 +36,8 @@ public class buttons : MonoBehaviour
 
     void Start()
     {
+        mainMenuAnimation.SetBool("MainMenuStart", false);
+
         buttonImage1 = image1;
         buttonImage2 = image2;
         buttonImage3 = image3;
@@ -80,9 +82,9 @@ public class buttons : MonoBehaviour
 
     public void MainMenuStart()
     {
-        mainMenuAnimation.SetBool("MainMenuStart", true);
         mainMenuText.SetActive(false);
         mainMenuTabList.SetActive(true);
+        mainMenuAnimation.SetBool("MainMenuStart", true);
     }
     public void MainMenuGoBack()
     { 
