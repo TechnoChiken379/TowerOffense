@@ -36,8 +36,6 @@ public class buttons : MonoBehaviour
 
     void Start()
     {
-        mainMenuAnimation.SetBool("MainMenuStart", false);
-
         buttonImage1 = image1;
         buttonImage2 = image2;
         buttonImage3 = image3;
