@@ -18,7 +18,7 @@ public class upgradeWeapons : MonoBehaviour
     //cannons
     public static int culverinLevel = 0;
     public static bool bombard = false; //big, slow reload shot (explodes on inpact dealing massive damage to 1 target)
-    public static bool falconet = false; //grape shot explode on inpact
+    public static bool falconet = true; //grape shot explode on inpact
 
     public static float canFireCannons = 2;
     public static float damageAmountRound = 5;
