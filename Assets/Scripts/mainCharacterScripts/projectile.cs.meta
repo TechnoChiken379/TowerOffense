@@ -3,7 +3,9 @@ guid: 117fb5827d9deaf42b39de834e1ef8c1
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - playerWayPoint: {fileID: 4911268722836765765, guid: eca2473bc2553df4da746bfa1b0c78ff, type: 3}
+  - falconetCannonGrapeShot: {fileID: 6230678805625410844, guid: 4e1f1ed3f78be974182f14e0329f4426, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

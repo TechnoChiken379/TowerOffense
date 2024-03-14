@@ -75,9 +75,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerWayPoint: {fileID: 4911268722836765765, guid: eca2473bc2553df4da746bfa1b0c78ff, type: 3}
-  speed: 10
-  heightNum: 3
   movePosition: {x: 0, y: 0, z: 0}
+  falconetCannonGrapeShot: {fileID: 6230678805625410844, guid: 4e1f1ed3f78be974182f14e0329f4426, type: 3}
 --- !u!61 &8856131654413363503
 BoxCollider2D:
   m_ObjectHideFlags: 0
