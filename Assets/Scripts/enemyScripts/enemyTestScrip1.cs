@@ -59,6 +59,7 @@ public class enemyTestScrip1 : MonoBehaviour
         SpreadOut();
         StateConditions(); //check what should the enemy should want to do
         ExecuteConditions(); //try to do what the enemy should want to do
+        IfDeadDie();
     }
 
     public void StateConditions()
@@ -187,17 +188,20 @@ public class enemyTestScrip1 : MonoBehaviour
             attackTimer = 0f;
         }
     }
- 
-    public void DamageDealt(float damageAmount)
-    {
-        enemyTestHP -= damageAmount;
 
+    void IfDeadDie()
+    {
         if (enemyTestHP <= 0)
         {
             GameObject enemyDroppedResources = Instantiate(deathDrop, deathDropPoint.position, Quaternion.identity);
 
             Destroy(gameObject);
         }
+    }
+ 
+    public void DamageDealt(float damageAmount)
+    {
+        enemyTestHP -= damageAmount;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

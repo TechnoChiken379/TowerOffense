@@ -25,10 +25,8 @@ public class shootingScript : MonoBehaviour
     public GameObject ballistaArrow;
     public GameObject hwachaArrow;
 
-    public static int hwachaAmountBeforeReload = 50;
-    public static int hwachaArrowsShot = 0;
+    private int hwachaArrowsShot = 0;
     private float timerhwacha;
-    private float hwachaReloadTime = 3f;
 
     //cannons
     public GameObject cannonRound;
@@ -100,9 +98,9 @@ public class shootingScript : MonoBehaviour
             timerArchers = 0f;
         }
         //hwacha
-        if ((Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) && hwachaArrowsShot < hwachaAmountBeforeReload ||
-        (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) && hwachaArrowsShot < hwachaAmountBeforeReload ||
-        (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && mainCharacter.repairing && upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) && hwachaArrowsShot < hwachaAmountBeforeReload)
+        if ((Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) && hwachaArrowsShot < upgradeWeapons.hwachaAmountBeforeReload ||
+        (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && !mainCharacter.repairing && upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) && hwachaArrowsShot < upgradeWeapons.hwachaAmountBeforeReload ||
+        (Input.GetMouseButton(0) && timerArchers >= upgradeWeapons.canFireArchers && archers == true && mainCharacter.repairing && upgradeArmor.shootWhileRepairing && !upgradeWeapons.ballista && upgradeWeapons.hwacha && upgradeWeapons.bowLevel > 0) && hwachaArrowsShot < upgradeWeapons.hwachaAmountBeforeReload)
         {
             GameObject spawnedBullet = Instantiate(hwachaArrow, arrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
             hwachaArrowsShot++;
@@ -112,7 +110,7 @@ public class shootingScript : MonoBehaviour
         } else
         {
             timerhwacha += Time.deltaTime;
-            if (timerhwacha >= hwachaReloadTime)
+            if (timerhwacha >= upgradeWeapons.hwachaReloadTime)
             {
                 hwachaArrowsShot = 0;
             }

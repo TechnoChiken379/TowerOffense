@@ -9,8 +9,11 @@ public class projectileGrapeShot : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-    private float speed = 1f;
+    private float speed = 0f;
     private float damageAmount = 5f;
+
+    private float time;
+    private float timeAlive = 0.25f;
 
     void Start()
     {
@@ -20,13 +23,17 @@ public class projectileGrapeShot : MonoBehaviour
     }
 
     void Update()
-    { 
-    
+    {
+        time += Time.deltaTime;
+        if (time >= timeAlive)
+        {
+            Destroy(gameObject);
+        }
     }
     void MoveRandomDirection()
     {
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
-        rb.velocity = transform.position * randomDirection * speed;
+        rb.velocity = randomDirection * speed;
     }
     public void determineDamageSpeed()
     {

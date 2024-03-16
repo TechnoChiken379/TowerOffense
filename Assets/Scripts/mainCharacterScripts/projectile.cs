@@ -73,7 +73,6 @@ public class projectile : MonoBehaviour
                 for (int i = 0; i < upgradeWeapons.grapeShotAmount; i++)
                 {
                     GameObject spawnedBullet = Instantiate(falconetCannonGrapeShot, transform.position, Quaternion.identity);
-                    Destroy(spawnedBullet, 1);
                 }
             }
             Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);

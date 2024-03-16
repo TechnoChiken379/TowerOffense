@@ -8,17 +8,21 @@ public class upgradeWeapons : MonoBehaviour
     //archers
     public static int bowLevel = 1;
     public static bool ballista = false; //strong, slow reload shot (goes through enemies)
-    public static bool hwacha = true; //lots of arrows
+    public static bool hwacha = false; //lots of arrows
 
     public static float canFireArchers = 0.2f;
     public static float damageAmountArrows = 1;
     public static float arrowSpeed = 7.5f;
     public static float arrowHeightNum = 1f;
 
+    //Hwacha
+    public static int hwachaAmountBeforeReload = 10;
+    public static float hwachaReloadTime = 3f;
+
     //cannons
     public static int culverinLevel = 0;
     public static bool bombard = false; //?big, slow reload shot (explodes on inpact dealing massive damage to 1 target)
-    public static bool falconet = true; //grape shot explode on inpact
+    public static bool falconet = false; //grape shot explode on inpact
 
     public static float canFireCannons = 2;
     public static float damageAmountRound = 5;
@@ -26,9 +30,8 @@ public class upgradeWeapons : MonoBehaviour
     public static float roundHeightNum = 0.5f;
 
     //grape shot
-    public static int grapeShotAmount = 10;
+    public static int grapeShotAmount = 4;
 
-    public static float canFireCannonsGrapeShot = 2;
     public static float damageAmountRoundGrapeShot = 5;
     public static float roundSpeedGrapeShot = 7f;
 
@@ -96,6 +99,9 @@ public class upgradeWeapons : MonoBehaviour
                 damageAmountArrows = 8f;
                 arrowSpeed = 7f;
                 arrowHeightNum = 1f;
+
+                hwachaAmountBeforeReload = 50;
+                hwachaReloadTime = 2f;
             }
         }
         else if (bowLevel == 5) //160 dps
@@ -116,6 +122,9 @@ public class upgradeWeapons : MonoBehaviour
                 damageAmountArrows = 16f;
                 arrowSpeed = 7f;
                 arrowHeightNum = 1f;
+
+                hwachaAmountBeforeReload = 70;
+                hwachaReloadTime = 1f;
             }
         }
     }
@@ -148,8 +157,17 @@ public class upgradeWeapons : MonoBehaviour
             }
             if (falconet == true)
             {
+                canFireCannons = 1.5f;
+                damageAmountRound = 60f;
+                roundSpeed = 12.5f;
+                roundHeightNum = 0.5f;
 
-            }
+                //grape shot
+                grapeShotAmount = 8;
+
+                damageAmountRoundGrapeShot = 10;
+                roundSpeedGrapeShot = 7f;
+}
         }
         else if (culverinLevel == 5)
         {
@@ -162,7 +180,16 @@ public class upgradeWeapons : MonoBehaviour
             }
             if (falconet == true)
             {
+                canFireCannons = 1f;
+                damageAmountRound = 80f;
+                roundSpeed = 12.5f;
+                roundHeightNum = 0.5f;
 
+                //grape shot
+                grapeShotAmount = 12;
+
+                damageAmountRoundGrapeShot = 20;
+                roundSpeedGrapeShot = 7f;
             }
         }
     }
