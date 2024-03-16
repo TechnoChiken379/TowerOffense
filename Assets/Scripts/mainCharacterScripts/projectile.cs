@@ -40,7 +40,7 @@ public class projectile : MonoBehaviour
 
 
     //damage
-    private float damageAmount = 0f;
+    private float damageAmount = 1f;
 
     void Start()
     {
@@ -180,7 +180,10 @@ public class projectile : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<enemyTestScrip1>(out enemyTestScrip1 enemyComponent))
         {
+            //deal damage
             enemyComponent.DamageDealt(damageAmount);
+
+            //destroy game object on hit
             if (gameObject.name != "ballistaArrow(Clone)")
             {
                 if (gameObject.name == "falconetCannonRound(Clone)")

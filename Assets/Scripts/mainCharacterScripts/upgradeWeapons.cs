@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Profiling;
 using UnityEngine;
 
 public class upgradeWeapons : MonoBehaviour
@@ -29,11 +30,14 @@ public class upgradeWeapons : MonoBehaviour
     public static float roundSpeed = 12.5f;
     public static float roundHeightNum = 0.5f;
 
-    //grape shot
+    //falconet
     public static int grapeShotAmount = 4;
 
     public static float damageAmountRoundGrapeShot = 5;
     public static float roundSpeedGrapeShot = 7f;
+
+    //bombard
+    public static float procentBombardDamage = 0f;
 
     //catapult
     public static int onagerLevel = 0;
@@ -153,7 +157,12 @@ public class upgradeWeapons : MonoBehaviour
 
             if (bombard == true)
             {
+                canFireCannons = 1.5f;
+                damageAmountRound = 0f;
+                roundSpeed = 12.5f;
+                roundHeightNum = 0.5f;
 
+                procentBombardDamage = 0.1f;
             }
             if (falconet == true)
             {
@@ -176,7 +185,12 @@ public class upgradeWeapons : MonoBehaviour
 
             if (bombard == true)
             {
+                canFireCannons = 1.5f;
+                damageAmountRound = 0f;
+                roundSpeed = 12.5f;
+                roundHeightNum = 0.5f;
 
+                procentBombardDamage = 0.2f;
             }
             if (falconet == true)
             {

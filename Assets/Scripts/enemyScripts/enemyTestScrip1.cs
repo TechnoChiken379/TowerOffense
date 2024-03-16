@@ -201,7 +201,14 @@ public class enemyTestScrip1 : MonoBehaviour
  
     public void DamageDealt(float damageAmount)
     {
-        enemyTestHP -= damageAmount;
+        if (upgradeWeapons.bombard && damageAmount == 0f)
+        {
+            enemyTestHP = enemyTestHP - (enemyTestMaxHP * upgradeWeapons.procentBombardDamage);
+        } 
+        else
+        {
+            enemyTestHP -= damageAmount;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
