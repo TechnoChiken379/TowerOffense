@@ -1335,7 +1335,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 914320164}
         m_TargetAssemblyTypeName: buttons, Assembly-CSharp
-        m_MethodName: NewGame
+        m_MethodName: NewGameButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

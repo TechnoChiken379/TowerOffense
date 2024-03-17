@@ -8,7 +8,7 @@ public class DataPersistanceManager : MonoBehaviour
     [Header("File Storage Config")]
     [SerializeField] private string fileName;
 
-    private GameData gameData;
+    public static GameData gameData;
 
     private List<IDataPersistance> dataPersistancesObjects;
 
@@ -34,14 +34,14 @@ public class DataPersistanceManager : MonoBehaviour
 
     public void NewGame()
     {
-        this.gameData = new GameData();
+        gameData = new GameData();
     }
 
     public void LoadGame()
     {
-        this.gameData = dataHandler.Load();
+        gameData = dataHandler.Load();
 
-        if (this.gameData == null)
+        if (gameData == null)
         {
             Debug.Log("No game data was found. Initializing data to default.");
             NewGame();

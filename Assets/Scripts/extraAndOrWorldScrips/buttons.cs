@@ -131,10 +131,10 @@ public class buttons : MonoBehaviour
     {
         SceneManager.LoadScene("tilemapTesting");
     }
-    public void NewGame()
+    public void NewGameButton()
     {
         SceneManager.LoadScene("tilemapTesting");
-        NewGame();
+        DataPersistanceManager.gameData = new GameData();
     }
     #endregion
 }
