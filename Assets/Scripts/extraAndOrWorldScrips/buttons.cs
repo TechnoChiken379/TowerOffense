@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class buttons : MonoBehaviour
@@ -125,6 +126,15 @@ public class buttons : MonoBehaviour
     public void Credits() 
     { 
         mainMenuAnimation.SetBool("Credits", true); 
+    }
+    public void LoadLastSave()
+    {
+        SceneManager.LoadScene("tilemapTesting");
+    }
+    public void NewGame()
+    {
+        SceneManager.LoadScene("tilemapTesting");
+        NewGame();
     }
     #endregion
 }
