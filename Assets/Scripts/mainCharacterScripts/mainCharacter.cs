@@ -48,7 +48,7 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
     public static bool repairing = false;
     //private static float repairTime = 10f;
 
-    Animator deathScreen;
+    public Animator deathScreen;
 
     public void LoadData(GameData data)
     {
@@ -70,8 +70,9 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
-    void Update() //Happens on every frame
+    void Update()
     {
+        DeathManager();
         Test(); //for testing
 
         setValuesUpdate();
