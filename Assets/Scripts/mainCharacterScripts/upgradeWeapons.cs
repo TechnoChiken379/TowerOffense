@@ -41,13 +41,16 @@ public class upgradeWeapons : MonoBehaviour
 
     //catapult
     public static int onagerLevel = 0;
-    public static bool trebuchet = true; //big ark (hard to hit) strong payload
-    public static bool mangonel = false; //?fast reload 
+    public static bool trebuchet = false; //big ark (hard to hit) strong payload
+    public static bool mangonel = true; //?fast reload 
 
     public static float canFireCatapult = 3;
     public static float damageAmountPayload = 10;
     public static float payloadSpeed = 10f;
     public static float payloadHeightNum = 3f;
+
+    //mangonel
+    public static int mangonelAmountShot = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -246,9 +249,11 @@ public class upgradeWeapons : MonoBehaviour
             if (mangonel == true)
             {
                 canFireCatapult = 2.5f;
-                damageAmountPayload = 200f;
+                damageAmountPayload = 100f;
                 payloadSpeed = 10f;
                 payloadHeightNum = 2f;
+
+                mangonelAmountShot = 2;
             }
         }
         else if (onagerLevel == 5)
@@ -266,9 +271,11 @@ public class upgradeWeapons : MonoBehaviour
             if (mangonel == true)
             {
                 canFireCatapult = 2f;
-                damageAmountPayload = 320f;
+                damageAmountPayload = 100f;
                 payloadSpeed = 10f;
                 payloadHeightNum = 2f;
+
+                mangonelAmountShot = 3;
             }
         }
     }

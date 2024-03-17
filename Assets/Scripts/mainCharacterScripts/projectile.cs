@@ -105,7 +105,7 @@ public class projectile : MonoBehaviour
 
     public void calculateSpawnTarget()
     {
-        if (gameObject.name != "hwachaArrow(Clone)")
+        if (gameObject.name != "hwachaArrow(Clone)" && gameObject.name != "mangonelPayload(Clone)")
         {
             projectileSpawn = Instantiate(playerWayPoint, transform.position, Quaternion.identity);
             targetSpawn = Instantiate(playerWayPoint, worldMousePosition, Quaternion.identity);
@@ -114,6 +114,17 @@ public class projectile : MonoBehaviour
         {
             randomXLocation = Random.Range(-1.0f, 1.0f);
             randomYLocation = Random.Range(-1.0f, 1.0f);
+
+            targetLocation.x = worldMousePosition.x + randomXLocation;
+            targetLocation.y = worldMousePosition.y + randomYLocation;
+
+            projectileSpawn = Instantiate(playerWayPoint, transform.position, Quaternion.identity);
+            targetSpawn = Instantiate(playerWayPoint, targetLocation, Quaternion.identity);
+        }
+        if (gameObject.name == "mangonelPayload(Clone)")
+        {
+            randomXLocation = Random.Range(-0.75f, 0.75f);
+            randomYLocation = Random.Range(-0.75f, 0.75f);
 
             targetLocation.x = worldMousePosition.x + randomXLocation;
             targetLocation.y = worldMousePosition.y + randomYLocation;

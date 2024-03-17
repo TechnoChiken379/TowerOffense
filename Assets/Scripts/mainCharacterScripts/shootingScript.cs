@@ -38,6 +38,9 @@ public class shootingScript : MonoBehaviour
     public GameObject trebuchetCatapultPayload;
     public GameObject mangonelCatapultPayload;
 
+    private int mangonelArrowsShot = 0;
+    private float timermangonel;
+
     //Spawn Point Weapons
     public Transform arrowSpawnPoint;
     public Transform cannonRoundSpawnPoint;
@@ -173,8 +176,11 @@ public class shootingScript : MonoBehaviour
         (Input.GetMouseButton(0) && timerCatapult >= upgradeWeapons.canFireCatapult && catapult == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && !upgradeWeapons.trebuchet && upgradeWeapons.mangonel && upgradeWeapons.onagerLevel > 0) ||
         (Input.GetMouseButton(0) && timerCatapult >= upgradeWeapons.canFireCatapult && catapult == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && !upgradeWeapons.trebuchet && upgradeWeapons.mangonel && upgradeWeapons.onagerLevel > 0))
         {
-            GameObject spawnedBullet = Instantiate(mangonelCatapultPayload, catapultRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
-
+            //maybe make this so there is a small pause inbetween every shot (plz)
+            for (int i = 0; i < upgradeWeapons.mangonelAmountShot; i++)
+            {
+                GameObject spawnedBullet = Instantiate(mangonelCatapultPayload, catapultRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
+            }
             timerCatapult = 0f;
         }
     }
