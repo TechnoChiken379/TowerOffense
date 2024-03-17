@@ -35,6 +35,8 @@ public class buttons : MonoBehaviour
 
     public Animator mainMenuAnimation;
 
+    public static bool newGameBool = false;
+
     void Start()
     {
         buttonImage1 = image1;
@@ -134,7 +136,7 @@ public class buttons : MonoBehaviour
     public void NewGameButton()
     {
         SceneManager.LoadScene("tilemapTesting");
-        DataPersistanceManager.gameData = new GameData();
+        newGameBool = true;
     }
     #endregion
 }
