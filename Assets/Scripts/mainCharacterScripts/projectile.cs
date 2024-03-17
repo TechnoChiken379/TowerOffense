@@ -168,7 +168,7 @@ public class projectile : MonoBehaviour
             speed = upgradeWeapons.roundSpeed;
             heightNum = upgradeWeapons.roundHeightNum;
         }
-        if (gameObject.name == "CatapultPayload(Clone)")
+        if (gameObject.name == "CatapultPayload(Clone)" || gameObject.name == "trebuchetPayload(Clone)" || gameObject.name == "mangonelPayload(Clone)")
         {
             damageAmount = upgradeWeapons.damageAmountPayload;
             speed = upgradeWeapons.payloadSpeed;

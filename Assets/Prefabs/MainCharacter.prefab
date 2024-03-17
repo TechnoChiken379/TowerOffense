@@ -271,8 +271,8 @@ MonoBehaviour:
   bombardCannonRound: {fileID: 6230678805625410844, guid: 37eb54ff5f6426344a9cb20c14946767, type: 3}
   falconetCannonRound: {fileID: 6230678805625410844, guid: 2e5c21ddfd332014794574a68a2fc11c, type: 3}
   catapultPayload: {fileID: 3330178691903697465, guid: 3b04532a7c39aae49abe09572aff4ecc, type: 3}
-  trebuchetCatapultPayload: {fileID: 0}
-  mangonelCatapultPayload: {fileID: 0}
+  trebuchetCatapultPayload: {fileID: 3330178691903697465, guid: 8da4dfeb5fb31ac4cb3f1956bed73373, type: 3}
+  mangonelCatapultPayload: {fileID: 3330178691903697465, guid: 3d7129ec7f9a9454dbcabdef951e6ddb, type: 3}
   arrowSpawnPoint: {fileID: 8582599497340703648}
   cannonRoundSpawnPoint: {fileID: 6299696027451699254}
   catapultRoundSpawnPoint: {fileID: 2144276926313897998}

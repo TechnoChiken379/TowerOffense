@@ -41,7 +41,7 @@ public class upgradeWeapons : MonoBehaviour
 
     //catapult
     public static int onagerLevel = 0;
-    public static bool trebuchet = false; //big ark (hard to hit) strong payload
+    public static bool trebuchet = true; //big ark (hard to hit) strong payload
     public static bool mangonel = false; //?fast reload 
 
     public static float canFireCatapult = 3;
@@ -68,6 +68,8 @@ public class upgradeWeapons : MonoBehaviour
     }
 
     #region Upgrades
+
+    #region archer
     void ArchersUpgrades()
     {
         if (bowLevel == 1) //10 dps
@@ -132,7 +134,9 @@ public class upgradeWeapons : MonoBehaviour
             }
         }
     }
+    #endregion
 
+    #region cannon
     void CannonsUpgrades()
     {
         if (culverinLevel == 1)
@@ -207,7 +211,9 @@ public class upgradeWeapons : MonoBehaviour
             }
         }
     }
+    #endregion
 
+    #region catapult
     void CatapultUpgrades()
     {
         if (onagerLevel == 1)
@@ -232,11 +238,17 @@ public class upgradeWeapons : MonoBehaviour
 
             if (trebuchet == true)
             {
-
+                canFireCatapult = 2.5f;
+                damageAmountPayload = 200f;
+                payloadSpeed = 10f;
+                payloadHeightNum = 6f;
             }
             if (mangonel == true)
             {
-
+                canFireCatapult = 2.5f;
+                damageAmountPayload = 200f;
+                payloadSpeed = 10f;
+                payloadHeightNum = 2f;
             }
         }
         else if (onagerLevel == 5)
@@ -246,14 +258,22 @@ public class upgradeWeapons : MonoBehaviour
 
             if (trebuchet == true)
             {
-
+                canFireCatapult = 2f;
+                damageAmountPayload = 320f;
+                payloadSpeed = 10f;
+                payloadHeightNum = 6f;
             }
             if (mangonel == true)
             {
-
+                canFireCatapult = 2f;
+                damageAmountPayload = 320f;
+                payloadSpeed = 10f;
+                payloadHeightNum = 2f;
             }
         }
     }
+    #endregion
+
     #endregion
 
     void LevelUp()
