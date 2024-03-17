@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class mainCharacter : MonoBehaviour
+public class mainCharacter : MonoBehaviour, IDataPersistance
 {
     //Movement vars
     public float speed;
@@ -49,6 +49,16 @@ public class mainCharacter : MonoBehaviour
     //private static float repairTime = 10f;
 
     Animator deathScreen;
+
+    public void LoadData(GameData data)
+    {
+        this.transform.position = data.playerPosition;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.playerPosition = this.transform.position;
+    }
 
     void Start() //Happens on start
     {
@@ -218,15 +228,15 @@ public class mainCharacter : MonoBehaviour
         if (Input.GetKey(KeyCode.F) 
             && totalRepairCompensation > 0f 
             && resources.woodAmount > 0f
-            && resources.stone > 0f
-            && resources.steel > 0f
+            && resources.stoneAmount > 0f
+            && resources.steelAmount > 0f
             && upgradeArmor.selfRepairLevel > 0)
         {
             repairing = true;
 
             resources.woodAmount -= upgradeArmor.resourceUsage;
-            resources.stone -= upgradeArmor.resourceUsage;
-            resources.steel -= upgradeArmor.resourceUsage;
+            resources.stoneAmount -= upgradeArmor.resourceUsage;
+            resources.steelAmount -= upgradeArmor.resourceUsage;
 
             totalCurrentHealth = Mathf.MoveTowards(totalCurrentHealth, totalCurrentHealth + totalRepairCompensation, upgradeArmor.repairTime * Time.deltaTime);
             totalRepairCompensation = Mathf.MoveTowards(totalRepairCompensation, 0f, upgradeArmor.repairTime * Time.deltaTime);

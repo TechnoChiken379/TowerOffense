@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static Unity.Collections.Unicode;
 
 public class projectile : MonoBehaviour
 {
@@ -178,7 +177,7 @@ public class projectile : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent<enemyTestScrip1>(out enemyTestScrip1 enemyComponent))
+        if (collision.gameObject.TryGetComponent<enemyFunction>(out enemyFunction enemyComponent))
         {
             //deal damage
             enemyComponent.DamageDealt(damageAmount);

@@ -6,9 +6,9 @@ public class resources : MonoBehaviour, IDataPersistance
 {
     //var
     public static float woodAmount = 0;
-    public static float stone = 0;
-    public static float steel = 0;
-    public static float gold = 0;
+    public static float stoneAmount = 0;
+    public static float steelAmount = 0;
+    public static float goldAmount = 0;
 
     public int showedWood = 0;
     public int showedStone = 0;
@@ -29,19 +29,25 @@ public class resources : MonoBehaviour, IDataPersistance
     public void LoadData(GameData data)
     {
         woodAmount = data.woodAmount;
+        stoneAmount = data.stoneAmount;
+        steelAmount = data.steelAmount;
+        goldAmount = data.goldAmount;
     }
 
     public void SaveData(ref GameData data)
     {
         data.woodAmount = woodAmount;
+        data.stoneAmount = stoneAmount;
+        data.steelAmount = steelAmount;
+        data.goldAmount = goldAmount;
     }
 
     void Update()
     {
         showedWood = (int)Mathf.Round(woodAmount);
-        showedStone = (int)Mathf.Round(stone);
-        showedSteel = (int)Mathf.Round(steel);
-        showedGold = (int)Mathf.Round(gold);
+        showedStone = (int)Mathf.Round(stoneAmount);
+        showedSteel = (int)Mathf.Round(steelAmount);
+        showedGold = (int)Mathf.Round(goldAmount);
 
         woodText.text = showedWood.ToString();
         stoneText.text = showedStone.ToString();

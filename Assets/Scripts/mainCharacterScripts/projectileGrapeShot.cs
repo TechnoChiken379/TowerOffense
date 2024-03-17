@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static Unity.Collections.Unicode;
 
 public class projectileGrapeShot : MonoBehaviour
 {
@@ -42,7 +41,7 @@ public class projectileGrapeShot : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent<enemyTestScrip1>(out enemyTestScrip1 enemyComponent))
+        if (collision.gameObject.TryGetComponent<enemyFunction>(out enemyFunction enemyComponent))
         {
             enemyComponent.DamageDealt(damageAmount);
             Destroy(gameObject);

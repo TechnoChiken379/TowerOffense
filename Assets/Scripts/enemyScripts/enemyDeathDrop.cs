@@ -5,14 +5,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class enemyProjectileTestScript1 : MonoBehaviour
+public class enemyDeathDrop : MonoBehaviour
 {
-    private GameObject player;
+    //private GameObject player;
     [SerializeField] public GameObject enemyWayPoint;
     private GameObject projectileSpawn;
     private GameObject targetSpawn;
 
-    private float speed = 7f;
+    private float speed = 3f;
     private float heightNum = 0.5f;
     public Vector3 movePosition;
 
@@ -28,15 +28,19 @@ public class enemyProjectileTestScript1 : MonoBehaviour
     private float angle;
     private float signedAngle;
 
-    public static float enemyArrowDamageAmount = 5;
+    //random target location
+    private Vector2 targetLocation;
 
-    private enemyTestScrip1 enemyScriptReference;
+    float randomXLocation;
+    float randomYLocation;
+
+    //public static float enemyArrowDamageAmount = 5;
 
     private void Start()
-    { 
-        player = GameObject.FindGameObjectWithTag("mainCharacter");
+    {
+        determineTargetLocation();
         projectileSpawn = Instantiate(enemyWayPoint, transform.position, Quaternion.identity);
-        targetSpawn = Instantiate(enemyWayPoint, player.transform.position, Quaternion.identity);
+        targetSpawn = Instantiate(enemyWayPoint, targetLocation, Quaternion.identity);
 
         calculateAngle();
         determineSpeed();
@@ -54,28 +58,34 @@ public class enemyProjectileTestScript1 : MonoBehaviour
 
         transform.rotation = LookAtTarget(movePosition - transform.position);
         transform.position = movePosition; 
-        if (Vector3.Distance(movePosition, targetSpawn.transform.position) < 0.1f) { Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn); }
+        if (projectileSpawn != null && targetSpawn != null && Vector3.Distance(movePosition, targetSpawn.transform.position) < 0.1f) { Destroy(targetSpawn); Destroy(projectileSpawn); }
     }
     public static Quaternion LookAtTarget(Vector2 r) { return Quaternion.Euler(0, 0, Mathf.Atan2(r.y, r.x) * Mathf.Rad2Deg); }
 
     public void projectileLine()
     {
-        Vector3 direction = (targetSpawn.transform.position - transform.position).normalized;
+        if (projectileSpawn != null && targetSpawn != null)
+        {
+            Vector3 direction = (targetSpawn.transform.position - transform.position).normalized;
 
-        movePosition = transform.position + direction * (speed * 3f) * Time.deltaTime;
+            movePosition = transform.position + direction * (speed * 3f) * Time.deltaTime;
+        }
     }
 
     public void projectileTrajectory()
     {
-        enemyX = projectileSpawn.transform.position.x;
-        targetX = targetSpawn.transform.position.x;
+        if (projectileSpawn != null && targetSpawn != null)
+        {
+            enemyX = projectileSpawn.transform.position.x;
+            targetX = targetSpawn.transform.position.x;
 
-        dist = targetX - enemyX;
-        nextX = Mathf.MoveTowards(transform.position.x, targetX, speed * Time.deltaTime);
-        baseY = Mathf.Lerp(projectileSpawn.transform.position.y, targetSpawn.transform.position.y, (nextX - enemyX) / dist);
-        height = heightNum * (nextX - enemyX) * (nextX - targetX) / (-0.25f * dist * dist);
+            dist = targetX - enemyX;
+            nextX = Mathf.MoveTowards(transform.position.x, targetX, speed * Time.deltaTime);
+            baseY = Mathf.Lerp(projectileSpawn.transform.position.y, targetSpawn.transform.position.y, (nextX - enemyX) / dist);
+            height = heightNum * (nextX - enemyX) * (nextX - targetX) / (-0.25f * dist * dist);
 
-        movePosition = new Vector3(nextX, baseY + height, transform.position.z);
+            movePosition = new Vector3(nextX, baseY + height, transform.position.z);
+        }
     }
 
     public void calculateAngle()
@@ -110,24 +120,25 @@ public class enemyProjectileTestScript1 : MonoBehaviour
         }
     }
 
-    public void SetEnemyScriptReference(enemyTestScrip1 enemyScript)
+    public void determineTargetLocation()
     {
-        enemyScriptReference = enemyScript;
+        randomXLocation = Random.Range(-1.0f, 1.0f);
+        randomYLocation = Random.Range(-1.0f, 1.0f);
+
+        targetLocation.x = transform.position.x + randomXLocation;
+        targetLocation.y = transform.position.y + randomYLocation;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("mainCharacter"))
         {
-            //mainCharacter.totalCurrentHealth -= enemyArrowDamageAmount;
-            mainCharacter.TakenDamageCalculation(enemyArrowDamageAmount);
-            mainCharacter.DetermineTotalRepairValue(enemyArrowDamageAmount);
-            Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
+            resources.woodAmount += 100;
+            resources.stoneAmount += 100;
+            resources.steelAmount += 100;
+            resources.goldAmount += 10;
 
-            if (upgradeArmor.deflectDamage)
-            {
-                enemyScriptReference.DamageDealt(enemyArrowDamageAmount * (1f - upgradeArmor.deflectDamageNotTaken));
-            }
+            Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
         }
     }
 }

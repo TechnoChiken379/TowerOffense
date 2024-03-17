@@ -5,9 +5,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEngine.GraphicsBuffer;
 
-public class enemyTestScrip1 : MonoBehaviour
+public class enemyFunction : MonoBehaviour
 {
     public string state = "State.Idle"; //what does the enemy want to do
 
@@ -26,7 +25,7 @@ public class enemyTestScrip1 : MonoBehaviour
     private float engageDistance = 10f; //at what distance should the enemy start going to the player
 
     //health
-    public float enemyTestHP, enemyTestMaxHP = 25f;
+    public float enemyHP, enemyMaxHP = 25f;
 
     //attack
     private float attackTimer;
@@ -43,12 +42,21 @@ public class enemyTestScrip1 : MonoBehaviour
     private GameObject[] enemies;
     private Transform closestEnemy;
 
-    // Start is called before the first frame update
+    public void LoadData(GameData data)
+    {
+
+    }
+
+    public void SaveData(ref GameData data)
+    {
+
+    }
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("mainCharacter").transform;
 
-        enemyTestHP = enemyTestMaxHP;
+        enemyHP = enemyMaxHP;
     }
 
     // Update is called once per frame
@@ -178,7 +186,7 @@ public class enemyTestScrip1 : MonoBehaviour
         if (attackTimer >= canAttack)
         {
             GameObject enemySpawnedBullet = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
-            enemyProjectileTestScript1 projectileScript = enemySpawnedBullet.GetComponent<enemyProjectileTestScript1>();
+            enemyProjectile projectileScript = enemySpawnedBullet.GetComponent<enemyProjectile>();
 
             if (projectileScript != null)
             {
@@ -191,7 +199,7 @@ public class enemyTestScrip1 : MonoBehaviour
 
     void IfDeadDie()
     {
-        if (enemyTestHP <= 0)
+        if (enemyHP <= 0)
         {
             GameObject enemyDroppedResources = Instantiate(deathDrop, deathDropPoint.position, Quaternion.identity);
 
@@ -203,11 +211,11 @@ public class enemyTestScrip1 : MonoBehaviour
     {
         if (upgradeWeapons.bombard && damageAmount == 0f)
         {
-            enemyTestHP = enemyTestHP - (enemyTestMaxHP * upgradeWeapons.procentBombardDamage);
+            enemyHP = enemyHP - (enemyMaxHP * upgradeWeapons.procentBombardDamage);
         } 
         else
         {
-            enemyTestHP -= damageAmount;
+            enemyHP -= damageAmount;
         }
     }
 
@@ -216,9 +224,9 @@ public class enemyTestScrip1 : MonoBehaviour
         if (collision.gameObject.CompareTag("mainCharacter"))
         {
             resources.woodAmount += 100;
-            resources.stone += 100;
-            resources.steel += 100;
-            resources.gold += 10;
+            resources.stoneAmount += 100;
+            resources.steelAmount += 100;
+            resources.goldAmount += 10;
 
             Destroy(gameObject);
         }
