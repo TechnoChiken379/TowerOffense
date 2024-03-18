@@ -33,6 +33,8 @@ public class projectile : MonoBehaviour
 
     //cannon/
     public GameObject falconetCannonGrapeShot;
+
+    public GameObject bombardCannonShrapnel;
     
 
     //catapult/
@@ -73,6 +75,10 @@ public class projectile : MonoBehaviour
                 {
                     GameObject spawnedBullet = Instantiate(falconetCannonGrapeShot, transform.position, Quaternion.identity);
                 }
+            }
+            if (gameObject.name == "bombardCannonRound(Clone)")
+            {
+                GameObject spawnedBullet = Instantiate(bombardCannonShrapnel, transform.position, Quaternion.identity);
             }
             Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
         }
@@ -125,6 +131,9 @@ public class projectile : MonoBehaviour
         {
             randomXLocation = Random.Range(-0.75f, 0.75f);
             randomYLocation = Random.Range(-0.75f, 0.75f);
+
+            //randomXLocation = Random.Range(-1.0f, 1.0f);
+            //randomYLocation = Random.Range(-1.0f, 1.0f);
 
             targetLocation.x = worldMousePosition.x + randomXLocation;
             targetLocation.y = worldMousePosition.y + randomYLocation;
@@ -202,6 +211,10 @@ public class projectile : MonoBehaviour
                     {
                         GameObject spawnedBullet = Instantiate(falconetCannonGrapeShot, transform.position, Quaternion.identity);
                     }
+                }
+                if (gameObject.name == "bombardCannonRound(Clone)")
+                {
+                    GameObject spawnedBullet = Instantiate(bombardCannonShrapnel, transform.position, Quaternion.identity);
                 }
                 Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
             }

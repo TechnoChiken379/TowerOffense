@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Threading;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -38,8 +39,10 @@ public class shootingScript : MonoBehaviour
     public GameObject trebuchetCatapultPayload;
     public GameObject mangonelCatapultPayload;
 
-    private int mangonelArrowsShot = 0;
-    private float timermangonel;
+    private bool FiredMangonel = false;
+    private float shootMangonel = 0.05f;
+    private float mangonelTime;
+    private int mangonelAmountShot;
 
     //Spawn Point Weapons
     public Transform arrowSpawnPoint;
@@ -69,6 +72,12 @@ public class shootingScript : MonoBehaviour
 
         FireCatapult(); //Catapult script
         timerCatapult += Time.deltaTime; //Timer for readyToFire
+        #region mangonel
+        if (FiredMangonel)
+        {
+            ShootMangonel();
+        }
+        #endregion
     }
 
     public void LookAtMe()
@@ -176,12 +185,29 @@ public class shootingScript : MonoBehaviour
         (Input.GetMouseButton(0) && timerCatapult >= upgradeWeapons.canFireCatapult && catapult == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && !upgradeWeapons.trebuchet && upgradeWeapons.mangonel && upgradeWeapons.onagerLevel > 0) ||
         (Input.GetMouseButton(0) && timerCatapult >= upgradeWeapons.canFireCatapult && catapult == true && !mainCharacter.repairing && !upgradeArmor.shootWhileRepairing && !upgradeWeapons.trebuchet && upgradeWeapons.mangonel && upgradeWeapons.onagerLevel > 0))
         {
-            //maybe make this so there is a small pause inbetween every shot (plz)
-            for (int i = 0; i < upgradeWeapons.mangonelAmountShot; i++)
-            {
-                GameObject spawnedBullet = Instantiate(mangonelCatapultPayload, catapultRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
-            }
+            mangonelTime = shootMangonel;
+            mangonelAmountShot = 0;
+            FiredMangonel = true;
+
             timerCatapult = 0f;
         }
     }
+    #region shoot mangonel
+    void ShootMangonel()
+    {
+        mangonelTime += Time.deltaTime;
+
+        if (mangonelTime >= shootMangonel)
+        {
+            GameObject spawnedBullet = Instantiate(mangonelCatapultPayload, catapultRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
+            mangonelAmountShot++;
+            mangonelTime = 0f;
+        }
+
+        if (mangonelAmountShot >= upgradeWeapons.mangonelAmountShot)
+        {
+            FiredMangonel = false;
+        }
+    }
+    #endregion
 }

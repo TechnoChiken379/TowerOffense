@@ -161,6 +161,7 @@ MonoBehaviour:
   playerWayPoint: {fileID: 4911268722836765765, guid: eca2473bc2553df4da746bfa1b0c78ff, type: 3}
   movePosition: {x: 0, y: 0, z: 0}
   falconetCannonGrapeShot: {fileID: 6230678805625410844, guid: 4e1f1ed3f78be974182f14e0329f4426, type: 3}
+  bombardCannonShrapnel: {fileID: 6230678805625410844, guid: e319141fd62b91549a7da155ca816444, type: 3}
 --- !u!61 &1073896885549213787
 BoxCollider2D:
   m_ObjectHideFlags: 0

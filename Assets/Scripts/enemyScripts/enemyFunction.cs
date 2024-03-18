@@ -209,14 +209,12 @@ public class enemyFunction : MonoBehaviour
  
     public void DamageDealt(float damageAmount)
     {
-        if (upgradeWeapons.bombard && damageAmount == 0f)
-        {
-            enemyHP = enemyHP - (enemyMaxHP * upgradeWeapons.procentBombardDamage);
-        } 
-        else
-        {
-            enemyHP -= damageAmount;
-        }
+        enemyHP -= damageAmount;
+    }
+
+    public void ProcentDamageDealt(float damageAmount)
+    {
+        enemyHP -= enemyMaxHP * damageAmount;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
