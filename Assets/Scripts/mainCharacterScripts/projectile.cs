@@ -35,10 +35,10 @@ public class projectile : MonoBehaviour
     public GameObject falconetCannonGrapeShot;
 
     public GameObject bombardCannonShrapnel;
-    
+
 
     //catapult/
-
+    public GameObject trebuchetPayload;
 
     //damage
     private float damageAmount = 1f;
@@ -79,6 +79,10 @@ public class projectile : MonoBehaviour
             if (gameObject.name == "bombardCannonRound(Clone)")
             {
                 GameObject spawnedBullet = Instantiate(bombardCannonShrapnel, transform.position, Quaternion.identity);
+            }
+            if (gameObject.name == "trebuchetPayload(Clone)")
+            {
+                GameObject spawnedBullet = Instantiate(trebuchetPayload, transform.position, Quaternion.identity);
             }
             Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
         }
@@ -215,6 +219,10 @@ public class projectile : MonoBehaviour
                 if (gameObject.name == "bombardCannonRound(Clone)")
                 {
                     GameObject spawnedBullet = Instantiate(bombardCannonShrapnel, transform.position, Quaternion.identity);
+                }
+                if (gameObject.name == "trebuchetPayload(Clone)")
+                {
+                    GameObject spawnedBullet = Instantiate(trebuchetPayload, transform.position, Quaternion.identity);
                 }
                 Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
             }

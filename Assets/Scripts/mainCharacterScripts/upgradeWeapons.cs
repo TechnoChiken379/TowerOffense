@@ -22,7 +22,7 @@ public class upgradeWeapons : MonoBehaviour
 
     //cannons
     public static int culverinLevel = 0;
-    public static bool bombard = false; //?big, slow reload shot (explodes on inpact dealing massive damage to 1 target)
+    public static bool bombard = true; //?big, slow reload shot (explodes on inpact dealing massive damage to 1 target)
     public static bool falconet = false; //grape shot explode on inpact
 
     public static float canFireCannons = 2;
@@ -51,6 +51,9 @@ public class upgradeWeapons : MonoBehaviour
 
     //mangonel
     public static int mangonelAmountShot = 1;
+
+    //trebuchet
+    public static float trebuchetPayloadDeliveryDamage = 0.01f;
 
     // Start is called before the first frame update
     void Start()
@@ -245,6 +248,8 @@ public class upgradeWeapons : MonoBehaviour
                 damageAmountPayload = 200f;
                 payloadSpeed = 10f;
                 payloadHeightNum = 6f;
+
+                trebuchetPayloadDeliveryDamage = 0.04f;
             }
             if (mangonel == true)
             {
@@ -267,6 +272,8 @@ public class upgradeWeapons : MonoBehaviour
                 damageAmountPayload = 320f;
                 payloadSpeed = 10f;
                 payloadHeightNum = 6f;
+
+                trebuchetPayloadDeliveryDamage = 0.08f;
             }
             if (mangonel == true)
             {

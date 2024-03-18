@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.012999999, y: 0.018, z: 0}
-  m_LocalScale: {x: 0.89999986, y: 0.89999986, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2566218114704540341}
@@ -260,6 +260,7 @@ MonoBehaviour:
   movePosition: {x: 0, y: 0, z: 0}
   falconetCannonGrapeShot: {fileID: 6230678805625410844, guid: 4e1f1ed3f78be974182f14e0329f4426, type: 3}
   bombardCannonShrapnel: {fileID: 6230678805625410844}
+  trebuchetPayload: {fileID: 3330178691903697465, guid: 2816ecbc209b40f48a023acc861a09d4, type: 3}
 --- !u!61 &735938674437538826
 BoxCollider2D:
   m_ObjectHideFlags: 0

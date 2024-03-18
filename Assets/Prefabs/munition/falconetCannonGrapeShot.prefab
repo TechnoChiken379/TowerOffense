@@ -163,6 +163,7 @@ MonoBehaviour:
   movePosition: {x: 0, y: 0, z: 0}
   falconetCannonGrapeShot: {fileID: 6230678805625410844}
   bombardCannonShrapnel: {fileID: 6230678805625410844, guid: e319141fd62b91549a7da155ca816444, type: 3}
+  trebuchetPayload: {fileID: 3330178691903697465, guid: 2816ecbc209b40f48a023acc861a09d4, type: 3}
 --- !u!114 &7328593329151889637
 MonoBehaviour:
   m_ObjectHideFlags: 0
