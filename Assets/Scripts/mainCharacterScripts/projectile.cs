@@ -132,6 +132,9 @@ public class projectile : MonoBehaviour
             randomXLocation = Random.Range(-0.75f, 0.75f);
             randomYLocation = Random.Range(-0.75f, 0.75f);
 
+            //randomXLocation = Random.Range(-1.0f, 1.0f);
+            //randomYLocation = Random.Range(-1.0f, 1.0f);
+
             targetLocation.x = worldMousePosition.x + randomXLocation;
             targetLocation.y = worldMousePosition.y + randomYLocation;
 
