@@ -38,9 +38,6 @@ public class shootingScript : MonoBehaviour
     public GameObject trebuchetCatapultPayload;
     public GameObject mangonelCatapultPayload;
 
-    private int mangonelArrowsShot = 0;
-    private float timermangonel;
-
     //Spawn Point Weapons
     public Transform arrowSpawnPoint;
     public Transform cannonRoundSpawnPoint;
