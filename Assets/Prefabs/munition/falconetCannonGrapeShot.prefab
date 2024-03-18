@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2566218114704540341}
   - component: {fileID: 7471151148003617762}
-  - component: {fileID: 1449997408397061643}
   - component: {fileID: 7328593329151889637}
   - component: {fileID: 735938674437538826}
   m_Layer: 9
@@ -147,23 +146,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &1449997408397061643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6230678805625410844}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 117fb5827d9deaf42b39de834e1ef8c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerWayPoint: {fileID: 4911268722836765765, guid: eca2473bc2553df4da746bfa1b0c78ff, type: 3}
-  movePosition: {x: 0, y: 0, z: 0}
-  falconetCannonGrapeShot: {fileID: 6230678805625410844}
-  bombardCannonShrapnel: {fileID: 6230678805625410844, guid: e319141fd62b91549a7da155ca816444, type: 3}
-  trebuchetPayload: {fileID: 3330178691903697465, guid: 2816ecbc209b40f48a023acc861a09d4, type: 3}
 --- !u!114 &7328593329151889637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,7 +187,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.02, y: 0.02}

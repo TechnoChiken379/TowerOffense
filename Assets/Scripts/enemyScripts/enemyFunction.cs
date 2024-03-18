@@ -25,7 +25,7 @@ public class enemyFunction : MonoBehaviour
     private float engageDistance = 10f; //at what distance should the enemy start going to the player
 
     //health
-    public float enemyHP, enemyMaxHP = 25f;
+    public float enemyHP, enemyMaxHP = 250f;
 
     //attack
     private float attackTimer;

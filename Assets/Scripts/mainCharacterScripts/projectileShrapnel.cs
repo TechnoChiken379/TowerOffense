@@ -34,12 +34,11 @@ public class projectileShrapnel : MonoBehaviour
     {
         damageAmount = upgradeWeapons.damageAmountRoundShrapnel;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.TryGetComponent<enemyFunction>(out enemyFunction enemyComponent))
+        if (other.gameObject.TryGetComponent<enemyFunction>(out enemyFunction enemyComponent))
         {
             enemyComponent.ProcentDamageDealt(damageAmount);
-            //Destroy(gameObject);
         }
     }
 }

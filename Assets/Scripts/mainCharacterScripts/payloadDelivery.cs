@@ -35,12 +35,11 @@ public class payloadDelivery : MonoBehaviour
     {
         damageAmount = upgradeWeapons.trebuchetPayloadDeliveryDamage;
     }
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (collision.gameObject.TryGetComponent<enemyFunction>(out enemyFunction enemyComponent))
+        if (other.TryGetComponent<enemyFunction>(out enemyFunction enemyComponent))
         {
-            enemyComponent.ProcentDamageDealt(damageAmount);
-            //Destroy(gameObject);
+            enemyComponent.DamageDealt(damageAmount * Time.deltaTime);
         }
     }
 }

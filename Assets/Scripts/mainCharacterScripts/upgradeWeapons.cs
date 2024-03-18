@@ -8,8 +8,8 @@ public class upgradeWeapons : MonoBehaviour
     //weapon upgrades
     //archers
     public static int bowLevel = 1;
-    public static bool ballista = false; //strong, slow reload shot (goes through enemies)
-    public static bool hwacha = false; //lots of arrows
+    public static bool ballista = false; //slow firing strong arrow that goes through enemies
+    public static bool hwacha = true; //shoots a load of arrow's in quick succession before having to reload for some time
 
     public static float canFireArchers = 0.2f;
     public static float damageAmountArrows = 1;
@@ -22,8 +22,8 @@ public class upgradeWeapons : MonoBehaviour
 
     //cannons
     public static int culverinLevel = 0;
-    public static bool bombard = true; //?big, slow reload shot (explodes on inpact dealing massive damage to 1 target)
-    public static bool falconet = false; //grape shot explode on inpact
+    public static bool bombard = false; //shoots a big round that will explode on contact (or at the end of it's trajectory) (the explodion deals procentage damage)
+    public static bool falconet = true; //shoots grape shot rounds that explode/scatter on contact (or at the end of it's trajectory)
 
     public static float canFireCannons = 2;
     public static float damageAmountRound = 5;
@@ -41,8 +41,8 @@ public class upgradeWeapons : MonoBehaviour
 
     //catapult
     public static int onagerLevel = 0;
-    public static bool trebuchet = true; //big ark (hard to hit) strong payload
-    public static bool mangonel = false; //?fast reload 
+    public static bool trebuchet = true; //shoot's a payload high in the air before it comes crashing down (it leaves an AOE on the ground)
+    public static bool mangonel = false; //shoot 2 or 3 lesser payloads in quick succession
 
     public static float canFireCatapult = 3;
     public static float damageAmountPayload = 10;
@@ -53,7 +53,7 @@ public class upgradeWeapons : MonoBehaviour
     public static int mangonelAmountShot = 1;
 
     //trebuchet
-    public static float trebuchetPayloadDeliveryDamage = 0.01f;
+    public static float trebuchetPayloadDeliveryDamage = 10f; //dps per sec
 
     // Start is called before the first frame update
     void Start()
@@ -249,7 +249,7 @@ public class upgradeWeapons : MonoBehaviour
                 payloadSpeed = 10f;
                 payloadHeightNum = 6f;
 
-                trebuchetPayloadDeliveryDamage = 0.04f;
+                trebuchetPayloadDeliveryDamage = 20f;
             }
             if (mangonel == true)
             {
@@ -273,7 +273,7 @@ public class upgradeWeapons : MonoBehaviour
                 payloadSpeed = 10f;
                 payloadHeightNum = 6f;
 
-                trebuchetPayloadDeliveryDamage = 0.08f;
+                trebuchetPayloadDeliveryDamage = 40f;
             }
             if (mangonel == true)
             {

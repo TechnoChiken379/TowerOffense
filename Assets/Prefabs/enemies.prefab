@@ -250,8 +250,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: State.Idle
   distanceToPlayer: 0
-  enemyTestHP: 0
-  enemyTestMaxHP: 25
+  enemyHP: 0
+  enemyMaxHP: 25
   bullet: {fileID: 2214770678981885083, guid: d3ff45b680bb9f54ea30b6fe3d3db722, type: 3}
   bulletSpawnPoint: {fileID: 6841086612815714386}
   deathDrop: {fileID: 1571411932394843814, guid: ebd7fea600410ea45a155f1bd947a849, type: 3}

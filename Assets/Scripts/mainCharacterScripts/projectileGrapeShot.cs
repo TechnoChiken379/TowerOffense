@@ -39,9 +39,9 @@ public class projectileGrapeShot : MonoBehaviour
         damageAmount = upgradeWeapons.damageAmountRoundGrapeShot;
         speed = upgradeWeapons.roundSpeedGrapeShot;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.TryGetComponent<enemyFunction>(out enemyFunction enemyComponent))
+        if (other.gameObject.TryGetComponent<enemyFunction>(out enemyFunction enemyComponent))
         {
             enemyComponent.DamageDealt(damageAmount);
             Destroy(gameObject);
