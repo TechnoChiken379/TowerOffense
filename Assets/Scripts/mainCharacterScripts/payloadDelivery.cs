@@ -4,12 +4,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class projectileShrapnel : MonoBehaviour
+public class payloadDelivery : MonoBehaviour
 {
     private float damageAmount = 5f;
 
     private float time;
-    private float timeAlive = 0.2f;
+    private float timeAlive = 4f;
+    private float expandTime = 0.2f;
 
     private float size = 0.9f;
     private float maxSize = 1.5f;
@@ -27,14 +28,14 @@ public class projectileShrapnel : MonoBehaviour
             Destroy(gameObject);
         }
 
-        size = Mathf.MoveTowards(size, maxSize, timeAlive * 50 * Time.deltaTime);
+        size = Mathf.MoveTowards(size, maxSize, expandTime * 50 * Time.deltaTime);
         transform.localScale = new Vector2(size, size);
     }
     public void determineDamage()
     {
-        damageAmount = upgradeWeapons.damageAmountRoundShrapnel;
+        damageAmount = upgradeWeapons.trebuchetPayloadDeliveryDamage;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent<enemyFunction>(out enemyFunction enemyComponent))
         {
