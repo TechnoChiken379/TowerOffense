@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class enemyFunction : MonoBehaviour
+public class meleeEnemyFunction : MonoBehaviour
 {
     public string state = "State.Idle"; //what does the enemy want to do
 
@@ -15,9 +15,9 @@ public class enemyFunction : MonoBehaviour
 
     private float speed = 3.5f; //movement speed
 
-    private float closeEnough = 5f; //how close does the enemy want to get
-    private float optimalDistance = 3f;
-    private float toClose = 2f; //how far does the enemy want to stay away from player
+    private float closeEnough = 1f; //how close does the enemy want to get
+    private float optimalDistance = 0.75f;
+    private float toClose = 0.5f; //how far does the enemy want to stay away from player
 
     private float timer = 0f; //timer to keep track of time before moving
     private float moveTime = 0.1f; //time to start moving
@@ -25,11 +25,11 @@ public class enemyFunction : MonoBehaviour
     private float engageDistance = 10f; //at what distance should the enemy start going to the player
 
     //health
-    private float enemyHP, enemyMaxHP = 25f;
+    private float enemyHP, enemyMaxHP = 50f;
 
     //attack
     private float attackTimer;
-    private float canAttack = 0.5f;
+    private float canAttack = 1.0f;
 
     public GameObject bullet;
     public Transform bulletSpawnPoint;
@@ -139,7 +139,7 @@ public class enemyFunction : MonoBehaviour
     }
     public void SpreadOut()
     {
-        if (closestEnemy != null && Vector3.Distance(closestEnemy.position, transform.position) < 1f)
+        if (closestEnemy != null && Vector3.Distance(closestEnemy.position, transform.position) < 0.5f)
         {
             Vector3 directionToEnemy = (transform.position - closestEnemy.position).normalized;
             transform.Translate(directionToEnemy * Time.deltaTime * speed);
@@ -186,12 +186,13 @@ public class enemyFunction : MonoBehaviour
         if (attackTimer >= canAttack)
         {
             GameObject enemySpawnedBullet = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
-            enemyProjectile projectileScript = enemySpawnedBullet.GetComponent<enemyProjectile>();
+            meleeEnemyAttack meleeAttackScript = enemySpawnedBullet.GetComponent<meleeEnemyAttack>();
 
-            if (projectileScript != null)
+            if (meleeAttackScript != null)
             {
-                projectileScript.SetEnemyScriptReference(this);
+                meleeAttackScript.SetEnemyScriptReference(this);
             }
+
 
             attackTimer = 0f;
         }
