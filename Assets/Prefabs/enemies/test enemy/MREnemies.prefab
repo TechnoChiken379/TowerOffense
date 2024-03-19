@@ -156,6 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6841086612815714386}
   - component: {fileID: 7176268712079481819}
+  - component: {fileID: 6234155902028640312}
   - component: {fileID: 1869722887059525995}
   - component: {fileID: 7175010725296375294}
   - component: {fileID: 2740340057928723621}
@@ -236,7 +237,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1869722887059525995
+--- !u!114 &6234155902028640312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -244,6 +245,26 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2658153285916775044}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17fcc2826c3bcb64fa020a1c3d3b8f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: State.Idle
+  distanceToPlayer: 0
+  bullet: {fileID: 2214770678981885083, guid: 186c23c3bfdf778479335c661649d0a1, type: 3}
+  bullet2: {fileID: 2214770678981885083, guid: 4edc423068ce88642ada9aed2cd796d6, type: 3}
+  bulletSpawnPoint: {fileID: 5493004471625378853}
+  bulletSpawnPoint2: {fileID: 5493004471625378853}
+  deathDrop: {fileID: 1571411932394843814, guid: ebd7fea600410ea45a155f1bd947a849, type: 3}
+  deathDropPoint: {fileID: 8595486114224927762}
+--- !u!114 &1869722887059525995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2658153285916775044}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d94a275a29856834694fe9e7e781a8bd, type: 3}
   m_Name: 
@@ -336,7 +357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1605165796124781727}
   m_Layer: 6
-  m_Name: enemies
+  m_Name: MREnemies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

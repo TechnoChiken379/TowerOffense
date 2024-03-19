@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class meleeEnemyAttack : MonoBehaviour
+public class meleeMREnemyAttack : MonoBehaviour
 {
     private GameObject player;
     private Rigidbody2D rb;
 
     private float speed = 5f;
-    public static float enemyArrowDamageAmount = 10;
+    public static float enemyArrowDamageAmount = 5;
 
     private float time;
     private float timeAlive = 0.15f;
 
-    private meleeEnemyFunction enemyScriptReference;
+    private enemyMR enemyScriptReference;
 
     private void Start()
     {
@@ -38,7 +38,7 @@ public class meleeEnemyAttack : MonoBehaviour
         Vector2 directionToPlayer = (player.transform.position - transform.position).normalized;
         rb.velocity = directionToPlayer * speed;
     }
-    public void SetEnemyScriptReference(meleeEnemyFunction enemyScript)
+    public void SetEnemyScriptReference(enemyMR enemyScript)
     {
         enemyScriptReference = enemyScript;
     }
