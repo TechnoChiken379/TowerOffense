@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &222604335915569819
 Transform:
   m_ObjectHideFlags: 0
@@ -156,6 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6841086612815714386}
   - component: {fileID: 7176268712079481819}
+  - component: {fileID: 8325704782456126626}
   - component: {fileID: 1869722887059525995}
   - component: {fileID: 7175010725296375294}
   - component: {fileID: 2740340057928723621}
@@ -176,7 +177,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.45, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5493004471625378853}
@@ -226,7 +227,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.8301887, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.8301887, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -236,7 +237,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1869722887059525995
+--- !u!114 &8325704782456126626
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -245,13 +246,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 2658153285916775044}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04cad229ef614784eadcca096b7ed7de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: State.Idle
+  distanceToPlayer: 0
+  bullet: {fileID: 0}
+  bulletSpawnPoint: {fileID: 0}
+  deathDrop: {fileID: 0}
+  deathDropPoint: {fileID: 0}
+--- !u!114 &1869722887059525995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2658153285916775044}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d94a275a29856834694fe9e7e781a8bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   state: State.Idle
   distanceToPlayer: 0
-  enemyHP: 0
-  enemyMaxHP: 25
   bullet: {fileID: 2214770678981885083, guid: d3ff45b680bb9f54ea30b6fe3d3db722, type: 3}
   bulletSpawnPoint: {fileID: 6841086612815714386}
   deathDrop: {fileID: 1571411932394843814, guid: ebd7fea600410ea45a155f1bd947a849, type: 3}
@@ -338,7 +355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1605165796124781727}
   m_Layer: 6
-  m_Name: enemies
+  m_Name: meleeEnemies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

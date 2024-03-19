@@ -119,7 +119,6 @@ public class enemyProjectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("mainCharacter"))
         {
-            //mainCharacter.totalCurrentHealth -= enemyArrowDamageAmount;
             mainCharacter.TakenDamageCalculation(enemyArrowDamageAmount);
             mainCharacter.DetermineTotalRepairValue(enemyArrowDamageAmount);
             Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
