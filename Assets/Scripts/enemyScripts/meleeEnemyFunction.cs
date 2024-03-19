@@ -13,14 +13,15 @@ public class meleeEnemyFunction : MonoBehaviour
     private Transform player;
     public float distanceToPlayer;
 
-    private float speed = 3.5f; //movement speed
+    private float generalSpeed = 3.5f; //movement speed
+    private float combatSpeed = 4f; //movement speed
 
-    private float closeEnough = 1f; //how close does the enemy want to get
-    private float optimalDistance = 0.75f;
-    private float toClose = 0.5f; //how far does the enemy want to stay away from player
+    private float closeEnough = 1.1f; //how close does the enemy want to get
+    private float optimalDistance = 1f;
+    private float toClose = 0.9f; //how far does the enemy want to stay away from player
 
     private float timer = 0f; //timer to keep track of time before moving
-    private float moveTime = 0.1f; //time to start moving
+    private float moveTime = 0f; //time to start moving
 
     private float engageDistance = 10f; //at what distance should the enemy start going to the player
 
@@ -126,7 +127,7 @@ public class meleeEnemyFunction : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= moveTime)
         {
-            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * speed);
+            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * generalSpeed);
         }
     }
     public void Retreat()
@@ -134,15 +135,15 @@ public class meleeEnemyFunction : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= moveTime)
         {
-            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * -speed);
+            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * -combatSpeed);
         }
     }
     public void SpreadOut()
     {
-        if (closestEnemy != null && Vector3.Distance(closestEnemy.position, transform.position) < 0.5f)
+        if (closestEnemy != null && Vector3.Distance(closestEnemy.position, transform.position) < 0.75f)
         {
             Vector3 directionToEnemy = (transform.position - closestEnemy.position).normalized;
-            transform.Translate(directionToEnemy * Time.deltaTime * speed);
+            transform.Translate(directionToEnemy * Time.deltaTime * generalSpeed);
         }
     }
 
@@ -177,11 +178,11 @@ public class meleeEnemyFunction : MonoBehaviour
     {
         if (distanceToPlayer > optimalDistance)
         {
-            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * (speed * 0.5f));
+            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * (combatSpeed * 0.5f));
         }
         if (distanceToPlayer < optimalDistance)
         {
-            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * -(speed * 0.5f));
+            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * -(combatSpeed * 0.5f));
         }
         if (attackTimer >= canAttack)
         {

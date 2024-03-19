@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &222604335915569819
 Transform:
   m_ObjectHideFlags: 0
@@ -227,7 +227,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.8301887, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.8301887, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -251,10 +251,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: State.Idle
   distanceToPlayer: 0
-  bullet: {fileID: 0}
-  bulletSpawnPoint: {fileID: 0}
-  deathDrop: {fileID: 0}
-  deathDropPoint: {fileID: 0}
+  bullet: {fileID: 2214770678981885083, guid: 4047bdf8f475d1d43b4a7b09668e77e1, type: 3}
+  bulletSpawnPoint: {fileID: 5493004471625378853}
+  deathDrop: {fileID: 1571411932394843814, guid: ebd7fea600410ea45a155f1bd947a849, type: 3}
+  deathDropPoint: {fileID: 8595486114224927762}
 --- !u!114 &1869722887059525995
 MonoBehaviour:
   m_ObjectHideFlags: 0
