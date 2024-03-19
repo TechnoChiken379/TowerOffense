@@ -6,34 +6,38 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class meleeEnemyFunction : MonoBehaviour
+public class enemyMR : MonoBehaviour
 {
     public string state = "State.Idle"; //what does the enemy want to do
 
     private Transform player;
     public float distanceToPlayer;
 
-    private float generalSpeed = 3.5f; //movement speed
+    private float generalSpeed = 3.75f; //movement speed
     private float combatSpeed = 4f; //movement speed
 
-    private float closeEnough = 1.1f; //how close does the enemy want to get
+    private float closeEnough = 3f; //how close does the enemy want to get
+    private float melee = 1.1f;
     private float optimalDistance = 1f;
     private float toClose = 0.9f; //how far does the enemy want to stay away from player
 
     private float timer = 0f; //timer to keep track of time before moving
-    private float moveTime = 0f; //time to start moving
+    private float moveTime = 0.0f; //time to start moving
 
     private float engageDistance = 10f; //at what distance should the enemy start going to the player
 
     //health
-    private float enemyHP, enemyMaxHP = 50f;
+    private float enemyHP, enemyMaxHP = 20f;
 
     //attack
     private float attackTimer;
-    private float canAttack = 1.0f;
+    private float canAttackRanged = 0.5f;
+    private float canAttackMelee = 1.0f;
 
     public GameObject bullet;
+    public GameObject bullet2;
     public Transform bulletSpawnPoint;
+    public Transform bulletSpawnPoint2;
 
     //death drop
     public GameObject deathDrop;
@@ -178,22 +182,33 @@ public class meleeEnemyFunction : MonoBehaviour
     {
         if (distanceToPlayer > optimalDistance)
         {
-            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * (combatSpeed * 0.5f));
+            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * (combatSpeed * 1f));
         }
         if (distanceToPlayer < optimalDistance)
         {
-            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * -(combatSpeed * 0.5f));
+            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * -(combatSpeed * 1f));
         }
-        if (attackTimer >= canAttack)
+        if (attackTimer >= canAttackRanged && distanceToPlayer > melee)
         {
             GameObject enemySpawnedBullet = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
-            meleeEnemyAttack meleeAttackScript = enemySpawnedBullet.GetComponent<meleeEnemyAttack>();
+            enemyMRProjectile projectileScript = enemySpawnedBullet.GetComponent<enemyMRProjectile>();
 
-            if (meleeAttackScript != null)
+            if (projectileScript != null)
             {
-                meleeAttackScript.SetEnemyScriptReference(this);
+                projectileScript.SetEnemyScriptReference(this);
             }
 
+            attackTimer = 0f;
+        }
+        if (attackTimer >= canAttackMelee && distanceToPlayer <= melee)
+        {
+            GameObject enemySpawnedBullet = Instantiate(bullet2, bulletSpawnPoint2.position, Quaternion.identity);
+            enemyMRProjectile projectileScript = enemySpawnedBullet.GetComponent<enemyMRProjectile>();
+
+            if (projectileScript != null)
+            {
+                projectileScript.SetEnemyScriptReference(this);
+            }
 
             attackTimer = 0f;
         }
