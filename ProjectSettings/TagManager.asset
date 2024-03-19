@@ -12,6 +12,7 @@ TagManager:
   - Trabuchet
   - Cannon Round
   - ButtonTabList
+  - DeathScreenBackGround
   layers:
   - Default
   - TransparentFX

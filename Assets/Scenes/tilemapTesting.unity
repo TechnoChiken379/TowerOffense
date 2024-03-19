@@ -2462,7 +2462,7 @@ GameObject:
   - component: {fileID: 903211192}
   m_Layer: 0
   m_Name: DeathScreenBackGround
-  m_TagString: Untagged
+  m_TagString: DeathScreenBackGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13023,6 +13023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeathScreenAnimator: {fileID: 2059889948}
+  DeathScreenBackGround: {fileID: 903211190}
 --- !u!1 &2067230769
 GameObject:
   m_ObjectHideFlags: 0

@@ -48,7 +48,6 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
     public static bool repairing = false;
     //private static float repairTime = 10f;
 
-    public Animator deathScreen;
 
     public void LoadData(GameData data)
     {
@@ -72,7 +71,6 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     void Update()
     {
-        DeathManager();
         Test(); //for testing
 
         setValuesUpdate();
@@ -82,22 +80,6 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
         Repairing();
         Movement(); //Movement script
-    }
-
-    private void DeathManager()
-    {
-        if (totalCurrentHealth <= 0 && !(deathScreen.GetBool("MainMenu") == true || deathScreen.GetBool("LastSave") == true))
-        {
-            deathScreen.SetBool("Is Dead", true);
-        }
-        else
-        {
-            deathScreen.SetBool("Is Dead", false);
-        }
-        if (deathScreen.GetBool("MainMenu") == true || deathScreen.GetBool("LastSave") == true)
-        {
-            deathScreen.SetBool("Is Dead", false);
-        }
     }
 
     void Movement() //Movement Script
