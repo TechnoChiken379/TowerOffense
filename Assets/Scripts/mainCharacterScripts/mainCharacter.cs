@@ -86,11 +86,15 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     private void DeathManager()
     {
-        if (totalCurrentHealth <= 0)
+        if (totalCurrentHealth <= 0 && !(deathScreen.GetBool("MainMenu") == true || deathScreen.GetBool("LastSave") == true))
         {
             deathScreen.SetBool("Is Dead", true);
         }
         else
+        {
+            deathScreen.SetBool("Is Dead", false);
+        }
+        if (deathScreen.GetBool("MainMenu") == true || deathScreen.GetBool("LastSave") == true)
         {
             deathScreen.SetBool("Is Dead", false);
         }

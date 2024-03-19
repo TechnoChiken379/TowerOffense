@@ -25,6 +25,7 @@ public class deathScreenAnimation : MonoBehaviour
         Switch = true;
         timer = 0f;
         DeathScreenAnimator.SetBool("LastSave", true);
+        DeathScreenAnimator.SetBool("Is Dead", false);
     }
 
     public void MainMenu()
@@ -32,5 +33,6 @@ public class deathScreenAnimation : MonoBehaviour
         Switch = true;
         timer = 0f;
         DeathScreenAnimator.SetBool("MainMenu", true);
+        DeathScreenAnimator.SetBool("Is Dead", false);
     }
 }
