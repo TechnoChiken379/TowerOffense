@@ -296,10 +296,10 @@ public class enemyFunction : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("mainCharacter"))
         {
-            resources.woodAmount += 100;
-            resources.stoneAmount += 100;
-            resources.steelAmount += 100;
-            resources.goldAmount += 10;
+            resources.woodAmount += 35;
+            resources.stoneAmount += 35;
+            resources.steelAmount += 35;
+            resources.goldAmount += 1;
 
             Destroy(gameObject);
         }
