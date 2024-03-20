@@ -659,7 +659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6116284462072944387, guid: 476d4221d47cc354dbdebf896d5ecbe2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2262,6 +2262,10 @@ PrefabInstance:
     - target: {fileID: 369345172923266339, guid: 9c145e4feb59543499344f516d80e2b4, type: 3}
       propertyPath: m_Name
       value: enemyCannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 369345172923266339, guid: 9c145e4feb59543499344f516d80e2b4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6531410546172047087, guid: 9c145e4feb59543499344f516d80e2b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11562,6 +11566,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MREnemies (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6116284462072944387, guid: e8ae653014ebbd84b83e8506dc3755b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12011,7 +12019,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6116284462072944387, guid: 476d4221d47cc354dbdebf896d5ecbe2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12203,6 +12211,10 @@ PrefabInstance:
     - target: {fileID: 6116284462072944387, guid: e8ae653014ebbd84b83e8506dc3755b7, type: 3}
       propertyPath: m_Name
       value: MREnemies
+      objectReference: {fileID: 0}
+    - target: {fileID: 6116284462072944387, guid: e8ae653014ebbd84b83e8506dc3755b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

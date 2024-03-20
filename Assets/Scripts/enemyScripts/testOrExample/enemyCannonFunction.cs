@@ -12,13 +12,7 @@ public class enemyCannonFunction : MonoBehaviour
 
     private Transform player;
     public float distanceToPlayer;
-
-    private float speed = 3.5f; //movement speed
-
     private float closeEnough = 10f; //how close does the enemy want to get
-
-    private float timer = 0f; //timer to keep track of time before moving
-    private float moveTime = 0.1f; //time to start moving
 
     private float engageDistance = 10f; //at what distance should the enemy start going to the player
 
@@ -171,16 +165,16 @@ public class enemyCannonFunction : MonoBehaviour
         enemyHP -= enemyMaxHP * damageAmount;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("mainCharacter"))
-        {
-            resources.woodAmount += 100;
-            resources.stoneAmount += 100;
-            resources.steelAmount += 100;
-            resources.goldAmount += 10;
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("mainCharacter"))
+    //    {
+    //        resources.woodAmount += 100;
+    //        resources.stoneAmount += 100;
+    //        resources.steelAmount += 100;
+    //        resources.goldAmount += 10;
 
-            Destroy(gameObject);
-        }
-    }
+    //        Destroy(gameObject);
+    //    }
+    //}
 }

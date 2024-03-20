@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class enemyFunction : MonoBehaviour
 {
@@ -42,6 +43,16 @@ public class enemyFunction : MonoBehaviour
     private GameObject[] enemies;
     private Transform closestEnemy;
 
+    //animation
+    public GameObject standing;
+    public GameObject walking;
+    private float switchTimer;
+    private float switchTime = 0.1f;
+
+    //turn around
+    private float angle;
+    private float signedAngle;
+
     public void LoadData(GameData data)
     {
 
@@ -57,6 +68,9 @@ public class enemyFunction : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("mainCharacter").transform;
 
         enemyHP = enemyMaxHP;
+
+        standing.SetActive(true);
+        walking.SetActive(false);
     }
 
     // Update is called once per frame
@@ -65,6 +79,7 @@ public class enemyFunction : MonoBehaviour
         distanceToPlayer = Vector2.Distance(transform.position, player.position);
         FindClosestEnemies(); //locate closest enemy
         SpreadOut();
+        TurnAround();
         StateConditions(); //check what should the enemy should want to do
         ExecuteConditions(); //try to do what the enemy should want to do
         IfDeadDie();
@@ -103,17 +118,31 @@ public class enemyFunction : MonoBehaviour
     {
         switch (state)
         {
-            case "State.Idle": 
+            case "State.Idle":
                 //do nothing
+                Stand();
                 break;
             case "State.attack":
                 Attack();
+                switchTime = 0.2f;
+                if (distanceToPlayer - optimalDistance > 0.05f)
+                {
+                    Walk();
+                }
+                else
+                {
+                    Stand();
+                }
                 break;
             case "State.Move":
                 Move();
+                switchTime = 0.1f;
+                Walk();
                 break;
             case "State.Retreat":
                 Retreat();
+                switchTime = 0.1f;
+                Walk();
                 break;
             default: 
                 
@@ -175,11 +204,11 @@ public class enemyFunction : MonoBehaviour
     }
     public void Attack()
     {
-        if (distanceToPlayer > optimalDistance)
+        if (distanceToPlayer > optimalDistance && optimalDistance - distanceToPlayer < 0.05f)
         {
             transform.Translate((player.position - transform.position).normalized * Time.deltaTime * (speed * 0.5f));
         }
-        if (distanceToPlayer < optimalDistance)
+        if (distanceToPlayer < optimalDistance && distanceToPlayer - optimalDistance < 0.05f)
         {
             transform.Translate((player.position - transform.position).normalized * Time.deltaTime * -(speed * 0.5f));
         }
@@ -194,6 +223,52 @@ public class enemyFunction : MonoBehaviour
             }
 
             attackTimer = 0f;
+        }
+    }
+
+    //animations
+    void Walk()
+    {
+        switchTimer += Time.deltaTime;
+
+        if (standing.activeSelf && switchTimer >= switchTime)
+        {
+            standing.SetActive(false);
+            walking.SetActive(true);
+            switchTimer = 0f;
+        } else if (walking.activeSelf && switchTimer >= switchTime)
+        {
+            standing.SetActive(true);
+            walking.SetActive(false);
+            switchTimer = 0f;
+        }
+    }
+    void Stand()
+    {
+        standing.SetActive(true);
+        walking.SetActive(false);
+    }
+
+    void TurnAround()
+    {
+        Vector2 direction = player.transform.position - transform.position;
+        angle = Vector2.Angle(Vector2.right, direction);
+
+        signedAngle = Vector2.SignedAngle(Vector2.right, direction);
+
+        if (signedAngle < 0)
+        {
+            signedAngle += 360;
+        }
+        if (signedAngle > 90 && signedAngle <= 270)
+        {
+            standing.transform.localScale = new Vector3(7, 4.5f, 1);
+            walking.transform.localScale = new Vector3(7, 4.5f, 1);
+        }
+        else
+        {
+            standing.transform.localScale = new Vector3(-7, 4.5f, 1);
+            walking.transform.localScale = new Vector3(-7, 4.5f, 1);
         }
     }
 
