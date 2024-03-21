@@ -40,6 +40,15 @@ public class enemyDeathDrop : MonoBehaviour
     private enemyKnightFunction enemyKnightScriptReference;
     private enemyCannonFunction enemyCannonScriptReference;
 
+    //building
+    private enemyTentFunction enemyTentScriptReference;
+    private enemyCrateFunction enemyCrateScriptReference;
+    private enemyWHouseFunction enemyWHouseScriptReference;
+    private enemySHouseFunction enemySHouseScriptReference;
+
+    private enemyWWallFunction enemyWWallScriptReference;
+    private enemySWallFunction enemySWallScriptReference;
+
     //dropped
     private float DroppedGold = 0;
     private float DroppedWood = 0;
@@ -155,6 +164,30 @@ public class enemyDeathDrop : MonoBehaviour
     public void SetEnemyScriptReference(enemyCannonFunction enemyScript)
     {
         enemyCannonScriptReference = enemyScript;
+    }
+    public void SetEnemyScriptReference(enemyTentFunction enemyScript)
+    {
+        enemyTentScriptReference = enemyScript;
+    }
+    public void SetEnemyScriptReference(enemyCrateFunction enemyScript)
+    {
+        enemyCrateScriptReference = enemyScript;
+    }
+    public void SetEnemyScriptReference(enemyWHouseFunction enemyScript)
+    {
+        enemyWHouseScriptReference = enemyScript;
+    }
+    public void SetEnemyScriptReference(enemySHouseFunction enemyScript)
+    {
+        enemySHouseScriptReference = enemyScript;
+    }
+    public void SetEnemyScriptReference(enemyWWallFunction enemyScript)
+    {
+        enemyWWallScriptReference = enemyScript;
+    }
+    public void SetEnemyScriptReference(enemySWallFunction enemyScript)
+    {
+        enemySWallScriptReference = enemyScript;
     }
     #endregion
 

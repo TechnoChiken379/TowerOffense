@@ -61,5 +61,35 @@ public class projectileGrapeShot : MonoBehaviour
             enemyComponent4.DamageDealt(damageAmount);
             Destroy(gameObject);
         }
+        if (other.gameObject.TryGetComponent<enemyTentFunction>(out enemyTentFunction enemyComponent5))
+        {
+            enemyComponent5.DamageDealt(damageAmount);
+            Destroy(gameObject);
+        }
+        if (other.gameObject.TryGetComponent<enemyCrateFunction>(out enemyCrateFunction enemyComponent6))
+        {
+            enemyComponent6.DamageDealt(damageAmount);
+            Destroy(gameObject);
+        }
+        if (other.gameObject.TryGetComponent<enemyWHouseFunction>(out enemyWHouseFunction enemyComponent7))
+        {
+            enemyComponent7.DamageDealt(damageAmount);
+            Destroy(gameObject);
+        }
+        if (other.gameObject.TryGetComponent<enemySHouseFunction>(out enemySHouseFunction enemyComponent8))
+        {
+            enemyComponent8.DamageDealt(damageAmount);
+            Destroy(gameObject);
+        }
+        if (other.gameObject.TryGetComponent<enemyWWallFunction>(out enemyWWallFunction enemyComponent9))
+        {
+            enemyComponent9.DamageDealt(damageAmount);
+            Destroy(gameObject);
+        }
+        if (other.gameObject.TryGetComponent<enemySWallFunction>(out enemySWallFunction enemyComponent10))
+        {
+            enemyComponent10.DamageDealt(damageAmount);
+            Destroy(gameObject);
+        }
     }
 }
