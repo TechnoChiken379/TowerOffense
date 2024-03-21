@@ -52,5 +52,9 @@ public class projectileShrapnel : MonoBehaviour
         {
             enemyComponent4.ProcentDamageDealt(damageAmount);
         }
+        if (other.gameObject.TryGetComponent<enemyTentFunction>(out enemyTentFunction enemyComponent5))
+        {
+            enemyComponent5.ProcentDamageDealt(damageAmount);
+        }
     }
 }

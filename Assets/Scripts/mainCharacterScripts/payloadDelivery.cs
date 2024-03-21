@@ -53,5 +53,9 @@ public class payloadDelivery : MonoBehaviour
         {
             enemyComponent4.DamageDealt(damageAmount * Time.deltaTime);
         }
+        if (other.TryGetComponent<enemyTentFunction>(out enemyTentFunction enemyComponent5))
+        {
+            enemyComponent5.DamageDealt(damageAmount * Time.deltaTime);
+        }
     }
 }

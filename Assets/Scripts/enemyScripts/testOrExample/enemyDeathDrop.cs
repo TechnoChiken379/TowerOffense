@@ -40,6 +40,9 @@ public class enemyDeathDrop : MonoBehaviour
     private enemyKnightFunction enemyKnightScriptReference;
     private enemyCannonFunction enemyCannonScriptReference;
 
+    //building
+    private enemyTentFunction enemyTentScriptReference;
+
     //dropped
     private float DroppedGold = 0;
     private float DroppedWood = 0;
@@ -155,6 +158,10 @@ public class enemyDeathDrop : MonoBehaviour
     public void SetEnemyScriptReference(enemyCannonFunction enemyScript)
     {
         enemyCannonScriptReference = enemyScript;
+    }
+    public void SetEnemyScriptReference(enemyTentFunction enemyScript)
+    {
+        enemyTentScriptReference = enemyScript;
     }
     #endregion
 

@@ -61,5 +61,10 @@ public class projectileGrapeShot : MonoBehaviour
             enemyComponent4.DamageDealt(damageAmount);
             Destroy(gameObject);
         }
+        if (other.gameObject.TryGetComponent<enemyTentFunction>(out enemyTentFunction enemyComponent5))
+        {
+            enemyComponent5.DamageDealt(damageAmount);
+            Destroy(gameObject);
+        }
     }
 }
