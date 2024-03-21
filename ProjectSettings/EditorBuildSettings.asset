@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/tilemapTesting.unity
     guid: 61c4d34e934729248a91b82d94a3fb74
+  - enabled: 1
+    path: Assets/Scenes/DeathScreen.unity
+    guid: 29eb644b4516bca4fbce39bc098caba6
   m_configObjects: {}
