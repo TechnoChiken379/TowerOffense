@@ -9,14 +9,16 @@ public class deathScreenAnimation : MonoBehaviour
 
     private float timer = 0f;
     private bool Switch = false;
+    private bool deadSwitch = false;
+    private bool timerSwitch = false;
 
     public GameObject DeathScreenBackGround;
 
     void Update()
     {
-        DeathManager();
+        if (deadSwitch == true) DeathManager();
         timer += Time.deltaTime;
-        if (timer >= 4 && Switch == true)
+        if (timer >= 4 && timerSwitch == true)
         {
             SceneManager.LoadScene("MainMenu");
             Switch = false;
@@ -25,35 +27,23 @@ public class deathScreenAnimation : MonoBehaviour
 
     private void DeathManager()
     {
-
-        if (mainCharacter.totalCurrentHealth <= 0 && !(DeathScreenAnimator.GetBool("MainMenu") == true || DeathScreenAnimator.GetBool("LastSave") == true))
+        if (mainCharacter.totalCurrentHealth <= 0)
         {
+            Switch = true;
+            if (Switch == true)
+            {
+                timer = 0f;
+                Switch = false;
+            }
             DeathScreenAnimator.SetBool("Is Dead", true);
             DeathScreenBackGround.SetActive(true);
+            deadSwitch = false;
+            timerSwitch = true;
         }
         else
         {
             DeathScreenAnimator.SetBool("Is Dead", false);
+            deadSwitch = false;
         }
-        if (DeathScreenAnimator.GetBool("MainMenu") == true || DeathScreenAnimator.GetBool("LastSave") == true)
-        {
-            DeathScreenAnimator.SetBool("Is Dead", false);
-        }
-    }
-
-    public void LoadLastSave()
-    {
-        Switch = true;
-        timer = 0f;
-        DeathScreenAnimator.SetBool("LastSave", true);
-        //DeathScreenAnimator.SetBool("Is Dead", false);
-    }
-
-    public void MainMenu()
-    {
-        Switch = true;
-        timer = 0f;
-        DeathScreenAnimator.SetBool("MainMenu", true);
-        //DeathScreenAnimator.SetBool("Is Dead", false);
     }
 }
