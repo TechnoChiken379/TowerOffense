@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class enemyCannonFunction : MonoBehaviour
 {
@@ -34,6 +35,10 @@ public class enemyCannonFunction : MonoBehaviour
     private GameObject[] enemies;
     private Transform closestEnemy;
 
+    //turn around
+    public GameObject cannon;
+
+
     public void LoadData(GameData data)
     {
 
@@ -57,6 +62,7 @@ public class enemyCannonFunction : MonoBehaviour
         distanceToPlayer = Vector2.Distance(transform.position, player.position);
         FindClosestEnemies(); //locate closest enemy
         SpreadOut();
+        TurnAround();
         StateConditions(); //check what should the enemy should want to do
         ExecuteConditions(); //try to do what the enemy should want to do
         IfDeadDie();
@@ -145,6 +151,13 @@ public class enemyCannonFunction : MonoBehaviour
         }
     }
 
+    void TurnAround()
+    {
+        var dir = player.position - cannon.transform.position;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        cannon.transform.rotation = Quaternion.AngleAxis(angle + 90, Vector3.forward);
+    }
+
     void IfDeadDie()
     {
         if (enemyHP <= 0)
@@ -164,17 +177,4 @@ public class enemyCannonFunction : MonoBehaviour
     {
         enemyHP -= enemyMaxHP * damageAmount;
     }
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("mainCharacter"))
-    //    {
-    //        resources.woodAmount += 100;
-    //        resources.stoneAmount += 100;
-    //        resources.steelAmount += 100;
-    //        resources.goldAmount += 10;
-
-    //        Destroy(gameObject);
-    //    }
-    //}
 }

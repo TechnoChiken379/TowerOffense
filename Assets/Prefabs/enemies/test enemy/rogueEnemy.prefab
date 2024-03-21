@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1270034850926512052
+--- !u!1 &1175467266163432679
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5398767378765673036}
-  - component: {fileID: 3311803357377129334}
+  - component: {fileID: 4767243562140155658}
+  - component: {fileID: 1705523640861161665}
   m_Layer: 0
-  m_Name: pixil-frame-0 (3) 1
+  m_Name: rogueWalk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5398767378765673036
+--- !u!4 &4767243562140155658
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270034850926512052}
+  m_GameObject: {fileID: 1175467266163432679}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.143, y: -0.003, z: 0}
+  m_LocalPosition: {x: 0.143, y: 0.037, z: 0}
   m_LocalScale: {x: 7, y: 4.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6841086612815714386}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3311803357377129334
+--- !u!212 &1705523640861161665
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270034850926512052}
+  m_GameObject: {fileID: 1175467266163432679}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 440200ee1c836fd41b10020fed92da43, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e14bff68b52ecf54ab2509555ac740ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -240,7 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6841086612815714386}
   - component: {fileID: 7176268712079481819}
-  - component: {fileID: 1869722887059525995}
+  - component: {fileID: 6234155902028640312}
   - component: {fileID: 7175010725296375294}
   - component: {fileID: 2740340057928723621}
   m_Layer: 6
@@ -266,8 +266,8 @@ Transform:
   - {fileID: 5493004471625378853}
   - {fileID: 8595486114224927762}
   - {fileID: 222604335915569819}
-  - {fileID: 4212034659684708056}
-  - {fileID: 5398767378765673036}
+  - {fileID: 3009860103497523454}
+  - {fileID: 4767243562140155658}
   m_Father: {fileID: 1605165796124781727}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7176268712079481819
@@ -322,7 +322,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1869722887059525995
+--- !u!114 &6234155902028640312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -331,17 +331,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2658153285916775044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d94a275a29856834694fe9e7e781a8bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 17fcc2826c3bcb64fa020a1c3d3b8f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   state: State.Idle
   distanceToPlayer: 0
-  bullet: {fileID: 2214770678981885083, guid: d3ff45b680bb9f54ea30b6fe3d3db722, type: 3}
-  bulletSpawnPoint: {fileID: 6841086612815714386}
+  bullet: {fileID: 2214770678981885083, guid: 186c23c3bfdf778479335c661649d0a1, type: 3}
+  bullet2: {fileID: 2214770678981885083, guid: 4edc423068ce88642ada9aed2cd796d6, type: 3}
+  bulletSpawnPoint: {fileID: 5493004471625378853}
+  bulletSpawnPoint2: {fileID: 5493004471625378853}
   deathDrop: {fileID: 1571411932394843814, guid: ebd7fea600410ea45a155f1bd947a849, type: 3}
   deathDropPoint: {fileID: 8595486114224927762}
-  standing: {fileID: 4755257211077636506}
-  walking: {fileID: 1270034850926512052}
+  standing: {fileID: 3461222809928603344}
+  walking: {fileID: 1175467266163432679}
 --- !u!61 &7175010725296375294
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -414,7 +416,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!1 &4755257211077636506
+--- !u!1 &3461222809928603344
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -422,22 +424,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4212034659684708056}
-  - component: {fileID: 6441692387362238159}
+  - component: {fileID: 3009860103497523454}
+  - component: {fileID: 4698445637092267273}
   m_Layer: 0
-  m_Name: pixil-frame-0 (2)
+  m_Name: rogueStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4212034659684708056
+--- !u!4 &3009860103497523454
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4755257211077636506}
+  m_GameObject: {fileID: 3461222809928603344}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.143, y: 0.037, z: 0}
@@ -446,13 +448,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6841086612815714386}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6441692387362238159
+--- !u!212 &4698445637092267273
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4755257211077636506}
+  m_GameObject: {fileID: 3461222809928603344}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -487,7 +489,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c574959f986a0a441ad2b285913c0f2b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 918e5659b47e3e04388fefed8e504659, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -508,7 +510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1605165796124781727}
   m_Layer: 6
-  m_Name: rangedEnemies
+  m_Name: rogueEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

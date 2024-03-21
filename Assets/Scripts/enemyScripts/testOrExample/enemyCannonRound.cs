@@ -12,7 +12,7 @@ public class enemyCannonRound : MonoBehaviour
     private GameObject projectileSpawn;
     private GameObject targetSpawn;
 
-    private float speed = 10f;
+    private float speed = 12f;
     private float heightNum = 0.25f;
     public Vector3 movePosition;
 
