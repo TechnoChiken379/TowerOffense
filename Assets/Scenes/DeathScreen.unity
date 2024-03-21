@@ -402,8 +402,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 325371242}
-  - component: {fileID: 325371244}
   - component: {fileID: 325371243}
+  - component: {fileID: 325371244}
   m_Layer: 5
   m_Name: DeathScreen
   m_TagString: Untagged
@@ -552,8 +552,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 325371243}
-        m_TargetAssemblyTypeName: deathScreenAnimation, Assembly-CSharp
-        m_MethodName: MainMenu
+        m_TargetAssemblyTypeName: deathScreenManager, Assembly-CSharp
+        m_MethodName: MainMenuButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -753,7 +753,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 325371243}
-        m_TargetAssemblyTypeName: deathScreenAnimation, Assembly-CSharp
+        m_TargetAssemblyTypeName: deathScreenManager, Assembly-CSharp
         m_MethodName: LoadLastSave
         m_Mode: 1
         m_Arguments:
