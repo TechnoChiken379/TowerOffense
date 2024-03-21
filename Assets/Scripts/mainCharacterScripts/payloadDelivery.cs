@@ -37,9 +37,21 @@ public class payloadDelivery : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.TryGetComponent<enemyFunction>(out enemyFunction enemyComponent))
+        if (other.TryGetComponent<enemyArcherFunction>(out enemyArcherFunction enemyComponent))
         {
             enemyComponent.DamageDealt(damageAmount * Time.deltaTime);
+        }
+        if (other.TryGetComponent<enemyKnightFunction>(out enemyKnightFunction enemyComponent2))
+        {
+            enemyComponent2.DamageDealt(damageAmount * Time.deltaTime);
+        }
+        if (other.TryGetComponent<enemyRogueFunction>(out enemyRogueFunction enemyComponent3))
+        {
+            enemyComponent3.DamageDealt(damageAmount * Time.deltaTime);
+        }
+        if (other.TryGetComponent<enemyCannonFunction>(out enemyCannonFunction enemyComponent4))
+        {
+            enemyComponent4.DamageDealt(damageAmount * Time.deltaTime);
         }
     }
 }

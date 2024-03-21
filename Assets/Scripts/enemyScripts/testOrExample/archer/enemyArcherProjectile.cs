@@ -5,15 +5,15 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class enemyCannonRound : MonoBehaviour
+public class enemyArcherProjectile : MonoBehaviour
 {
     private GameObject player;
     [SerializeField] public GameObject enemyWayPoint;
     private GameObject projectileSpawn;
     private GameObject targetSpawn;
 
-    private float speed = 12f;
-    private float heightNum = 0.25f;
+    private float speed = 7f;
+    private float heightNum = 0.5f;
     public Vector3 movePosition;
 
     private float enemyX;
@@ -28,9 +28,9 @@ public class enemyCannonRound : MonoBehaviour
     private float angle;
     private float signedAngle;
 
-    public static float enemyArrowDamageAmount = 20;
+    public static float enemyProjectileDamageAmount = 5;
 
-    private enemyCannonFunction enemyScriptReference;
+    private enemyArcherFunction enemyScriptReference;
 
     private void Start()
     { 
@@ -110,7 +110,12 @@ public class enemyCannonRound : MonoBehaviour
         }
     }
 
-    public void SetEnemyScriptReference(enemyCannonFunction enemyScript)
+    public void DetermineDamage(float damage)
+    {
+        enemyProjectileDamageAmount = damage;
+    }
+
+    public void SetEnemyScriptReference(enemyArcherFunction enemyScript)
     {
         enemyScriptReference = enemyScript;
     }
@@ -119,13 +124,13 @@ public class enemyCannonRound : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("mainCharacter"))
         {
-            mainCharacter.TakenDamageCalculation(enemyArrowDamageAmount);
-            mainCharacter.DetermineTotalRepairValue(enemyArrowDamageAmount);
+            mainCharacter.TakenDamageCalculation(enemyProjectileDamageAmount);
+            mainCharacter.DetermineTotalRepairValue(enemyProjectileDamageAmount);
             Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
 
             if (upgradeArmor.deflectDamage)
             {
-                enemyScriptReference.DamageDealt(enemyArrowDamageAmount * (1f - upgradeArmor.deflectDamageNotTaken));
+                enemyScriptReference.DamageDealt(enemyProjectileDamageAmount * (1f - upgradeArmor.deflectDamageNotTaken));
             }
         }
     }

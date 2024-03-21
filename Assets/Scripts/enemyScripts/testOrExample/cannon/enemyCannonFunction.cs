@@ -18,9 +18,11 @@ public class enemyCannonFunction : MonoBehaviour
     private float engageDistance = 10f; //at what distance should the enemy start going to the player
 
     //health
-    private float enemyHP, enemyMaxHP = 25f;
+    private float enemyHP, enemyMaxHP = 50f;
 
     //attack
+    private float attackDamage = 20f;
+
     private float attackTimer;
     private float canAttack = 1.5f;
 
@@ -28,7 +30,16 @@ public class enemyCannonFunction : MonoBehaviour
     public Transform bulletSpawnPoint;
 
     //death drop
-    public GameObject deathDrop;
+    public GameObject deathDropGold;
+    public GameObject deathDropWood;
+    public GameObject deathDropStone;
+    public GameObject deathDropSteel;
+
+    private float DroppedGold = 1;
+    private float DroppedWood = 10;
+    private float DroppedStone = 10;
+    private float DroppedSteel = 10;
+
     public Transform deathDropPoint;
 
     //spreat out from other enemies
@@ -140,11 +151,12 @@ public class enemyCannonFunction : MonoBehaviour
         if (attackTimer >= canAttack)
         {
             GameObject enemySpawnedBullet = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
-            enemyCannonRound projectileScript = enemySpawnedBullet.GetComponent<enemyCannonRound>();
+            enemyCannonProjectile projectileScript = enemySpawnedBullet.GetComponent<enemyCannonProjectile>();
 
             if (projectileScript != null)
             {
                 projectileScript.SetEnemyScriptReference(this);
+                projectileScript.DetermineDamage(attackDamage);
             }
 
             attackTimer = 0f;
@@ -162,12 +174,50 @@ public class enemyCannonFunction : MonoBehaviour
     {
         if (enemyHP <= 0)
         {
-            GameObject enemyDroppedResources = Instantiate(deathDrop, deathDropPoint.position, Quaternion.identity);
+            //gold
+            GameObject enemyDroppedGold = Instantiate(deathDropGold, deathDropPoint.position, Quaternion.identity);
+            enemyDeathDrop DeathDropGoldScript = enemyDroppedGold.GetComponent<enemyDeathDrop>();
+
+            if (DeathDropGoldScript != null)
+            {
+                DeathDropGoldScript.SetEnemyScriptReference(this);
+                DeathDropGoldScript.DetermineAmountGold(DroppedGold);
+            }
+
+            //wood
+            GameObject enemyDroppedWood = Instantiate(deathDropWood, deathDropPoint.position, Quaternion.identity);
+            enemyDeathDrop DeathDropWoodScript = enemyDroppedWood.GetComponent<enemyDeathDrop>();
+
+            if (DeathDropWoodScript != null)
+            {
+                DeathDropWoodScript.SetEnemyScriptReference(this);
+                DeathDropWoodScript.DetermineAmountWood(DroppedWood);
+            }
+
+            //stone
+            GameObject enemyDroppedStone = Instantiate(deathDropStone, deathDropPoint.position, Quaternion.identity);
+            enemyDeathDrop DeathDropStoneScript = enemyDroppedStone.GetComponent<enemyDeathDrop>();
+
+            if (DeathDropStoneScript != null)
+            {
+                DeathDropStoneScript.SetEnemyScriptReference(this);
+                DeathDropStoneScript.DetermineAmountStone(DroppedStone);
+            }
+
+            //steel
+            GameObject enemyDroppedSteel = Instantiate(deathDropSteel, deathDropPoint.position, Quaternion.identity);
+            enemyDeathDrop DeathDropSteelScript = enemyDroppedSteel.GetComponent<enemyDeathDrop>();
+
+            if (DeathDropSteelScript != null)
+            {
+                DeathDropSteelScript.SetEnemyScriptReference(this);
+                DeathDropSteelScript.DetermineAmountSteel(DroppedSteel);
+            }
 
             Destroy(gameObject);
         }
     }
- 
+
     public void DamageDealt(float damageAmount)
     {
         enemyHP -= damageAmount;
