@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class enemyTentFunction : MonoBehaviour
+public class enemySHouseFunction : MonoBehaviour
 {
     public string state = "State.Idle"; //what does the enemy want to do
 
@@ -24,8 +24,8 @@ public class enemyTentFunction : MonoBehaviour
 
     private float DroppedGold = 1;
     private float DroppedWood = 10;
-    private float DroppedStone = 10;
-    private float DroppedSteel = 100;
+    private float DroppedStone = 100;
+    private float DroppedSteel = 10;
 
     public Transform deathDropPoint;
 

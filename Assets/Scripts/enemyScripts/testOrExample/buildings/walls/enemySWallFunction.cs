@@ -7,14 +7,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class enemyTentFunction : MonoBehaviour
+public class enemySWallFunction : MonoBehaviour
 {
     public string state = "State.Idle"; //what does the enemy want to do
 
     private Transform player;
     public float distanceToPlayer;
     //health
-    private float enemyHP, enemyMaxHP = 50f;
+    private float enemyHP, enemyMaxHP = 100f;
 
     //death drop
     public GameObject deathDropGold;
@@ -24,8 +24,8 @@ public class enemyTentFunction : MonoBehaviour
 
     private float DroppedGold = 1;
     private float DroppedWood = 10;
-    private float DroppedStone = 10;
-    private float DroppedSteel = 100;
+    private float DroppedStone = 50;
+    private float DroppedSteel = 10;
 
     public Transform deathDropPoint;
 

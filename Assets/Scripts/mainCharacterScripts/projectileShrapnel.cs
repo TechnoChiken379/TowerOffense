@@ -56,5 +56,25 @@ public class projectileShrapnel : MonoBehaviour
         {
             enemyComponent5.ProcentDamageDealt(damageAmount);
         }
+        if (other.gameObject.TryGetComponent<enemyCrateFunction>(out enemyCrateFunction enemyComponent6))
+        {
+            enemyComponent6.ProcentDamageDealt(damageAmount);
+        }
+        if (other.gameObject.TryGetComponent<enemyWHouseFunction>(out enemyWHouseFunction enemyComponent7))
+        {
+            enemyComponent7.ProcentDamageDealt(damageAmount);
+        }
+        if (other.gameObject.TryGetComponent<enemySHouseFunction>(out enemySHouseFunction enemyComponent8))
+        {
+            enemyComponent8.ProcentDamageDealt(damageAmount);
+        }
+        if (other.gameObject.TryGetComponent<enemyWWallFunction>(out enemyWWallFunction enemyComponent9))
+        {
+            enemyComponent9.ProcentDamageDealt(damageAmount);
+        }
+        if (other.gameObject.TryGetComponent<enemySWallFunction>(out enemySWallFunction enemyComponent10))
+        {
+            enemyComponent10.ProcentDamageDealt(damageAmount);
+        }
     }
 }

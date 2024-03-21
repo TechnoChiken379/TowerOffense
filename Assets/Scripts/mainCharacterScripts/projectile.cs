@@ -335,5 +335,135 @@ public class projectile : MonoBehaviour
                 Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
             }
         }
+        if (collision.gameObject.TryGetComponent<enemyCrateFunction>(out enemyCrateFunction enemyComponent6))
+        {
+            //deal damage
+            enemyComponent6.DamageDealt(damageAmount);
+
+            //destroy game object on hit
+            if (gameObject.name != "ballistaArrow(Clone)")
+            {
+                if (gameObject.name == "falconetCannonRound(Clone)")
+                {
+                    for (int i = 0; i < upgradeWeapons.grapeShotAmount; i++)
+                    {
+                        GameObject spawnedBullet = Instantiate(falconetCannonGrapeShot, transform.position, Quaternion.identity);
+                    }
+                }
+                if (gameObject.name == "bombardCannonRound(Clone)")
+                {
+                    GameObject spawnedBullet = Instantiate(bombardCannonShrapnel, transform.position, Quaternion.identity);
+                }
+                if (gameObject.name == "trebuchetPayload(Clone)")
+                {
+                    GameObject spawnedBullet = Instantiate(trebuchetPayload, transform.position, Quaternion.identity);
+                }
+                Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
+            }
+        }
+        if (collision.gameObject.TryGetComponent<enemyWHouseFunction>(out enemyWHouseFunction enemyComponent7))
+        {
+            //deal damage
+            enemyComponent7.DamageDealt(damageAmount);
+
+            //destroy game object on hit
+            if (gameObject.name != "ballistaArrow(Clone)")
+            {
+                if (gameObject.name == "falconetCannonRound(Clone)")
+                {
+                    for (int i = 0; i < upgradeWeapons.grapeShotAmount; i++)
+                    {
+                        GameObject spawnedBullet = Instantiate(falconetCannonGrapeShot, transform.position, Quaternion.identity);
+                    }
+                }
+                if (gameObject.name == "bombardCannonRound(Clone)")
+                {
+                    GameObject spawnedBullet = Instantiate(bombardCannonShrapnel, transform.position, Quaternion.identity);
+                }
+                if (gameObject.name == "trebuchetPayload(Clone)")
+                {
+                    GameObject spawnedBullet = Instantiate(trebuchetPayload, transform.position, Quaternion.identity);
+                }
+                Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
+            }
+        }
+        if (collision.gameObject.TryGetComponent<enemySHouseFunction>(out enemySHouseFunction enemyComponent8))
+        {
+            //deal damage
+            enemyComponent8.DamageDealt(damageAmount);
+
+            //destroy game object on hit
+            if (gameObject.name != "ballistaArrow(Clone)")
+            {
+                if (gameObject.name == "falconetCannonRound(Clone)")
+                {
+                    for (int i = 0; i < upgradeWeapons.grapeShotAmount; i++)
+                    {
+                        GameObject spawnedBullet = Instantiate(falconetCannonGrapeShot, transform.position, Quaternion.identity);
+                    }
+                }
+                if (gameObject.name == "bombardCannonRound(Clone)")
+                {
+                    GameObject spawnedBullet = Instantiate(bombardCannonShrapnel, transform.position, Quaternion.identity);
+                }
+                if (gameObject.name == "trebuchetPayload(Clone)")
+                {
+                    GameObject spawnedBullet = Instantiate(trebuchetPayload, transform.position, Quaternion.identity);
+                }
+                Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
+            }
+        }
+        if (collision.gameObject.TryGetComponent<enemyWWallFunction>(out enemyWWallFunction enemyComponent9))
+        {
+            //deal damage
+            enemyComponent9.DamageDealt(damageAmount);
+
+            //destroy game object on hit
+            if (gameObject.name != "ballistaArrow(Clone)")
+            {
+                if (gameObject.name == "falconetCannonRound(Clone)")
+                {
+                    for (int i = 0; i < upgradeWeapons.grapeShotAmount; i++)
+                    {
+                        GameObject spawnedBullet = Instantiate(falconetCannonGrapeShot, transform.position, Quaternion.identity);
+                    }
+                }
+                if (gameObject.name == "bombardCannonRound(Clone)")
+                {
+                    GameObject spawnedBullet = Instantiate(bombardCannonShrapnel, transform.position, Quaternion.identity);
+                }
+                if (gameObject.name == "trebuchetPayload(Clone)")
+                {
+                    GameObject spawnedBullet = Instantiate(trebuchetPayload, transform.position, Quaternion.identity);
+                }
+                Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
+            }
+        }
+        if (collision.gameObject.TryGetComponent<enemySWallFunction>(out enemySWallFunction enemyComponent10))
+        {
+            //deal damage
+            enemyComponent10.DamageDealt(damageAmount);
+
+            //destroy game object on hit
+            if (gameObject.name != "ballistaArrow(Clone)")
+            {
+                if (gameObject.name == "falconetCannonRound(Clone)")
+                {
+                    for (int i = 0; i < upgradeWeapons.grapeShotAmount; i++)
+                    {
+                        GameObject spawnedBullet = Instantiate(falconetCannonGrapeShot, transform.position, Quaternion.identity);
+                    }
+                }
+                if (gameObject.name == "bombardCannonRound(Clone)")
+                {
+                    GameObject spawnedBullet = Instantiate(bombardCannonShrapnel, transform.position, Quaternion.identity);
+                }
+                if (gameObject.name == "trebuchetPayload(Clone)")
+                {
+                    GameObject spawnedBullet = Instantiate(trebuchetPayload, transform.position, Quaternion.identity);
+                }
+                Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
+            }
+        }
     }
 }

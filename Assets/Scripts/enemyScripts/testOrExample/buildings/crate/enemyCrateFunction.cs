@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class enemyTentFunction : MonoBehaviour
+public class enemyCrateFunction : MonoBehaviour
 {
     public string state = "State.Idle"; //what does the enemy want to do
 
@@ -25,7 +25,7 @@ public class enemyTentFunction : MonoBehaviour
     private float DroppedGold = 1;
     private float DroppedWood = 10;
     private float DroppedStone = 10;
-    private float DroppedSteel = 100;
+    private float DroppedSteel = 50;
 
     public Transform deathDropPoint;
 
@@ -143,5 +143,18 @@ public class enemyTentFunction : MonoBehaviour
     public void ProcentDamageDealt(float damageAmount)
     {
         enemyHP -= enemyMaxHP * damageAmount;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("mainCharacter"))
+        {
+            resources.woodAmount += DroppedWood;
+            resources.stoneAmount += DroppedStone;
+            resources.steelAmount += DroppedSteel;
+            resources.goldAmount += DroppedGold;
+
+            Destroy(gameObject);
+        }
     }
 }

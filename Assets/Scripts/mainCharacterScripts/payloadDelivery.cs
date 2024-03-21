@@ -57,5 +57,25 @@ public class payloadDelivery : MonoBehaviour
         {
             enemyComponent5.DamageDealt(damageAmount * Time.deltaTime);
         }
+        if (other.TryGetComponent<enemyCrateFunction>(out enemyCrateFunction enemyComponent6))
+        {
+            enemyComponent6.DamageDealt(damageAmount * Time.deltaTime);
+        }
+        if (other.TryGetComponent<enemyWHouseFunction>(out enemyWHouseFunction enemyComponent7))
+        {
+            enemyComponent7.DamageDealt(damageAmount * Time.deltaTime);
+        }
+        if (other.TryGetComponent<enemySHouseFunction>(out enemySHouseFunction enemyComponent8))
+        {
+            enemyComponent8.DamageDealt(damageAmount * Time.deltaTime);
+        }
+        if (other.TryGetComponent<enemyWWallFunction>(out enemyWWallFunction enemyComponent9))
+        {
+            enemyComponent9.DamageDealt(damageAmount * Time.deltaTime);
+        }
+        if (other.TryGetComponent<enemySWallFunction>(out enemySWallFunction enemyComponent10))
+        {
+            enemyComponent10.DamageDealt(damageAmount * Time.deltaTime);
+        }
     }
 }

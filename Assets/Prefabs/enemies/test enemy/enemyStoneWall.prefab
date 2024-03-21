@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6531410546172047087}
   m_Layer: 0
-  m_Name: enemytent
+  m_Name: enemyStoneWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 2440656068064874008}
   - component: {fileID: 4069137134964419571}
   - component: {fileID: 6864502473543335714}
-  - component: {fileID: 3074365042487837698}
+  - component: {fileID: 5860733441763193726}
   m_Layer: 6
   m_Name: body
   m_TagString: Enemy
@@ -141,7 +141,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.6509434, g: 0.11299393, b: 0.11299393, a: 1}
+  m_Color: {r: 0.4245283, g: 0.41401565, b: 0.28996083, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -223,7 +223,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &3074365042487837698
+--- !u!114 &5860733441763193726
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8678990776203101645}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1290025b2643c1f4bb8560680d065244, type: 3}
+  m_Script: {fileID: 11500000, guid: ce889c9d945f7f94ab3190ac3eac77ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   state: State.Idle
