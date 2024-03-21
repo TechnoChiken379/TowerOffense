@@ -34,7 +34,17 @@ public class enemyDeathDrop : MonoBehaviour
     float randomXLocation;
     float randomYLocation;
 
-    //public static float enemyArrowDamageAmount = 5;
+    //scripts
+    private enemyArcherFunction enemyArcherScriptReference;
+    private enemyRogueFunction enemyRogueScriptReference;
+    private enemyKnightFunction enemyKnightScriptReference;
+    private enemyCannonFunction enemyCannonScriptReference;
+
+    //dropped
+    private float DroppedGold = 0;
+    private float DroppedWood = 0;
+    private float DroppedStone = 0;
+    private float DroppedSteel = 0;
 
     private void Start()
     {
@@ -129,14 +139,67 @@ public class enemyDeathDrop : MonoBehaviour
         targetLocation.y = transform.position.y + randomYLocation;
     }
 
+    #region script reference
+    public void SetEnemyScriptReference(enemyArcherFunction enemyScript)
+    {
+        enemyArcherScriptReference = enemyScript;
+    }
+    public void SetEnemyScriptReference(enemyRogueFunction enemyScript)
+    {
+        enemyRogueScriptReference = enemyScript;
+    }
+    public void SetEnemyScriptReference(enemyKnightFunction enemyScript)
+    {
+        enemyKnightScriptReference = enemyScript;
+    }
+    public void SetEnemyScriptReference(enemyCannonFunction enemyScript)
+    {
+        enemyCannonScriptReference = enemyScript;
+    }
+    #endregion
+
+    #region determine amount dropped
+    public void DetermineAmountGold(float amount)
+    {
+        DroppedGold = amount;
+        DroppedWood = 0;
+        DroppedStone = 0;
+        DroppedSteel = 0;
+    }
+
+    public void DetermineAmountWood(float amount)
+    {
+        DroppedGold = 0;
+        DroppedWood = amount;
+        DroppedStone = 0;
+        DroppedSteel = 0;
+    }
+
+    public void DetermineAmountStone(float amount)
+    {
+        DroppedGold = 0;
+        DroppedWood = 0;
+        DroppedStone = amount;
+        DroppedSteel = 0;
+    }
+
+    public void DetermineAmountSteel(float amount)
+    {
+        DroppedGold = 0;
+        DroppedWood = 0;
+        DroppedStone = 0;
+        DroppedSteel = amount;
+    }
+    #endregion
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("mainCharacter"))
         {
-            resources.woodAmount += 35;
-            resources.stoneAmount += 35;
-            resources.steelAmount += 35;
-            resources.goldAmount += 1;
+            resources.woodAmount += DroppedWood;
+            resources.stoneAmount += DroppedStone;
+            resources.steelAmount += DroppedSteel;
+            resources.goldAmount += DroppedGold;
 
             Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
         }

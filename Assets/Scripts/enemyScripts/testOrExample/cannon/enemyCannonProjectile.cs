@@ -5,14 +5,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class enemyMRProjectile : MonoBehaviour
+public class enemyCannonProjectile : MonoBehaviour
 {
     private GameObject player;
     [SerializeField] public GameObject enemyWayPoint;
     private GameObject projectileSpawn;
     private GameObject targetSpawn;
 
-    private float speed = 7f;
+    private float speed = 12f;
     private float heightNum = 0.25f;
     public Vector3 movePosition;
 
@@ -28,9 +28,9 @@ public class enemyMRProjectile : MonoBehaviour
     private float angle;
     private float signedAngle;
 
-    public static float enemyArrowDamageAmount = 2.5f;
+    public static float enemyProjectileDamageAmount = 20;
 
-    private enemyMR enemyScriptReference;
+    private enemyCannonFunction enemyScriptReference;
 
     private void Start()
     { 
@@ -110,7 +110,12 @@ public class enemyMRProjectile : MonoBehaviour
         }
     }
 
-    public void SetEnemyScriptReference(enemyMR enemyScript)
+    public void DetermineDamage(float damage)
+    {
+        enemyProjectileDamageAmount = damage;
+    }
+
+    public void SetEnemyScriptReference(enemyCannonFunction enemyScript)
     {
         enemyScriptReference = enemyScript;
     }
@@ -119,13 +124,13 @@ public class enemyMRProjectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("mainCharacter"))
         {
-            mainCharacter.TakenDamageCalculation(enemyArrowDamageAmount);
-            mainCharacter.DetermineTotalRepairValue(enemyArrowDamageAmount);
+            mainCharacter.TakenDamageCalculation(enemyProjectileDamageAmount);
+            mainCharacter.DetermineTotalRepairValue(enemyProjectileDamageAmount);
             Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
 
             if (upgradeArmor.deflectDamage)
             {
-                enemyScriptReference.DamageDealt(enemyArrowDamageAmount * (1f - upgradeArmor.deflectDamageNotTaken));
+                enemyScriptReference.DamageDealt(enemyProjectileDamageAmount * (1f - upgradeArmor.deflectDamageNotTaken));
             }
         }
     }

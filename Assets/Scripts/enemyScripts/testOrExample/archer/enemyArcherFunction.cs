@@ -5,42 +5,49 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
-public class enemyMR : MonoBehaviour
+public class enemyArcherFunction : MonoBehaviour
 {
     public string state = "State.Idle"; //what does the enemy want to do
 
     private Transform player;
     public float distanceToPlayer;
 
-    private float generalSpeed = 3.75f; //movement speed
-    private float combatSpeed = 4f; //movement speed
+    private float speed = 3.5f; //movement speed
 
-    private float closeEnough = 3f; //how close does the enemy want to get
-    private float melee = 1.1f;
-    private float optimalDistance = 1f;
-    private float toClose = 0.9f; //how far does the enemy want to stay away from player
+    private float closeEnough = 5f; //how close does the enemy want to get
+    private float optimalDistance = 3f;
+    private float toClose = 2f; //how far does the enemy want to stay away from player
 
     private float timer = 0f; //timer to keep track of time before moving
-    private float moveTime = 0.0f; //time to start moving
+    private float moveTime = 0.1f; //time to start moving
 
     private float engageDistance = 10f; //at what distance should the enemy start going to the player
 
     //health
-    private float enemyHP, enemyMaxHP = 20f;
+    private float enemyHP, enemyMaxHP = 25f;
 
     //attack
+    private float attackDamage = 5f;
+
     private float attackTimer;
-    private float canAttackRanged = 0.5f;
-    private float canAttackMelee = 1.0f;
+    private float canAttack = 0.5f;
 
     public GameObject bullet;
-    public GameObject bullet2;
     public Transform bulletSpawnPoint;
-    public Transform bulletSpawnPoint2;
 
     //death drop
-    public GameObject deathDrop;
+    public GameObject deathDropGold;
+    public GameObject deathDropWood;
+    public GameObject deathDropStone;
+    public GameObject deathDropSteel;
+
+    private float DroppedGold = 1;
+    private float DroppedWood = 10;
+    private float DroppedStone = 10;
+    private float DroppedSteel = 10;
+
     public Transform deathDropPoint;
 
     //spreat out from other enemies
@@ -159,7 +166,7 @@ public class enemyMR : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= moveTime)
         {
-            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * generalSpeed);
+            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * speed);
         }
     }
     public void Retreat()
@@ -167,15 +174,15 @@ public class enemyMR : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= moveTime)
         {
-            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * -combatSpeed);
+            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * -speed);
         }
     }
     public void SpreadOut()
     {
-        if (closestEnemy != null && Vector3.Distance(closestEnemy.position, transform.position) < 0.75f)
+        if (closestEnemy != null && Vector3.Distance(closestEnemy.position, transform.position) < 1f)
         {
             Vector3 directionToEnemy = (transform.position - closestEnemy.position).normalized;
-            transform.Translate(directionToEnemy * Time.deltaTime * generalSpeed);
+            transform.Translate(directionToEnemy * Time.deltaTime * speed);
         }
     }
 
@@ -210,32 +217,21 @@ public class enemyMR : MonoBehaviour
     {
         if (distanceToPlayer > optimalDistance && optimalDistance - distanceToPlayer < 0.05f)
         {
-            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * (combatSpeed * 1f));
+            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * (speed * 0.5f));
         }
-        if (distanceToPlayer < optimalDistance && optimalDistance - distanceToPlayer < 0.05f)
+        if (distanceToPlayer < optimalDistance && distanceToPlayer - optimalDistance < 0.05f)
         {
-            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * -(combatSpeed * 1f));
+            transform.Translate((player.position - transform.position).normalized * Time.deltaTime * -(speed * 0.5f));
         }
-        if (attackTimer >= canAttackRanged && distanceToPlayer > melee)
+        if (attackTimer >= canAttack)
         {
             GameObject enemySpawnedBullet = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
-            enemyMRProjectile projectileScript = enemySpawnedBullet.GetComponent<enemyMRProjectile>();
+            enemyArcherProjectile projectileScript = enemySpawnedBullet.GetComponent<enemyArcherProjectile>();
 
             if (projectileScript != null)
             {
                 projectileScript.SetEnemyScriptReference(this);
-            }
-
-            attackTimer = 0f;
-        }
-        if (attackTimer >= canAttackMelee && distanceToPlayer <= melee)
-        {
-            GameObject enemySpawnedBullet = Instantiate(bullet2, bulletSpawnPoint2.position, Quaternion.identity);
-            enemyMRProjectile projectileScript = enemySpawnedBullet.GetComponent<enemyMRProjectile>();
-
-            if (projectileScript != null)
-            {
-                projectileScript.SetEnemyScriptReference(this);
+                projectileScript.DetermineDamage(attackDamage);
             }
 
             attackTimer = 0f;
@@ -252,8 +248,7 @@ public class enemyMR : MonoBehaviour
             standing.SetActive(false);
             walking.SetActive(true);
             switchTimer = 0f;
-        }
-        else if (walking.activeSelf && switchTimer >= switchTime)
+        } else if (walking.activeSelf && switchTimer >= switchTime)
         {
             standing.SetActive(true);
             walking.SetActive(false);
@@ -289,12 +284,49 @@ public class enemyMR : MonoBehaviour
         }
     }
 
-
     void IfDeadDie()
     {
         if (enemyHP <= 0)
         {
-            GameObject enemyDroppedResources = Instantiate(deathDrop, deathDropPoint.position, Quaternion.identity);
+            //gold
+            GameObject enemyDroppedGold = Instantiate(deathDropGold, deathDropPoint.position, Quaternion.identity);
+            enemyDeathDrop DeathDropGoldScript = enemyDroppedGold.GetComponent<enemyDeathDrop>();
+
+            if (DeathDropGoldScript != null)
+            {
+                DeathDropGoldScript.SetEnemyScriptReference(this);
+                DeathDropGoldScript.DetermineAmountGold(DroppedGold);
+            }
+
+            //wood
+            GameObject enemyDroppedWood = Instantiate(deathDropWood, deathDropPoint.position, Quaternion.identity);
+            enemyDeathDrop DeathDropWoodScript = enemyDroppedWood.GetComponent<enemyDeathDrop>();
+
+            if (DeathDropWoodScript != null)
+            {
+                DeathDropWoodScript.SetEnemyScriptReference(this);
+                DeathDropWoodScript.DetermineAmountWood(DroppedWood);
+            }
+
+            //stone
+            GameObject enemyDroppedStone = Instantiate(deathDropStone, deathDropPoint.position, Quaternion.identity);
+            enemyDeathDrop DeathDropStoneScript = enemyDroppedStone.GetComponent<enemyDeathDrop>();
+
+            if (DeathDropStoneScript != null)
+            {
+                DeathDropStoneScript.SetEnemyScriptReference(this);
+                DeathDropStoneScript.DetermineAmountStone(DroppedStone);
+            }
+
+            //steel
+            GameObject enemyDroppedSteel = Instantiate(deathDropSteel, deathDropPoint.position, Quaternion.identity);
+            enemyDeathDrop DeathDropSteelScript = enemyDroppedSteel.GetComponent<enemyDeathDrop>();
+
+            if (DeathDropSteelScript != null)
+            {
+                DeathDropSteelScript.SetEnemyScriptReference(this);
+                DeathDropSteelScript.DetermineAmountSteel(DroppedSteel);
+            }
 
             Destroy(gameObject);
         }
@@ -314,10 +346,10 @@ public class enemyMR : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("mainCharacter"))
         {
-            resources.woodAmount += 35;
-            resources.stoneAmount += 35;
-            resources.steelAmount += 35;
-            resources.goldAmount += 1;
+            resources.woodAmount += DroppedWood;
+            resources.stoneAmount += DroppedStone;
+            resources.steelAmount += DroppedSteel;
+            resources.goldAmount += DroppedGold;
 
             Destroy(gameObject);
         }

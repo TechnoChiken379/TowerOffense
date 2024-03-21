@@ -201,7 +201,7 @@ public class projectile : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent<enemyFunction>(out enemyFunction enemyComponent))
+        if (collision.gameObject.TryGetComponent<enemyArcherFunction>(out enemyArcherFunction enemyComponent))
         {
             //deal damage
             enemyComponent.DamageDealt(damageAmount);
@@ -228,7 +228,7 @@ public class projectile : MonoBehaviour
             }
         }
         //
-        if (collision.gameObject.TryGetComponent<meleeEnemyFunction>(out meleeEnemyFunction enemyComponent2))
+        if (collision.gameObject.TryGetComponent<enemyKnightFunction>(out enemyKnightFunction enemyComponent2))
         {
             //deal damage
             enemyComponent2.DamageDealt(damageAmount);
@@ -255,7 +255,7 @@ public class projectile : MonoBehaviour
             }
         }
         //
-        if (collision.gameObject.TryGetComponent<enemyMR>(out enemyMR enemyComponent3))
+        if (collision.gameObject.TryGetComponent<enemyRogueFunction>(out enemyRogueFunction enemyComponent3))
         {
             //deal damage
             enemyComponent3.DamageDealt(damageAmount);

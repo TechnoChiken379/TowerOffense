@@ -7,8 +7,8 @@ public class upgradeArmor : MonoBehaviour
     //upgrade armor
     //health
     public static int healthLevel = 1;
-    public static bool healthHeavyTank = false;
-    public static bool healthLightTank = true;
+    public static bool healthHeavyTank = true;
+    public static bool healthLightTank = false;
 
     public static float maxHealth;
 

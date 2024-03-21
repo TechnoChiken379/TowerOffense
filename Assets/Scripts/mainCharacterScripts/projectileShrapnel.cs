@@ -36,9 +36,21 @@ public class projectileShrapnel : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.TryGetComponent<enemyFunction>(out enemyFunction enemyComponent))
+        if (other.gameObject.TryGetComponent<enemyArcherFunction>(out enemyArcherFunction enemyComponent))
         {
             enemyComponent.ProcentDamageDealt(damageAmount);
+        }
+        if (other.gameObject.TryGetComponent<enemyKnightFunction>(out enemyKnightFunction enemyComponent2))
+        {
+            enemyComponent2.ProcentDamageDealt(damageAmount);
+        }
+        if (other.gameObject.TryGetComponent<enemyRogueFunction>(out enemyRogueFunction enemyComponent3))
+        {
+            enemyComponent3.ProcentDamageDealt(damageAmount);
+        }
+        if (other.gameObject.TryGetComponent<enemyCannonFunction>(out enemyCannonFunction enemyComponent4))
+        {
+            enemyComponent4.ProcentDamageDealt(damageAmount);
         }
     }
 }

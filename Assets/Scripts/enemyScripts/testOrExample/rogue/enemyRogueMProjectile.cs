@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class meleeMREnemyAttack : MonoBehaviour
+public class enemyRogueMProjectile : MonoBehaviour
 {
     private GameObject player;
     private Rigidbody2D rb;
 
     private float speed = 5f;
-    public static float enemyArrowDamageAmount = 5;
+    public static float enemyProjectileDamageAmount = 5;
 
     private float time;
     private float timeAlive = 0.15f;
 
-    private enemyMR enemyScriptReference;
+    private enemyRogueFunction enemyScriptReference;
 
     private void Start()
     {
@@ -38,7 +38,12 @@ public class meleeMREnemyAttack : MonoBehaviour
         Vector2 directionToPlayer = (player.transform.position - transform.position).normalized;
         rb.velocity = directionToPlayer * speed;
     }
-    public void SetEnemyScriptReference(enemyMR enemyScript)
+
+    public void DetermineDamage(float damage)
+    {
+        enemyProjectileDamageAmount = damage;
+    }
+    public void SetEnemyScriptReference(enemyRogueFunction enemyScript)
     {
         enemyScriptReference = enemyScript;
     }
@@ -47,13 +52,13 @@ public class meleeMREnemyAttack : MonoBehaviour
     {
         if (other.gameObject.CompareTag("mainCharacter"))
         {
-            mainCharacter.TakenDamageCalculation(enemyArrowDamageAmount);
-            mainCharacter.DetermineTotalRepairValue(enemyArrowDamageAmount);
+            mainCharacter.TakenDamageCalculation(enemyProjectileDamageAmount);
+            mainCharacter.DetermineTotalRepairValue(enemyProjectileDamageAmount);
             Destroy(gameObject);
 
             if (upgradeArmor.deflectDamage)
             {
-                enemyScriptReference.DamageDealt(enemyArrowDamageAmount * (1f - upgradeArmor.deflectDamageNotTaken));
+                enemyScriptReference.DamageDealt(enemyProjectileDamageAmount * (1f - upgradeArmor.deflectDamageNotTaken));
             }
         }
     }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5398767378765673036}
   - component: {fileID: 3311803357377129334}
   m_Layer: 0
-  m_Name: pixil-frame-0 (3) 1
+  m_Name: archerWalk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5493004471625378853}
   m_Layer: 6
-  m_Name: enemyArrowSpawnPoint
+  m_Name: attackSpawnPoint
   m_TagString: spawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,90 +115,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6841086612815714386}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1880109138674226676
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 222604335915569819}
-  - component: {fileID: 7992036922126194720}
-  m_Layer: 0
-  m_Name: enemyTest1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &222604335915569819
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1880109138674226676}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1461, y: 0.17, z: 0}
-  m_LocalScale: {x: 0.78258, y: 0.47612333, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6841086612815714386}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7992036922126194720
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1880109138674226676}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 07b3eaddf890e7c48ad92278f7f3e461, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.6, y: 3.2}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &2424198304078378438
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,7 +160,7 @@ GameObject:
   - component: {fileID: 7175010725296375294}
   - component: {fileID: 2740340057928723621}
   m_Layer: 6
-  m_Name: enemyTest1
+  m_Name: body
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -265,7 +181,6 @@ Transform:
   m_Children:
   - {fileID: 5493004471625378853}
   - {fileID: 8595486114224927762}
-  - {fileID: 222604335915569819}
   - {fileID: 4212034659684708056}
   - {fileID: 5398767378765673036}
   m_Father: {fileID: 1605165796124781727}
@@ -338,7 +253,10 @@ MonoBehaviour:
   distanceToPlayer: 0
   bullet: {fileID: 2214770678981885083, guid: d3ff45b680bb9f54ea30b6fe3d3db722, type: 3}
   bulletSpawnPoint: {fileID: 6841086612815714386}
-  deathDrop: {fileID: 1571411932394843814, guid: ebd7fea600410ea45a155f1bd947a849, type: 3}
+  deathDropGold: {fileID: 1571411932394843814, guid: ebd7fea600410ea45a155f1bd947a849, type: 3}
+  deathDropWood: {fileID: 1571411932394843814, guid: 3216e190db0ac4f4787f29b2893cbdec, type: 3}
+  deathDropStone: {fileID: 1571411932394843814, guid: 4556b97826d736e47bdb15d022c1cc7d, type: 3}
+  deathDropSteel: {fileID: 1571411932394843814, guid: 2312babf337bb5144b9eb3a125b8e205, type: 3}
   deathDropPoint: {fileID: 8595486114224927762}
   standing: {fileID: 4755257211077636506}
   walking: {fileID: 1270034850926512052}
@@ -425,7 +343,7 @@ GameObject:
   - component: {fileID: 4212034659684708056}
   - component: {fileID: 6441692387362238159}
   m_Layer: 0
-  m_Name: pixil-frame-0 (2)
+  m_Name: archerStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

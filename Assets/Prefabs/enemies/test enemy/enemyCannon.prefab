@@ -241,7 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9069697602404910940}
   m_Layer: 6
-  m_Name: enemyArrowSpawnPoint
+  m_Name: attackSpawnPoint
   m_TagString: spawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 6864502473543335714}
   - component: {fileID: 1564494691882274019}
   m_Layer: 6
-  m_Name: enemyTest1
+  m_Name: body
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,6 +473,9 @@ MonoBehaviour:
   distanceToPlayer: 0
   bullet: {fileID: 2214770678981885083, guid: 6b48ea6b6fd94b0439c0e223f68b4e42, type: 3}
   bulletSpawnPoint: {fileID: 9069697602404910940}
-  deathDrop: {fileID: 1571411932394843814, guid: ebd7fea600410ea45a155f1bd947a849, type: 3}
+  deathDropGold: {fileID: 1571411932394843814, guid: ebd7fea600410ea45a155f1bd947a849, type: 3}
+  deathDropWood: {fileID: 1571411932394843814, guid: 3216e190db0ac4f4787f29b2893cbdec, type: 3}
+  deathDropStone: {fileID: 1571411932394843814, guid: 4556b97826d736e47bdb15d022c1cc7d, type: 3}
+  deathDropSteel: {fileID: 1571411932394843814, guid: 2312babf337bb5144b9eb3a125b8e205, type: 3}
   deathDropPoint: {fileID: 6349116379125211021}
   cannon: {fileID: 6500876239568879121}
