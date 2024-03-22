@@ -8,6 +8,7 @@ public class deathScreenManager : MonoBehaviour
     public Animator DeathScreenAnimator;
 
     private float timer = 0f;
+    private float timer2 = 0f;
     private bool deathManagerState1 = false;
     private bool deathManagerState2 = false;
     private bool deathManagerState3 = false;
@@ -50,5 +51,15 @@ public class deathScreenManager : MonoBehaviour
             deathManagerState3 = true;
             deathManagerState1 = true;
         }
+    }
+
+    public void MainMenuButton()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void RebuildButton()
+    {
+
     }
 }

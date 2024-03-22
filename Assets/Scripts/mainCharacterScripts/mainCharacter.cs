@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class mainCharacter : MonoBehaviour, IDataPersistance
@@ -48,6 +49,9 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
     public static bool repairing = false;
     //private static float repairTime = 10f;
 
+    private Vector3 playerPosition;
+    public GameObject shopObject;
+    public Vector3 shopPosition;
 
     public void LoadData(GameData data)
     {
@@ -71,6 +75,7 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     void Update()
     {
+        OpenShop();
         Test(); //for testing
 
         setValuesUpdate();
@@ -80,6 +85,16 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
         Repairing();
         Movement(); //Movement script
+    }
+
+    void OpenShop()
+    {
+        playerPosition = gameObject.transform.position;
+        shopPosition = shopObject.transform.position;
+        if (Vector3.Distance(shopPosition, playerPosition) <= 5 && Input.GetKeyDown(KeyCode.E))
+        {
+            SceneManager.LoadScene("ShopScene");
+        }
     }
 
     void Movement() //Movement Script
@@ -106,10 +121,10 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     void HotKeyManagment()
     {
-        if (Input.GetKey(KeyCode.Alpha1) && hotKeyTimer > 0.3f) HotKey1();
-        if (Input.GetKey(KeyCode.Alpha2) && hotKeyTimer > 0.3f) HotKey2();
-        if (Input.GetKey(KeyCode.Alpha3) && hotKeyTimer > 0.3f) HotKey3();
-        if (Input.GetKey(KeyCode.Alpha4) && hotKeyTimer > 0.3f) HotKey4();
+        if (Input.GetKey(KeyCode.Alpha1) && hotKeyTimer > 0.25f) HotKey1();
+        if (Input.GetKey(KeyCode.Alpha2) && hotKeyTimer > 0.25f) HotKey2();
+        if (Input.GetKey(KeyCode.Alpha3) && hotKeyTimer > 0.25f) HotKey3();
+        if (Input.GetKey(KeyCode.Alpha4) && hotKeyTimer > 0.25f) HotKey4();
     }
 
     void HotKey1()

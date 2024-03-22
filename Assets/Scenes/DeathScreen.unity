@@ -314,9 +314,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Last Save
-
-'
+  m_text: Rebuild
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -403,6 +401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 325371242}
   - component: {fileID: 325371243}
+  - component: {fileID: 325371244}
   m_Layer: 5
   m_Name: DeathScreen
   m_TagString: Untagged
@@ -453,6 +452,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &325371244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325371241}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77fb3583892166b4ca70a9ae63000348, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeathScreenAnimator: {fileID: 0}
+  DeathScreenBackGround: {fileID: 0}
 --- !u!1 &414459771
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,7 +549,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 325371244}
         m_TargetAssemblyTypeName: deathScreenManager, Assembly-CSharp
         m_MethodName: MainMenuButton
         m_Mode: 1
@@ -667,7 +680,7 @@ GameObject:
   - component: {fileID: 1845613840}
   - component: {fileID: 1845613839}
   m_Layer: 0
-  m_Name: LastSave
+  m_Name: Rebuild
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -737,9 +750,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 325371244}
         m_TargetAssemblyTypeName: deathScreenManager, Assembly-CSharp
-        m_MethodName: LoadLastSave
+        m_MethodName: RebuildButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

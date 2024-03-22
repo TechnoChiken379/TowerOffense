@@ -53,6 +53,8 @@ public class buttons : MonoBehaviour
         mainMenuImage.SetActive(true);
 
         loadSceneBool = false;
+
+        
     }
 
     void Update()
@@ -63,34 +65,44 @@ public class buttons : MonoBehaviour
             SceneManager.LoadScene("tilemapTesting");
             loadSceneBool = false;
         }
+
+        if (mainCharacter.hotKey1 == true) { buttonImage1.color = colorButtonOnTrue; } else { buttonImage1.color = colorButtonOnFalse; }
+        if (mainCharacter.hotKey2 == true) { buttonImage2.color = colorButtonOnTrue; } else { buttonImage2.color = colorButtonOnFalse; }
+        if (mainCharacter.hotKey3 == true) { buttonImage3.color = colorButtonOnTrue; } else { buttonImage3.color = colorButtonOnFalse; }
+        if (mainCharacter.hotKey4 == true) { buttonImage4.color = colorButtonOnTrue; } else { buttonImage4.color = colorButtonOnFalse; }
     }
 
     public void HotKey1Methode()
     {
-        if (mainCharacter.hotKey1 == false) { mainCharacter.hotKey1 = true; Debug.Log(mainCharacter.hotKey1); shootingScript.archers = true; buttonImage1.color = colorButtonOnTrue; }
-        else if (mainCharacter.hotKey1 == true) { mainCharacter.hotKey1 = false; Debug.Log(mainCharacter.hotKey1); shootingScript.archers = false; buttonImage1.color = colorButtonOnFalse; }
+        if (mainCharacter.hotKey1 == false) { mainCharacter.hotKey1 = true; shootingScript.archers = true; buttonImage1.color = colorButtonOnTrue; }
+        else if (mainCharacter.hotKey1 == true) { mainCharacter.hotKey1 = false; shootingScript.archers = false; buttonImage1.color = colorButtonOnFalse; }
         mainCharacter.hotKeyTimer = 0;
     }
 
     public void HotKey2Methode()
     {
-        if (mainCharacter.hotKey2 == false) { mainCharacter.hotKey2 = true; Debug.Log(mainCharacter.hotKey2); shootingScript.cannons = true; buttonImage2.color = colorButtonOnTrue; }
-        else if (mainCharacter.hotKey2 == true) { mainCharacter.hotKey2 = false; Debug.Log(mainCharacter.hotKey2); shootingScript.cannons = false; buttonImage2.color = colorButtonOnFalse; }
+        if (mainCharacter.hotKey2 == false) { mainCharacter.hotKey2 = true; shootingScript.cannons = true; buttonImage2.color = colorButtonOnTrue; }
+        else if (mainCharacter.hotKey2 == true) { mainCharacter.hotKey2 = false; shootingScript.cannons = false; buttonImage2.color = colorButtonOnFalse; }
         mainCharacter.hotKeyTimer = 0;
     }
 
     public void HotKey3Methode()
     {
-        if (mainCharacter.hotKey3 == false) { mainCharacter.hotKey3 = true; Debug.Log(mainCharacter.hotKey3); shootingScript.catapult = true; buttonImage3.color = colorButtonOnTrue; }
-        else if (mainCharacter.hotKey3 == true) { mainCharacter.hotKey3 = false; Debug.Log(mainCharacter.hotKey3); shootingScript.catapult = false; buttonImage3.color = colorButtonOnFalse; }
+        if (mainCharacter.hotKey3 == false) { mainCharacter.hotKey3 = true; shootingScript.catapult = true; buttonImage3.color = colorButtonOnTrue; }
+        else if (mainCharacter.hotKey3 == true) { mainCharacter.hotKey3 = false; shootingScript.catapult = false; buttonImage3.color = colorButtonOnFalse; }
         mainCharacter.hotKeyTimer = 0;
     }
 
     public void HotKey4Methode()
     {
-        //if (mainCharacter.hotKey4 == false) { mainCharacter.hotKey4 = true; Debug.Log(mainCharacter.hotKey4); shootingScript.archers = true; buttonImage4.color = colorButtonOnTrue; }
-        //else if (mainCharacter.hotKey4 == true) { mainCharacter.hotKey4 = false; Debug.Log(mainCharacter.hotKey4); shootingScript.archers = false; buttonImage4.color = colorButtonOnFalse; }
+        //if (mainCharacter.hotKey4 == false) { mainCharacter.hotKey4 = true; shootingScript.archers = true; buttonImage4.color = colorButtonOnTrue; }
+        //else if (mainCharacter.hotKey4 == true) { mainCharacter.hotKey4 = false; shootingScript.archers = false; buttonImage4.color = colorButtonOnFalse; }
         //mainCharacter.hotKeyTimer = 0;
+    }
+
+    public void OpenShop()
+    {
+        SceneManager.LoadScene("ShopScene");
     }
 
     #region MainMenu
