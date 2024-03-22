@@ -49,6 +49,9 @@ public class enemyCannonFunction : MonoBehaviour
     //turn around
     public GameObject cannon;
 
+    //encampment
+    public GameObject Encampment;
+
 
     public void LoadData(GameData data)
     {
@@ -221,10 +224,14 @@ public class enemyCannonFunction : MonoBehaviour
     public void DamageDealt(float damageAmount)
     {
         enemyHP -= damageAmount;
+        Encampment.TryGetComponent<enemyEncampment>(out enemyEncampment damageTaken);
+        damageTaken.EncampmentDamaged();
     }
 
     public void ProcentDamageDealt(float damageAmount)
     {
         enemyHP -= enemyMaxHP * damageAmount;
+        Encampment.TryGetComponent<enemyEncampment>(out enemyEncampment damageTaken);
+        damageTaken.EncampmentDamaged();
     }
 }
