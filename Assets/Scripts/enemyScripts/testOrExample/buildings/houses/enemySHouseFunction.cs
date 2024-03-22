@@ -33,9 +33,6 @@ public class enemySHouseFunction : MonoBehaviour
     private GameObject[] enemies;
     private Transform closestEnemy;
 
-    //encampment
-    public GameObject Encampment;
-
 
     public void LoadData(GameData data)
     {
@@ -141,14 +138,10 @@ public class enemySHouseFunction : MonoBehaviour
     public void DamageDealt(float damageAmount)
     {
         enemyHP -= damageAmount;
-        Encampment.TryGetComponent<enemyEncampment>(out enemyEncampment damageTaken);
-        damageTaken.EncampmentDamaged();
     }
 
     public void ProcentDamageDealt(float damageAmount)
     {
         enemyHP -= enemyMaxHP * damageAmount;
-        Encampment.TryGetComponent<enemyEncampment>(out enemyEncampment damageTaken);
-        damageTaken.EncampmentDamaged();
     }
 }
