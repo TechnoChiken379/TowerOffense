@@ -37,6 +37,8 @@ public class enemyEncampment : MonoBehaviour
         }
         if (time >= replaceTime)
         {
+            encampmentDamaged = false;
+            replaceTime = 0f;
             GameObject nextEnemyEncampment = Instantiate(enemy, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
