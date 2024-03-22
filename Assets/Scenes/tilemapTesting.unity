@@ -12385,11 +12385,14 @@ CanvasRenderer:
   m_GameObject: {fileID: 1513901363}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1569726249 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3317176787861049494, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
   m_PrefabInstance: {fileID: 646206667}
 =======
+=======
+>>>>>>> parent of 2eea38a (Merge branch 'main' of https://github.com/TechnoChiken379/TowerOffense)
 --- !u!1001 &1538772853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12451,6 +12454,9 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6531410546172047087, guid: 297e8757512abc04da46668494dcd0a4, type: 3}
   m_PrefabInstance: {fileID: 1538772853}
+<<<<<<< HEAD
+>>>>>>> parent of 2eea38a (Merge branch 'main' of https://github.com/TechnoChiken379/TowerOffense)
+=======
 >>>>>>> parent of 2eea38a (Merge branch 'main' of https://github.com/TechnoChiken379/TowerOffense)
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1585751202
@@ -14254,9 +14260,12 @@ SceneRoots:
 <<<<<<< Updated upstream
   - {fileID: 2010175864}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 531611078}
 =======
   - {fileID: 646206667}
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 2eea38a (Merge branch 'main' of https://github.com/TechnoChiken379/TowerOffense)
 =======
 >>>>>>> parent of 2eea38a (Merge branch 'main' of https://github.com/TechnoChiken379/TowerOffense)
