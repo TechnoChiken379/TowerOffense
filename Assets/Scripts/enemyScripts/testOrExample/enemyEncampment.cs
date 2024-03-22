@@ -15,7 +15,7 @@ public class enemyEncampment : MonoBehaviour
     public bool encampmentDamaged = false;
 
     public float time;
-    public float replaceTime = 60f;
+    private float replaceTime = 300f;
 
     public GameObject enemy;
 
@@ -37,8 +37,6 @@ public class enemyEncampment : MonoBehaviour
         }
         if (time >= replaceTime)
         {
-            encampmentDamaged = false;
-            replaceTime = 0f;
             GameObject nextEnemyEncampment = Instantiate(enemy, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
