@@ -403,7 +403,6 @@ GameObject:
   m_Component:
   - component: {fileID: 325371242}
   - component: {fileID: 325371243}
-  - component: {fileID: 325371244}
   m_Layer: 5
   m_Name: DeathScreen
   m_TagString: Untagged
@@ -433,21 +432,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &325371243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325371241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77fb3583892166b4ca70a9ae63000348, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DeathScreenAnimator: {fileID: 325371244}
-  DeathScreenBackGround: {fileID: 0}
---- !u!95 &325371244
+--- !u!95 &325371243
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -457,7 +442,7 @@ Animator:
   m_GameObject: {fileID: 325371241}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 112a4981ea24f76449360ba598515ba4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 04f1b18591f34bf4b8bacdd7e1ea009b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -486,7 +471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &414459772
 RectTransform:
   m_ObjectHideFlags: 0
@@ -551,7 +536,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 325371243}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: deathScreenManager, Assembly-CSharp
         m_MethodName: MainMenuButton
         m_Mode: 1
@@ -687,7 +672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1845613838
 RectTransform:
   m_ObjectHideFlags: 0
@@ -752,7 +737,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 325371243}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: deathScreenManager, Assembly-CSharp
         m_MethodName: LoadLastSave
         m_Mode: 1
@@ -819,7 +804,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1940770733
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1040,8 +1025,6 @@ GameObject:
   - component: {fileID: 2023579308}
   - component: {fileID: 2023579307}
   - component: {fileID: 2023579306}
-  - component: {fileID: 2023579305}
-  - component: {fileID: 2023579304}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1049,54 +1032,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &2023579304
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2023579303}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b18a0b8d58f433247a86d3d2ef196c6c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2023579305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2023579303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 324e450e10b3f364abd4c20550c34d3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HotKey1: {fileID: 0}
-  HotKey2: {fileID: 0}
-  HotKey3: {fileID: 0}
-  HotKey4: {fileID: 0}
-  image1: {fileID: 0}
-  image2: {fileID: 0}
-  image3: {fileID: 0}
-  image4: {fileID: 0}
-  mainMenuImage: {fileID: 0}
-  mainMenuText: {fileID: 0}
-  mainMenuTabList: {fileID: 0}
-  mainMenuPlay: {fileID: 0}
-  mainMenuCredits: {fileID: 0}
-  mainMenuSettings: {fileID: 0}
-  mainMenuAnimation: {fileID: 0}
 --- !u!114 &2023579306
 MonoBehaviour:
   m_ObjectHideFlags: 0
