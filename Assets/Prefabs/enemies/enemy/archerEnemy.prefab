@@ -426,7 +426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1605165796124781727}
   m_Layer: 6
-  m_Name: archerEnemies
+  m_Name: archerEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
