@@ -1945,6 +1945,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496297993}
   m_CullTransparentMesh: 1
+--- !u!1001 &531611078
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3317176787861049494, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
+      propertyPath: m_Name
+      value: enemyCamp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789280429652306082, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789280429652306082, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789280429652306082, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.056871638
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789280429652306082, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789280429652306082, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789280429652306082, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789280429652306082, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789280429652306082, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789280429652306082, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789280429652306082, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
 --- !u!1 &546671178
 GameObject:
   m_ObjectHideFlags: 0
@@ -2313,112 +2370,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644969456}
   m_CullTransparentMesh: 1
---- !u!1001 &646206667
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2045305534075816227, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: Encampment
-      value: 
-      objectReference: {fileID: 1569726249}
-    - target: {fileID: 2471047550518044590, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: Encampment
-      value: 
-      objectReference: {fileID: 1569726249}
-    - target: {fileID: 2807486319667653966, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: Encampment
-      value: 
-      objectReference: {fileID: 1569726249}
-    - target: {fileID: 3311347088935441440, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: Encampment
-      value: 
-      objectReference: {fileID: 1569726249}
-    - target: {fileID: 3317176787861049494, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: m_Name
-      value: enemyCamp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789280429652306082, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789280429652306082, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789280429652306082, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.056871638
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789280429652306082, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789280429652306082, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789280429652306082, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789280429652306082, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789280429652306082, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789280429652306082, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789280429652306082, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4992873905441896167, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: Encampment
-      value: 
-      objectReference: {fileID: 1569726249}
-    - target: {fileID: 5716517350395866109, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6255810495845649669, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6262286772993351955, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: Encampment
-      value: 
-      objectReference: {fileID: 1569726249}
-    - target: {fileID: 7352608234114209256, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8284468298684811176, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: Encampment
-      value: 
-      objectReference: {fileID: 1569726249}
-    - target: {fileID: 9068636283091530596, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: Encampment
-      value: 
-      objectReference: {fileID: 1569726249}
-    - target: {fileID: 9118666967281939527, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-      propertyPath: Encampment
-      value: 
-      objectReference: {fileID: 1569726249}
-    m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 142626270510632334, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
 --- !u!1 &652640371
 GameObject:
   m_ObjectHideFlags: 0
@@ -12892,11 +12843,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1513901363}
   m_CullTransparentMesh: 1
---- !u!1 &1569726249 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3317176787861049494, guid: 85157dd33adc0ef49ae1cfb0adaf2f22, type: 3}
-  m_PrefabInstance: {fileID: 646206667}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1585751202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14879,9 +14825,5 @@ SceneRoots:
   - {fileID: 302335662}
   - {fileID: 383371304}
   - {fileID: 691924402}
-<<<<<<< Updated upstream
   - {fileID: 2010175864}
   - {fileID: 531611078}
-=======
-  - {fileID: 646206667}
->>>>>>> Stashed changes
