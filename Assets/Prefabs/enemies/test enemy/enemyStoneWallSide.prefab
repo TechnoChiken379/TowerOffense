@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 162327929855711548}
   - component: {fileID: 2027708044927047140}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: stoneWallSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5915917084017704313}
   - component: {fileID: 4469474193998557059}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: StoneWallCorner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6349116379125211021}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: deathDropPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7194200936663031798}
   - component: {fileID: 1258405219688619740}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: stoneWallFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 4069137134964419571}
   - component: {fileID: 6864502473543335714}
   - component: {fileID: 5860733441763193726}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: body
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -473,7 +473,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 128
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
