@@ -64,6 +64,14 @@ public class enemyKnightFunction : MonoBehaviour
     private float angle;
     private float signedAngle;
 
+    //encampment
+    public GameObject Encampment;
+    private float distanceToEncampment;
+
+    private float returnToEncampment = 20f;
+    private float returnedToEncampment = 2f;
+    private bool returningToEncampment = false;
+
 
     public void LoadData(GameData data)
     {
@@ -78,6 +86,7 @@ public class enemyKnightFunction : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("mainCharacter").transform;
+        distanceToEncampment = Vector2.Distance(transform.position, Encampment.transform.position);
 
         enemyHP = enemyMaxHP;
 
@@ -89,6 +98,8 @@ public class enemyKnightFunction : MonoBehaviour
     void Update()
     {
         distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        distanceToEncampment = Vector2.Distance(transform.position, Encampment.transform.position);
+
         FindClosestEnemies(); //locate closest enemy
         SpreadOut();
         TurnAround();
@@ -101,7 +112,7 @@ public class enemyKnightFunction : MonoBehaviour
     {
         if (distanceToPlayer <= engageDistance) { upgradeArmor.canRegenerating = false; upgradeArmor.leftCombat = 0f; };
 
-        if (distanceToPlayer <= engageDistance) //check if the enemy is within range of the player
+        if (!returningToEncampment && distanceToPlayer <= engageDistance && distanceToEncampment <= returnToEncampment) //check if the enemy is within range of the player
         {
             if (distanceToPlayer >= closeEnough) //move to the player if far away
             {
@@ -121,7 +132,18 @@ public class enemyKnightFunction : MonoBehaviour
                 state = "State.attack";
                 attackTimer += Time.deltaTime;
             }
-        } else //idle if the enemy is out of range of the player
+        }
+        else if (distanceToPlayer > engageDistance && distanceToEncampment >= returnedToEncampment)
+        {
+            state = "State.Return";
+            returningToEncampment = true;
+        }
+        else if (distanceToEncampment >= returnedToEncampment)
+        {
+            state = "State.Return";
+            returningToEncampment = true;
+        }
+        else if (!returningToEncampment)//idle if the enemy is out of range of the player
         {
             state = "State.Idle";
         }
@@ -156,9 +178,14 @@ public class enemyKnightFunction : MonoBehaviour
                 switchTime = 0.1f;
                 Walk();
                 break;
-            default: 
-                
-            break;
+            case "State.Return":
+                Return();
+                switchTime = 0.1f;
+                Walk();
+                break;
+            default:
+
+                break;
         }
     }
 
@@ -184,6 +211,14 @@ public class enemyKnightFunction : MonoBehaviour
         {
             Vector3 directionToEnemy = (transform.position - closestEnemy.position).normalized;
             transform.Translate(directionToEnemy * Time.deltaTime * generalSpeed);
+        }
+    }
+    public void Return()
+    {
+        transform.Translate((Encampment.transform.position - transform.position).normalized * Time.deltaTime * generalSpeed);
+        if (distanceToEncampment <= returnedToEncampment)
+        {
+            returningToEncampment = false;
         }
     }
 
@@ -338,11 +373,15 @@ public class enemyKnightFunction : MonoBehaviour
     public void DamageDealt(float damageAmount)
     {
         enemyHP -= damageAmount;
+        Encampment.TryGetComponent<enemyEncampment>(out enemyEncampment damageTaken);
+        damageTaken.EncampmentDamaged();
     }
 
     public void ProcentDamageDealt(float damageAmount)
     {
         enemyHP -= enemyMaxHP * damageAmount;
+        Encampment.TryGetComponent<enemyEncampment>(out enemyEncampment damageTaken);
+        damageTaken.EncampmentDamaged();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
