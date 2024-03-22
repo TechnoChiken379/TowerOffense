@@ -8,44 +8,18 @@ public class deathScreenManager : MonoBehaviour
     public Animator DeathScreenAnimator;
 
     private float timer = 0f;
-    private bool deathManagerState0 = false;
     private bool deathManagerState1 = false;
     private bool deathManagerState2 = false;
     private bool deathManagerState3 = false;
     private bool deathManagerIsDead = false;
-    private bool deathManagerMainMenu = false;
-    private bool deathManagerLoadLastSave = false;
     private bool deathAnimation = false;
 
     public GameObject DeathScreenBackGround;
 
     void Update()
     {
-        if (mainCharacter.totalCurrentHealth <= 0 && deathManagerState1 == false && deathManagerState0 == false)
+        if (mainCharacter.totalCurrentHealth <= 0 && deathManagerState1 == false)
         {
-            deathManagerIsDead = true;
-            deathManagerMainMenu = false;
-            deathManagerLoadLastSave = false;
-            DeathManager();
-        }
-        else if (deathManagerMainMenu == true)
-        {
-            deathManagerIsDead = false;
-            deathManagerMainMenu = true;
-            deathManagerLoadLastSave = false;
-            deathManagerState1 = false;
-            deathManagerState2 = false;
-            deathManagerState3 = false;
-            DeathManager();
-        }
-        else if (deathManagerLoadLastSave == true)
-        {
-            deathManagerIsDead = false;
-            deathManagerMainMenu = false;
-            deathManagerLoadLastSave = true;
-            deathManagerState1 = false;
-            deathManagerState2 = false;
-            deathManagerState3 = false;
             DeathManager();
         }
     }
@@ -53,7 +27,7 @@ public class deathScreenManager : MonoBehaviour
     private void DeathManager()
     {
         timer += Time.deltaTime;
-        if (deathManagerIsDead == true) { DeathScreenAnimator.SetBool("Is Dead", true); }
+        DeathScreenAnimator.SetBool("Is Dead", true);
 
         if (deathManagerState2 == false)
         {
@@ -62,10 +36,10 @@ public class deathScreenManager : MonoBehaviour
         }
         if (timer >= 4 && deathManagerState3 == false)
         {
-            if (deathManagerIsDead == true)
+            if (deathManagerIsDead == false)
             {
                 SceneManager.LoadScene("DeathScreen");
-                deathManagerIsDead = false;
+                deathManagerIsDead = true;
                 deathAnimation = true;
                 if (deathAnimation == true)
                 {
@@ -73,20 +47,8 @@ public class deathScreenManager : MonoBehaviour
                     deathAnimation = false;
                 }
             }
-            else if (deathManagerMainMenu == true) { SceneManager.LoadScene("MainMenu"); deathManagerMainMenu = false; }
-            else if (deathManagerLoadLastSave == true) { SceneManager.LoadScene("MainMenu"); deathManagerLoadLastSave = false; }
             deathManagerState3 = true;
             deathManagerState1 = true;
         }
-    }
-
-    public void MainMenuButton()
-    {
-        deathManagerMainMenu = true;
-    }
-
-    public void LoadLastSave()
-    {
-        deathManagerLoadLastSave = true;
     }
 }
