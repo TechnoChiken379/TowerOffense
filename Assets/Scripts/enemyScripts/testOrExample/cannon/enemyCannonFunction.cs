@@ -117,7 +117,7 @@ public class enemyCannonFunction : MonoBehaviour
     }
     public void SpreadOut()
     {
-        if (closestEnemy != null && Vector3.Distance(closestEnemy.position, transform.position) < 1f)
+        if (closestEnemy != null && Vector2.Distance(closestEnemy.position, transform.position) < 1f)
         {
             //Vector3 directionToEnemy = (transform.position - closestEnemy.position).normalized;
             //transform.Translate(directionToEnemy * Time.deltaTime * speed);
