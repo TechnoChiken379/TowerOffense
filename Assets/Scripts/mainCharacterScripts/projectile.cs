@@ -67,7 +67,7 @@ public class projectile : MonoBehaviour
         
         transform.rotation = LookAtTarget(movePosition - transform.position);
         transform.position = movePosition;
-        if (Vector3.Distance(movePosition, targetSpawn.transform.position) < 0.1f) 
+        if (Vector2.Distance(movePosition, targetSpawn.transform.position) < 0.1f) 
         { 
             if (gameObject.name == "falconetCannonRound(Clone)")
             {
