@@ -43,6 +43,7 @@ public class enemyCannonProjectile : MonoBehaviour
     }
     void Update()
     {
+        IfDeadDie();
         if (angle > 82.5f && angle < 97.5f)
         {
             projectileLine();
@@ -54,7 +55,6 @@ public class enemyCannonProjectile : MonoBehaviour
 
         transform.rotation = LookAtTarget(movePosition - transform.position);
         transform.position = movePosition; 
-        if (Vector3.Distance(movePosition, targetSpawn.transform.position) < 0.1f) { Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn); }
     }
     public static Quaternion LookAtTarget(Vector2 r) { return Quaternion.Euler(0, 0, Mathf.Atan2(r.y, r.x) * Mathf.Rad2Deg); }
 
@@ -118,6 +118,11 @@ public class enemyCannonProjectile : MonoBehaviour
     public void SetEnemyScriptReference(enemyCannonFunction enemyScript)
     {
         enemyScriptReference = enemyScript;
+    }
+    void IfDeadDie()
+    {
+        if (Vector3.Distance(transform.position, targetSpawn.transform.position) < 0.1f)
+        { Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn); }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
