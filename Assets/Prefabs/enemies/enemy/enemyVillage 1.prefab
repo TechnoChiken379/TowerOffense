@@ -7183,7 +7183,7 @@ GameObject:
   - component: {fileID: 4879492977131078679}
   - component: {fileID: 4695672347009582633}
   m_Layer: 0
-  m_Name: enemyVillage
+  m_Name: enemyVillage 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7221,7 +7221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   encampmentDamaged: 0
   time: 0
-  enemy: {fileID: 2005942902372807555, guid: 91427901c6a28174da2bb4d66efdabc1, type: 3}
+  enemy: {fileID: 2005942902372807555, guid: 01cd0627834caf7438ad8edb23e37daa, type: 3}
 --- !u!1 &2040279943693366714
 GameObject:
   m_ObjectHideFlags: 0
