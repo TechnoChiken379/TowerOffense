@@ -92,6 +92,8 @@ public class enemyKnightFunction : MonoBehaviour
 
         standing.SetActive(true);
         walking.SetActive(false);
+
+        CalculateLevel();
     }
 
     // Update is called once per frame
@@ -367,6 +369,51 @@ public class enemyKnightFunction : MonoBehaviour
             }
 
             Destroy(gameObject);
+        }
+    }
+    void CalculateLevel()
+    {
+        Encampment.TryGetComponent<enemyEncampment>(out enemyEncampment enemyLvl);
+        //enemyLvl.enemyLevel
+        if (enemyLvl.enemyLevel == 1)
+        {
+            enemyMaxHP = 50f; //5X (1) weapon Dps
+            enemyHP = 50f; //5X (1) weapon Dps
+
+            attackDamage = 10; //10% van player max HP
+            //canAttack = 1f;
+        }
+        else if (enemyLvl.enemyLevel == 2)
+        {
+            enemyMaxHP = 100f; //5X (1) weapon Dps
+            enemyHP = 100f; //5X (1) weapon Dps
+
+            attackDamage = 20; //10% van player max HP
+            //canAttack = 1f;
+        }
+        else if (enemyLvl.enemyLevel == 3)
+        {
+            enemyMaxHP = 200f; //5X (1) weapon Dps
+            enemyHP = 200f; //5X (1) weapon Dps
+
+            attackDamage = 30; //10% van player max HP
+            //canAttack = 1f;
+        }
+        else if (enemyLvl.enemyLevel == 4)
+        {
+            enemyMaxHP = 400f; //5X (1) weapon Dps
+            enemyHP = 400f; //5X (1) weapon Dps
+
+            attackDamage = 40; //10% van player max HP
+            //canAttack = 1f;
+        }
+        else if (enemyLvl.enemyLevel >= 5)
+        {
+            enemyMaxHP = 800f; //5X (1) weapon Dps
+            enemyHP = 800f; //5X (1) weapon Dps
+
+            attackDamage = 50; //10% van player max HP
+            //canAttack = 1f;
         }
     }
 

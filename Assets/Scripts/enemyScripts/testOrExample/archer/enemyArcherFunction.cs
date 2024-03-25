@@ -92,6 +92,8 @@ public class enemyArcherFunction : MonoBehaviour
 
         standing.SetActive(true);
         walking.SetActive(false);
+
+        CalculateLevel();
     }
 
     // Update is called once per frame
@@ -362,6 +364,51 @@ public class enemyArcherFunction : MonoBehaviour
             }
 
             Destroy(gameObject);
+        }
+    }
+
+    void CalculateLevel()
+    {
+        Encampment.TryGetComponent<enemyEncampment>(out enemyEncampment enemyLvl);
+        //enemyLvl.enemyLevel
+        if (enemyLvl.enemyLevel <= 1)
+        {
+            enemyMaxHP = 25f; //2.5X (1) weapon Dps
+            enemyHP = 25f; //2.5X (1) weapon Dps
+
+            attackDamage = 5; //5% van player max HP
+            //canAttack = 0.5f;
+        } else if (enemyLvl.enemyLevel == 2)
+        {
+            enemyMaxHP = 50f; //2.5X (1) weapon Dps
+            enemyHP = 50f; //2.5X (1) weapon Dps
+
+            attackDamage = 10; //5% van player max HP
+            //canAttack = 0.5f;
+        }
+        else if (enemyLvl.enemyLevel == 3)
+        {
+            enemyMaxHP = 100f; //2.5X (1) weapon Dps
+            enemyHP = 100f; //2.5X (1) weapon Dps
+
+            attackDamage = 15; //5% van player max HP
+            //canAttack = 0.5f;
+        }
+        else if (enemyLvl.enemyLevel == 4)
+        {
+            enemyMaxHP = 200f; //2.5X (1) weapon Dps
+            enemyHP = 200f; //2.5X (1) weapon Dps
+
+            attackDamage = 20; //5% van player max HP
+            //canAttack = 0.5f;
+        }
+        else if (enemyLvl.enemyLevel >= 5)
+        {
+            enemyMaxHP = 400f; //2.5X (1) weapon Dps
+            enemyHP = 400f; //2.5X (1) weapon Dps
+
+            attackDamage = 25; //5% van player max HP
+            //canAttack = 0.5f;
         }
     }
  
