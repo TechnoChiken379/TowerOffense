@@ -65,6 +65,8 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     void Start() //Happens on start
     {
+
+        Time.timeScale = 1;
         //Movement speed
         speed = 4;
 
@@ -93,6 +95,7 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
         shopPosition = shopObject.transform.position;
         if (Vector3.Distance(shopPosition, playerPosition) <= 5 && Input.GetKeyDown(KeyCode.E))
         {
+
             SceneManager.LoadScene("ShopScene");
         }
     }

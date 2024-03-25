@@ -6,7 +6,7 @@ using System.Linq;
 public class DataPersistanceManager : MonoBehaviour
 {
     [Header("File Storage Config")]
-    [SerializeField] private string fileName;
+    private string fileName = "data.game";
 
     private GameData gameData;
 
