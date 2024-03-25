@@ -211,7 +211,7 @@ public class enemyKnightFunction : MonoBehaviour
     {
         if (closestEnemy != null && Vector2.Distance(closestEnemy.position, transform.position) < 0.75f)
         {
-            Vector3 directionToEnemy = (transform.position - closestEnemy.position).normalized;
+            Vector2 directionToEnemy = (transform.position - closestEnemy.position).normalized;
             transform.Translate(directionToEnemy * Time.deltaTime * generalSpeed);
         }
     }
