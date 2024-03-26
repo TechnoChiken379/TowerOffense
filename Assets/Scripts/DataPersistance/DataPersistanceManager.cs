@@ -14,6 +14,8 @@ public class DataPersistanceManager : MonoBehaviour
 
     private FileDataHandler dataHandler;
 
+    public static bool newGameButton = false;
+
     public static DataPersistanceManager instance { get; private set; }
 
     private void Awake()
@@ -35,6 +37,10 @@ public class DataPersistanceManager : MonoBehaviour
     private void Update()
     {
         SaveGame();
+        if (newGameButton == true)
+        {
+            NewGame();
+        }
     }
 
     public void NewGame()
