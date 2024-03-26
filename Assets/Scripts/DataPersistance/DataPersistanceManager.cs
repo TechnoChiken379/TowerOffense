@@ -32,9 +32,15 @@ public class DataPersistanceManager : MonoBehaviour
         LoadGame();
     }
 
+    private void Update()
+    {
+        SaveGame();
+    }
+
     public void NewGame()
     {
         this.gameData = new GameData();
+        Debug.Log("New Game");
     }
 
     public void LoadGame()
