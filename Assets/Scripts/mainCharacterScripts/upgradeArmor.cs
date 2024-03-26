@@ -158,8 +158,8 @@ public class upgradeArmor : MonoBehaviour
                 maxShieldHealth = 240f;
 
                 ricochet = true;
-                ricochetDamageLimit = 10f;
-                ricochetchange = 40;
+                ricochetDamageLimit = 20f;
+                ricochetchange = 30;
 }
         }
         else if (shieldLevel == 5)
@@ -182,7 +182,7 @@ public class upgradeArmor : MonoBehaviour
                 maxShieldHealth = 300f;
 
                 ricochet = true;
-                ricochetDamageLimit = 20f;
+                ricochetDamageLimit = 25f;
                 ricochetchange = 60;
             }
         }

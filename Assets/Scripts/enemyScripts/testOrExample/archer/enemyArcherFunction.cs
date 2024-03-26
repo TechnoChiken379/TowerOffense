@@ -209,7 +209,7 @@ public class enemyArcherFunction : MonoBehaviour
         if (closestEnemy != null && Vector2.Distance(closestEnemy.position, transform.position) < 1f)
         {
             Vector2 directionToEnemy = (transform.position - closestEnemy.position).normalized;
-            transform.Translate(directionToEnemy * Time.deltaTime * speed);
+            transform.Translate(directionToEnemy * Time.deltaTime * speed * 0.5f);
         }
     }
     public void Return()
@@ -245,7 +245,6 @@ public class enemyArcherFunction : MonoBehaviour
                 }
             }
         }
-
         return closestEnemy;
     }
     public void Attack()
