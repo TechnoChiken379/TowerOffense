@@ -6,7 +6,7 @@ public class upgradeArmor : MonoBehaviour
 {
     //upgrade armor
     //health
-    public static int healthLevel = 1;
+    public static int healthLevel = 5;
     public static bool healthHeavyTank = true;
     public static bool healthLightTank = false;
 
@@ -21,7 +21,7 @@ public class upgradeArmor : MonoBehaviour
     public static float deflectDamageNotTaken = 1f;
 
     //armor
-    public static int shieldLevel = 0;
+    public static int shieldLevel = 5;
     public static bool shieldHeavyArmor = false;
     public static bool shieldLightArmor = true;
 
@@ -33,7 +33,7 @@ public class upgradeArmor : MonoBehaviour
 
 
     //self repair
-    public static int selfRepairLevel = 0;
+    public static int selfRepairLevel = 5;
     public static bool selfRepairHeavyRepair = false;
     public static bool selfRepairLightRepair = true;
 
