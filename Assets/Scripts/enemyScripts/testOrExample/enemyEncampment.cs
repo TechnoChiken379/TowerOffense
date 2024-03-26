@@ -17,6 +17,8 @@ public class enemyEncampment : MonoBehaviour
     public float time;
     private float replaceTime = 300f;
 
+    public int enemyLevel = 1;
+
     public GameObject enemy;
 
     private void Start()

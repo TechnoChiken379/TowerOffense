@@ -27,7 +27,7 @@ public class enemyRogueFunction : MonoBehaviour
     private float engageDistance = 10f; //at what distance should the enemy start going to the player
 
     //health
-    private float enemyHP, enemyMaxHP = 20f;
+    private float enemyHP, enemyMaxHP = 15f;
 
     //attack
     private float MattackDamage = 5f;
