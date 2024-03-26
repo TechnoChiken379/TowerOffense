@@ -22,8 +22,8 @@ public class upgradeWeapons : MonoBehaviour
 
     //cannons
     public static int culverinLevel = 0;
-    public static bool bombard = true; //shoots a big round that will explode on contact (or at the end of it's trajectory) (the explodion deals procentage damage)
-    public static bool falconet = false; //shoots grape shot rounds that explode/scatter on contact (or at the end of it's trajectory)
+    public static bool bombard = false; //shoots a big round that will explode on contact (or at the end of it's trajectory) (the explodion deals procentage damage)
+    public static bool falconet = true; //shoots grape shot rounds that explode/scatter on contact (or at the end of it's trajectory)
 
     public static float canFireCannons = 2;
     public static float damageAmountRound = 5;
@@ -41,8 +41,8 @@ public class upgradeWeapons : MonoBehaviour
 
     //catapult
     public static int onagerLevel = 0;
-    public static bool trebuchet = false; //shoot's a payload high in the air before it comes crashing down (it leaves an AOE on the ground)
-    public static bool mangonel = true; //shoot 2 or 3 lesser payloads in quick succession
+    public static bool trebuchet = true; //shoot's a payload high in the air before it comes crashing down (it leaves an AOE on the ground)
+    public static bool mangonel = false; //shoot 2 or 3 lesser payloads in quick succession
 
     public static float canFireCatapult = 3;
     public static float damageAmountPayload = 10;
@@ -108,7 +108,7 @@ public class upgradeWeapons : MonoBehaviour
             if (hwacha == true)
             {
                 canFireArchers = 0.1f;
-                damageAmountArrows = 8f;
+                damageAmountArrows = 11.2f;
                 arrowSpeed = 7f;
                 arrowHeightNum = 1f;
 
@@ -131,11 +131,11 @@ public class upgradeWeapons : MonoBehaviour
             if (hwacha == true)
             {
                 canFireArchers = 0.1f;
-                damageAmountArrows = 16f;
+                damageAmountArrows = 18.7f;
                 arrowSpeed = 7f;
                 arrowHeightNum = 1f;
 
-                hwachaAmountBeforeReload = 70;
+                hwachaAmountBeforeReload = 60;
                 hwachaReloadTime = 1f;
             }
         }
@@ -167,12 +167,12 @@ public class upgradeWeapons : MonoBehaviour
 
             if (bombard == true)
             {
-                canFireCannons = 1.5f;
-                damageAmountRound = 100f;
+                canFireCannons = 2.25f;
+                damageAmountRound = 150f;
                 roundSpeed = 12.5f;
                 roundHeightNum = 0.5f;
 
-                damageAmountRoundShrapnel = 0.1f;
+                damageAmountRoundShrapnel = 0.075f;
             }
             if (falconet == true)
             {
@@ -182,10 +182,10 @@ public class upgradeWeapons : MonoBehaviour
                 roundHeightNum = 0.5f;
 
                 //grape shot
-                grapeShotAmount = 8;
+                grapeShotAmount = 16;
 
                 damageAmountRoundGrapeShot = 10;
-                roundSpeedGrapeShot = 7f;
+                roundSpeedGrapeShot = 10f;
 }
         }
         else if (culverinLevel == 5)
@@ -195,12 +195,12 @@ public class upgradeWeapons : MonoBehaviour
 
             if (bombard == true)
             {
-                canFireCannons = 1.5f;
-                damageAmountRound = 128f;
+                canFireCannons = 2.25f;
+                damageAmountRound = 270f;
                 roundSpeed = 12.5f;
                 roundHeightNum = 0.5f;
 
-                damageAmountRoundShrapnel = 0.2f;
+                damageAmountRoundShrapnel = 0.1125f;
             }
             if (falconet == true)
             {
@@ -210,10 +210,10 @@ public class upgradeWeapons : MonoBehaviour
                 roundHeightNum = 0.5f;
 
                 //grape shot
-                grapeShotAmount = 12;
+                grapeShotAmount = 24;
 
                 damageAmountRoundGrapeShot = 20;
-                roundSpeedGrapeShot = 7f;
+                roundSpeedGrapeShot = 10f;
             }
         }
     }
@@ -244,16 +244,16 @@ public class upgradeWeapons : MonoBehaviour
 
             if (trebuchet == true)
             {
-                canFireCatapult = 2.5f;
-                damageAmountPayload = 200f;
+                canFireCatapult = 3f;
+                damageAmountPayload = 240f;
                 payloadSpeed = 10f;
                 payloadHeightNum = 6f;
 
-                trebuchetPayloadDeliveryDamage = 20f;
+                trebuchetPayloadDeliveryDamage = 60f;
             }
             if (mangonel == true)
             {
-                canFireCatapult = 2.5f;
+                canFireCatapult = 2f;
                 damageAmountPayload = 100f;
                 payloadSpeed = 10f;
                 payloadHeightNum = 2f;
@@ -268,17 +268,17 @@ public class upgradeWeapons : MonoBehaviour
 
             if (trebuchet == true)
             {
-                canFireCatapult = 2f;
-                damageAmountPayload = 320f;
+                canFireCatapult = 3f;
+                damageAmountPayload = 480f;
                 payloadSpeed = 10f;
                 payloadHeightNum = 6f;
 
-                trebuchetPayloadDeliveryDamage = 40f;
+                trebuchetPayloadDeliveryDamage = 120f;
             }
             if (mangonel == true)
             {
                 canFireCatapult = 2f;
-                damageAmountPayload = 100f;
+                damageAmountPayload = 133.3f;
                 payloadSpeed = 10f;
                 payloadHeightNum = 2f;
 
