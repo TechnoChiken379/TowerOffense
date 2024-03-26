@@ -216,7 +216,7 @@ public class enemyRogueFunction : MonoBehaviour
         if (closestEnemy != null && Vector2.Distance(closestEnemy.position, transform.position) < 0.75f)
         {
             Vector2 directionToEnemy = (transform.position - closestEnemy.position).normalized;
-            transform.Translate(directionToEnemy * Time.deltaTime * generalSpeed);
+            transform.Translate(directionToEnemy * Time.deltaTime * generalSpeed * 0.5f);
         }
     }
     public void Return()

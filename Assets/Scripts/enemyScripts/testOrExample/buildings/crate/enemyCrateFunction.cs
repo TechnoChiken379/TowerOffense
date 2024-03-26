@@ -52,6 +52,8 @@ public class enemyCrateFunction : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("mainCharacter").transform;
 
         enemyHP = enemyMaxHP;
+
+        CalculateLevel();
     }
 
     // Update is called once per frame
@@ -135,6 +137,37 @@ public class enemyCrateFunction : MonoBehaviour
             }
 
             Destroy(gameObject);
+        }
+    }
+
+    void CalculateLevel()
+    {
+        Encampment.TryGetComponent<enemyEncampment>(out enemyEncampment enemyLvl);
+        //enemyLvl.enemyLevel
+        if (enemyLvl.enemyLevel == 1)
+        {
+            enemyMaxHP = 50f; //5X (1) weapon Dps
+            enemyHP = 50f; //5X (1) weapon Dps
+        }
+        else if (enemyLvl.enemyLevel == 2)
+        {
+            enemyMaxHP = 100f; //5X (1) weapon Dps
+            enemyHP = 100f; //5X (1) weapon Dps
+        }
+        else if (enemyLvl.enemyLevel == 3)
+        {
+            enemyMaxHP = 200f; //5X (1) weapon Dps
+            enemyHP = 200f; //5X (1) weapon Dps
+        }
+        else if (enemyLvl.enemyLevel == 4)
+        {
+            enemyMaxHP = 400f; //5X (1) weapon Dps
+            enemyHP = 400f; //5X (1) weapon Dps
+        }
+        else if (enemyLvl.enemyLevel >= 5)
+        {
+            enemyMaxHP = 800f; //5X (1) weapon Dps
+            enemyHP = 800f; //5X (1) weapon Dps
         }
     }
 

@@ -37,7 +37,7 @@ public class upgradeArmor : MonoBehaviour
     public static bool selfRepairHeavyRepair = false;
     public static bool selfRepairLightRepair = true;
 
-    public static float repairCompensation = 0.2f; //how much you can repair of every single point of damage (x100 to get procent)
+    public static float repairCompensation = 0f; //how much you can repair of every single point of damage (x100 to get procent)
     public static float repairTime = 0; //the higher the faster
     public static float repairTimeBase = 2.5f;
     public static float resourceUsage = 0.1f;
@@ -83,13 +83,13 @@ public class upgradeArmor : MonoBehaviour
         {
             //maxHealth = 400f;
 
-            if (healthHeavyTank == true)
+            if (healthHeavyTank == true) //active health 500
             {
                 maxHealth = 400f;
                 deflectDamage = true;
                 deflectDamageNotTaken = 0.8f;
             }
-            if (healthLightTank == true)
+            if (healthLightTank == true) //active health 200
             {
                 maxHealth = 200f;
                 if (canRegenerating && leftCombat >= startRegenerating)
@@ -103,13 +103,13 @@ public class upgradeArmor : MonoBehaviour
         {
             //maxHealth = 500f;
 
-            if (healthHeavyTank == true)
+            if (healthHeavyTank == true) //active health 625
             {
                 maxHealth = 500f;
                 deflectDamage = true;
                 deflectDamageNotTaken = 0.8f;
             }
-            if (healthLightTank == true)
+            if (healthLightTank == true) //active health 250
             {
                 maxHealth = 250f;
                 if (canRegenerating && leftCombat >= startRegenerating)
@@ -142,7 +142,7 @@ public class upgradeArmor : MonoBehaviour
         {
             //maxShieldHealth = 200f;
 
-            if (shieldHeavyArmor == true)
+            if (shieldHeavyArmor == true) //active shield 200 
             {
                 maxShieldHealth = 200f;
 
@@ -153,20 +153,20 @@ public class upgradeArmor : MonoBehaviour
                     mainCharacter.HealthDamageTakenShieldBrake = 1f;
                 }
             }
-            if (shieldLightArmor == true)
+            if (shieldLightArmor == true) //active shield 685.7 (assuming all damage taken >= 20, else 480) (25%(/342.9) of incoming damage taken by health)
             {
                 maxShieldHealth = 240f;
 
                 ricochet = true;
-                ricochetDamageLimit = 10f;
-                ricochetchange = 40;
+                ricochetDamageLimit = 20f;
+                ricochetchange = 30;
 }
         }
         else if (shieldLevel == 5)
         {
             //maxShieldHealth = 250f;
 
-            if (shieldHeavyArmor == true)
+            if (shieldHeavyArmor == true) //active shield 333.3
             {
                 maxShieldHealth = 250f;
 
@@ -177,12 +177,12 @@ public class upgradeArmor : MonoBehaviour
                     mainCharacter.HealthDamageTakenShieldBrake = 0.75f;
                 }
             }
-            if (shieldLightArmor == true)
+            if (shieldLightArmor == true) //active shield 750 (assuming all damage taken >= 25, else 600) (25%(/375) of incoming damage taken by health)
             {
                 maxShieldHealth = 300f;
 
                 ricochet = true;
-                ricochetDamageLimit = 20f;
+                ricochetDamageLimit = 25f;
                 ricochetchange = 60;
             }
         }
