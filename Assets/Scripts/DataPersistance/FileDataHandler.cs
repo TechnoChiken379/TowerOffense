@@ -6,6 +6,7 @@ using System.IO;
 
 public class FileDataHandler
 {
+    //2 parts of the game.data name
     private string dataDirPath = "";
     private string dataFileName = "";
 
@@ -15,10 +16,12 @@ public class FileDataHandler
         this.dataFileName = dataFileName;
     }
 
-    public GameData Load()
+    public GameData Load() // load game
     {
+        //combines the 2 names
         string fullPath = Path.Combine(dataDirPath, dataFileName);
         GameData loadedData = null;
+        //if there is a file with the combined full name do this
         if (File.Exists(fullPath))
         {
             try
