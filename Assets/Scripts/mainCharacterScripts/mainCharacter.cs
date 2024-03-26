@@ -65,7 +65,7 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     void Start() //Happens on start
     {
-
+        DataPersistanceManager.newGameButton = false;
         Time.timeScale = 1;
         //Movement speed
         speed = 4;
