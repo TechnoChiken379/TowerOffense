@@ -96,6 +96,8 @@ public class enemyRogueFunction : MonoBehaviour
 
         standing.SetActive(true);
         walking.SetActive(false);
+
+        CalculateLevel();
     }
 
     // Update is called once per frame
@@ -211,9 +213,9 @@ public class enemyRogueFunction : MonoBehaviour
     }
     public void SpreadOut()
     {
-        if (closestEnemy != null && Vector3.Distance(closestEnemy.position, transform.position) < 0.75f)
+        if (closestEnemy != null && Vector2.Distance(closestEnemy.position, transform.position) < 0.75f)
         {
-            Vector3 directionToEnemy = (transform.position - closestEnemy.position).normalized;
+            Vector2 directionToEnemy = (transform.position - closestEnemy.position).normalized;
             transform.Translate(directionToEnemy * Time.deltaTime * generalSpeed);
         }
     }
@@ -384,6 +386,57 @@ public class enemyRogueFunction : MonoBehaviour
             }
 
             Destroy(gameObject);
+        }
+    }
+
+    void CalculateLevel()
+    {
+        Encampment.TryGetComponent<enemyEncampment>(out enemyEncampment enemyLvl);
+        //enemyLvl.enemyLevel
+        if (enemyLvl.enemyLevel == 1)
+        {
+            enemyMaxHP = 15f; //1.5X (1) weapon Dps
+            enemyHP = 15f; //1.5X (1) weapon Dps
+
+            MattackDamage = 5; //5% van player max HP
+            RattackDamage = 2.5f; //2.5% van player max HP
+            //canAttack = 0.5f;
+        }
+        else if (enemyLvl.enemyLevel == 2)
+        {
+            enemyMaxHP = 30f; //1.5X (1) weapon Dps
+            enemyHP = 30f; //1.5X (1) weapon Dps
+
+            MattackDamage = 10; //5% van player max HP
+            RattackDamage = 5; //2.5% van player max HP
+            //canAttack = 0.5f;
+        }
+        else if (enemyLvl.enemyLevel == 3)
+        {
+            enemyMaxHP = 60f; //1.5X (1) weapon Dps
+            enemyHP = 60f; //1.5X (1) weapon Dps
+
+            MattackDamage = 15; //5% van player max HP
+            RattackDamage = 7.5f; //2.5% van player max HP
+            //canAttack = 0.5f;
+        }
+        else if (enemyLvl.enemyLevel == 4)
+        {
+            enemyMaxHP = 120f; //1.5X (1) weapon Dps
+            enemyHP = 120f; //1.5X (1) weapon Dps
+
+            MattackDamage = 20; //5% van player max HP
+            RattackDamage = 10; //2.5% van player max HP
+            //canAttack = 0.5f;
+        }
+        else if (enemyLvl.enemyLevel >= 5)
+        {
+            enemyMaxHP = 240f; //1.5X (1) weapon Dps
+            enemyHP = 240f; //1.5X (1) weapon Dps
+
+            MattackDamage = 25; //5% van player max HP
+            RattackDamage = 12.5f; //2.5% van player max HP
+            //canAttack = 0.5f;
         }
     }
 

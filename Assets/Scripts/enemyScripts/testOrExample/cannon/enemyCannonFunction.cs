@@ -68,6 +68,8 @@ public class enemyCannonFunction : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("mainCharacter").transform;
 
         enemyHP = enemyMaxHP;
+
+        CalculateLevel();
     }
 
     // Update is called once per frame
@@ -115,7 +117,7 @@ public class enemyCannonFunction : MonoBehaviour
     }
     public void SpreadOut()
     {
-        if (closestEnemy != null && Vector3.Distance(closestEnemy.position, transform.position) < 1f)
+        if (closestEnemy != null && Vector2.Distance(closestEnemy.position, transform.position) < 1f)
         {
             //Vector3 directionToEnemy = (transform.position - closestEnemy.position).normalized;
             //transform.Translate(directionToEnemy * Time.deltaTime * speed);
@@ -218,6 +220,51 @@ public class enemyCannonFunction : MonoBehaviour
             }
 
             Destroy(gameObject);
+        }
+    }
+    void CalculateLevel()
+    {
+        Encampment.TryGetComponent<enemyEncampment>(out enemyEncampment enemyLvl);
+        //enemyLvl.enemyLevel
+        if (enemyLvl.enemyLevel == 1)
+        {
+            enemyMaxHP = 50f; //5X (1) weapon Dps
+            enemyHP = 50f; //5X (1) weapon Dps
+
+            attackDamage = 20; //20% van player max HP
+            //canAttack = 1f;
+        }
+        else if (enemyLvl.enemyLevel == 2)
+        {
+            enemyMaxHP = 100f; //5X (1) weapon Dps
+            enemyHP = 100f; //5X (1) weapon Dps
+
+            attackDamage = 40; //20% van player max HP
+            //canAttack = 1f;
+        }
+        else if (enemyLvl.enemyLevel == 3)
+        {
+            enemyMaxHP = 200f; //5X (1) weapon Dps
+            enemyHP = 200f; //5X (1) weapon Dps
+
+            attackDamage = 60; //20% van player max HP
+            //canAttack = 1f;
+        }
+        else if (enemyLvl.enemyLevel == 4)
+        {
+            enemyMaxHP = 400f; //5X (1) weapon Dps
+            enemyHP = 400f; //5X (1) weapon Dps
+
+            attackDamage = 80; //20% van player max HP
+            //canAttack = 1f;
+        }
+        else if (enemyLvl.enemyLevel >= 5)
+        {
+            enemyMaxHP = 800f; //5X (1) weapon Dps
+            enemyHP = 800f; //5X (1) weapon Dps
+
+            attackDamage = 100; //20% van player max HP
+            //canAttack = 1f;
         }
     }
 

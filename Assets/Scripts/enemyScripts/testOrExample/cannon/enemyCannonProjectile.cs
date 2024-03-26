@@ -121,7 +121,7 @@ public class enemyCannonProjectile : MonoBehaviour
     }
     void IfDeadDie()
     {
-        if (Vector3.Distance(transform.position, targetSpawn.transform.position) < 0.1f)
+        if (Vector2.Distance(transform.position, targetSpawn.transform.position) < 0.1f)
         { Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn); }
     }
 
