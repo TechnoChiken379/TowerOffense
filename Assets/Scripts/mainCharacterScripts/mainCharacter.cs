@@ -49,7 +49,7 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
     public static bool repairing = false;
     //private static float repairTime = 10f;
 
-    private Vector3 playerPosition;
+    public static Vector3 playerPosition;
     public GameObject shopObject;
     public Vector3 shopPosition;
 
