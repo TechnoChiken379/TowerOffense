@@ -41,7 +41,6 @@ public class projectileGrapeShot : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("HIT");
         if (other.gameObject.TryGetComponent<enemyArcherFunction>(out enemyArcherFunction enemyComponent))
         {
             enemyComponent.DamageDealt(damageAmount);
