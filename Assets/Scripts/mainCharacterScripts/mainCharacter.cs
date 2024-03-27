@@ -65,6 +65,7 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     void Start() //Happens on start
     {
+        DataPersistanceManager.saveGameBool = true;
         DataPersistanceManager.newGameButton = false;
         Time.timeScale = 1;
         //Movement speed
@@ -73,6 +74,13 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
         setValuesStart();
 
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+
+
+
+        //if (hotKey1 == true) { buttons.buttonImage1.color = buttons.colorButtonOnTrue; } else { buttons.buttonImage1.color = buttons.colorButtonOnFalse; }
+        //if (hotKey2 == true) { buttons.buttonImage2.color = buttons.colorButtonOnTrue; } else { buttons.buttonImage2.color = buttons.colorButtonOnFalse; }
+        //if (hotKey3 == true) { buttons.buttonImage3.color = buttons.colorButtonOnTrue; } else { buttons.buttonImage3.color = buttons.colorButtonOnFalse; }
+        //if (hotKey4 == true) { buttons.buttonImage4.color = buttons.colorButtonOnTrue; } else { buttons.buttonImage4.color = buttons.colorButtonOnFalse; }
     }
 
     void Update()
@@ -91,6 +99,7 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     void OpenShop()
     {
+        DataPersistanceManager.saveGameBool = true;
         playerPosition = gameObject.transform.position;
         shopPosition = shopObject.transform.position;
         if (Vector3.Distance(shopPosition, playerPosition) <= 5 && Input.GetKeyDown(KeyCode.E))
@@ -115,43 +124,43 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     void CameraMovementOnPlayerMovement()
     {
-        Vector2 pz = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float posX = Mathf.Lerp(mainCamera.transform.position.x, transform.position.x + (pz.x / cameraMoveIntensityResistance), 2f * Time.deltaTime);
-        float posY = Mathf.Lerp(mainCamera.transform.position.y, transform.position.y + (pz.y / cameraMoveIntensityResistance), 2f * Time.deltaTime);
+        //Vector2 pz = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //float posX = Mathf.Lerp(mainCamera.transform.position.x, transform.position.x + (pz.x / cameraMoveIntensityResistance), 2f * Time.deltaTime);
+        //float posY = Mathf.Lerp(mainCamera.transform.position.y, transform.position.y + (pz.y / cameraMoveIntensityResistance), 2f * Time.deltaTime);
 
-        mainCamera.transform.position = new Vector3(posX, posY, mainCamera.transform.position.z);
+        //mainCamera.transform.position = new Vector3(posX, posY, mainCamera.transform.position.z);
     }
 
     void HotKeyManagment()
     {
-        if (Input.GetKey(KeyCode.Alpha1) && hotKeyTimer > 0.25f) HotKey1();
-        if (Input.GetKey(KeyCode.Alpha2) && hotKeyTimer > 0.25f) HotKey2();
-        if (Input.GetKey(KeyCode.Alpha3) && hotKeyTimer > 0.25f) HotKey3();
-        if (Input.GetKey(KeyCode.Alpha4) && hotKeyTimer > 0.25f) HotKey4();
+        if (Input.GetKey(KeyCode.Alpha1) && hotKeyTimer > 0.2f) HotKey1();
+        if (Input.GetKey(KeyCode.Alpha2) && hotKeyTimer > 0.2f) HotKey2();
+        if (Input.GetKey(KeyCode.Alpha3) && hotKeyTimer > 0.2f) HotKey3();
+        if (Input.GetKey(KeyCode.Alpha4) && hotKeyTimer > 0.2f) HotKey4();
     }
 
     void HotKey1()
     {
-        if (hotKey1 == false) { hotKey1 = true; Debug.Log(hotKey1); shootingScript.archers = true; buttons.buttonImage1.color = buttons.colorButtonOnTrue; }
-        else if (hotKey1 == true) { hotKey1 = false; Debug.Log(hotKey1); shootingScript.archers = false; buttons.buttonImage1.color = buttons.colorButtonOnFalse; }
+        if (hotKey1 == false) { hotKey1 = true; shootingScript.archers = true; buttons.buttonImage1.color = buttons.colorButtonOnTrue; }
+        else if (hotKey1 == true) { hotKey1 = false; shootingScript.archers = false; buttons.buttonImage1.color = buttons.colorButtonOnFalse; }
         hotKeyTimer = 0;
     }
     void HotKey2()
     {
-        if (hotKey2 == false) { hotKey2 = true; Debug.Log(hotKey2); shootingScript.cannons = true; buttons.buttonImage2.color = buttons.colorButtonOnTrue; }
-        else if (hotKey2 == true) { hotKey2 = false; Debug.Log(hotKey2); shootingScript.cannons = false; buttons.buttonImage2.color = buttons.colorButtonOnFalse; }
+        if (hotKey2 == false) { hotKey2 = true; shootingScript.cannons = true; buttons.buttonImage2.color = buttons.colorButtonOnTrue; }
+        else if (hotKey2 == true) { hotKey2 = false; shootingScript.cannons = false; buttons.buttonImage2.color = buttons.colorButtonOnFalse; }
         hotKeyTimer = 0;
     }
     void HotKey3()
     {
-        if (hotKey3 == false) { hotKey3 = true; Debug.Log(hotKey3); shootingScript.catapult = true; buttons.buttonImage3.color = buttons.colorButtonOnTrue; }
-        else if (hotKey3 == true) { hotKey3 = false; Debug.Log(hotKey3); shootingScript.catapult = false; buttons.buttonImage3.color = buttons.colorButtonOnFalse; }
+        if (hotKey3 == false) { hotKey3 = true; shootingScript.catapult = true; buttons.buttonImage3.color = buttons.colorButtonOnTrue; }
+        else if (hotKey3 == true) { hotKey3 = false; shootingScript.catapult = false; buttons.buttonImage3.color = buttons.colorButtonOnFalse; }
         hotKeyTimer = 0;
     }
     void HotKey4()
     {
-        //if (hotKey4 == false) { hotKey4 = true; Debug.Log(hotKey4); shootingScript.archers = true; buttons.buttonImage4.color = buttons.colorButtonOnTrue; }
-        //else if (hotKey4 == true) { hotKey4 = false; Debug.Log(hotKey4); shootingScript.archers = false; buttons.buttonImage4.color = buttons.colorButtonOnFalse; }
+        //if (hotKey4 == false) { hotKey4 = true; shootingScript.archers = true; buttons.buttonImage4.color = buttons.colorButtonOnTrue; }
+        //else if (hotKey4 == true) { hotKey4 = false; shootingScript.archers = false; buttons.buttonImage4.color = buttons.colorButtonOnFalse; }
         //hotKeyTimer = 0;
     }
 
@@ -228,7 +237,7 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
     //    }
     //}
 
-    public static void Repairing()
+    public void Repairing()
     {
         if (Input.GetKey(KeyCode.F) 
             && totalRepairCompensation > 0f 
