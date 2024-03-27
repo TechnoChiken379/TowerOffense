@@ -65,11 +65,6 @@ public class buttons : MonoBehaviour
             SceneManager.LoadScene("tilemapTesting");
             loadSceneBool = false;
         }
-
-        if (mainCharacter.hotKey1 == true) { buttonImage1.color = colorButtonOnTrue; } else { buttonImage1.color = colorButtonOnFalse; }
-        if (mainCharacter.hotKey2 == true) { buttonImage2.color = colorButtonOnTrue; } else { buttonImage2.color = colorButtonOnFalse; }
-        if (mainCharacter.hotKey3 == true) { buttonImage3.color = colorButtonOnTrue; } else { buttonImage3.color = colorButtonOnFalse; }
-        if (mainCharacter.hotKey4 == true) { buttonImage4.color = colorButtonOnTrue; } else { buttonImage4.color = colorButtonOnFalse; }
     }
 
     public void HotKey1Methode()

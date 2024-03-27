@@ -73,6 +73,11 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
         setValuesStart();
 
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+
+        if (hotKey1 == true) { buttons.buttonImage1.color = buttons.colorButtonOnTrue; } else { buttons.buttonImage1.color = buttons.colorButtonOnFalse; }
+        if (hotKey2 == true) { buttons.buttonImage2.color = buttons.colorButtonOnTrue; } else { buttons.buttonImage2.color = buttons.colorButtonOnFalse; }
+        if (hotKey3 == true) { buttons.buttonImage3.color = buttons.colorButtonOnTrue; } else { buttons.buttonImage3.color = buttons.colorButtonOnFalse; }
+        if (hotKey4 == true) { buttons.buttonImage4.color = buttons.colorButtonOnTrue; } else { buttons.buttonImage4.color = buttons.colorButtonOnFalse; }
     }
 
     void Update()
