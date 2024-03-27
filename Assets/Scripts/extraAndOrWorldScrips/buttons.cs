@@ -41,6 +41,8 @@ public class buttons : MonoBehaviour
 
     void Start()
     {
+        DataPersistanceManager.saveGameBool = true;
+
         buttonImage1 = image1;
         buttonImage2 = image2;
         buttonImage3 = image3;
@@ -53,8 +55,6 @@ public class buttons : MonoBehaviour
         mainMenuImage.SetActive(true);
 
         loadSceneBool = false;
-
-        
     }
 
     void Update()

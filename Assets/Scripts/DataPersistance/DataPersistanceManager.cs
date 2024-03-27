@@ -15,6 +15,7 @@ public class DataPersistanceManager : MonoBehaviour
     private FileDataHandler dataHandler;
 
     public static bool newGameButton = false;
+    public static bool saveGameBool = false;
 
     public static DataPersistanceManager instance { get; private set; }
 
@@ -36,7 +37,11 @@ public class DataPersistanceManager : MonoBehaviour
 
     private void Update()
     {
-        SaveGame();
+        if (saveGameBool == true)
+        {
+            SaveGame();
+            saveGameBool = false;
+        }
         if (newGameButton == true)
         {
             NewGame();
@@ -68,6 +73,7 @@ public class DataPersistanceManager : MonoBehaviour
 
     public void SaveGame()
     {
+        Debug.Log("SAVING");
         foreach (IDataPersistance dataPersistancesObj in dataPersistancesObjects)
         {
             dataPersistancesObj.SaveData(ref gameData);
@@ -78,6 +84,7 @@ public class DataPersistanceManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
+        Debug.Log("SAVING");
         SaveGame();
     }
 
