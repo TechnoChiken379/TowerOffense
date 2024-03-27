@@ -33,7 +33,7 @@ public class deathScreenManager : MonoBehaviour
         if (deathManagerState2 == false)
         {
             timer = 0;
-            DataPersistanceManager.saveGameBool = true;
+            //DataPersistanceManager.saveGameBool = true;
             deathManagerState2 = true;
         }
         if (timer >= 4 && deathManagerState3 == false)

@@ -41,8 +41,6 @@ public class buttons : MonoBehaviour
 
     void Start()
     {
-        DataPersistanceManager.saveGameBool = true;
-
         buttonImage1 = image1;
         buttonImage2 = image2;
         buttonImage3 = image3;

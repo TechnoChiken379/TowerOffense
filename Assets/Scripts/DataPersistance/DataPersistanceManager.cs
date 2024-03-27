@@ -35,12 +35,13 @@ public class DataPersistanceManager : MonoBehaviour
         LoadGame();
     }
 
-    private void Update()
+    void Update()
     {
         if (saveGameBool == true)
         {
             SaveGame();
             saveGameBool = false;
+            Debug.Log("SaveLock");
         }
         if (newGameButton == true)
         {
@@ -84,7 +85,6 @@ public class DataPersistanceManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        Debug.Log("SAVING");
         SaveGame();
     }
 
