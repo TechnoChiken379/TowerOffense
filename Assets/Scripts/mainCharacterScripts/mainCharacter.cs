@@ -101,7 +101,6 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
         if (Vector3.Distance(shopPosition, playerPosition) <= 5 && Input.GetKeyDown(KeyCode.E))
         {
             DataPersistanceManager.saveGameBool = true;
-            SceneManager.LoadScene("ShopScene");
         }
     }
 
