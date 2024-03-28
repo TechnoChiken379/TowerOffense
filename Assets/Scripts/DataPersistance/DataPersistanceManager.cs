@@ -6,7 +6,7 @@ using System.Linq;
 public class DataPersistanceManager : MonoBehaviour
 {
     [Header("File Storage Config")]
-    private string fileName = "data.game";
+    private string fileName = "data.games_on_your_phone";
 
     private GameData gameData;
 
