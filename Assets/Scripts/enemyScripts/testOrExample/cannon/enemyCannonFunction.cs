@@ -36,9 +36,9 @@ public class enemyCannonFunction : MonoBehaviour
     public GameObject deathDropSteel;
 
     private float DroppedGold = 1;
-    private float DroppedWood = 10;
-    private float DroppedStone = 10;
-    private float DroppedSteel = 10;
+    private float DroppedWood = 12;
+    private float DroppedStone = 12;
+    private float DroppedSteel = 0;
 
     public Transform deathDropPoint;
 
@@ -209,15 +209,15 @@ public class enemyCannonFunction : MonoBehaviour
                 DeathDropStoneScript.DetermineAmountStone(DroppedStone);
             }
 
-            //steel
-            GameObject enemyDroppedSteel = Instantiate(deathDropSteel, deathDropPoint.position, Quaternion.identity);
-            enemyDeathDrop DeathDropSteelScript = enemyDroppedSteel.GetComponent<enemyDeathDrop>();
+            ////steel
+            //GameObject enemyDroppedSteel = Instantiate(deathDropSteel, deathDropPoint.position, Quaternion.identity);
+            //enemyDeathDrop DeathDropSteelScript = enemyDroppedSteel.GetComponent<enemyDeathDrop>();
 
-            if (DeathDropSteelScript != null)
-            {
-                DeathDropSteelScript.SetEnemyScriptReference(this);
-                DeathDropSteelScript.DetermineAmountSteel(DroppedSteel);
-            }
+            //if (DeathDropSteelScript != null)
+            //{
+            //    DeathDropSteelScript.SetEnemyScriptReference(this);
+            //    DeathDropSteelScript.DetermineAmountSteel(DroppedSteel);
+            //}
 
             Destroy(gameObject);
         }

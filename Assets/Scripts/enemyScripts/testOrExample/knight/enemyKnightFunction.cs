@@ -44,9 +44,9 @@ public class enemyKnightFunction : MonoBehaviour
     public GameObject deathDropSteel;
 
     private float DroppedGold = 1;
-    private float DroppedWood = 10;
-    private float DroppedStone = 10;
-    private float DroppedSteel = 10;
+    private float DroppedWood = 0;
+    private float DroppedStone = 0;
+    private float DroppedSteel = 3;
 
     public Transform deathDropPoint;
 
@@ -338,25 +338,25 @@ public class enemyKnightFunction : MonoBehaviour
                 DeathDropGoldScript.DetermineAmountGold(DroppedGold);
             }
 
-            //wood
-            GameObject enemyDroppedWood = Instantiate(deathDropWood, deathDropPoint.position, Quaternion.identity);
-            enemyDeathDrop DeathDropWoodScript = enemyDroppedWood.GetComponent<enemyDeathDrop>();
+            ////wood
+            //GameObject enemyDroppedWood = Instantiate(deathDropWood, deathDropPoint.position, Quaternion.identity);
+            //enemyDeathDrop DeathDropWoodScript = enemyDroppedWood.GetComponent<enemyDeathDrop>();
 
-            if (DeathDropWoodScript != null)
-            {
-                DeathDropWoodScript.SetEnemyScriptReference(this);
-                DeathDropWoodScript.DetermineAmountWood(DroppedWood);
-            }
+            //if (DeathDropWoodScript != null)
+            //{
+            //    DeathDropWoodScript.SetEnemyScriptReference(this);
+            //    DeathDropWoodScript.DetermineAmountWood(DroppedWood);
+            //}
 
-            //stone
-            GameObject enemyDroppedStone = Instantiate(deathDropStone, deathDropPoint.position, Quaternion.identity);
-            enemyDeathDrop DeathDropStoneScript = enemyDroppedStone.GetComponent<enemyDeathDrop>();
+            ////stone
+            //GameObject enemyDroppedStone = Instantiate(deathDropStone, deathDropPoint.position, Quaternion.identity);
+            //enemyDeathDrop DeathDropStoneScript = enemyDroppedStone.GetComponent<enemyDeathDrop>();
 
-            if (DeathDropStoneScript != null)
-            {
-                DeathDropStoneScript.SetEnemyScriptReference(this);
-                DeathDropStoneScript.DetermineAmountStone(DroppedStone);
-            }
+            //if (DeathDropStoneScript != null)
+            //{
+            //    DeathDropStoneScript.SetEnemyScriptReference(this);
+            //    DeathDropStoneScript.DetermineAmountStone(DroppedStone);
+            //}
 
             //steel
             GameObject enemyDroppedSteel = Instantiate(deathDropSteel, deathDropPoint.position, Quaternion.identity);

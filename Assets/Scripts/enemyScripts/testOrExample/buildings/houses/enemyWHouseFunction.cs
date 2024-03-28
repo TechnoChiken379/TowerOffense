@@ -22,10 +22,10 @@ public class enemyWHouseFunction : MonoBehaviour
     public GameObject deathDropStone;
     public GameObject deathDropSteel;
 
-    private float DroppedGold = 1;
-    private float DroppedWood = 100;
-    private float DroppedStone = 10;
-    private float DroppedSteel = 10;
+    private float DroppedGold = 0;
+    private float DroppedWood = 16.8f;
+    private float DroppedStone = 16.8f;
+    private float DroppedSteel = 12;
 
     public Transform deathDropPoint;
 
@@ -96,15 +96,15 @@ public class enemyWHouseFunction : MonoBehaviour
     {
         if (enemyHP <= 0)
         {
-            //gold
-            GameObject enemyDroppedGold = Instantiate(deathDropGold, deathDropPoint.position, Quaternion.identity);
-            enemyDeathDrop DeathDropGoldScript = enemyDroppedGold.GetComponent<enemyDeathDrop>();
+            ////gold
+            //GameObject enemyDroppedGold = Instantiate(deathDropGold, deathDropPoint.position, Quaternion.identity);
+            //enemyDeathDrop DeathDropGoldScript = enemyDroppedGold.GetComponent<enemyDeathDrop>();
 
-            if (DeathDropGoldScript != null)
-            {
-                DeathDropGoldScript.SetEnemyScriptReference(this);
-                DeathDropGoldScript.DetermineAmountGold(DroppedGold);
-            }
+            //if (DeathDropGoldScript != null)
+            //{
+            //    DeathDropGoldScript.SetEnemyScriptReference(this);
+            //    DeathDropGoldScript.DetermineAmountGold(DroppedGold);
+            //}
 
             //wood
             GameObject enemyDroppedWood = Instantiate(deathDropWood, deathDropPoint.position, Quaternion.identity);
