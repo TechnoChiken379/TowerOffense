@@ -260,6 +260,7 @@ MonoBehaviour:
   deathDropPoint: {fileID: 8595486114224927762}
   standing: {fileID: 4755257211077636506}
   walking: {fileID: 1270034850926512052}
+  Encampment: {fileID: 0}
 --- !u!61 &7175010725296375294
 BoxCollider2D:
   m_ObjectHideFlags: 0
