@@ -5,6 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class GameData
 {
+    public static bool newGame = false;
+
     public float woodAmount;
     public float stoneAmount;
     public float steelAmount;
@@ -13,11 +15,25 @@ public class GameData
     public Vector3 playerPosition;
     public GameData()
     {
-        this.woodAmount = 0;
-        this.stoneAmount = 0;
-        this.steelAmount = 0;
-        this.goldAmount = 0;
+        if (newGame == true)
+        {
+            this.woodAmount = 0;
+            this.stoneAmount = 0;
+            this.steelAmount = 0;
+            this.goldAmount = 0;
 
-        playerPosition = Vector3.zero;
+            playerPosition = Vector3.zero;
+
+            newGame = false;
+        }
+        else
+        {
+            this.woodAmount = 0;
+            this.stoneAmount = 0;
+            this.steelAmount = 0;
+            this.goldAmount = 0;
+
+            playerPosition = Vector3.zero;
+        }
     }
 }
