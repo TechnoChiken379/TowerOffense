@@ -19,6 +19,8 @@ public class enemyEncampment : MonoBehaviour
 
     public int enemyLevel = 1;
 
+    private float renderDistance = 30f;
+
     public GameObject enemy;
 
     private void Start()
@@ -29,6 +31,7 @@ public class enemyEncampment : MonoBehaviour
     {
         distanceToPlayer = Vector2.Distance(transform.position, player.position);
         ReplaceEncampment();
+        Render();
     }
 
     private void ReplaceEncampment()
@@ -46,5 +49,23 @@ public class enemyEncampment : MonoBehaviour
     public void EncampmentDamaged()
     {
         encampmentDamaged = true;
+    }
+
+    public void Render()
+    {
+        if (distanceToPlayer > renderDistance)
+        {
+            foreach (Transform child in transform)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            foreach (Transform child in transform)
+            {
+                child.gameObject.SetActive(true);
+            }
+        }
     }
 }
