@@ -53,19 +53,9 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
     public GameObject shopObject;
     public Vector3 shopPosition;
 
-    public void LoadData(GameData data)
-    {
-        this.transform.position = data.playerPosition;
-    }
-
-    public void SaveData(ref GameData data)
-    {
-        data.playerPosition = this.transform.position;
-    }
-
     void Start() //Happens on start
     {
-        playerPosition = this.transform.position;
+        playerPosition = gameObject.transform.position;
 
         DataPersistanceManager.newGameButton = false;
         Time.timeScale = 1;
@@ -80,6 +70,16 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
         //if (hotKey2 == true) { buttons.buttonImage2.color = buttons.colorButtonOnTrue; } else { buttons.buttonImage2.color = buttons.colorButtonOnFalse; }
         //if (hotKey3 == true) { buttons.buttonImage3.color = buttons.colorButtonOnTrue; } else { buttons.buttonImage3.color = buttons.colorButtonOnFalse; }
         //if (hotKey4 == true) { buttons.buttonImage4.color = buttons.colorButtonOnTrue; } else { buttons.buttonImage4.color = buttons.colorButtonOnFalse; }
+    }
+
+    public void LoadData(GameData data)
+    {
+        playerPosition = data.playerPosition;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.playerPosition = playerPosition;
     }
 
     void Update()
