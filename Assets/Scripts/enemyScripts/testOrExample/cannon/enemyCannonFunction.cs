@@ -233,6 +233,11 @@ public class enemyCannonFunction : MonoBehaviour
 
             attackDamage = 20; //20% van player max HP
             //canAttack = 1f;
+
+            DroppedWood = 0;
+            DroppedStone = 0;
+            DroppedSteel = 0;
+            DroppedGold = 0;
         }
         else if (enemyLvl.enemyLevel == 2)
         {

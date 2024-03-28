@@ -382,6 +382,9 @@ public class enemyKnightFunction : MonoBehaviour
 
             attackDamage = 10; //10% van player max HP
             //canAttack = 1f;
+
+            DroppedSteel = UnityEngine.Random.Range(1.0f, 9.0f);
+            DroppedGold = UnityEngine.Random.Range(0.0f, 2.0f);
         }
         else if (enemyLvl.enemyLevel == 2)
         {
@@ -390,6 +393,9 @@ public class enemyKnightFunction : MonoBehaviour
 
             attackDamage = 20; //10% van player max HP
             //canAttack = 1f;
+
+            DroppedSteel = UnityEngine.Random.Range(1.0f, 13.0f);
+            DroppedGold = UnityEngine.Random.Range(1.0f, 3.0f);
         }
         else if (enemyLvl.enemyLevel == 3)
         {
@@ -398,6 +404,9 @@ public class enemyKnightFunction : MonoBehaviour
 
             attackDamage = 30; //10% van player max HP
             //canAttack = 1f;
+
+            DroppedSteel = UnityEngine.Random.Range(6.0f, 19.0f);
+            DroppedGold = UnityEngine.Random.Range(2.0f, 4.0f);
         }
         else if (enemyLvl.enemyLevel == 4)
         {
@@ -406,6 +415,9 @@ public class enemyKnightFunction : MonoBehaviour
 
             attackDamage = 40; //10% van player max HP
             //canAttack = 1f;
+
+            DroppedSteel = UnityEngine.Random.Range(18.0f, 31.0f);
+            DroppedGold = UnityEngine.Random.Range(3.0f, 5.0f);
         }
         else if (enemyLvl.enemyLevel >= 5)
         {
@@ -414,6 +426,9 @@ public class enemyKnightFunction : MonoBehaviour
 
             attackDamage = 50; //10% van player max HP
             //canAttack = 1f;
+
+            DroppedSteel = UnityEngine.Random.Range(42.0f, 55.0f);
+            DroppedGold = UnityEngine.Random.Range(4.0f, 6.0f);
         }
     }
 

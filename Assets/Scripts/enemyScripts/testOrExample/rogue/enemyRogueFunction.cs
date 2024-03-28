@@ -401,6 +401,9 @@ public class enemyRogueFunction : MonoBehaviour
             MattackDamage = 5; //5% van player max HP
             RattackDamage = 2.5f; //2.5% van player max HP
             //canAttack = 0.5f;
+
+            DroppedSteel = UnityEngine.Random.Range(1.0f, 9.0f);
+            DroppedGold = UnityEngine.Random.Range(0.0f, 2.0f);
         }
         else if (enemyLvl.enemyLevel == 2)
         {
@@ -410,6 +413,9 @@ public class enemyRogueFunction : MonoBehaviour
             MattackDamage = 10; //5% van player max HP
             RattackDamage = 5; //2.5% van player max HP
             //canAttack = 0.5f;
+
+            DroppedSteel = UnityEngine.Random.Range(1.0f, 13.0f);
+            DroppedGold = UnityEngine.Random.Range(1.0f, 3.0f);
         }
         else if (enemyLvl.enemyLevel == 3)
         {
@@ -419,6 +425,9 @@ public class enemyRogueFunction : MonoBehaviour
             MattackDamage = 15; //5% van player max HP
             RattackDamage = 7.5f; //2.5% van player max HP
             //canAttack = 0.5f;
+
+            DroppedSteel = UnityEngine.Random.Range(6.0f, 19.0f);
+            DroppedGold = UnityEngine.Random.Range(2.0f, 4.0f);
         }
         else if (enemyLvl.enemyLevel == 4)
         {
@@ -428,6 +437,9 @@ public class enemyRogueFunction : MonoBehaviour
             MattackDamage = 20; //5% van player max HP
             RattackDamage = 10; //2.5% van player max HP
             //canAttack = 0.5f;
+
+            DroppedSteel = UnityEngine.Random.Range(18.0f, 31.0f);
+            DroppedGold = UnityEngine.Random.Range(3.0f, 5.0f);
         }
         else if (enemyLvl.enemyLevel >= 5)
         {
@@ -437,6 +449,9 @@ public class enemyRogueFunction : MonoBehaviour
             MattackDamage = 25; //5% van player max HP
             RattackDamage = 12.5f; //2.5% van player max HP
             //canAttack = 0.5f;
+
+            DroppedSteel = UnityEngine.Random.Range(42.0f, 55.0f);
+            DroppedGold = UnityEngine.Random.Range(4.0f, 6.0f);
         }
     }
 

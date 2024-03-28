@@ -2,10 +2,12 @@ using System;
 using System.Buffers.Text;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using UnityEngine.XR;
 
 public class enemyArcherFunction : MonoBehaviour
 {
@@ -377,6 +379,9 @@ public class enemyArcherFunction : MonoBehaviour
 
             attackDamage = 5; //5% van player max HP
             //canAttack = 0.5f;
+
+            DroppedSteel = UnityEngine.Random.Range(1.0f, 9.0f);
+            DroppedGold = UnityEngine.Random.Range(0.0f, 2.0f);
         } else if (enemyLvl.enemyLevel == 2)
         {
             enemyMaxHP = 50f; //2.5X (1) weapon Dps
@@ -384,6 +389,9 @@ public class enemyArcherFunction : MonoBehaviour
 
             attackDamage = 10; //5% van player max HP
             //canAttack = 0.5f;
+
+            DroppedSteel = UnityEngine.Random.Range(1.0f, 13.0f);
+            DroppedGold = UnityEngine.Random.Range(1.0f, 3.0f);
         }
         else if (enemyLvl.enemyLevel == 3)
         {
@@ -392,6 +400,9 @@ public class enemyArcherFunction : MonoBehaviour
 
             attackDamage = 15; //5% van player max HP
             //canAttack = 0.5f;
+
+            DroppedSteel = UnityEngine.Random.Range(6.0f, 19.0f);
+            DroppedGold = UnityEngine.Random.Range(2.0f, 4.0f);
         }
         else if (enemyLvl.enemyLevel == 4)
         {
@@ -400,6 +411,9 @@ public class enemyArcherFunction : MonoBehaviour
 
             attackDamage = 20; //5% van player max HP
             //canAttack = 0.5f;
+
+            DroppedSteel = UnityEngine.Random.Range(18.0f, 31.0f);
+            DroppedGold = UnityEngine.Random.Range(3.0f, 5.0f);
         }
         else if (enemyLvl.enemyLevel >= 5)
         {
@@ -408,6 +422,9 @@ public class enemyArcherFunction : MonoBehaviour
 
             attackDamage = 25; //5% van player max HP
             //canAttack = 0.5f;
+
+            DroppedSteel = UnityEngine.Random.Range(42.0f, 55.0f);
+            DroppedGold = UnityEngine.Random.Range(4.0f, 6.0f);
         }
     }
  
