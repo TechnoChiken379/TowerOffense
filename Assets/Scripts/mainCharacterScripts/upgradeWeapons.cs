@@ -7,7 +7,7 @@ public class upgradeWeapons : MonoBehaviour
 {
     //weapon upgrades
     //archers
-    public static int bowLevel = 5;
+    public static int bowLevel = 3;
     public static bool ballista = false; //slow firing strong arrow that goes through enemies
     public static bool hwacha = true; //shoots a load of arrow's in quick succession before having to reload for some time
 
@@ -21,7 +21,7 @@ public class upgradeWeapons : MonoBehaviour
     public static float hwachaReloadTime = 3f;
 
     //cannons
-    public static int culverinLevel = 5;
+    public static int culverinLevel = 3;
     public static bool bombard = false; //shoots a big round that will explode on contact (or at the end of it's trajectory) (the explodion deals procentage damage)
     public static bool falconet = true; //shoots grape shot rounds that explode/scatter on contact (or at the end of it's trajectory)
 
@@ -40,7 +40,7 @@ public class upgradeWeapons : MonoBehaviour
     public static float damageAmountRoundShrapnel = 0f;
 
     //catapult
-    public static int onagerLevel = 5;
+    public static int onagerLevel = 3;
     public static bool trebuchet = true; //shoot's a payload high in the air before it comes crashing down (it leaves an AOE on the ground)
     public static bool mangonel = false; //shoot 2 or 3 lesser payloads in quick succession
 
