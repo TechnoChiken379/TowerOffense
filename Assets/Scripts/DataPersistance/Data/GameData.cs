@@ -22,7 +22,7 @@ public class GameData
             this.steelAmount = 0;
             this.goldAmount = 0;
 
-            playerPosition = Vector3.zero;
+            playerPosition = mainCharacter.playerPosition;
 
             newGame = false;
         }
@@ -33,7 +33,7 @@ public class GameData
             this.steelAmount = 0;
             this.goldAmount = 0;
 
-            playerPosition = Vector3.zero;
+            playerPosition = mainCharacter.playerPosition;
         }
     }
 }

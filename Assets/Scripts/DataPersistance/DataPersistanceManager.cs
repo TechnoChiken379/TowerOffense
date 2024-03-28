@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class DataPersistanceManager : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class DataPersistanceManager : MonoBehaviour
             SaveGame();
             saveGameBool = false;
             Debug.Log("SaveLock");
+            SceneManager.LoadScene("ShopScene");
         }
         if (newGameButton == true)
         {

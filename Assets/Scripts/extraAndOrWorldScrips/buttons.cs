@@ -98,6 +98,11 @@ public class buttons : MonoBehaviour
         SceneManager.LoadScene("ShopScene");
     }
 
+    public void CloseShop()
+    {
+        SceneManager.LoadScene("tilemapTesting");
+    }
+
     #region MainMenu
 
     public void DisAbleBools()
