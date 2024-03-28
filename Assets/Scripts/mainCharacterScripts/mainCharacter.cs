@@ -65,7 +65,6 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     void Start() //Happens on start
     {
-        DataPersistanceManager.saveGameBool = true;
         DataPersistanceManager.newGameButton = false;
         Time.timeScale = 1;
         //Movement speed
@@ -74,8 +73,6 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
         setValuesStart();
 
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-
-
 
         //if (hotKey1 == true) { buttons.buttonImage1.color = buttons.colorButtonOnTrue; } else { buttons.buttonImage1.color = buttons.colorButtonOnFalse; }
         //if (hotKey2 == true) { buttons.buttonImage2.color = buttons.colorButtonOnTrue; } else { buttons.buttonImage2.color = buttons.colorButtonOnFalse; }
