@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class DataPersistanceManager : MonoBehaviour
 {
@@ -51,6 +52,7 @@ public class DataPersistanceManager : MonoBehaviour
 
     public void NewGame()
     {
+        GameData.newGame = true;
         this.gameData = new GameData();
         Debug.Log("New Game");
     }
