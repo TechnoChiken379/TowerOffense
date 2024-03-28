@@ -55,6 +55,10 @@ public class enemyDeathDrop : MonoBehaviour
     private float DroppedStone = 0;
     private float DroppedSteel = 0;
 
+    //auto pick up
+    private float time;
+    private float timeAlive = 3f;
+
     private void Start()
     {
         determineTargetLocation();
@@ -78,6 +82,7 @@ public class enemyDeathDrop : MonoBehaviour
         transform.rotation = LookAtTarget(movePosition - transform.position);
         transform.position = movePosition; 
         if (projectileSpawn != null && targetSpawn != null && Vector3.Distance(movePosition, targetSpawn.transform.position) < 0.1f) { Destroy(targetSpawn); Destroy(projectileSpawn); }
+        AutoPickUp();
     }
     public static Quaternion LookAtTarget(Vector2 r) { return Quaternion.Euler(0, 0, Mathf.Atan2(r.y, r.x) * Mathf.Rad2Deg); }
 
@@ -224,6 +229,24 @@ public class enemyDeathDrop : MonoBehaviour
         DroppedSteel = amount;
     }
     #endregion
+
+    void AutoPickUp()
+    {
+        time += Time.deltaTime;
+        if (time >= timeAlive)
+        {
+            resources.woodAmount += DroppedWood;
+            resources.stoneAmount += DroppedStone;
+            resources.steelAmount += DroppedSteel;
+            resources.goldAmount += DroppedGold;
+
+            Destroy(gameObject);
+            if (projectileSpawn != null && targetSpawn != null)
+            {
+                Destroy(targetSpawn); Destroy(projectileSpawn);
+            }
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
