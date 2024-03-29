@@ -135,10 +135,9 @@ public class enemyKnightFunction : MonoBehaviour
                 attackTimer += Time.deltaTime;
             }
         }
-        else if (distanceToPlayer > engageDistance && distanceToEncampment >= returnedToEncampment)
+        else if (distanceToPlayer <= (engageDistance / 2) && distanceToEncampment <= (returnToEncampment * 0.7f))
         {
-            state = "State.Return";
-            returningToEncampment = true;
+            returningToEncampment = false;
         }
         else if (distanceToEncampment >= returnedToEncampment)
         {
@@ -383,7 +382,7 @@ public class enemyKnightFunction : MonoBehaviour
             attackDamage = 10; //10% van player max HP
             //canAttack = 1f;
 
-            DroppedSteel = UnityEngine.Random.Range(1.0f, 9.0f);
+            DroppedSteel = UnityEngine.Random.Range(1.0f, 7.0f);
             DroppedGold = UnityEngine.Random.Range(0.0f, 2.0f);
         }
         else if (enemyLvl.enemyLevel == 2)

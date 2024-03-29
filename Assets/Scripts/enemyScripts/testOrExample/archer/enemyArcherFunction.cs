@@ -136,11 +136,11 @@ public class enemyArcherFunction : MonoBehaviour
                 state = "State.attack";
                 attackTimer += Time.deltaTime;
             }
-        } else if (distanceToPlayer > engageDistance && distanceToEncampment >= returnedToEncampment)
+        } else if (distanceToPlayer <= (engageDistance /2) && distanceToEncampment <= (returnToEncampment * 0.7f))
         {
-            state = "State.Return";
-            returningToEncampment = true;
-        } else if (distanceToEncampment >= returnedToEncampment)
+            returningToEncampment = false;
+        }
+        else if (distanceToEncampment >= returnedToEncampment)
         {
             state = "State.Return";
             returningToEncampment = true;
@@ -380,7 +380,7 @@ public class enemyArcherFunction : MonoBehaviour
             attackDamage = 5; //5% van player max HP
             //canAttack = 0.5f;
 
-            DroppedSteel = UnityEngine.Random.Range(1.0f, 9.0f);
+            DroppedSteel = UnityEngine.Random.Range(1.0f, 7.0f);
             DroppedGold = UnityEngine.Random.Range(0.0f, 2.0f);
         } else if (enemyLvl.enemyLevel == 2)
         {

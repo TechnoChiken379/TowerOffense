@@ -139,10 +139,9 @@ public class enemyRogueFunction : MonoBehaviour
                 attackTimer += Time.deltaTime;
             }
         }
-        else if (distanceToPlayer > engageDistance && distanceToEncampment >= returnedToEncampment)
+        else if (distanceToPlayer <= engageDistance && distanceToEncampment <= (returnToEncampment * 0.7f))
         {
-            state = "State.Return";
-            returningToEncampment = true;
+            returningToEncampment = false;
         }
         else if (distanceToEncampment >= returnedToEncampment)
         {
@@ -402,7 +401,7 @@ public class enemyRogueFunction : MonoBehaviour
             RattackDamage = 2.5f; //2.5% van player max HP
             //canAttack = 0.5f;
 
-            DroppedSteel = UnityEngine.Random.Range(1.0f, 9.0f);
+            DroppedSteel = UnityEngine.Random.Range(1.0f, 7.0f);
             DroppedGold = UnityEngine.Random.Range(0.0f, 2.0f);
         }
         else if (enemyLvl.enemyLevel == 2)
