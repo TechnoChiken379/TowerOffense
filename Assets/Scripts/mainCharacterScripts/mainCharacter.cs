@@ -245,9 +245,9 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
         {
             repairing = true;
 
-            resources.woodAmount -= upgradeArmor.resourceUsage;
-            resources.stoneAmount -= upgradeArmor.resourceUsage;
-            resources.steelAmount -= upgradeArmor.resourceUsage;
+            resources.woodAmount -= upgradeArmor.resourceUsage * Time.deltaTime;
+            resources.stoneAmount -= upgradeArmor.resourceUsage * Time.deltaTime;
+            resources.steelAmount -= upgradeArmor.resourceUsage * Time.deltaTime;
 
             totalCurrentHealth = Mathf.MoveTowards(totalCurrentHealth, totalCurrentHealth + totalRepairCompensation, upgradeArmor.repairTime * Time.deltaTime);
             totalRepairCompensation = Mathf.MoveTowards(totalRepairCompensation, 0f, upgradeArmor.repairTime * Time.deltaTime);

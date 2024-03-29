@@ -40,7 +40,7 @@ public class upgradeArmor : MonoBehaviour
     public static float repairCompensation = 0f; //how much you can repair of every single point of damage (x100 to get procent)
     public static float repairTime = 0; //the higher the faster
     public static float repairTimeBase = 2.5f;
-    public static float resourceUsage = 0.1f;
+    public static float resourceUsage = 10.0f;
 
     public static bool moveWhileRepairing = false;
     public static bool shootWhileRepairing = false;
