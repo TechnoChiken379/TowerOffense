@@ -148,26 +148,46 @@ public class enemyTentFunction : MonoBehaviour
         {
             enemyMaxHP = 50f; //5X (1) weapon Dps
             enemyHP = 50f; //5X (1) weapon Dps
+
+            DroppedWood = UnityEngine.Random.Range(12.0f, 25.0f);
+            DroppedStone = UnityEngine.Random.Range(12.0f, 25.0f);
+            DroppedSteel = UnityEngine.Random.Range(3.0f, 16.0f);
         }
         else if (enemyLvl.enemyLevel == 2)
         {
             enemyMaxHP = 100f; //5X (1) weapon Dps
             enemyHP = 100f; //5X (1) weapon Dps
+
+            DroppedWood = UnityEngine.Random.Range(30.0f, 43.0f);
+            DroppedStone = UnityEngine.Random.Range(30.0f, 43.0f);
+            DroppedSteel = UnityEngine.Random.Range(12.0f, 25.0f);
         }
         else if (enemyLvl.enemyLevel == 3)
         {
             enemyMaxHP = 200f; //5X (1) weapon Dps
             enemyHP = 200f; //5X (1) weapon Dps
+
+            DroppedWood = UnityEngine.Random.Range(66.0f, 79.0f);
+            DroppedStone = UnityEngine.Random.Range(66.0f, 79.0f);
+            DroppedSteel = UnityEngine.Random.Range(30.0f, 43.0f);
         }
         else if (enemyLvl.enemyLevel == 4)
         {
             enemyMaxHP = 400f; //5X (1) weapon Dps
             enemyHP = 400f; //5X (1) weapon Dps
+
+            DroppedWood = UnityEngine.Random.Range(138.0f, 151.0f);
+            DroppedStone = UnityEngine.Random.Range(138.0f, 151.0f);
+            DroppedSteel = UnityEngine.Random.Range(66.0f, 79.0f);
         }
         else if (enemyLvl.enemyLevel >= 5)
         {
             enemyMaxHP = 800f; //5X (1) weapon Dps
             enemyHP = 800f; //5X (1) weapon Dps
+
+            DroppedWood = UnityEngine.Random.Range(282.0f, 295.0f);
+            DroppedStone = UnityEngine.Random.Range(282.0f, 295.0f);
+            DroppedSteel = UnityEngine.Random.Range(138.0f, 151.0f);
         }
     }
 
