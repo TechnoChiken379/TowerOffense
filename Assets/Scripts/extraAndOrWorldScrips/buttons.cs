@@ -46,7 +46,7 @@ public class buttons : MonoBehaviour
         buttonImage3 = image3;
         buttonImage4 = image4;
 
-        colorButtonOnTrue.a = 0.9f;
+        colorButtonOnTrue.a = 1f;
         colorButtonOnFalse.a = 0.5f;
 
         mainMenuText.SetActive(true);
@@ -69,21 +69,18 @@ public class buttons : MonoBehaviour
     {
         if (mainCharacter.hotKey1 == false) { mainCharacter.hotKey1 = true; shootingScript.archers = true; buttonImage1.color = colorButtonOnTrue; }
         else if (mainCharacter.hotKey1 == true) { mainCharacter.hotKey1 = false; shootingScript.archers = false; buttonImage1.color = colorButtonOnFalse; }
-        mainCharacter.hotKeyTimer = 0;
     }
 
     public void HotKey2Methode()
     {
         if (mainCharacter.hotKey2 == false) { mainCharacter.hotKey2 = true; shootingScript.cannons = true; buttonImage2.color = colorButtonOnTrue; }
         else if (mainCharacter.hotKey2 == true) { mainCharacter.hotKey2 = false; shootingScript.cannons = false; buttonImage2.color = colorButtonOnFalse; }
-        mainCharacter.hotKeyTimer = 0;
     }
 
     public void HotKey3Methode()
     {
         if (mainCharacter.hotKey3 == false) { mainCharacter.hotKey3 = true; shootingScript.catapult = true; buttonImage3.color = colorButtonOnTrue; }
         else if (mainCharacter.hotKey3 == true) { mainCharacter.hotKey3 = false; shootingScript.catapult = false; buttonImage3.color = colorButtonOnFalse; }
-        mainCharacter.hotKeyTimer = 0;
     }
 
     public void HotKey4Methode()
