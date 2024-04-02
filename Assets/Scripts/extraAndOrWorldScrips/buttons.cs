@@ -46,7 +46,7 @@ public class buttons : MonoBehaviour
         buttonImage3 = image3;
         buttonImage4 = image4;
 
-        colorButtonOnTrue.a = 0.9f;
+        colorButtonOnTrue.a = 1f;
         colorButtonOnFalse.a = 0.5f;
 
         mainMenuText.SetActive(true);

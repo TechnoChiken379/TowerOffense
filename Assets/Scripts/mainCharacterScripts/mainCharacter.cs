@@ -41,7 +41,6 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
     public static bool hotKey2 = true;
     public static bool hotKey3 = true;
     public static bool hotKey4 = true;
-    public static float hotKeyTimer = 0;
 
     //repair
     //public static float repairCompensation = 0.25f; //how much you can repair of every single point of damage (x100 to get procent)
@@ -89,7 +88,6 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
         setValuesUpdate();
 
-        hotKeyTimer += Time.deltaTime;
         HotKeyManagment();
 
         Repairing();
@@ -130,29 +128,26 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     void HotKeyManagment()
     {
-        if (Input.GetKey(KeyCode.Alpha1) && hotKeyTimer > 0.2f) HotKey1();
-        if (Input.GetKey(KeyCode.Alpha2) && hotKeyTimer > 0.2f) HotKey2();
-        if (Input.GetKey(KeyCode.Alpha3) && hotKeyTimer > 0.2f) HotKey3();
-        if (Input.GetKey(KeyCode.Alpha4) && hotKeyTimer > 0.2f) HotKey4();
+        if (Input.GetKeyDown(KeyCode.Alpha1)) HotKey1();
+        if (Input.GetKeyDown(KeyCode.Alpha2)) HotKey2();
+        if (Input.GetKeyDown(KeyCode.Alpha3)) HotKey3();
+        if (Input.GetKeyDown(KeyCode.Alpha4)) HotKey4();
     }
 
     void HotKey1()
     {
         if (hotKey1 == false) { hotKey1 = true; shootingScript.archers = true; buttons.buttonImage1.color = buttons.colorButtonOnTrue; }
         else if (hotKey1 == true) { hotKey1 = false; shootingScript.archers = false; buttons.buttonImage1.color = buttons.colorButtonOnFalse; }
-        hotKeyTimer = 0;
     }
     void HotKey2()
     {
         if (hotKey2 == false) { hotKey2 = true; shootingScript.cannons = true; buttons.buttonImage2.color = buttons.colorButtonOnTrue; }
         else if (hotKey2 == true) { hotKey2 = false; shootingScript.cannons = false; buttons.buttonImage2.color = buttons.colorButtonOnFalse; }
-        hotKeyTimer = 0;
     }
     void HotKey3()
     {
         if (hotKey3 == false) { hotKey3 = true; shootingScript.catapult = true; buttons.buttonImage3.color = buttons.colorButtonOnTrue; }
         else if (hotKey3 == true) { hotKey3 = false; shootingScript.catapult = false; buttons.buttonImage3.color = buttons.colorButtonOnFalse; }
-        hotKeyTimer = 0;
     }
     void HotKey4()
     {
