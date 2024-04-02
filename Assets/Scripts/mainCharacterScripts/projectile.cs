@@ -115,7 +115,7 @@ public class projectile : MonoBehaviour
 
     public void calculateSpawnTarget()
     {
-        if (gameObject.name != "hwachaArrow(Clone)" && gameObject.name != "mangonelPayload(Clone)")
+        if (gameObject.name != "hwachaArrow(Clone)" && gameObject.name != "mangonelPayload(Clone)" && gameObject.name != "ArtilleryArrow(Clone)")
         {
             projectileSpawn = Instantiate(playerWayPoint, transform.position, Quaternion.identity);
             targetSpawn = Instantiate(playerWayPoint, worldMousePosition, Quaternion.identity);
@@ -135,6 +135,21 @@ public class projectile : MonoBehaviour
         {
             randomXLocation = Random.Range(-0.75f, 0.75f);
             randomYLocation = Random.Range(-0.75f, 0.75f);
+
+            //randomXLocation = Random.Range(-1.0f, 1.0f);
+            //randomYLocation = Random.Range(-1.0f, 1.0f);
+
+            targetLocation.x = worldMousePosition.x + randomXLocation;
+            targetLocation.y = worldMousePosition.y + randomYLocation;
+
+            projectileSpawn = Instantiate(playerWayPoint, transform.position, Quaternion.identity);
+            targetSpawn = Instantiate(playerWayPoint, targetLocation, Quaternion.identity);
+        }
+        if (gameObject.name == "ArtilleryArrow(Clone)")
+        {
+
+            randomXLocation = Random.Range(-4.0f, 4.0f);
+            randomYLocation = Random.Range(-4.0f, 4.0f);
 
             //randomXLocation = Random.Range(-1.0f, 1.0f);
             //randomYLocation = Random.Range(-1.0f, 1.0f);
@@ -197,6 +212,12 @@ public class projectile : MonoBehaviour
             damageAmount = upgradeWeapons.damageAmountPayload;
             speed = upgradeWeapons.payloadSpeed;
             heightNum = upgradeWeapons.payloadHeightNum;
+        }
+        if (gameObject.name == "ArtilleryArrow(Clone)")
+        {
+            damageAmount = abilityScript.damageAmountArrows;
+            speed = abilityScript.arrowSpeed;
+            heightNum = abilityScript.arrowHeightNum;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

@@ -16,7 +16,7 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     //Health, Shield vars
     //public float maxHealth;
-    public static float totalCurrentHealth;
+    public static float totalCurrentHealth = 1;
     public Slider healthBar;
 
    //public float maxShieldHealth;
