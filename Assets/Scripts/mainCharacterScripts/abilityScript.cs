@@ -39,7 +39,7 @@ public class abilityScript : MonoBehaviour
     public static int supplyDropAmount = 10;
 
     public GameObject supplyDrop;
-    public static float SupplyDrophight = 20f;
+    public static float SupplyDrophight = 15f;
 
     //overdrive
     public static int OverdriveAmount = 0;
@@ -124,7 +124,6 @@ public class abilityScript : MonoBehaviour
 
         Vector2 supplyDropSpawnPosition = new Vector2(worldMousePosition.x, worldMousePosition.y + SupplyDrophight);
         GameObject spawnedBullet = Instantiate(supplyDrop, supplyDropSpawnPosition, Quaternion.Euler(0, 0, 0));
-    Debug.Log("did :)");
     }
     public void Overdrive()
     {

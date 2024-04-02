@@ -314,7 +314,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.030696142}
-  m_LocalScale: {x: 0.6, y: 0.3, z: 1}
+  m_LocalScale: {x: 1, y: 0.52, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1130379494771871778}
@@ -389,6 +389,7 @@ MonoBehaviour:
   playerWayPoint: {fileID: 4911268722836765765, guid: eca2473bc2553df4da746bfa1b0c78ff, type: 3}
   supplyShoot: {fileID: 645312935698223122}
   movePosition: {x: 0, y: 0, z: 0}
+  _collider: {fileID: 8802666292030546173}
 --- !u!50 &5965483806599335364
 Rigidbody2D:
   serializedVersion: 4

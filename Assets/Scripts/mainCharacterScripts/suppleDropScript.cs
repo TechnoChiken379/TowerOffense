@@ -9,20 +9,19 @@ public class suppleDropScript : MonoBehaviour
     private GameObject targetSpawn;
     public GameObject supplyShoot;
 
-    private float speed = 10f;
+    private float speed = 5f;
     public Vector3 movePosition;
 
     private float time;
     private float timeAlive = 15f;
 
-    private Collider _collider;
+    public Collider2D _collider;
     void Start()
     {
-        _collider = GetComponent<Collider>();
+        _collider = GetComponent<Collider2D>();
         _collider.enabled = false;
 
         calculateSpawnTarget();
-        determineSpeed();
     }
 
     void Update()
@@ -36,10 +35,10 @@ public class suppleDropScript : MonoBehaviour
         projectileLine();
 
         transform.position = movePosition;
+
         if (Vector2.Distance(movePosition, targetSpawn.transform.position) < 0.1f)
         {
-            _collider.enabled = true;
-            Destroy(supplyShoot); Destroy(targetSpawn); Destroy(projectileSpawn);
+            _collider.enabled = true; Destroy(supplyShoot); Destroy(targetSpawn); Destroy(projectileSpawn);
         }
     }
 
@@ -47,7 +46,6 @@ public class suppleDropScript : MonoBehaviour
     public void projectileLine()
     {
         Vector3 direction = (targetSpawn.transform.position - transform.position).normalized;
-
         movePosition = transform.position + direction * speed * Time.deltaTime;
     }
 
@@ -56,11 +54,6 @@ public class suppleDropScript : MonoBehaviour
         Vector2 targetLocation = new Vector2 (transform.position.x, transform.position.y - abilityScript.SupplyDrophight);
         projectileSpawn = Instantiate(playerWayPoint, transform.position, Quaternion.identity);
         targetSpawn = Instantiate(playerWayPoint, targetLocation, Quaternion.identity);
-    }
-
-    public void determineSpeed()
-    {
-        speed = abilityScript.arrowSpeed;
     }
     #endregion
 }
