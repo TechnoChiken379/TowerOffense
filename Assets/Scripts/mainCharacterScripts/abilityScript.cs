@@ -36,7 +36,7 @@ public class abilityScript : MonoBehaviour
     Vector2 spawnPosition;
 
     //supply drop
-    public static int supplyDropAmount = 10;
+    public static int supplyDropAmount = 0;
 
     public GameObject supplyDrop;
     public static float SupplyDrophight = 15f;
