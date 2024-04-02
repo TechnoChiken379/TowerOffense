@@ -16,7 +16,7 @@ public class abilityScript : MonoBehaviour
     private float abilityCoolDown = 10f;
 
     //artillery strike
-    public static int artilleryStrikeAmount = 10;
+    public static int artilleryStrikeAmount = 0;
     private int artilleryStrikeArrowAmountFired = 25;
 
     public GameObject ArtilleryArrow;
@@ -36,8 +36,10 @@ public class abilityScript : MonoBehaviour
     Vector2 spawnPosition;
 
     //supply drop
-    public static int supplyDropAmount = 0;
+    public static int supplyDropAmount = 10;
 
+    public GameObject supplyDrop;
+    public static float SupplyDrophight = 20f;
 
     //overdrive
     public static int OverdriveAmount = 0;
@@ -63,9 +65,21 @@ public class abilityScript : MonoBehaviour
 
     public void Abilities()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && artilleryStrikeAmount > 0 && abilityTimer >= abilityCoolDown) ArtilleryStrike(); abilityTimer = 0f;
-        if (Input.GetKeyDown(KeyCode.Space) && supplyDropAmount > 0 && abilityTimer >= abilityCoolDown) SupplyDrop(); abilityTimer = 0f;
-        if (Input.GetKeyDown(KeyCode.Space) && OverdriveAmount > 0 && abilityTimer >= abilityCoolDown) Overdrive(); abilityTimer = 0f;
+        if (Input.GetKeyDown(KeyCode.Space) && artilleryStrikeAmount > 0 && abilityTimer >= abilityCoolDown)
+        {
+            ArtilleryStrike();
+            abilityTimer = 0f;
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && supplyDropAmount > 0 && abilityTimer >= abilityCoolDown)
+        {
+            SupplyDrop();
+            abilityTimer = 0f;
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && OverdriveAmount > 0 && abilityTimer >= abilityCoolDown)
+        {
+            Overdrive();
+            abilityTimer = 0f;
+        }
     }
 
     #region ability method's
@@ -81,7 +95,6 @@ public class abilityScript : MonoBehaviour
 
         artilleryStrikeAmount--;
 
-        //
         artilleryTime = shootArtillery;
         artilleryAmountShot = 0;
         FiredArtillery = true;
@@ -106,7 +119,12 @@ public class abilityScript : MonoBehaviour
 
     public void SupplyDrop()
     {
+        mousePosition = Input.mousePosition;
+        worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
+        Vector2 supplyDropSpawnPosition = new Vector2(worldMousePosition.x, worldMousePosition.y + SupplyDrophight);
+        GameObject spawnedBullet = Instantiate(supplyDrop, supplyDropSpawnPosition, Quaternion.Euler(0, 0, 0));
+    Debug.Log("did :)");
     }
     public void Overdrive()
     {
