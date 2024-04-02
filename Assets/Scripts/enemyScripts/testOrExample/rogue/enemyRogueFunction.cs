@@ -401,8 +401,12 @@ public class enemyRogueFunction : MonoBehaviour
             RattackDamage = 2.5f; //2.5% van player max HP
             //canAttack = 0.5f;
 
-            DroppedSteel = UnityEngine.Random.Range(1.0f, 7.0f);
-            DroppedGold = UnityEngine.Random.Range(0.0f, 2.0f);
+            DroppedSteel = UnityEngine.Random.Range(-3.0f, 10.0f);
+            if (DroppedSteel < 1)
+            {
+                DroppedSteel = 1;
+            }
+            DroppedGold = UnityEngine.Random.Range(1.0f, 3.0f);
         }
         else if (enemyLvl.enemyLevel == 2)
         {
@@ -413,8 +417,12 @@ public class enemyRogueFunction : MonoBehaviour
             RattackDamage = 5; //2.5% van player max HP
             //canAttack = 0.5f;
 
-            DroppedSteel = UnityEngine.Random.Range(1.0f, 13.0f);
-            DroppedGold = UnityEngine.Random.Range(1.0f, 3.0f);
+            DroppedSteel = UnityEngine.Random.Range(0.0f, 13.0f);
+            if (DroppedSteel < 1)
+            {
+                DroppedSteel = 1;
+            }
+            DroppedGold = UnityEngine.Random.Range(2.0f, 4.0f);
         }
         else if (enemyLvl.enemyLevel == 3)
         {
@@ -426,7 +434,7 @@ public class enemyRogueFunction : MonoBehaviour
             //canAttack = 0.5f;
 
             DroppedSteel = UnityEngine.Random.Range(6.0f, 19.0f);
-            DroppedGold = UnityEngine.Random.Range(2.0f, 4.0f);
+            DroppedGold = UnityEngine.Random.Range(3.0f, 5.0f);
         }
         else if (enemyLvl.enemyLevel == 4)
         {
@@ -438,7 +446,7 @@ public class enemyRogueFunction : MonoBehaviour
             //canAttack = 0.5f;
 
             DroppedSteel = UnityEngine.Random.Range(18.0f, 31.0f);
-            DroppedGold = UnityEngine.Random.Range(3.0f, 5.0f);
+            DroppedGold = UnityEngine.Random.Range(4.0f, 6.0f);
         }
         else if (enemyLvl.enemyLevel >= 5)
         {
@@ -450,7 +458,7 @@ public class enemyRogueFunction : MonoBehaviour
             //canAttack = 0.5f;
 
             DroppedSteel = UnityEngine.Random.Range(42.0f, 55.0f);
-            DroppedGold = UnityEngine.Random.Range(4.0f, 6.0f);
+            DroppedGold = UnityEngine.Random.Range(5.0f, 7.0f);
         }
     }
 

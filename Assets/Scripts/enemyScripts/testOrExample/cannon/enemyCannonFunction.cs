@@ -236,7 +236,7 @@ public class enemyCannonFunction : MonoBehaviour
 
             DroppedWood = UnityEngine.Random.Range(6.0f, 19.0f);
             DroppedStone = UnityEngine.Random.Range(6.0f, 19.0f);
-            DroppedGold = UnityEngine.Random.Range(0.0f, 2.0f);
+            DroppedGold = UnityEngine.Random.Range(1.0f, 3.0f);
         }
         else if (enemyLvl.enemyLevel == 2)
         {
@@ -248,7 +248,7 @@ public class enemyCannonFunction : MonoBehaviour
 
             DroppedWood = UnityEngine.Random.Range(18.0f, 31.0f);
             DroppedStone = UnityEngine.Random.Range(18.0f, 31.0f);
-            DroppedGold = UnityEngine.Random.Range(1.0f, 3.0f);
+            DroppedGold = UnityEngine.Random.Range(2.0f, 4.0f);
         }
         else if (enemyLvl.enemyLevel == 3)
         {
@@ -260,7 +260,7 @@ public class enemyCannonFunction : MonoBehaviour
 
             DroppedWood = UnityEngine.Random.Range(42.0f, 55.0f);
             DroppedStone = UnityEngine.Random.Range(42.0f, 55.0f);
-            DroppedGold = UnityEngine.Random.Range(2.0f, 4.0f);
+            DroppedGold = UnityEngine.Random.Range(3.0f, 5.0f);
         }
         else if (enemyLvl.enemyLevel == 4)
         {
@@ -272,7 +272,7 @@ public class enemyCannonFunction : MonoBehaviour
 
             DroppedWood = UnityEngine.Random.Range(90.0f, 103.0f);
             DroppedStone = UnityEngine.Random.Range(90.0f, 103.0f);
-            DroppedGold = UnityEngine.Random.Range(3.0f, 5.0f);
+            DroppedGold = UnityEngine.Random.Range(4.0f, 6.0f);
         }
         else if (enemyLvl.enemyLevel >= 5)
         {
@@ -284,7 +284,7 @@ public class enemyCannonFunction : MonoBehaviour
 
             DroppedWood = UnityEngine.Random.Range(186.0f, 199.0f);
             DroppedStone = UnityEngine.Random.Range(186.0f, 199.0f);
-            DroppedGold = UnityEngine.Random.Range(4.0f, 6.0f);
+            DroppedGold = UnityEngine.Random.Range(5.0f, 7.0f);
         }
     }
 
