@@ -1467,6 +1467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   encampmentDamaged: 0
   time: 0
+  enemyLevel: 1
   enemy: {fileID: 3317176787861049494, guid: 7b2772e65e7c6be429125e7f2212756b, type: 3}
 --- !u!1 &3692216013550511265
 GameObject:

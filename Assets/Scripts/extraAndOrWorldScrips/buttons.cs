@@ -37,6 +37,8 @@ public class buttons : MonoBehaviour
 
     public static bool newGameBool = false;
     private float timer;
+    private float timer2;
+    private bool timer2Bool;
     private bool loadSceneBool = false;
 
     void Start()
@@ -58,10 +60,16 @@ public class buttons : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+        timer2 += Time.deltaTime;
         if (timer >= 4 && loadSceneBool == true)
         {
             SceneManager.LoadScene("tilemapTesting");
             loadSceneBool = false;
+        }
+        if (timer2 >= 0.2 && timer2Bool == true)
+        {
+            DisAbleBools();
+            timer2Bool = false;
         }
     }
 
@@ -122,73 +130,86 @@ public class buttons : MonoBehaviour
 
     public void MainMenuStart()
     {
-        DisAbleBools();
+        timer2Bool = true;
+        timer2 = 0;
         mainMenuText.SetActive(false);
         mainMenuTabList.SetActive(true);
         mainMenuAnimation.SetBool("MainMenuStart", true);
     }
     public void MainMenuGoBack()
     {
-        DisAbleBools();
+        timer2Bool = true;
+        timer2 = 0;
         mainMenuAnimation.SetBool("MainMenu-GoBack", true); 
     }
     public void Play() 
     {
-        DisAbleBools();
+        timer2Bool = true;
+        timer2 = 0;
         mainMenuAnimation.SetBool("Play", true);
         mainMenuAnimation.SetBool("MainMenu-GoBack", false);
     }
     public void PlaySaves() 
     {
-        DisAbleBools();
+        timer2Bool = true;
+        timer2 = 0;
         mainMenuAnimation.SetBool("Play-Saves", true); 
     }
     public void SavesGoBack() 
     {
-        DisAbleBools();
+        timer2Bool = true;
+        timer2 = 0;
         mainMenuAnimation.SetBool("Saves-GoBack", true); 
     }
     public void Settings() 
     {
-        DisAbleBools();
+        timer2Bool = true;
+        timer2 = 0;
         mainMenuAnimation.SetBool("Settings", true); 
     }
     public void SettingsAudio() 
     {
-        DisAbleBools();
+        timer2Bool = true;
+        timer2 = 0;
         mainMenuTabList.SetActive(false);
         mainMenuAnimation.SetBool("Settings-Audio", true); 
     }
     public void AudioGoBack() 
     {
-        DisAbleBools();
+        timer2Bool = true;
+        timer2 = 0;
         mainMenuAnimation.SetBool("Audio-GoBack", true); 
     }
     public void SettingsKeyBinds() 
     {
-        DisAbleBools();
+        timer2Bool = true;
+        timer2 = 0;
         mainMenuAnimation.SetBool("Settings-KeyBinds", true); 
     }
     public void KeyBindsGoBack() 
     {
-        DisAbleBools();
+        timer2Bool = true;
+        timer2 = 0;
         mainMenuAnimation.SetBool("KeyBinds-GoBack", true); 
     }
     public void Credits() 
     {
-        DisAbleBools();
+        timer2Bool = true;
+        timer2 = 0;
         mainMenuAnimation.SetBool("Credits", true); 
     }
     public void LoadLastSave()
     {
-        DisAbleBools();
+        timer2Bool = true;
+        timer2 = 0;
         mainMenuAnimation.SetBool("LoadGame", true);
         timer = 0;
         loadSceneBool = true;
     }
     public void NewGameButton()
     {
-        DisAbleBools();
+        timer2Bool = true;
+        timer2 = 0;
         mainMenuAnimation.SetBool("NewGame", true);
         timer = 0;
         loadSceneBool = true;
