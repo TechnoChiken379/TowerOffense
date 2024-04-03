@@ -104,7 +104,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30
   m_Sprite: {fileID: 21300000, guid: 152049386f844434fabe936a74794388, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -188,7 +188,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30
   m_Sprite: {fileID: 21300000, guid: 9da08a58ac671c943aee279c4510d29a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -388,6 +388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerWayPoint: {fileID: 4911268722836765765, guid: eca2473bc2553df4da746bfa1b0c78ff, type: 3}
   supplyShoot: {fileID: 645312935698223122}
+  supplyDropParant: {fileID: 369345172923266339}
   movePosition: {x: 0, y: 0, z: 0}
   _collider: {fileID: 8802666292030546173}
 --- !u!50 &5965483806599335364
