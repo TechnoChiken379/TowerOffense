@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class mainCharacter : MonoBehaviour, IDataPersistance
 {
     //Movement vars
-    public float speed;
+    public static float speed;
     private float moveX;
     private float moveY;
 
@@ -111,8 +111,8 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
             (!repairing && upgradeArmor.moveWhileRepairing) || 
             (repairing && upgradeArmor.moveWhileRepairing))
         {
-            moveX = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-            moveY = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+            moveX = Input.GetAxis("Horizontal") * (speed * abilityScript.movementSpeedInscrease) * Time.deltaTime;
+            moveY = Input.GetAxis("Vertical") * (speed * abilityScript.movementSpeedInscrease) * Time.deltaTime;
             transform.position += new Vector3(moveX, moveY, 0);
             CameraMovementOnPlayerMovement();
         }
