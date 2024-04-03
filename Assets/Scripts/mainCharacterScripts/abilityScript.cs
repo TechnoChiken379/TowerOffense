@@ -36,10 +36,12 @@ public class abilityScript : MonoBehaviour
     Vector2 spawnPosition;
 
     //supply drop
-    public static int supplyDropAmount = 0;
+    public static int supplyDropAmount = 10;
 
     public GameObject supplyDrop;
     public static float SupplyDrophight = 15f;
+    public static float healthRegenerationSpeed = 10f;
+    public static float shieldRegenerationSpeed = 10f;
 
     //overdrive
     public static int OverdriveAmount = 0;
