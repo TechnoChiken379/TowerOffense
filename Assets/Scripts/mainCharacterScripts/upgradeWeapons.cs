@@ -56,6 +56,37 @@ public class upgradeWeapons : MonoBehaviour
     public static float trebuchetPayloadDeliveryDamage = 10f; //dps per sec
 
     // Start is called before the first frame update
+
+    public void LoadData(GameData data)
+    {
+        bowLevel = data.bowLevel;
+        ballista = data.ballista;
+        hwacha = data.hwache;
+
+        culverinLevel = data.culverinLevel;
+        bombard = data.bombard;
+        falconet = data.falconet;
+
+        onagerLevel = data.onagerLevel;
+        trebuchet = data.trebuchet;
+        mangonel = data.mangonel;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.bowLevel = bowLevel;
+        data.ballista = ballista;
+        data.hwache = hwacha;
+
+        data.culverinLevel = culverinLevel;
+        data.bombard = bombard;
+        data.falconet = falconet;
+
+        data.onagerLevel = onagerLevel;
+        data.trebuchet = trebuchet;
+        data.mangonel = mangonel;
+    }
+
     void Start()
     {
         ArchersUpgrades();

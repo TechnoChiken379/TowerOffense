@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class upgradeArmor : MonoBehaviour
+public class upgradeArmor : MonoBehaviour, IDataPersistance
 {
     //upgrade armor
     //health
@@ -44,6 +44,36 @@ public class upgradeArmor : MonoBehaviour
 
     public static bool moveWhileRepairing = false;
     public static bool shootWhileRepairing = false;
+
+    public void LoadData(GameData data)
+    {
+        healthLevel = data.healthLevel;
+        healthHeavyTank = data.heavyTank;
+        healthLightTank = data.lightTank;
+
+        shieldLevel = data.shieldLevel;
+        shieldHeavyArmor = data.heavyShield;
+        shieldLightArmor = data.lightShield;
+
+        selfRepairLevel = data.repairLevel;
+        selfRepairHeavyRepair = data.heavyRepair;
+        selfRepairLightRepair = data.lightRepair;
+}
+
+    public void SaveData(ref GameData data)
+    {
+        data.healthLevel = healthLevel;
+        data.heavyTank = healthHeavyTank;
+        data.lightTank = healthLightTank;
+            
+        data.shieldLevel = shieldLevel;
+        data.heavyShield = shieldHeavyArmor;
+        data.lightShield = shieldLightArmor;
+
+        data.repairLevel = selfRepairLevel;
+        data.heavyRepair = selfRepairHeavyRepair;
+        data.lightRepair = selfRepairLightRepair;
+    }
 
     void Start()
     {

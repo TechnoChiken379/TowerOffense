@@ -13,6 +13,33 @@ public class GameData
     public float goldAmount;
 
     public Vector3 playerPosition;
+
+    //script: upgradeArmour
+    public int healthLevel;
+    public bool heavyTank;
+    public bool lightTank;
+
+    public int shieldLevel;
+    public bool heavyShield;
+    public bool lightShield;
+
+    public int repairLevel;
+    public bool heavyRepair;
+    public bool lightRepair;
+
+    //script: upgradeWeapons
+    public int bowLevel;
+    public bool ballista;
+    public bool hwache;
+
+    public int culverinLevel;
+    public bool bombard;
+    public bool falconet;
+
+    public int onagerLevel;
+    public bool trebuchet;
+    public bool mangonel;
+
     public GameData()
     {
         if (newGame == true)
