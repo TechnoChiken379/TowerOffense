@@ -30,7 +30,7 @@ public class GameData
     //script: upgradeWeapons
     public int bowLevel;
     public bool ballista;
-    public bool hwache;
+    public bool hwacha;
 
     public int culverinLevel;
     public bool bombard;
@@ -51,6 +51,30 @@ public class GameData
 
             playerPosition = mainCharacter.playerPosition;
 
+            healthLevel = 1;
+            heavyTank = false;
+            lightTank = false;
+
+            shieldLevel = 0;
+            heavyShield = false;
+            lightShield = false;
+
+            repairLevel = 0;
+            heavyRepair = false; 
+            lightRepair = false;
+
+            bowLevel = 0;
+            ballista = false;
+            hwacha = false;
+
+            culverinLevel = 0;
+            bombard = false;
+            falconet = false;
+
+            onagerLevel = 0;
+            trebuchet = false;
+            mangonel = false;
+
             newGame = false;
         }
         else
@@ -61,6 +85,30 @@ public class GameData
             this.goldAmount = 0;
 
             playerPosition = mainCharacter.playerPosition;
+
+            healthLevel = 1;
+            heavyTank = false;
+            lightTank = false;
+
+            shieldLevel = 0;
+            heavyShield = false;
+            lightShield = false;
+
+            repairLevel = 0;
+            heavyRepair = false;
+            lightRepair = false;
+
+            bowLevel = 0;
+            ballista = false;
+            hwacha = false;
+
+            culverinLevel = 0;
+            bombard = false;
+            falconet = false;
+
+            onagerLevel = 0;
+            trebuchet = false;
+            mangonel = false;
         }
     }
 }

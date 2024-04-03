@@ -61,7 +61,7 @@ public class upgradeWeapons : MonoBehaviour
     {
         bowLevel = data.bowLevel;
         ballista = data.ballista;
-        hwacha = data.hwache;
+        hwacha = data.hwacha;
 
         culverinLevel = data.culverinLevel;
         bombard = data.bombard;
@@ -76,7 +76,7 @@ public class upgradeWeapons : MonoBehaviour
     {
         data.bowLevel = bowLevel;
         data.ballista = ballista;
-        data.hwache = hwacha;
+        data.hwacha = hwacha;
 
         data.culverinLevel = culverinLevel;
         data.bombard = bombard;
