@@ -338,5 +338,20 @@ public class upgradeWeapons : MonoBehaviour
             onagerLevel++;
             Debug.Log("Catapult lvl: " + onagerLevel);
         }
+        if (bowLevel > 5)
+        {
+            bowLevel = 1;
+            Debug.Log("Archer lvl: " + bowLevel);
+        }
+        if (culverinLevel > 5)
+        {
+            culverinLevel = 0;
+            Debug.Log("Cannon lvl: " + culverinLevel);
+        }
+        if (onagerLevel > 5)
+        {
+            onagerLevel = 0;
+            Debug.Log("Catapult lvl: " + onagerLevel);
+        }
     }
 }

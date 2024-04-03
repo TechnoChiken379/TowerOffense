@@ -17,7 +17,7 @@ public class abilityScript : MonoBehaviour
     private float abilityCoolDown = 60f;
 
     //artillery strike
-    public static int artilleryStrikeAmount = 10;
+    public static int artilleryStrikeAmount = 0;
     private int artilleryStrikeArrowAmountFired = 25;
 
     public GameObject ArtilleryArrow;
@@ -37,7 +37,7 @@ public class abilityScript : MonoBehaviour
     Vector2 spawnPosition;
 
     //supply drop
-    public static int supplyDropAmount = 0;
+    public static int supplyDropAmount = 10;
 
     public GameObject supplyDrop;
     public static float SupplyDrophight = 15f;
@@ -59,6 +59,7 @@ public class abilityScript : MonoBehaviour
     {
         abilityTimer += Time.deltaTime;
         Abilities();
+        AbilityStrength();
 
         #region Artillery
         if (FiredArtillery)
@@ -146,12 +147,12 @@ public class abilityScript : MonoBehaviour
         totalPlayerDefenseLevel = upgradeArmor.healthLevel + upgradeArmor.shieldLevel + upgradeArmor.selfRepairLevel;
         totalPlayerLevel = totalPlayerOffenseLevel + totalPlayerDefenseLevel;
 
-        if (totalPlayerLevel < 6)
+        if (totalPlayerLevel < 6) //lvl0
         {
-            abilityCoolDown = 60f;
+            abilityCoolDown = 55f;
             //arty
             artilleryStrikeArrowAmountFired = 25;
-            damageAmountArrows = 100f;
+            damageAmountArrows = 15f;
             arrowSpeed = 20f;
             //supps
             healthRegenerationSpeed = upgradeArmor.maxHealth * 0.1f;
@@ -159,6 +160,71 @@ public class abilityScript : MonoBehaviour
             supplyDistance = 5f;
             timeAlive = 10f;
         }
-        
+        else if (totalPlayerLevel >= 6 && totalPlayerLevel < 12) //lvl1
+        {
+            abilityCoolDown = 50f;
+            //arty
+            artilleryStrikeArrowAmountFired = 26;
+            damageAmountArrows = 30f;
+            arrowSpeed = 20f;
+            //supps
+            healthRegenerationSpeed = upgradeArmor.maxHealth * 0.11f;
+            shieldRegenerationSpeed = upgradeArmor.maxShieldHealth * 0.11f;
+            supplyDistance = 6f;
+            timeAlive = 11f;
+        }
+        else if (totalPlayerLevel >= 12 && totalPlayerLevel < 18) //lvl2
+        {
+            abilityCoolDown = 45f;
+            //arty
+            artilleryStrikeArrowAmountFired = 27;
+            damageAmountArrows = 60f;
+            arrowSpeed = 20f;
+            //supps
+            healthRegenerationSpeed = upgradeArmor.maxHealth * 0.12f;
+            shieldRegenerationSpeed = upgradeArmor.maxShieldHealth * 0.12f;
+            supplyDistance = 7f;
+            timeAlive = 12f;
+        }
+        else if (totalPlayerLevel >= 18 && totalPlayerLevel < 24) //lvl3
+        {
+            abilityCoolDown = 40f;
+            //arty
+            artilleryStrikeArrowAmountFired = 28;
+            damageAmountArrows = 120f;
+            arrowSpeed = 20f;
+            //supps
+            healthRegenerationSpeed = upgradeArmor.maxHealth * 0.13f;
+            shieldRegenerationSpeed = upgradeArmor.maxShieldHealth * 0.13f;
+            supplyDistance = 8f;
+            timeAlive = 13f;
+        }
+        else if (totalPlayerLevel >= 24 && totalPlayerLevel < 30) //lvl4
+        {
+            abilityCoolDown = 35f;
+            //arty
+            artilleryStrikeArrowAmountFired = 29;
+            damageAmountArrows = 240f;
+            arrowSpeed = 20f;
+            //supps
+            healthRegenerationSpeed = upgradeArmor.maxHealth * 0.14f;
+            shieldRegenerationSpeed = upgradeArmor.maxShieldHealth * 0.14f;
+            supplyDistance = 9f;
+            timeAlive = 14f;
+        }
+        else if (totalPlayerLevel >= 30 && totalPlayerLevel < 36) //lvl5
+        {
+            abilityCoolDown = 30f;
+            //arty
+            artilleryStrikeArrowAmountFired = 30;
+            damageAmountArrows = 480f;
+            arrowSpeed = 20f;
+            //supps
+            healthRegenerationSpeed = upgradeArmor.maxHealth * 0.15f;
+            shieldRegenerationSpeed = upgradeArmor.maxShieldHealth * 0.15f;
+            supplyDistance = 10f;
+            timeAlive = 15f;
+        }
+
     }
 }

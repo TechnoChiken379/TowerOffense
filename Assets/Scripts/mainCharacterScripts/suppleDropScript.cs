@@ -62,6 +62,7 @@ public class suppleDropScript : MonoBehaviour
         {
             mainCharacter.totalCurrentHealth = Mathf.MoveTowards(mainCharacter.totalCurrentHealth, upgradeArmor.maxHealth, abilityScript.healthRegenerationSpeed * Time.deltaTime);
             mainCharacter.totalCurrentShieldHealth = Mathf.MoveTowards(mainCharacter.totalCurrentShieldHealth, upgradeArmor.maxShieldHealth, abilityScript.shieldRegenerationSpeed * Time.deltaTime);
+            mainCharacter.totalRepairCompensation = Mathf.MoveTowards(mainCharacter.totalRepairCompensation, 0f, abilityScript.healthRegenerationSpeed * Time.deltaTime);
         }
     }
 

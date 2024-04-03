@@ -303,5 +303,20 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
             selfRepairLevel++;
             Debug.Log("SelfRepair lvl: " + selfRepairLevel);
         }
+        if (healthLevel > 5)
+        {
+            healthLevel = 1;
+            Debug.Log("Health lvl: " + healthLevel);
+        }
+        if (shieldLevel > 5)
+        {
+            shieldLevel = 0;
+            Debug.Log("Shield lvl: " + shieldLevel);
+        }
+        if (selfRepairLevel > 5)
+        {
+            selfRepairLevel = 0;
+            Debug.Log("SelfRepair lvl: " + selfRepairLevel);
+        }
     }
 }
