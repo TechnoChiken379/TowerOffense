@@ -14,15 +14,12 @@ public class suppleDropScript : MonoBehaviour
     public Vector3 movePosition;
 
     private float time = 0;
-    private float timeAlive = 10f;
     private bool startTime = false;
 
     public Collider2D _collider;
 
     private Transform player;
     private float distanceToPlayer;
-
-    private float supplyDistance = 7.5f;
 
     void Start()
     {
@@ -42,7 +39,7 @@ public class suppleDropScript : MonoBehaviour
         if (startTime)
         {
             time += Time.deltaTime;
-            if (time >= timeAlive)
+            if (time >= abilityScript.timeAlive)
             {
                 Destroy(supplyDropParant);
                 Destroy(gameObject);
@@ -61,7 +58,7 @@ public class suppleDropScript : MonoBehaviour
 
     public void SupplyMainCharacter()
     {
-        if (startTime && distanceToPlayer <= supplyDistance)
+        if (startTime && distanceToPlayer <= abilityScript.supplyDistance)
         {
             mainCharacter.totalCurrentHealth = Mathf.MoveTowards(mainCharacter.totalCurrentHealth, upgradeArmor.maxHealth, abilityScript.healthRegenerationSpeed * Time.deltaTime);
             mainCharacter.totalCurrentShieldHealth = Mathf.MoveTowards(mainCharacter.totalCurrentShieldHealth, upgradeArmor.maxShieldHealth, abilityScript.shieldRegenerationSpeed * Time.deltaTime);

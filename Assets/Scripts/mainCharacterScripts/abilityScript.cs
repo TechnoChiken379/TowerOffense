@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class abilityScript : MonoBehaviour
@@ -13,10 +14,10 @@ public class abilityScript : MonoBehaviour
     private Vector2 mousePosition;
 
     private float abilityTimer;
-    private float abilityCoolDown = 10f;
+    private float abilityCoolDown = 60f;
 
     //artillery strike
-    public static int artilleryStrikeAmount = 0;
+    public static int artilleryStrikeAmount = 10;
     private int artilleryStrikeArrowAmountFired = 25;
 
     public GameObject ArtilleryArrow;
@@ -36,13 +37,15 @@ public class abilityScript : MonoBehaviour
     Vector2 spawnPosition;
 
     //supply drop
-    public static int supplyDropAmount = 10;
+    public static int supplyDropAmount = 0;
 
     public GameObject supplyDrop;
     public static float SupplyDrophight = 15f;
     public static float healthRegenerationSpeed = 10f;
     public static float shieldRegenerationSpeed = 10f;
 
+    public static float supplyDistance = 5f;
+    public static float timeAlive = 10f;
     //overdrive
     public static int OverdriveAmount = 0;
 
@@ -132,4 +135,30 @@ public class abilityScript : MonoBehaviour
 
     }
     #endregion
+
+    public void AbilityStrength()
+    {
+        int totalPlayerOffenseLevel;
+        int totalPlayerDefenseLevel;
+        int totalPlayerLevel;
+
+        totalPlayerOffenseLevel = upgradeWeapons.bowLevel + upgradeWeapons.culverinLevel + upgradeWeapons.onagerLevel;
+        totalPlayerDefenseLevel = upgradeArmor.healthLevel + upgradeArmor.shieldLevel + upgradeArmor.selfRepairLevel;
+        totalPlayerLevel = totalPlayerOffenseLevel + totalPlayerDefenseLevel;
+
+        if (totalPlayerLevel < 6)
+        {
+            abilityCoolDown = 60f;
+            //arty
+            artilleryStrikeArrowAmountFired = 25;
+            damageAmountArrows = 100f;
+            arrowSpeed = 20f;
+            //supps
+            healthRegenerationSpeed = upgradeArmor.maxHealth * 0.1f;
+            shieldRegenerationSpeed = upgradeArmor.maxShieldHealth * 0.1f;
+            supplyDistance = 5f;
+            timeAlive = 10f;
+        }
+        
+    }
 }
