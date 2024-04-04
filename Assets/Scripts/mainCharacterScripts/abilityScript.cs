@@ -8,7 +8,7 @@ public class abilityScript : MonoBehaviour
     //idea's
     //arty strike (probably arrow's that rain down on enemies)
     //supply drop (probably for health and shield)
-    //overdrive (faster movement and attack speed and slow time down time a bit)
+    //overdrive (faster movement and attack speed)
 
     private Vector2 worldMousePosition;
     private Vector2 mousePosition;
@@ -47,7 +47,7 @@ public class abilityScript : MonoBehaviour
     public static float supplyDistance = 5f;
     public static float timeAlive = 10f;
     //overdrive
-    public static int OverdriveAmount = 10;
+    public static int OverdriveAmount = 0;
 
     private bool overdriveActive = false;
     private float overdriveTimer;
@@ -63,6 +63,9 @@ public class abilityScript : MonoBehaviour
     void Start()
     {
         abilityTimer = abilityCoolDown;
+
+        attackSpeedInscrease = 1f;
+        movementSpeedInscrease = 1f;
     }
 
     void Update()
