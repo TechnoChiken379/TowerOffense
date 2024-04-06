@@ -33,13 +33,13 @@ public class deathScreenManager : MonoBehaviour
         if (deathManagerState2 == false)
         {
             timer = 0;
-            //DataPersistanceManager.saveGameBool = true;
             deathManagerState2 = true;
         }
         if (timer >= 4 && deathManagerState3 == false)
         {
             if (deathManagerIsDead == false)
             {
+                DataPersistanceManager.saveGameBool = true;
                 SceneManager.LoadScene("DeathScreen");
                 deathManagerIsDead = true;
                 deathAnimation = true;

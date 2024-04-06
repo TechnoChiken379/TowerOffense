@@ -54,8 +54,6 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     void Start() //Happens on start
     {
-        playerPosition = gameObject.transform.position;
-
         DataPersistanceManager.newGameButton = false;
         Time.timeScale = 1;
         //Movement speed
@@ -74,15 +72,19 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
     public void LoadData(GameData data)
     {
         playerPosition = data.playerPosition;
+        Debug.Log("PLAYER LOAD");
     }
 
     public void SaveData(ref GameData data)
     {
         data.playerPosition = playerPosition;
+        Debug.Log("PLAYER");
     }
 
     void Update()
     {
+        playerPosition = transform.position;
+
         OpenShop();
         Test(); //for testing
 
@@ -101,7 +103,6 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
         if (Vector3.Distance(shopPosition, playerPosition) <= 5 && Input.GetKeyDown(KeyCode.E))
         {
             DataPersistanceManager.saveGameBool = true;
-            SceneManager.LoadScene("ShopScene");
         }
     }
 
