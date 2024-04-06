@@ -21,15 +21,16 @@ public class enemyEncampment : MonoBehaviour
 
     private float renderDistance = 30f;
 
-    //
     public GameObject enemy;
-    private GameObject[] enemyCamps;
-    private Transform enemyCampsTransform;
+
+
+    //private GameObject[] enemyCamps;
+    //private Transform enemyCampsTransform;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("mainCharacter").transform;
-        FindClosestEnemyCamp();
+        //FindClosestEnemyCamp();
     }
     void Update()
     {
@@ -38,32 +39,32 @@ public class enemyEncampment : MonoBehaviour
         Render();
     }
 
-    void FindClosestEnemyCamp()
-    {
-        enemyCamps = GameObject.FindGameObjectsWithTag("EnemyCamp");
+    //void FindClosestEnemyCamp()
+    //{
+    //    enemyCamps = GameObject.FindGameObjectsWithTag("EnemyCamp");
 
-        enemyCampsTransform = GetClosestEnemy(enemyCamps);
-    }
+    //    enemyCampsTransform = GetClosestEnemy(enemyCamps);
+    //}
 
-    Transform GetClosestEnemy(GameObject[] enemieCampArray)
-    {
-        float closestDistance = Mathf.Infinity;
+    //Transform GetClosestEnemy(GameObject[] enemieCampArray)
+    //{
+    //    float closestDistance = Mathf.Infinity;
 
-        foreach (GameObject enemy in enemieCampArray)
-        {
-            if (enemy != gameObject)
-            {
-                float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
+    //    foreach (GameObject enemy in enemieCampArray)
+    //    {
+    //        if (enemy != gameObject)
+    //        {
+    //            float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
 
-                if (distanceToEnemy < closestDistance)
-                {
-                    closestDistance = distanceToEnemy;
-                    enemyCampsTransform = enemy.transform;
-                }
-            }
-        }
-        return enemyCampsTransform;
-    }
+    //            if (distanceToEnemy < closestDistance)
+    //            {
+    //                closestDistance = distanceToEnemy;
+    //                enemyCampsTransform = enemy.transform;
+    //            }
+    //        }
+    //    }
+    //    return enemyCampsTransform;
+    //}
 
     private void ReplaceEncampment()
     {
