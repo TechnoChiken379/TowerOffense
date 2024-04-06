@@ -30,7 +30,7 @@ public class enemyEncampment : MonoBehaviour
     void Update()
     {
         distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        ReplaceEncampment(); RepairEncampment();
+        ReplaceEncampment();
         Render();
     }
 
@@ -66,14 +66,6 @@ public class enemyEncampment : MonoBehaviour
             {
                 child.gameObject.SetActive(true);
             }
-        }
-    }
-
-    public void RepairEncampment()
-    {
-        if (encampmentDamaged && mainCharacter.totalCurrentHealth <= 0) 
-        {
-            time = replaceTime + 1;
         }
     }
 }
