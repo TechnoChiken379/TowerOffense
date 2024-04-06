@@ -14,8 +14,8 @@ public class bossFunction : MonoBehaviour
 
     //defence
     //health
-    private float enemyHP, enemyMaxHP = 14400f;
-    //private float enemySP, enemyMaxSP = 7200f;
+    private float enemyHP, enemyMaxHP = 1440f;
+    //private float enemySP, enemyMaxSP = 720f;
 
     //offense
     //attack
@@ -244,23 +244,23 @@ public class bossFunction : MonoBehaviour
         #region armor
         //if (upgradeArmor.healthHeavyTank)
         //{
-        //    enemyMaxHP = 14400f;
-        //    enemyHP = 14400f;
+        //    enemyMaxHP = 1440f;
+        //    enemyHP = 1440f;
         //}
         //if (upgradeArmor.healthLightTank)
         //{
-        //    enemyMaxHP = 7200f;
-        //    enemyHP = 7200f;
+        //    enemyMaxHP = 720f;
+        //    enemyHP = 720f;
         //}
         //if (upgradeArmor.shieldHeavyArmor)
         //{
-        //    enemyMaxSP = 7200f;
-        //    enemySP = 7200f;
+        //    enemyMaxSP = 720f;
+        //    enemySP = 720f;
         //}
         //if (upgradeArmor.shieldLightArmor)
         //{
-        //    enemyMaxSP = 8640f;
-        //    enemySP = 8640f;
+        //    enemyMaxSP = 864f;
+        //    enemySP = 864f;
         //}
         //if (upgradeArmor.selfRepairHeavyRepair)
         //{

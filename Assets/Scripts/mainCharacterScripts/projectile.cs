@@ -486,5 +486,31 @@ public class projectile : MonoBehaviour
                 Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
             }
         }
+        if (collision.gameObject.TryGetComponent<bossFunction>(out bossFunction enemyComponent11))
+        {
+            //deal damage
+            enemyComponent11.DamageDealt(damageAmount);
+
+            //destroy game object on hit
+            if (gameObject.name != "ballistaArrow(Clone)")
+            {
+                if (gameObject.name == "falconetCannonRound(Clone)")
+                {
+                    for (int i = 0; i < upgradeWeapons.grapeShotAmount; i++)
+                    {
+                        GameObject spawnedBullet = Instantiate(falconetCannonGrapeShot, transform.position, Quaternion.identity);
+                    }
+                }
+                if (gameObject.name == "bombardCannonRound(Clone)")
+                {
+                    GameObject spawnedBullet = Instantiate(bombardCannonShrapnel, transform.position, Quaternion.identity);
+                }
+                if (gameObject.name == "trebuchetPayload(Clone)")
+                {
+                    GameObject spawnedBullet = Instantiate(trebuchetPayload, transform.position, Quaternion.identity);
+                }
+                Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
+            }
+        }
     }
 }
