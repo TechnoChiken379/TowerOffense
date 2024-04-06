@@ -21,6 +21,7 @@ public class enemyEncampment : MonoBehaviour
 
     private float renderDistance = 30f;
 
+    //
     public GameObject enemy;
     private GameObject[] enemyCamps;
     private Transform enemyCampsTransform;
