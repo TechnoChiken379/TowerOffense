@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7170050882654154110}
   - component: {fileID: 7112715307786576443}
+  - component: {fileID: 7030420195540348117}
   - component: {fileID: 720471439078608906}
   - component: {fileID: 7824740250913546042}
   m_Layer: 6
@@ -119,6 +120,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7030420195540348117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3105366965343071776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31227df3b6ffeaa42aa5396f76b1f566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: State.Idle
+  distanceToPlayer: 0
+  bullet: {fileID: 0}
+  bulletSpawnPoint: {fileID: 894515337331258509}
+  deathDropGold: {fileID: 1571411932394843814, guid: ebd7fea600410ea45a155f1bd947a849, type: 3}
+  deathDropWood: {fileID: 1571411932394843814, guid: 3216e190db0ac4f4787f29b2893cbdec, type: 3}
+  deathDropStone: {fileID: 1571411932394843814, guid: 4556b97826d736e47bdb15d022c1cc7d, type: 3}
+  deathDropSteel: {fileID: 1571411932394843814, guid: 2312babf337bb5144b9eb3a125b8e205, type: 3}
+  deathDropPoint: {fileID: 2851343645412993363}
 --- !u!61 &720471439078608906
 BoxCollider2D:
   m_ObjectHideFlags: 0

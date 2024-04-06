@@ -49,6 +49,9 @@ public class enemyDeathDrop : MonoBehaviour
     private enemyWWallFunction enemyWWallScriptReference;
     private enemySWallFunction enemySWallScriptReference;
 
+    //boss
+    private bossFunction bossFuntionScriptReference;
+
     //dropped
     private float DroppedGold = 0;
     private float DroppedWood = 0;
@@ -193,6 +196,10 @@ public class enemyDeathDrop : MonoBehaviour
     public void SetEnemyScriptReference(enemySWallFunction enemyScript)
     {
         enemySWallScriptReference = enemyScript;
+    }
+    public void SetEnemyScriptReference(bossFunction enemyScript)
+    {
+        bossFuntionScriptReference = enemyScript;
     }
     #endregion
 
