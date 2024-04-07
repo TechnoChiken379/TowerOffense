@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2851343645412993363}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: deathDropPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 7170050882654154110}
   - component: {fileID: 7112715307786576443}
   - component: {fileID: 7030420195540348117}
+  - component: {fileID: 6259586511618295706}
   - component: {fileID: 720471439078608906}
   - component: {fileID: 7824740250913546042}
   m_Layer: 6
@@ -137,13 +138,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: State.Idle
   distanceToPlayer: 0
-  bullet: {fileID: 0}
-  bulletSpawnPoint: {fileID: 894515337331258509}
   deathDropGold: {fileID: 1571411932394843814, guid: ebd7fea600410ea45a155f1bd947a849, type: 3}
   deathDropWood: {fileID: 1571411932394843814, guid: 3216e190db0ac4f4787f29b2893cbdec, type: 3}
   deathDropStone: {fileID: 1571411932394843814, guid: 4556b97826d736e47bdb15d022c1cc7d, type: 3}
   deathDropSteel: {fileID: 1571411932394843814, guid: 2312babf337bb5144b9eb3a125b8e205, type: 3}
   deathDropPoint: {fileID: 2851343645412993363}
+--- !u!114 &6259586511618295706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3105366965343071776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046f8f033986bfd4b84bf660a2581700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationCheck: 0
+  distanceToPlayer: 0
+  arrow: {fileID: 3069797098432816370, guid: 74383386b18d8d74b83b33994cab3b04, type: 3}
+  ballistaArrow: {fileID: 3069797098432816370, guid: 63f6f085c04fd4b4dabdbfbe4fd17fd9, type: 3}
+  hwachaArrow: {fileID: 3069797098432816370, guid: a61e5e63f70a696448eee264949c011c, type: 3}
+  cannonRound: {fileID: 6230678805625410844, guid: 02c6075a8c73db54aa986e2d88f64f9e, type: 3}
+  bombardCannonRound: {fileID: 6230678805625410844, guid: 2631f5496cd50f440ab005286eddb68e, type: 3}
+  falconetCannonRound: {fileID: 6230678805625410844, guid: 938decd1d0a84fd4d8862b3e24741ecc, type: 3}
+  catapultPayload: {fileID: 3330178691903697465, guid: 31717b79b863e8c439a179f90a4be0a1, type: 3}
+  trebuchetCatapultPayload: {fileID: 3330178691903697465, guid: 97c4a9582a7e511499da12a23e98b704, type: 3}
+  mangonelCatapultPayload: {fileID: 3330178691903697465, guid: 9bbb32221ed06a54084de2eff96339b6, type: 3}
+  arrowSpawnPoint: {fileID: 894515337331258509}
+  cannonRoundSpawnPoint: {fileID: 2327616196653051883}
+  catapultRoundSpawnPoint: {fileID: 1754103658915803078}
 --- !u!61 &720471439078608906
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -256,7 +281,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5172400499721599373}
-  m_Layer: 0
+  - component: {fileID: 8612329243530371549}
+  m_Layer: 6
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,6 +305,18 @@ Transform:
   - {fileID: 7170050882654154110}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8612329243530371549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941074673674601052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704b2cb0af15c3846b6bc881c83ce1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5809305361277666242
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,7 +327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7907379869990045664}
   - component: {fileID: 1733728713214498180}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,40 +14,31 @@ public class bossFunction : MonoBehaviour
 
     //defence
     //health
-    private float enemyHP, enemyMaxHP = 1440f;
-    //private float enemySP, enemyMaxSP = 720f;
+    private float enemyHP, enemyMaxHP = 10000f;
+    //private float enemySP, enemyMaxSP = 5000f;
 
     //offense
     //attack
     //arrows
-    private float attackDamageArrows = 20f; //20 dps
-    private float canAttackArrows = 1.5f;
+    public static float attackDamageArrows = 20f; //20 dps
+    public static float canAttackArrows = 1.5f;
 
-    private float arrowSpeed = 7.5f;
-    private float arrowHeightNum = 1f;
+    public static float arrowSpeed = 7.5f;
+    public static float arrowHeightNum = 1f;
 
     //cannon
-    private float attackDamageCannonRound = 20f; //20 dps
-    private float canAttackCannonRound = 1.5f;
+    public static float attackDamageCannonRound = 20f; //20 dps
+    public static float canAttackCannonRound = 1.5f;
 
-    private float roundSpeed = 12.5f;
-    private float roundHeightNum = 0.5f;
+    public static float roundSpeed = 12.5f;
+    public static float roundHeightNum = 0.5f;
 
     //catepult
-    private float attackDamageCatapultPayload = 20f; //20 dps
-    private float canAttackCatapultPayload = 1.5f;
+    public static float attackDamageCatapultPayload = 20f; //20 dps
+    public static float canAttackCatapultPayload = 1.5f;
 
-    private float payloadSpeed = 10f;
-    private float payloadHeightNum = 3f;
-
-    //weapontimers
-    private float attackTimerArrows;
-    private float attackTimerCannonRound;
-    private float attackTimerCatapultPayload;
-
-
-    public GameObject bullet;
-    public Transform bulletSpawnPoint;
+    public static float payloadSpeed = 10f;
+    public static float payloadHeightNum = 3f;
 
     //death drop
     public GameObject deathDropGold;
@@ -61,11 +52,6 @@ public class bossFunction : MonoBehaviour
     private float DroppedSteel = 1000;
 
     public Transform deathDropPoint;
-
-    //spreat out from other enemies
-    private GameObject[] enemies;
-    private Transform closestEnemy;
-
 
     public void LoadData(GameData data)
     {
@@ -82,104 +68,20 @@ public class bossFunction : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("mainCharacter").transform;
 
         enemyHP = enemyMaxHP;
-
-        CalculateLevel();
     }
 
     // Update is called once per frame
     void Update()
     {
         distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        FindClosestEnemies(); //locate closest enemy
-        SpreadOut();
         StateConditions(); //check what should the enemy should want to do
-        ExecuteConditions(); //try to do what the enemy should want to do
         IfDeadDie();
+        CalculateLevel();
     }
 
     public void StateConditions()
     {
         if (distanceToPlayer <= engageDistance) { upgradeArmor.canRegenerating = false; upgradeArmor.leftCombat = 0f; };
-
-        if (distanceToPlayer <= engageDistance) //check if the enemy is within range of the player
-        {
-            if (distanceToPlayer < closeEnough) //attack player if within the right range to do so
-            {
-                state = "State.attack";
-                //attackTimer += Time.deltaTime;
-            }
-        }
-        else //idle if the enemy is out of range of the player
-        {
-            state = "State.Idle";
-        }
-    }
-    public void ExecuteConditions()
-    {
-        switch (state)
-        {
-            case "State.Idle":
-                //do nothing
-                break;
-            case "State.attack":
-                Attack();
-                break;
-            default:
-
-                break;
-        }
-    }
-    public void SpreadOut()
-    {
-        if (closestEnemy != null && Vector2.Distance(closestEnemy.position, transform.position) < 1f)
-        {
-            //Vector3 directionToEnemy = (transform.position - closestEnemy.position).normalized;
-            //transform.Translate(directionToEnemy * Time.deltaTime * speed);
-        }
-    }
-
-    void FindClosestEnemies()
-    {
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-        closestEnemy = GetClosestEnemy(enemies);
-    }
-
-    Transform GetClosestEnemy(GameObject[] enemiesArray)
-    {
-        float closestDistance = Mathf.Infinity;
-
-        foreach (GameObject enemy in enemiesArray)
-        {
-            if (enemy != gameObject)
-            {
-                float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
-
-                if (distanceToEnemy < closestDistance)
-                {
-                    closestDistance = distanceToEnemy;
-                    closestEnemy = enemy.transform;
-                }
-            }
-        }
-
-        return closestEnemy;
-    }
-    public void Attack()
-    {
-        //if (attackTimer >= canAttack)
-        //{
-        //    GameObject enemySpawnedBullet = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
-        //    enemyCannonProjectile projectileScript = enemySpawnedBullet.GetComponent<enemyCannonProjectile>();
-
-        //    if (projectileScript != null)
-        //    {
-        //        projectileScript.SetEnemyScriptReference(this);
-        //        projectileScript.DetermineDamage(attackDamage);
-        //    }
-
-        //    attackTimer = 0f;
-        //}
     }
 
     void IfDeadDie()
