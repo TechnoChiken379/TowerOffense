@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class shopButtons : MonoBehaviour
 {
@@ -11,10 +12,23 @@ public class shopButtons : MonoBehaviour
     private bool repairsTab = false;
     private bool abilitiesTab = false;
 
+    public GameObject SHOP;
+    public GameObject UPGRADES;
+    public GameObject UP_OFFENSIVE;
+    public GameObject UP_DEFENSIVE;
+    public GameObject REPAIRS;
+    public GameObject ABILITIES;
+    public GameObject AMMO;
+
     private void Start()
     {
         DisableBools();
         shopTab = true;
+    }
+
+    public void CloseShop()
+    {
+        SceneManager.LoadScene("tilemapTesting");
     }
 
     private void DisableBools()
@@ -27,58 +41,79 @@ public class shopButtons : MonoBehaviour
         abilitiesTab = false;
     }
 
-    private void openShopTab()
+    public void openShopTab()
     {
         DisableBools();
         shopTab = true;
         if (shopTab == true)
         {
-
+            SHOP.SetActive(enabled);
         }
     }
-    private void openUpgradesTab()
+
+    public void openUpgradesTab()
     {
         DisableBools();
         upgradesTab = true;
         if (upgradesTab == true)
         {
-
+            SHOP.SetActive(!enabled);
+            UPGRADES.SetActive(enabled);
         }
     }
-    private void openUpgradesOffensiveTab()
+    
+    public void openUpgradesOffensiveTab()
     {
         DisableBools();
         upgradesOffensiveTab = true;
         if (upgradesOffensiveTab == true)
         {
-
+            UPGRADES.SetActive(!enabled);
+            UP_OFFENSIVE.SetActive(enabled);
         }
     }
-    private void openUpgradesDefensiveTab()
+    
+    public void openUpgradesDefensiveTab()
     {
         DisableBools();
         upgradesDefensiveTab = true;
         if (upgradesDefensiveTab == true)
         {
-            
+            UPGRADES.SetActive(!enabled);
+            UP_DEFENSIVE.SetActive(enabled);
         }
     }
-    private void openRepairsTab()
+    
+    public void openRepairsTab()
     {
         DisableBools();
         repairsTab = true;
         if (repairsTab == true)
         {
-
+            SHOP.SetActive(!enabled);
+            REPAIRS.SetActive(enabled);
         }
     }
-    private void openAbilitiesTab()
+    
+    public void openAbilitiesTab()
     {
         DisableBools();
         abilitiesTab = true;
         if (abilitiesTab == true)
         {
-
+            SHOP.SetActive(!enabled);
+            ABILITIES.SetActive(enabled);
+        }
+    }
+    
+    public void openAmmoTab()
+    {
+        DisableBools();
+        abilitiesTab = true;
+        if (abilitiesTab == true)
+        {
+            SHOP.SetActive(!enabled);
+            AMMO.SetActive(enabled);
         }
     }
 }

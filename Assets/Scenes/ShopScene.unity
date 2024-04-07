@@ -1988,9 +1988,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1937394106}
-        m_TargetAssemblyTypeName: buttons, Assembly-CSharp
-        m_MethodName: CloseShop
+      - m_Target: {fileID: 1937394111}
+        m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
+        m_MethodName: openAbilitiesTab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2830,9 +2830,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1937394106}
-        m_TargetAssemblyTypeName: buttons, Assembly-CSharp
-        m_MethodName: CloseShop
+      - m_Target: {fileID: 1937394111}
+        m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
+        m_MethodName: openUpgradesTab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3229,8 +3229,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1937394106}
-        m_TargetAssemblyTypeName: buttons, Assembly-CSharp
+      - m_Target: {fileID: 1937394111}
+        m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
         m_MethodName: CloseShop
         m_Mode: 1
         m_Arguments:
@@ -7169,9 +7169,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1937394106}
-        m_TargetAssemblyTypeName: buttons, Assembly-CSharp
-        m_MethodName: CloseShop
+      - m_Target: {fileID: 1937394111}
+        m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
+        m_MethodName: openRepairsTab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7721,6 +7721,7 @@ GameObject:
   - component: {fileID: 1937394107}
   - component: {fileID: 1937394106}
   - component: {fileID: 1937394105}
+  - component: {fileID: 1937394111}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7866,6 +7867,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1937394111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937394104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01b9f6d188ce82b468125d80713a042a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SHOP: {fileID: 952421691}
+  UPGRADES: {fileID: 383875714}
+  UP_OFFENSIVE: {fileID: 1004283694}
+  UP_DEFENSIVE: {fileID: 815927312}
+  REPAIRS: {fileID: 726180170}
+  ABILITIES: {fileID: 2124457555}
+  AMMO: {fileID: 1920992139}
 --- !u!1 &2016964896
 GameObject:
   m_ObjectHideFlags: 0
