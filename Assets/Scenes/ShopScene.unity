@@ -206,9 +206,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1937394106}
-        m_TargetAssemblyTypeName: buttons, Assembly-CSharp
-        m_MethodName: CloseShop
+      - m_Target: {fileID: 1937394111}
+        m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
+        m_MethodName: ReturnSwitch
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1456,9 +1456,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1937394106}
-        m_TargetAssemblyTypeName: buttons, Assembly-CSharp
-        m_MethodName: CloseShop
+      - m_Target: {fileID: 1937394111}
+        m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
+        m_MethodName: openUpgradesDefensiveTab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1855,9 +1855,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1937394106}
-        m_TargetAssemblyTypeName: buttons, Assembly-CSharp
-        m_MethodName: CloseShop
+      - m_Target: {fileID: 1937394111}
+        m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
+        m_MethodName: ReturnSwitch
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3718,9 +3718,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1937394106}
-        m_TargetAssemblyTypeName: buttons, Assembly-CSharp
-        m_MethodName: CloseShop
+      - m_Target: {fileID: 1937394111}
+        m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
+        m_MethodName: ReturnSwitch
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5296,9 +5296,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1937394106}
-        m_TargetAssemblyTypeName: buttons, Assembly-CSharp
-        m_MethodName: CloseShop
+      - m_Target: {fileID: 1937394111}
+        m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
+        m_MethodName: ReturnSwitch
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5563,9 +5563,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1937394106}
-        m_TargetAssemblyTypeName: buttons, Assembly-CSharp
-        m_MethodName: CloseShop
+      - m_Target: {fileID: 1937394111}
+        m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
+        m_MethodName: ReturnSwitch
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7302,9 +7302,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1937394106}
-        m_TargetAssemblyTypeName: buttons, Assembly-CSharp
-        m_MethodName: CloseShop
+      - m_Target: {fileID: 1937394111}
+        m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
+        m_MethodName: openUpgradesOffensiveTab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8370,9 +8370,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1937394106}
-        m_TargetAssemblyTypeName: buttons, Assembly-CSharp
-        m_MethodName: CloseShop
+      - m_Target: {fileID: 1937394111}
+        m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
+        m_MethodName: ReturnSwitch
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
