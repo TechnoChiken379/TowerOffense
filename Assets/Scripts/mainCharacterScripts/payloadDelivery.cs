@@ -77,5 +77,9 @@ public class payloadDelivery : MonoBehaviour
         {
             enemyComponent10.DamageDealt(damageAmount * Time.deltaTime);
         }
+        if (other.TryGetComponent<bossFunction>(out bossFunction enemyComponent11))
+        {
+            enemyComponent11.DamageDealt(damageAmount * Time.deltaTime);
+        }
     }
 }

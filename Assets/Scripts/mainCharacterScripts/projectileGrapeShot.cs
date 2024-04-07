@@ -91,5 +91,10 @@ public class projectileGrapeShot : MonoBehaviour
             enemyComponent10.DamageDealt(damageAmount);
             Destroy(gameObject);
         }
+        if (other.gameObject.TryGetComponent<bossFunction>(out bossFunction enemyComponent11))
+        {
+            enemyComponent11.DamageDealt(damageAmount);
+            Destroy(gameObject);
+        }
     }
 }
