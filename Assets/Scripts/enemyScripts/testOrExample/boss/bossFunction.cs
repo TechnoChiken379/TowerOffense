@@ -8,8 +8,6 @@ public class bossFunction : MonoBehaviour
 
     private Transform player;
     public float distanceToPlayer;
-    private float closeEnough = 15f; //how close does the enemy want to get
-
     private float engageDistance = 15f; //at what distance should the enemy start going to the player
 
     //defence
@@ -198,7 +196,7 @@ public class bossFunction : MonoBehaviour
         if (upgradeWeapons.ballista) //boss hwacha
         {
             attackDamageArrows = 20f;
-            canAttackArrows = 1.5f;
+            canAttackArrows = 0.1f;
         }
         else if (upgradeWeapons.hwacha) //boss abllista
         {
