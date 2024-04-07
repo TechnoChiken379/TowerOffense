@@ -67,6 +67,7 @@ public class bossShootingScript : MonoBehaviour
 
         FireCatapult(); //Catapult script
         timerCatapult += Time.deltaTime; //Timer for readyToFire
+
         #region mangonel
         if (FiredMangonel)
         {
