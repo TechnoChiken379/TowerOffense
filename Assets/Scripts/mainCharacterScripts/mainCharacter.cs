@@ -71,19 +71,17 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     public void LoadData(GameData data)
     {
-        playerPosition = data.playerPosition;
-        Debug.Log("PLAYER LOAD");
+        transform.position = data.playerPosition;
     }
 
     public void SaveData(ref GameData data)
     {
-        data.playerPosition = playerPosition;
-        Debug.Log("PLAYER");
+        data.playerPosition = transform.position;
     }
 
     void Update()
     {
-        playerPosition = transform.position;
+        //playerPosition = transform.position;
 
         OpenShop();
         Test(); //for testing

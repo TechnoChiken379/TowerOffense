@@ -49,7 +49,7 @@ public class GameData
             this.steelAmount = 0;
             this.goldAmount = 0;
 
-            playerPosition = mainCharacter.playerPosition;
+            playerPosition = new Vector3();
 
             healthLevel = 1;
             heavyTank = false;
@@ -84,7 +84,7 @@ public class GameData
             this.steelAmount = 0;
             this.goldAmount = 0;
 
-            playerPosition = mainCharacter.playerPosition;
+            playerPosition = new Vector3();
 
             healthLevel = 1;
             heavyTank = false;
