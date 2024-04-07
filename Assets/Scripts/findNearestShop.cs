@@ -5,7 +5,7 @@ using UnityEngine;
 public class findNearestShop : MonoBehaviour
 {
     private GameObject[] shops;
-    private Transform closestShop;
+    public static Transform closestShop;
 
     void Start()
     {
@@ -15,6 +15,7 @@ public class findNearestShop : MonoBehaviour
     void Update()
     {
         FindClosestShops();
+        Debug.Log(closestShop.transform.position);
     }
 
     void FindClosestShops()
@@ -22,7 +23,6 @@ public class findNearestShop : MonoBehaviour
         shops = GameObject.FindGameObjectsWithTag("shop");
 
         closestShop = GetClosestEnemy(shops);
-        Debug.Log(GetClosestEnemy(shops));
     }
 
     Transform GetClosestEnemy(GameObject[] enemiesArray)

@@ -52,6 +52,8 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
     public GameObject shopObject;
     public Vector3 shopPosition;
 
+    public static bool openShop = false;
+
     void Start() //Happens on start
     {
         DataPersistanceManager.newGameButton = false;
@@ -76,7 +78,7 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     public void SaveData(ref GameData data)
     {
-        data.playerPosition = transform.position;
+        data.playerPosition = findNearestShop.closestShop.transform.position;
     }
 
     void Update()
@@ -97,23 +99,27 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
     void OpenShop()
     {
         playerPosition = gameObject.transform.position;
-        shopPosition = shopObject.transform.position;
+        shopPosition = findNearestShop.closestShop.transform.position;
         if (Vector3.Distance(shopPosition, playerPosition) <= 5 && Input.GetKeyDown(KeyCode.E))
         {
             DataPersistanceManager.saveGameBool = true;
+            openShop = true;
         }
     }
 
     void Movement() //Movement Script
     {
-        if ((!repairing && !upgradeArmor.moveWhileRepairing) || 
-            (!repairing && upgradeArmor.moveWhileRepairing) || 
-            (repairing && upgradeArmor.moveWhileRepairing))
+        if (totalCurrentHealth > 0)
         {
-            moveX = Input.GetAxis("Horizontal") * (speed * abilityScript.movementSpeedInscrease) * Time.deltaTime;
-            moveY = Input.GetAxis("Vertical") * (speed * abilityScript.movementSpeedInscrease) * Time.deltaTime;
-            transform.position += new Vector3(moveX, moveY, 0);
-            CameraMovementOnPlayerMovement();
+            if ((!repairing && !upgradeArmor.moveWhileRepairing) ||
+            (!repairing && upgradeArmor.moveWhileRepairing) ||
+            (repairing && upgradeArmor.moveWhileRepairing))
+            {
+                moveX = Input.GetAxis("Horizontal") * (speed * abilityScript.movementSpeedInscrease) * Time.deltaTime;
+                moveY = Input.GetAxis("Vertical") * (speed * abilityScript.movementSpeedInscrease) * Time.deltaTime;
+                transform.position += new Vector3(moveX, moveY, 0);
+                CameraMovementOnPlayerMovement();
+            }
         }
     }
 

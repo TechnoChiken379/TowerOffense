@@ -61,7 +61,7 @@ public class buttons : MonoBehaviour
     {
         timer += Time.deltaTime;
         timer2 += Time.deltaTime;
-        if (timer >= 4 && loadSceneBool == true)
+        if (timer >= 2 && loadSceneBool == true)
         {
             SceneManager.LoadScene("tilemapTesting");
             loadSceneBool = false;

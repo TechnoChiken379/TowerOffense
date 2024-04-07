@@ -15,6 +15,8 @@ public class deathScreenManager : MonoBehaviour
     private bool deathManagerIsDead = false;
     private bool deathAnimation = false;
 
+    public static bool saveOnDeath = false;
+
     public GameObject DeathScreenBackGround;
 
     void Update()
@@ -34,15 +36,20 @@ public class deathScreenManager : MonoBehaviour
         {
             timer = 0;
             deathManagerState2 = true;
+            resources.woodAmount /= 2;
+            resources.stoneAmount /= 2;
+            resources.steelAmount /= 2;
+            resources.goldAmount /= 2;
         }
-        if (timer >= 4 && deathManagerState3 == false)
+        if (timer >= 2 && deathManagerState3 == false)
         {
             if (deathManagerIsDead == false)
             {
-                DataPersistanceManager.saveGameBool = true;
-                SceneManager.LoadScene("DeathScreen");
                 deathManagerIsDead = true;
                 deathAnimation = true;
+
+                saveOnDeath = true;
+                DataPersistanceManager.saveGameBool = true;
                 if (deathAnimation == true)
                 {
                     DeathScreenAnimator.Play("DeathMenuAnimation");
@@ -61,6 +68,6 @@ public class deathScreenManager : MonoBehaviour
 
     public void RebuildButton()
     {
-
+        SceneManager.LoadScene("tilemapTesting");
     }
 }

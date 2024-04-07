@@ -44,7 +44,16 @@ public class DataPersistanceManager : MonoBehaviour
             SaveGame();
             saveGameBool = false;
             Debug.Log("SaveLock");
-            SceneManager.LoadScene("ShopScene");
+            if (mainCharacter.openShop == true)
+            {
+                SceneManager.LoadScene("ShopScene");
+            }
+            if (deathScreenManager.saveOnDeath == true)
+            {
+                SceneManager.LoadScene("DeathScreen");
+                mainCharacter.totalCurrentHealth = upgradeArmor.maxHealth;
+                mainCharacter.totalCurrentShieldHealth = 0;
+            }
         }
         if (newGameButton == true)
         {
