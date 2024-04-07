@@ -175,7 +175,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.01, y: 0.01}
@@ -203,8 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42dd18d57263c7d42ad8c318618a7255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyWayPoint: {fileID: 0}
+  enemyWayPoint: {fileID: 7057391366974541217, guid: c70ac0a86ba004a47819ba139192bafe, type: 3}
   movePosition: {x: 0, y: 0, z: 0}
-  falconetCannonGrapeShot: {fileID: 0}
-  bombardCannonShrapnel: {fileID: 0}
-  trebuchetPayload: {fileID: 0}
+  falconetCannonGrapeShot: {fileID: 6230678805625410844, guid: 80db64be02eb94f43a555d47b62610aa, type: 3}
+  bombardCannonShrapnel: {fileID: 6230678805625410844, guid: cd31d91d6f08af846a5d8148b7d8791d, type: 3}
+  trebuchetPayload: {fileID: 3330178691903697465, guid: 22b18eb24d8c06748969ae34c1d55f9f, type: 3}

@@ -3,7 +3,11 @@ guid: 42dd18d57263c7d42ad8c318618a7255
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - enemyWayPoint: {fileID: 7057391366974541217, guid: c70ac0a86ba004a47819ba139192bafe, type: 3}
+  - falconetCannonGrapeShot: {instanceID: 0}
+  - bombardCannonShrapnel: {instanceID: 0}
+  - trebuchetPayload: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

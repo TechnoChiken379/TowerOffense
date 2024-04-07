@@ -26,6 +26,10 @@ public class bossFunction : MonoBehaviour
     public static float arrowSpeed = 7.5f;
     public static float arrowHeightNum = 1f;
 
+    //Hwacha
+    public static int hwachaAmountBeforeReload = 60;
+    public static float hwachaReloadTime = 1f;
+
     //cannon
     public static float attackDamageCannonRound = 20f; //20 dps
     public static float canAttackCannonRound = 1.5f;
@@ -33,12 +37,28 @@ public class bossFunction : MonoBehaviour
     public static float roundSpeed = 12.5f;
     public static float roundHeightNum = 0.5f;
 
+    //falconet
+    public static int grapeShotAmount = 20;
+
+    public static float damageAmountRoundGrapeShot = 20;
+    public static float roundSpeedGrapeShot = 7f;
+
+    //bombard
+    public static float damageAmountRoundShrapnel = 30f;
+
     //catepult
     public static float attackDamageCatapultPayload = 20f; //20 dps
     public static float canAttackCatapultPayload = 1.5f;
 
     public static float payloadSpeed = 10f;
     public static float payloadHeightNum = 3f;
+
+    //mangonel
+    public static int mangonelAmountShot = 3;
+
+    //trebuchet
+    public static float trebuchetPayloadDeliveryDamage = 10f; //dps per sec
+
 
     //death drop
     public GameObject deathDropGold;

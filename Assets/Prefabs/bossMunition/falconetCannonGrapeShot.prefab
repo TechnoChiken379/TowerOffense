@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 2566218114704540341}
   - component: {fileID: 7471151148003617762}
   - component: {fileID: 735938674437538826}
+  - component: {fileID: -5721178417798677485}
   m_Layer: 7
   m_Name: falconetCannonGrapeShot
   m_TagString: Cannon Round
@@ -190,3 +191,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.55, y: 0.55}
   m_EdgeRadius: 0
+--- !u!114 &-5721178417798677485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6230678805625410844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c308f65419b9e2b4b84bf0b675063f66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -58,7 +58,6 @@ public class bossShootingScript : MonoBehaviour
     void Update()
     {
         distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        LookAtMe();
 
         FireArchers(); //Archers script
         timerArchers += Time.deltaTime; //Timer for readyToFire
@@ -75,14 +74,6 @@ public class bossShootingScript : MonoBehaviour
         }
         #endregion 
     }
-
-    public void LookAtMe()
-    {
-        angle = Mathf.Atan2(player.position.y, player.position.x) * Mathf.Rad2Deg;
-        //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Euler(0, 0, angle);
-    }
-
 
     public void FireArchers() //Archers
     {
@@ -101,7 +92,7 @@ public class bossShootingScript : MonoBehaviour
             timerArchers = 0f;
         }
         //hwacha
-        if (upgradeWeapons.ballista && !upgradeWeapons.hwacha && distanceToPlayer < closeEnough && timerArchers >= bossFunction.canAttackArrows && hwachaArrowsShot < 60)
+        if (upgradeWeapons.ballista && !upgradeWeapons.hwacha && distanceToPlayer < closeEnough && timerArchers >= bossFunction.canAttackArrows && hwachaArrowsShot < bossFunction.hwachaAmountBeforeReload)
         {
             GameObject spawnedBullet = Instantiate(hwachaArrow, arrowSpawnPoint.position, Quaternion.Euler(0, 0, angle));
             hwachaArrowsShot++;
@@ -112,7 +103,7 @@ public class bossShootingScript : MonoBehaviour
         else
         {
             timerhwacha += Time.deltaTime;
-            if (timerhwacha >= upgradeWeapons.hwachaReloadTime)
+            if (timerhwacha >= bossFunction.hwachaReloadTime)
             {
                 hwachaArrowsShot = 0;
             }
@@ -122,21 +113,21 @@ public class bossShootingScript : MonoBehaviour
     public void FireCannons() //Cannons
     {
         //culverin
-        if (!upgradeWeapons.bombard && !upgradeWeapons.falconet && distanceToPlayer < closeEnough)
+        if (!upgradeWeapons.bombard && !upgradeWeapons.falconet && distanceToPlayer < closeEnough && timerCannons >= bossFunction.canAttackCannonRound)
         {
             GameObject spawnedBullet = Instantiate(cannonRound, cannonRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
 
             timerCannons = 0f;
         }
         //bombard
-        if (!upgradeWeapons.bombard && upgradeWeapons.falconet && distanceToPlayer < closeEnough)
+        if (!upgradeWeapons.bombard && upgradeWeapons.falconet && distanceToPlayer < closeEnough && timerCannons >= bossFunction.canAttackCannonRound)
         {
             GameObject spawnedBullet = Instantiate(bombardCannonRound, cannonRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
 
             timerCannons = 0f;
         }
         //falconet
-        if (upgradeWeapons.bombard && !upgradeWeapons.falconet && distanceToPlayer < closeEnough)
+        if (upgradeWeapons.bombard && !upgradeWeapons.falconet && distanceToPlayer < closeEnough && timerCannons >= bossFunction.canAttackCannonRound)
         {
             GameObject spawnedBullet = Instantiate(falconetCannonRound, cannonRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
 
@@ -147,20 +138,21 @@ public class bossShootingScript : MonoBehaviour
     public void FireCatapult() //catapult
     {
         //onager
-        if (!upgradeWeapons.trebuchet && !upgradeWeapons.mangonel && distanceToPlayer < closeEnough)
+        if (!upgradeWeapons.trebuchet && !upgradeWeapons.mangonel && distanceToPlayer < closeEnough && timerCatapult >= bossFunction.canAttackCatapultPayload)
         {
             GameObject spawnedBullet = Instantiate(catapultPayload, catapultRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
 
             timerCatapult = 0f;
         }
         //trebuchet
-        if (!upgradeWeapons.trebuchet && upgradeWeapons.mangonel && distanceToPlayer < closeEnough){
+        if (!upgradeWeapons.trebuchet && upgradeWeapons.mangonel && distanceToPlayer < closeEnough && timerCatapult >= bossFunction.canAttackCatapultPayload)
+        {
             GameObject spawnedBullet = Instantiate(trebuchetCatapultPayload, catapultRoundSpawnPoint.position, Quaternion.Euler(0, 0, angle));
 
             timerCatapult = 0f;
         }
         //mangonel
-        if (upgradeWeapons.trebuchet && !upgradeWeapons.mangonel && distanceToPlayer < closeEnough)
+        if (upgradeWeapons.trebuchet && !upgradeWeapons.mangonel && distanceToPlayer < closeEnough && timerCatapult >= bossFunction.canAttackCatapultPayload)
         {
             mangonelTime = shootMangonel;
             mangonelAmountShot = 0;
@@ -181,7 +173,7 @@ public class bossShootingScript : MonoBehaviour
             mangonelTime = 0f;
         }
 
-        if (mangonelAmountShot >= 3)
+        if (mangonelAmountShot >= bossFunction.mangonelAmountShot)
         {
             FiredMangonel = false;
         }

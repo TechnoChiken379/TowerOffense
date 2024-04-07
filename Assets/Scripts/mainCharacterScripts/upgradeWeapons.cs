@@ -8,8 +8,8 @@ public class upgradeWeapons : MonoBehaviour
     //weapon upgrades
     //archers
     public static int bowLevel = 3;
-    public static bool ballista = false; //slow firing strong arrow that goes through enemies
-    public static bool hwacha = true; //shoots a load of arrow's in quick succession before having to reload for some time
+    public static bool ballista = true; //slow firing strong arrow that goes through enemies
+    public static bool hwacha = false; //shoots a load of arrow's in quick succession before having to reload for some time
 
     public static float canFireArchers = 0.2f;
     public static float damageAmountArrows = 1;
@@ -22,8 +22,8 @@ public class upgradeWeapons : MonoBehaviour
 
     //cannons
     public static int culverinLevel = 3;
-    public static bool bombard = true; //shoots a big round that will explode on contact (or at the end of it's trajectory) (the explodion deals procentage damage)
-    public static bool falconet = false; //shoots grape shot rounds that explode/scatter on contact (or at the end of it's trajectory)
+    public static bool bombard = false; //shoots a big round that will explode on contact (or at the end of it's trajectory) (the explodion deals procentage damage)
+    public static bool falconet = true; //shoots grape shot rounds that explode/scatter on contact (or at the end of it's trajectory)
 
     public static float canFireCannons = 2;
     public static float damageAmountRound = 5;
