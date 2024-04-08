@@ -64,11 +64,7 @@ public class DataPersistanceManager : MonoBehaviour
     {
         GameData.newGame = true;
         this.gameData = new GameData();
-        if (buttons.newGameBool == true)
-        {
-            SceneManager.LoadScene("tilemapTesting");
-            buttons.newGameBool = false;
-        }
+        
         Debug.Log("New Game");
     }
 
