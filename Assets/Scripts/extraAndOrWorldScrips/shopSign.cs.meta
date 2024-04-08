@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 445ea120d508e154e916088f90e12164
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - shopSignObject: {fileID: 7484969056406989987, guid: 24ad58207e8acde45b2d899728452641, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
