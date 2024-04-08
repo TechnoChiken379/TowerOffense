@@ -9,6 +9,7 @@ public class bossFunction : MonoBehaviour
     private Transform player;
     public float distanceToPlayer;
     private float engageDistance = 15f; //at what distance should the enemy start going to the player
+    private float playerToFarAway = 20f;
 
     //defence
     //health
@@ -100,6 +101,7 @@ public class bossFunction : MonoBehaviour
     public void StateConditions()
     {
         if (distanceToPlayer <= engageDistance) { upgradeArmor.canRegenerating = false; upgradeArmor.leftCombat = 0f; };
+        if (distanceToPlayer >= playerToFarAway && enemyHP != enemyMaxHP) { enemyHP = enemyMaxHP; }
     }
 
     void IfDeadDie()
