@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -54,8 +56,12 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     public static bool openShop = false;
 
+    public Animator mainCharacterAnimations;
+
     void Start() //Happens on start
     {
+        mainCharacterAnimations.SetInteger("AnimationIdicator", 4);
+
         Time.timeScale = 1;
         //Movement speed
         speed = 4;
@@ -118,6 +124,23 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
                 moveY = Input.GetAxis("Vertical") * (speed * abilityScript.movementSpeedInscrease) * Time.deltaTime;
                 transform.position += new Vector3(moveX, moveY, 0);
                 CameraMovementOnPlayerMovement();
+
+                if (Input.GetKeyDown(KeyCode.A))
+                {
+                    mainCharacterAnimations.SetInteger("AnimationIdicator", 3);
+                }
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    mainCharacterAnimations.SetInteger("AnimationIdicator", 4);
+                }
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    mainCharacterAnimations.SetInteger("AnimationIdicator", 1);
+                }
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    mainCharacterAnimations.SetInteger("AnimationIdicator", 2);
+                }
             }
         }
     }
