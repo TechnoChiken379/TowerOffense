@@ -17,7 +17,7 @@ public class abilityScript : MonoBehaviour
     private float abilityCoolDown = 60f;
 
     //artillery strike
-    public static int artilleryStrikeAmount = 0;
+    public static int artilleryStrikeAmount = 10;
     private int artilleryStrikeArrowAmountFired = 25;
 
     public GameObject ArtilleryArrow;
@@ -46,26 +46,10 @@ public class abilityScript : MonoBehaviour
 
     public static float supplyDistance = 5f;
     public static float timeAlive = 10f;
-    //overdrive
-    public static int OverdriveAmount = 0;
-
-    private bool overdriveActive = false;
-    private float overdriveTimer;
-    private float overdriveTime = 15f;
-
-    public static float attackSpeedInscrease = 1f;
-    public static float movementSpeedInscrease = 1f;
-    private float attackSpeedInscreaseChange = 0.8f;
-    private float movementSpeedInscreaseChange = 1.2f;
-
-
 
     void Start()
     {
         abilityTimer = abilityCoolDown;
-
-        attackSpeedInscrease = 1f;
-        movementSpeedInscrease = 1f;
     }
 
     void Update()
@@ -80,18 +64,6 @@ public class abilityScript : MonoBehaviour
             ShootArtillery();
         }
         #endregion
-        #region overdrive
-        if (overdriveActive)
-        {
-            overdriveTimer += Time.deltaTime;
-            if (overdriveTimer >= overdriveTime)
-            {
-                attackSpeedInscrease = 1;
-                movementSpeedInscrease = 1;
-                overdriveActive = false;
-            }
-        }
-        #endregion
     }
 
     public void Abilities()
@@ -104,11 +76,6 @@ public class abilityScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && supplyDropAmount > 0 && abilityTimer >= abilityCoolDown)
         {
             SupplyDrop();
-            abilityTimer = 0f;
-        }
-        if (Input.GetKeyDown(KeyCode.Space) && OverdriveAmount > 0 && abilityTimer >= abilityCoolDown)
-        {
-            Overdrive();
             abilityTimer = 0f;
         }
     }
@@ -156,15 +123,6 @@ public class abilityScript : MonoBehaviour
         Vector2 supplyDropSpawnPosition = new Vector2(worldMousePosition.x, worldMousePosition.y + SupplyDrophight);
         GameObject spawnedBullet = Instantiate(supplyDrop, supplyDropSpawnPosition, Quaternion.Euler(0, 0, 0));
     }
-    public void Overdrive()
-    {
-        overdriveTime = 0;
-        attackSpeedInscrease = attackSpeedInscreaseChange;
-        movementSpeedInscrease = movementSpeedInscreaseChange;
-        overdriveActive = true;
-
-        Debug.Log("drive");
-    }
     #endregion
 
     public void AbilityStrength()
@@ -189,9 +147,6 @@ public class abilityScript : MonoBehaviour
             shieldRegenerationSpeed = upgradeArmor.maxShieldHealth * 0.1f;
             supplyDistance = 5f;
             timeAlive = 10f;
-            //drive
-            attackSpeedInscreaseChange = 0.75f;
-            movementSpeedInscreaseChange = 1.5f;
         }
         else if (totalPlayerLevel >= 6 && totalPlayerLevel < 12) //lvl1
         {
@@ -205,9 +160,6 @@ public class abilityScript : MonoBehaviour
             shieldRegenerationSpeed = upgradeArmor.maxShieldHealth * 0.11f;
             supplyDistance = 6f;
             timeAlive = 11f;
-            //drive
-            attackSpeedInscreaseChange = 0.70f;
-            movementSpeedInscreaseChange = 1.6f;
         }
         else if (totalPlayerLevel >= 12 && totalPlayerLevel < 18) //lvl2
         {
@@ -221,9 +173,6 @@ public class abilityScript : MonoBehaviour
             shieldRegenerationSpeed = upgradeArmor.maxShieldHealth * 0.12f;
             supplyDistance = 7f;
             timeAlive = 12f;
-            //drive
-            attackSpeedInscreaseChange = 0.65f;
-            movementSpeedInscreaseChange = 1.7f;
         }
         else if (totalPlayerLevel >= 18 && totalPlayerLevel < 24) //lvl3
         {
@@ -237,9 +186,6 @@ public class abilityScript : MonoBehaviour
             shieldRegenerationSpeed = upgradeArmor.maxShieldHealth * 0.13f;
             supplyDistance = 8f;
             timeAlive = 13f;
-            //drive
-            attackSpeedInscreaseChange = 0.60f;
-            movementSpeedInscreaseChange = 1.8f;
         }
         else if (totalPlayerLevel >= 24 && totalPlayerLevel < 30) //lvl4
         {
@@ -253,9 +199,6 @@ public class abilityScript : MonoBehaviour
             shieldRegenerationSpeed = upgradeArmor.maxShieldHealth * 0.14f;
             supplyDistance = 9f;
             timeAlive = 14f;
-            //drive
-            attackSpeedInscreaseChange = 0.55f;
-            movementSpeedInscreaseChange = 1.9f;
         }
         else if (totalPlayerLevel >= 30 && totalPlayerLevel < 36) //lvl5
         {
@@ -269,9 +212,6 @@ public class abilityScript : MonoBehaviour
             shieldRegenerationSpeed = upgradeArmor.maxShieldHealth * 0.15f;
             supplyDistance = 10f;
             timeAlive = 15f;
-            //drive
-            attackSpeedInscreaseChange = 0.50f;
-            movementSpeedInscreaseChange = 2.0f;
         }
 
     }

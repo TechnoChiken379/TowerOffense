@@ -143,8 +143,8 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
             (!repairing && upgradeArmor.moveWhileRepairing) ||
             (repairing && upgradeArmor.moveWhileRepairing))
             {
-                moveX = Input.GetAxis("Horizontal") * (speed * abilityScript.movementSpeedInscrease) * Time.deltaTime;
-                moveY = Input.GetAxis("Vertical") * (speed * abilityScript.movementSpeedInscrease) * Time.deltaTime;
+                moveX = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+                moveY = Input.GetAxis("Vertical") * speed * Time.deltaTime;
                 transform.position += new Vector3(moveX, moveY, 0);
                 CameraMovementOnPlayerMovement();
             }
