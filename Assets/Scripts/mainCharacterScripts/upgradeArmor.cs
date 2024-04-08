@@ -7,7 +7,7 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
     //upgrade armor
     //health
     public static int healthLevel;
-    public static bool healthHeavyTank = false;
+    public static bool healthHeavyTank = true;
     public static bool healthLightTank = false;
 
     public static float maxHealth;
@@ -23,7 +23,7 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
     //armor
     public static int shieldLevel;
     public static bool shieldHeavyArmor = false;
-    public static bool shieldLightArmor = false;
+    public static bool shieldLightArmor = true;
 
     public static float maxShieldHealth = 0f;
 
@@ -35,7 +35,7 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
     //self repair
     public static int selfRepairLevel;
     public static bool selfRepairHeavyRepair = false;
-    public static bool selfRepairLightRepair = false;
+    public static bool selfRepairLightRepair = true;
 
     public static float repairCompensation = 0f; //how much you can repair of every single point of damage (x100 to get procent)
     public static float repairTime = 0; //the higher the faster
@@ -77,9 +77,9 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
 
     void Start()
     {
-        healthLevel = 1;
-        shieldLevel = 0;
-        selfRepairLevel = 0;
+        healthLevel = 5;
+        shieldLevel = 5;
+        selfRepairLevel = 5;
 
         HealthUpgrades();
         ShieldUpgrades();
