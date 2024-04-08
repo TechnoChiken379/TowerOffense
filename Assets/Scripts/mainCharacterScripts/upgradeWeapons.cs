@@ -8,8 +8,8 @@ public class upgradeWeapons : MonoBehaviour
     //weapon upgrades
     //archers
     public static int bowLevel = 3;
-    public static bool ballista = true; //slow firing strong arrow that goes through enemies
-    public static bool hwacha = false; //shoots a load of arrow's in quick succession before having to reload for some time
+    public static bool ballista = false; //slow firing strong arrow that goes through enemies
+    public static bool hwacha = true; //shoots a load of arrow's in quick succession before having to reload for some time
 
     public static float canFireArchers = 0.2f;
     public static float damageAmountArrows = 1;
@@ -41,8 +41,8 @@ public class upgradeWeapons : MonoBehaviour
 
     //catapult
     public static int onagerLevel = 3;
-    public static bool trebuchet = true; //shoot's a payload high in the air before it comes crashing down (it leaves an AOE on the ground)
-    public static bool mangonel = false; //shoot 2 or 3 lesser payloads in quick succession
+    public static bool trebuchet = false; //shoot's a payload high in the air before it comes crashing down (it leaves an AOE on the ground)
+    public static bool mangonel = true; //shoot 2 or 3 lesser payloads in quick succession
 
     public static float canFireCatapult = 3;
     public static float damageAmountPayload = 10;
