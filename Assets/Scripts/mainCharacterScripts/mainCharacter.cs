@@ -57,6 +57,7 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
     public static bool openShop = false;
 
     public Animator mainCharacterAnimations;
+    public AnimationClip mainCharacterTest;
 
     void Start() //Happens on start
     {
@@ -116,19 +117,19 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     void movementAnimator()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             mainCharacterAnimations.SetInteger("AnimationIdicator", 3);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             mainCharacterAnimations.SetInteger("AnimationIdicator", 4);
         }
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             mainCharacterAnimations.SetInteger("AnimationIdicator", 1);
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             mainCharacterAnimations.SetInteger("AnimationIdicator", 2);
         }
