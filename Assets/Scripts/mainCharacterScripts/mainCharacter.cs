@@ -99,6 +99,8 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
         Repairing();
         Movement(); //Movement script
+
+        movementAnimator();
     }
 
     void OpenShop()
@@ -109,6 +111,26 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
         {
             DataPersistanceManager.saveGameBool = true;
             openShop = true;
+        }
+    }
+
+    void movementAnimator()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            mainCharacterAnimations.SetInteger("AnimationIdicator", 3);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            mainCharacterAnimations.SetInteger("AnimationIdicator", 4);
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            mainCharacterAnimations.SetInteger("AnimationIdicator", 1);
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            mainCharacterAnimations.SetInteger("AnimationIdicator", 2);
         }
     }
 
@@ -124,23 +146,6 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
                 moveY = Input.GetAxis("Vertical") * (speed * abilityScript.movementSpeedInscrease) * Time.deltaTime;
                 transform.position += new Vector3(moveX, moveY, 0);
                 CameraMovementOnPlayerMovement();
-
-                if (Input.GetKeyDown(KeyCode.A))
-                {
-                    mainCharacterAnimations.SetInteger("AnimationIdicator", 3);
-                }
-                if (Input.GetKeyDown(KeyCode.D))
-                {
-                    mainCharacterAnimations.SetInteger("AnimationIdicator", 4);
-                }
-                if (Input.GetKeyDown(KeyCode.W))
-                {
-                    mainCharacterAnimations.SetInteger("AnimationIdicator", 1);
-                }
-                if (Input.GetKeyDown(KeyCode.S))
-                {
-                    mainCharacterAnimations.SetInteger("AnimationIdicator", 2);
-                }
             }
         }
     }
