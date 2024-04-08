@@ -6,7 +6,7 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
 {
     //upgrade armor
     //health
-    public static int healthLevel;
+    public static int healthLevel = 1;
     public static bool healthHeavyTank = true;
     public static bool healthLightTank = false;
 
@@ -21,7 +21,7 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
     public static float deflectDamageNotTaken = 1f;
 
     //armor
-    public static int shieldLevel;
+    public static int shieldLevel = 0;
     public static bool shieldHeavyArmor = false;
     public static bool shieldLightArmor = true;
 
@@ -33,7 +33,7 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
 
 
     //self repair
-    public static int selfRepairLevel;
+    public static int selfRepairLevel = 0;
     public static bool selfRepairHeavyRepair = false;
     public static bool selfRepairLightRepair = true;
 
@@ -77,10 +77,6 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
 
     void Start()
     {
-        healthLevel = 5;
-        shieldLevel = 5;
-        selfRepairLevel = 5;
-
         HealthUpgrades();
         ShieldUpgrades();
         SelfRepairUpgrades();
@@ -88,6 +84,8 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
 
     void Update()
     {
+        healthLevel = healthLevel;
+
         HealthUpgrades();
         ShieldUpgrades();
         SelfRepairUpgrades();

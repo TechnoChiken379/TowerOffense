@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public class GameData
 {
-    public static bool newGame = false;
-
     public float woodAmount;
     public float stoneAmount;
     public float steelAmount;
@@ -43,73 +41,35 @@ public class GameData
 
     public GameData()
     {
-        //if (newGame == true)
-        //{
-            this.woodAmount = 0;
-            this.stoneAmount = 0;
-            this.steelAmount = 0;
-            this.goldAmount = 0;
+        this.woodAmount = 0;
+        this.stoneAmount = 0;
+        this.steelAmount = 0;
+        this.goldAmount = 0;
 
-            playerPosition = new Vector3();
+        playerPosition = new Vector3();
 
-            healthLevel = 1;
-            heavyTank = false;
-            lightTank = false;
+        healthLevel = 1;
+        heavyTank = false;
+        lightTank = false;
 
-            shieldLevel = 0;
-            heavyShield = false;
-            lightShield = false;
+        shieldLevel = 0;
+        heavyShield = false;
+        lightShield = false;
 
-            repairLevel = 0;
-            heavyRepair = false; 
-            lightRepair = false;
+        repairLevel = 0;
+        heavyRepair = false;
+        lightRepair = false;
 
-            bowLevel = 0;
-            ballista = false;
-            hwacha = false;
+        bowLevel = 1;
+        ballista = false;
+        hwacha = false;
 
-            culverinLevel = 0;
-            bombard = false;
-            falconet = false;
+        culverinLevel = 0;
+        bombard = false;
+        falconet = false;
 
-            onagerLevel = 0;
-            trebuchet = false;
-            mangonel = false;
-
-            newGame = false;
-        //}
-        //else
-        //{
-        //    this.woodAmount = 0;
-        //    this.stoneAmount = 0;
-        //    this.steelAmount = 0;
-        //    this.goldAmount = 0;
-
-        //    playerPosition = new Vector3();
-
-        //    healthLevel = 1;
-        //    heavyTank = false;
-        //    lightTank = false;
-
-        //    shieldLevel = 0;
-        //    heavyShield = false;
-        //    lightShield = false;
-
-        //    repairLevel = 0;
-        //    heavyRepair = false;
-        //    lightRepair = false;
-
-        //    bowLevel = 0;
-        //    ballista = false;
-        //    hwacha = false;
-
-        //    culverinLevel = 0;
-        //    bombard = false;
-        //    falconet = false;
-
-        //    onagerLevel = 0;
-        //    trebuchet = false;
-        //    mangonel = false;
-        //}
+        onagerLevel = 0;
+        trebuchet = false;
+        mangonel = false;
     }
 }

@@ -38,6 +38,8 @@ public class buttons : MonoBehaviour
     private float timer;
     private bool timer1Bool;
 
+    public static bool newGame = false;
+
     void Start()
     {
         buttonImage1 = image1;
@@ -177,7 +179,7 @@ public class buttons : MonoBehaviour
         mainMenuAnimation.SetBool("NewGame", true);
         timer1Bool = true;
         timer = 0;
-        DataPersistanceManager.deleteGameData = true;
+        newGame = true;
     }
     #endregion
 }

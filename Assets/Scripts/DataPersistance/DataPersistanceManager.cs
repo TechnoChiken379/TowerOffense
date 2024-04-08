@@ -19,8 +19,6 @@ public class DataPersistanceManager : MonoBehaviour
 
     public static bool saveGameBool = false;
 
-    public static bool deleteGameData = false;
-
     public static DataPersistanceManager instance { get; private set; }
 
     private void Awake()
@@ -41,12 +39,6 @@ public class DataPersistanceManager : MonoBehaviour
 
     void Update()
     {
-        if (deleteGameData == true)
-        {
-            File.Delete("data.games_on_your_phone");
-            deleteGameData = false;
-        }
-
         if (saveGameBool == true)
         {
             SaveGame();
@@ -72,14 +64,21 @@ public class DataPersistanceManager : MonoBehaviour
 
     public void NewGame()
     {
-        GameData.newGame = true;
         this.gameData = new GameData();
         Debug.Log("New Game");
     }
 
     public void LoadGame()
     {
-        this.gameData = dataHandler.Load();
+        if (buttons.newGame == true)
+        {
+            this.gameData = new GameData();
+            buttons.newGame = false;
+        }
+        else
+        {
+            this.gameData = dataHandler.Load();
+        }
 
         if (this.gameData == null)
         {
