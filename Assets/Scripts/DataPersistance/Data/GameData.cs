@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class GameData
@@ -76,6 +77,8 @@ public class GameData
             mangonel = false;
 
             newGame = false;
+
+            SceneManager.LoadScene("tilemapTesting");
         }
         else
         {
