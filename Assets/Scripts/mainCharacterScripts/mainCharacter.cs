@@ -92,6 +92,7 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
         //playerPosition = transform.position;
 
         OpenShop();
+        GoBackToMainMenu();
         Test(); //for testing
 
         setValuesUpdate();
@@ -114,7 +115,13 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
             openShop = true;
         }
     }
-
+    void GoBackToMainMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+    }
     void movementAnimator()
     {
         if (Input.GetKeyDown(KeyCode.A))
