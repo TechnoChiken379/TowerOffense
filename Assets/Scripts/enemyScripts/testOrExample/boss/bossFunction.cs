@@ -12,8 +12,8 @@ public class bossFunction : MonoBehaviour
 
     //defence
     //health
-    private float enemyHP, enemyMaxHP = 5000f;
-    //private float enemySP, enemyMaxSP = 5000f;
+    private float enemyHP, enemyMaxHP = 9600f;
+    //private float enemySP, enemyMaxSP = 4800f;
 
     //offense
     //attack
@@ -151,11 +151,6 @@ public class bossFunction : MonoBehaviour
     }
     void CalculateLevel()
     {
-        attackDamageArrows = 20;
-        attackDamageCannonRound = 20;
-        attackDamageCatapultPayload = 20;
-        //canAttack = 1f;
-
         DroppedWood = UnityEngine.Random.Range(900.0f, 1100.0f);
         DroppedStone = UnityEngine.Random.Range(900.0f, 1100.0f);
         DroppedSteel = UnityEngine.Random.Range(900.0f, 1100.0f);
@@ -192,10 +187,11 @@ public class bossFunction : MonoBehaviour
         //}
         #endregion
         #region weapons
+        //24 dps per weapon
         //arrows
         if (upgradeWeapons.ballista) //boss hwacha
         {
-            attackDamageArrows = 20f;
+            attackDamageArrows = 24f;
             canAttackArrows = 0.1f;
 
             arrowSpeed = 7f;
@@ -206,7 +202,7 @@ public class bossFunction : MonoBehaviour
         }
         else if (upgradeWeapons.hwacha) //boss abllista
         {
-            attackDamageArrows = 20f;
+            attackDamageArrows = 144f;
             canAttackArrows = 0.6f;
 
             arrowSpeed = 10f;
@@ -214,7 +210,7 @@ public class bossFunction : MonoBehaviour
         }
         else //neither
         {
-            attackDamageArrows = 20f;
+            attackDamageArrows = 48f;
             canAttackArrows = 0.2f;
 
             arrowSpeed = 7.5f;
@@ -223,7 +219,7 @@ public class bossFunction : MonoBehaviour
         //cannon
         if (upgradeWeapons.bombard) //boss falconet
         {
-            attackDamageCannonRound = 20f;
+            attackDamageCannonRound = 120f;
             canAttackCannonRound = 1f;
 
             roundSpeed = 12.5f;
@@ -232,12 +228,12 @@ public class bossFunction : MonoBehaviour
             //grape shot
             grapeShotAmount = 20;
 
-            damageAmountRoundGrapeShot = 12f;
+            damageAmountRoundGrapeShot = 36f;
             roundSpeedGrapeShot = 10f;
         }
         else if (upgradeWeapons.falconet) //boss bombard
         {
-            attackDamageCannonRound = 20f;
+            attackDamageCannonRound = 540f;
             canAttackCannonRound = 2.25f;
 
             roundSpeed = 12.5f;
@@ -248,7 +244,7 @@ public class bossFunction : MonoBehaviour
         }
         else //neither
         {
-            attackDamageCannonRound = 20f;
+            attackDamageCannonRound = 240f;
             canAttackCannonRound = 1f;
 
             roundSpeed = 12.5f;
@@ -257,7 +253,7 @@ public class bossFunction : MonoBehaviour
         //catapult
         if (upgradeWeapons.trebuchet) //boss mangonel
         {
-            attackDamageCatapultPayload = 20f;
+            attackDamageCatapultPayload = 200f;
             canAttackCatapultPayload = 2f;
 
             payloadSpeed = 10f;
@@ -267,17 +263,17 @@ public class bossFunction : MonoBehaviour
         }
         if (upgradeWeapons.mangonel) //boss trebuchet
         {
-            attackDamageCatapultPayload = 20f;
+            attackDamageCatapultPayload = 720f;
             canAttackCatapultPayload = 3f;
 
             payloadSpeed = 10f;
             payloadHeightNum = 6f;
 
-            trebuchetPayloadDeliveryDamage = 20f;
+            trebuchetPayloadDeliveryDamage = 180f;
         }
         else //neither
         {
-            attackDamageCatapultPayload = 20f;
+            attackDamageCatapultPayload = 480f;
             canAttackCatapultPayload = 2f;
 
             payloadSpeed = 10f;

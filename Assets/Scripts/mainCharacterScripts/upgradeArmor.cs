@@ -6,7 +6,7 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
 {
     //upgrade armor
     //health
-    public static int healthLevel = 3;
+    public static int healthLevel;
     public static bool healthHeavyTank = false;
     public static bool healthLightTank = false;
 
@@ -21,7 +21,7 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
     public static float deflectDamageNotTaken = 1f;
 
     //armor
-    public static int shieldLevel = 3;
+    public static int shieldLevel;
     public static bool shieldHeavyArmor = false;
     public static bool shieldLightArmor = false;
 
@@ -33,7 +33,7 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
 
 
     //self repair
-    public static int selfRepairLevel = 3;
+    public static int selfRepairLevel;
     public static bool selfRepairHeavyRepair = false;
     public static bool selfRepairLightRepair = false;
 
@@ -77,6 +77,10 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
 
     void Start()
     {
+        healthLevel = 1;
+        shieldLevel = 0;
+        selfRepairLevel = 0;
+
         HealthUpgrades();
         ShieldUpgrades();
         SelfRepairUpgrades();
@@ -207,7 +211,7 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
                     mainCharacter.HealthDamageTakenShieldBrake = 0.75f;
                 }
             }
-            if (shieldLightArmor == true) //active shield 750 (assuming all damage taken >= 25, else 600) (25%(/375) of incoming damage taken by health)
+            if (shieldLightArmor == true) //active shield 750 (assuming all damage taken >= 25, else 600) (25% of incoming damage taken by health)
             {
                 maxShieldHealth = 300f;
 

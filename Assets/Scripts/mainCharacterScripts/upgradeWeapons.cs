@@ -89,6 +89,10 @@ public class upgradeWeapons : MonoBehaviour
 
     void Start()
     {
+        bowLevel = 1;
+        culverinLevel = 0;
+        onagerLevel= 0;
+
         ArchersUpgrades();
         CannonsUpgrades();
         CatapultUpgrades();
