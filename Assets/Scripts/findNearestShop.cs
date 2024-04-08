@@ -15,7 +15,6 @@ public class findNearestShop : MonoBehaviour
     void Update()
     {
         FindClosestShops();
-        Debug.Log(closestShop.transform.position);
     }
 
     void FindClosestShops()

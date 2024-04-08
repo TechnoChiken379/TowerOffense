@@ -16,7 +16,6 @@ public class DataPersistanceManager : MonoBehaviour
 
     private FileDataHandler dataHandler;
 
-    public static bool newGameButton = false;
     public static bool saveGameBool = false;
 
     public static DataPersistanceManager instance { get; private set; }
@@ -55,7 +54,7 @@ public class DataPersistanceManager : MonoBehaviour
                 mainCharacter.totalCurrentShieldHealth = 0;
             }
         }
-        if (newGameButton == true)
+        if (buttons.newGameBool == true)
         {
             NewGame();
         }
@@ -65,6 +64,11 @@ public class DataPersistanceManager : MonoBehaviour
     {
         GameData.newGame = true;
         this.gameData = new GameData();
+        if (buttons.newGameBool == true)
+        {
+            SceneManager.LoadScene("tilemapTesting");
+            buttons.newGameBool = false;
+        }
         Debug.Log("New Game");
     }
 
