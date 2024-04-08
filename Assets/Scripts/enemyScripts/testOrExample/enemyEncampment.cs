@@ -19,7 +19,7 @@ public class enemyEncampment : MonoBehaviour
 
     public int enemyLevel = 1;
 
-    private float renderDistance = 30f;
+    private float renderDistance = 25f;
 
     public GameObject enemy;
 
