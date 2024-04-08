@@ -56,6 +56,8 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     public static bool openShop = false;
 
+    public static bool backToMainMenu = false;
+
     public Animator mainCharacterAnimations;
     public AnimationClip mainCharacterTest;
 
@@ -119,7 +121,8 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("MainMenu");
+            DataPersistanceManager.saveGameBool = true;
+            backToMainMenu = true;
         }
     }
     void movementAnimator()

@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class DataPersistanceManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class DataPersistanceManager : MonoBehaviour
     private FileDataHandler dataHandler;
 
     public static bool saveGameBool = false;
+
+    public static bool deleteGameData = false;
 
     public static DataPersistanceManager instance { get; private set; }
 
@@ -38,6 +41,12 @@ public class DataPersistanceManager : MonoBehaviour
 
     void Update()
     {
+        if (deleteGameData == true)
+        {
+            File.Delete("data.games_on_your_phone");
+            deleteGameData = false;
+        }
+
         if (saveGameBool == true)
         {
             SaveGame();
@@ -53,10 +62,11 @@ public class DataPersistanceManager : MonoBehaviour
                 mainCharacter.totalCurrentHealth = upgradeArmor.maxHealth;
                 mainCharacter.totalCurrentShieldHealth = 0;
             }
-        }
-        if (buttons.newGameBool == true)
-        {
-            NewGame();
+            if (mainCharacter.backToMainMenu == true)
+            {
+                SceneManager.LoadScene("MainMenu");
+                mainCharacter.backToMainMenu = false;
+            }
         }
     }
 
@@ -64,7 +74,6 @@ public class DataPersistanceManager : MonoBehaviour
     {
         GameData.newGame = true;
         this.gameData = new GameData();
-        
         Debug.Log("New Game");
     }
 
@@ -72,11 +81,10 @@ public class DataPersistanceManager : MonoBehaviour
     {
         this.gameData = dataHandler.Load();
 
-        if (this.gameData == null || buttons.newGameBool == true)
+        if (this.gameData == null)
         {
             Debug.Log("No game data was found. Initializing data to default.");
             NewGame();
-            buttons.newGameBool = false;
         }
 
         foreach (IDataPersistance dataPersistancesObj in dataPersistancesObjects)
