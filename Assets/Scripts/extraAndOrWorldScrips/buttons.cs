@@ -39,7 +39,7 @@ public class buttons : MonoBehaviour
     private float timer;
     private float timer2;
     private bool timer2Bool;
-    private bool loadSceneBool = false;
+    public static bool loadSceneBool = false;
 
     void Start()
     {
@@ -55,17 +55,14 @@ public class buttons : MonoBehaviour
         mainMenuImage.SetActive(true);
 
         loadSceneBool = false;
+        newGameBool = false;
     }
 
     void Update()
     {
         timer += Time.deltaTime;
         timer2 += Time.deltaTime;
-        if (timer >= 2 && loadSceneBool == true)
-        {
-            SceneManager.LoadScene("tilemapTesting");
-            loadSceneBool = false;
-        }
+        
         if (timer2 >= 0.2 && timer2Bool == true)
         {
             DisAbleBools();
@@ -212,7 +209,7 @@ public class buttons : MonoBehaviour
         timer2 = 0;
         mainMenuAnimation.SetBool("NewGame", true);
         timer = 0;
-        loadSceneBool = true;
+        newGameBool = true;
     }
     #endregion
 }
