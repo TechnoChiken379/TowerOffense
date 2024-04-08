@@ -12,7 +12,7 @@ public class bossFunction : MonoBehaviour
 
     //defence
     //health
-    private float enemyHP, enemyMaxHP = 10000f;
+    private float enemyHP, enemyMaxHP = 5000f;
     //private float enemySP, enemyMaxSP = 5000f;
 
     //offense
@@ -197,48 +197,91 @@ public class bossFunction : MonoBehaviour
         {
             attackDamageArrows = 20f;
             canAttackArrows = 0.1f;
+
+            arrowSpeed = 7f;
+            arrowHeightNum = 1f;
+
+            hwachaAmountBeforeReload = 60;
+            hwachaReloadTime = 1f;
         }
         else if (upgradeWeapons.hwacha) //boss abllista
         {
             attackDamageArrows = 20f;
-            canAttackArrows = 1.5f;
+            canAttackArrows = 0.6f;
+
+            arrowSpeed = 10f;
+            arrowHeightNum = 0.5f;
         }
         else //neither
         {
             attackDamageArrows = 20f;
-            canAttackArrows = 1.5f;
+            canAttackArrows = 0.2f;
+
+            arrowSpeed = 7.5f;
+            arrowHeightNum = 1f;
         }
         //cannon
         if (upgradeWeapons.bombard) //boss falconet
         {
             attackDamageCannonRound = 20f;
-            canAttackCannonRound = 1.5f;
+            canAttackCannonRound = 1f;
+
+            roundSpeed = 12.5f;
+            roundHeightNum = 0.5f;
+
+            //grape shot
+            grapeShotAmount = 20;
+
+            damageAmountRoundGrapeShot = 12f;
+            roundSpeedGrapeShot = 10f;
         }
         else if (upgradeWeapons.falconet) //boss bombard
         {
             attackDamageCannonRound = 20f;
-            canAttackCannonRound = 1.5f;
+            canAttackCannonRound = 2.25f;
+
+            roundSpeed = 12.5f;
+            roundHeightNum = 0.5f;
+
+            //shrarpnel
+            damageAmountRoundShrapnel = upgradeArmor.maxHealth * 0.1125f;
         }
         else //neither
         {
             attackDamageCannonRound = 20f;
-            canAttackCannonRound = 1.5f;
+            canAttackCannonRound = 1f;
+
+            roundSpeed = 12.5f;
+            roundHeightNum = 0.5f;
         }
         //catapult
         if (upgradeWeapons.trebuchet) //boss mangonel
         {
             attackDamageCatapultPayload = 20f;
-            canAttackCatapultPayload = 1.5f;
+            canAttackCatapultPayload = 2f;
+
+            payloadSpeed = 10f;
+            payloadHeightNum = 2f;
+
+            mangonelAmountShot = 3;
         }
         if (upgradeWeapons.mangonel) //boss trebuchet
         {
             attackDamageCatapultPayload = 20f;
-            canAttackCatapultPayload = 1.5f;
+            canAttackCatapultPayload = 3f;
+
+            payloadSpeed = 10f;
+            payloadHeightNum = 6f;
+
+            trebuchetPayloadDeliveryDamage = 20f;
         }
         else //neither
         {
             attackDamageCatapultPayload = 20f;
-            canAttackCatapultPayload = 1.5f;
+            canAttackCatapultPayload = 2f;
+
+            payloadSpeed = 10f;
+            payloadHeightNum = 3f;
         }
         #endregion
     }
