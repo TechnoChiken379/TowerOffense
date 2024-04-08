@@ -12,7 +12,7 @@ public class bossFunction : MonoBehaviour
 
     //defence
     //health
-    private float enemyHP, enemyMaxHP = 9600f;
+    private float enemyHP, enemyMaxHP = 14400f;
     //private float enemySP, enemyMaxSP = 4800f;
 
     //offense
@@ -191,7 +191,7 @@ public class bossFunction : MonoBehaviour
         //arrows
         if (upgradeWeapons.ballista) //boss hwacha
         {
-            attackDamageArrows = 24f;
+            attackDamageArrows = 18.7f;
             canAttackArrows = 0.1f;
 
             arrowSpeed = 7f;
@@ -202,7 +202,7 @@ public class bossFunction : MonoBehaviour
         }
         else if (upgradeWeapons.hwacha) //boss abllista
         {
-            attackDamageArrows = 144f;
+            attackDamageArrows = 96f;
             canAttackArrows = 0.6f;
 
             arrowSpeed = 10f;
@@ -210,7 +210,7 @@ public class bossFunction : MonoBehaviour
         }
         else //neither
         {
-            attackDamageArrows = 48f;
+            attackDamageArrows = 32f;
             canAttackArrows = 0.2f;
 
             arrowSpeed = 7.5f;
@@ -219,7 +219,7 @@ public class bossFunction : MonoBehaviour
         //cannon
         if (upgradeWeapons.bombard) //boss falconet
         {
-            attackDamageCannonRound = 120f;
+            attackDamageCannonRound = 80f;
             canAttackCannonRound = 1f;
 
             roundSpeed = 12.5f;
@@ -228,12 +228,12 @@ public class bossFunction : MonoBehaviour
             //grape shot
             grapeShotAmount = 20;
 
-            damageAmountRoundGrapeShot = 36f;
+            damageAmountRoundGrapeShot = 12f;
             roundSpeedGrapeShot = 10f;
         }
         else if (upgradeWeapons.falconet) //boss bombard
         {
-            attackDamageCannonRound = 540f;
+            attackDamageCannonRound = 270f;
             canAttackCannonRound = 2.25f;
 
             roundSpeed = 12.5f;
@@ -244,7 +244,7 @@ public class bossFunction : MonoBehaviour
         }
         else //neither
         {
-            attackDamageCannonRound = 240f;
+            attackDamageCannonRound = 160f;
             canAttackCannonRound = 1f;
 
             roundSpeed = 12.5f;
@@ -253,7 +253,7 @@ public class bossFunction : MonoBehaviour
         //catapult
         if (upgradeWeapons.trebuchet) //boss mangonel
         {
-            attackDamageCatapultPayload = 200f;
+            attackDamageCatapultPayload = 133.3f;
             canAttackCatapultPayload = 2f;
 
             payloadSpeed = 10f;
@@ -263,17 +263,17 @@ public class bossFunction : MonoBehaviour
         }
         if (upgradeWeapons.mangonel) //boss trebuchet
         {
-            attackDamageCatapultPayload = 720f;
+            attackDamageCatapultPayload = 480f;
             canAttackCatapultPayload = 3f;
 
             payloadSpeed = 10f;
             payloadHeightNum = 6f;
 
-            trebuchetPayloadDeliveryDamage = 180f;
+            trebuchetPayloadDeliveryDamage = 120f;
         }
         else //neither
         {
-            attackDamageCatapultPayload = 480f;
+            attackDamageCatapultPayload = 320f;
             canAttackCatapultPayload = 2f;
 
             payloadSpeed = 10f;
