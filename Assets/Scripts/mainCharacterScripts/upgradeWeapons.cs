@@ -8,7 +8,7 @@ public class upgradeWeapons : MonoBehaviour
     //weapon upgrades
     //archers
     public static int bowLevel = 3;
-    public static bool ballista = false; //slow firing strong arrow that goes through enemies
+    public static bool ballista = true; //slow firing strong arrow that goes through enemies
     public static bool hwacha = false; //shoots a load of arrow's in quick succession before having to reload for some time
 
     public static float canFireArchers = 0.2f;
@@ -23,7 +23,7 @@ public class upgradeWeapons : MonoBehaviour
     //cannons
     public static int culverinLevel = 3;
     public static bool bombard = false; //shoots a big round that will explode on contact (or at the end of it's trajectory) (the explodion deals procentage damage)
-    public static bool falconet = false; //shoots grape shot rounds that explode/scatter on contact (or at the end of it's trajectory)
+    public static bool falconet = true; //shoots grape shot rounds that explode/scatter on contact (or at the end of it's trajectory)
 
     public static float canFireCannons = 2;
     public static float damageAmountRound = 5;
@@ -41,7 +41,7 @@ public class upgradeWeapons : MonoBehaviour
 
     //catapult
     public static int onagerLevel = 3;
-    public static bool trebuchet = false; //shoot's a payload high in the air before it comes crashing down (it leaves an AOE on the ground)
+    public static bool trebuchet = true; //shoot's a payload high in the air before it comes crashing down (it leaves an AOE on the ground)
     public static bool mangonel = false; //shoot 2 or 3 lesser payloads in quick succession
 
     public static float canFireCatapult = 3;
@@ -89,6 +89,10 @@ public class upgradeWeapons : MonoBehaviour
 
     void Start()
     {
+        bowLevel = 1;
+        culverinLevel = 0;
+        onagerLevel= 0;
+
         ArchersUpgrades();
         CannonsUpgrades();
         CatapultUpgrades();
