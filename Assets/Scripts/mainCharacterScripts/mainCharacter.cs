@@ -116,19 +116,19 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     void movementAnimator()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             mainCharacterAnimations.SetInteger("AnimationIdicator", 3);
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             mainCharacterAnimations.SetInteger("AnimationIdicator", 4);
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             mainCharacterAnimations.SetInteger("AnimationIdicator", 1);
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             mainCharacterAnimations.SetInteger("AnimationIdicator", 2);
         }
