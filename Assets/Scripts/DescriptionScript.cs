@@ -42,6 +42,12 @@ public class DescriptionScript : MonoBehaviour
             itemCost = "4800 wood, 1600 stone, 3200 steel";
             itemDescription = "Get acces to Archers LV5!";
         }
+        else
+        {
+            itemName = "Archers Upgrade";
+            itemCost = string.Empty;
+            itemDescription = "Max Archers Upgrade";
+        }
     }
 
     public void Cannons()
@@ -76,6 +82,12 @@ public class DescriptionScript : MonoBehaviour
             itemCost = "1600 wood, 3200 stone, 4800 steel";
             itemDescription = "Get acces to cannons LV5!";
         }
+        else
+        {
+            itemName = "CANNONS Upgrade";
+            itemCost = string.Empty;
+            itemDescription = "Max CANNONS Upgrade";
+        }
     }
 
     public void Catapult()
@@ -109,6 +121,12 @@ public class DescriptionScript : MonoBehaviour
             itemName = "Catapult Upgrade";
             itemCost = "3200 wood, 4800 stone, 1600 steel";
             itemDescription = "Get acces to Catapult LV5!";
+        }
+        else
+        {
+            itemName = "Catapult Upgrade";
+            itemCost = string.Empty;
+            itemDescription = "Max Catapult Upgrade";
         }
     }
     #endregion
@@ -145,6 +163,12 @@ public class DescriptionScript : MonoBehaviour
             itemCost = "4800 wood, 1600 stone, 3200 steel";
             itemDescription = "Get acces to Self Repair LV5!";
         }
+        else
+        {
+            itemName = "Self Repair Upgrade";
+            itemCost = string.Empty;
+            itemDescription = "Max Self Repair Upgrade";
+        }
     }
 
     public void Health()
@@ -179,6 +203,12 @@ public class DescriptionScript : MonoBehaviour
             itemCost = "1600 wood, 3200 stone, 4800 steel";
             itemDescription = "Get acces to Health Upgrade LV5!";
         }
+        else
+        {
+            itemName = "Health Upgrade";
+            itemCost = string.Empty;
+            itemDescription = "Max Health Upgrade";
+        }
     }
 
     public void Shield()
@@ -212,6 +242,12 @@ public class DescriptionScript : MonoBehaviour
             itemName = "Shield Upgrade";
             itemCost = "3200 wood, 4800 stone, 1600 steel";
             itemDescription = "Get acces to Shield LV5!";
+        }
+        else
+        {
+            itemName = "Shield Upgrade";
+            itemCost = string.Empty;
+            itemDescription = "Max Shield Upgrade";
         }
     }
     #endregion
