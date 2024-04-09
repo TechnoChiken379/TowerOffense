@@ -10,10 +10,10 @@ public class resources : MonoBehaviour, IDataPersistance
     public static float steelAmount = 0;
     public static float goldAmount = 0;
 
-    public int showedWood = 0;
-    public int showedStone = 0;
-    public int showedSteel = 0;
-    public int showedGold = 0;
+    public static int showedWood = 0;
+    public static int showedStone = 0;
+    public static int showedSteel = 0;
+    public static int showedGold = 0;
 
     //text
     public TMPro.TMP_Text woodText;

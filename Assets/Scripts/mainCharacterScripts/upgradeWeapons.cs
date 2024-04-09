@@ -21,7 +21,7 @@ public class upgradeWeapons : MonoBehaviour
     public static float hwachaReloadTime = 3f;
 
     //cannons
-    public static int culverinLevel = 1;
+    public static int culverinLevel = 0;
     public static bool bombard = false; //shoots a big round that will explode on contact (or at the end of it's trajectory) (the explodion deals procentage damage)
     public static bool falconet = false; //shoots grape shot rounds that explode/scatter on contact (or at the end of it's trajectory)
 
@@ -40,7 +40,7 @@ public class upgradeWeapons : MonoBehaviour
     public static float damageAmountRoundShrapnel = 0f;
 
     //catapult
-    public static int onagerLevel = 1;
+    public static int onagerLevel = 0;
     public static bool trebuchet = false; //shoot's a payload high in the air before it comes crashing down (it leaves an AOE on the ground)
     public static bool mangonel = false; //shoot 2 or 3 lesser payloads in quick succession
 
@@ -89,6 +89,14 @@ public class upgradeWeapons : MonoBehaviour
 
     void Start()
     {
+        ArchersUpgrades();
+        CannonsUpgrades();
+        CatapultUpgrades();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         bowLevel = bowLevel;
         culverinLevel = culverinLevel;
         onagerLevel = onagerLevel;
@@ -100,14 +108,6 @@ public class upgradeWeapons : MonoBehaviour
         trebuchet = trebuchet;
         mangonel = mangonel;
 
-        ArchersUpgrades();
-        CannonsUpgrades();
-        CatapultUpgrades();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         ArchersUpgrades();
         CannonsUpgrades();
         CatapultUpgrades();
