@@ -49,6 +49,7 @@ public class shopButtons : MonoBehaviour
         SceneManager.LoadScene("tilemapTesting");
     }
 
+    #region ShopButtons
     private void DisableBools()
     {
         shopTab = false;
@@ -188,7 +189,11 @@ public class shopButtons : MonoBehaviour
             returnButtonSwitch = "Opend Ammo";
         }
     }
+    #endregion
+    #region Buy Upgrades
 
+    #endregion
+    #region Item Descriptions
     public virtual string GetItemDescription()
     {
         return itemDescription1;
@@ -203,4 +208,5 @@ public class shopButtons : MonoBehaviour
     {
         DescriptionManager.Instance.DestroyItemInfo();
     }
+    #endregion
 }
