@@ -65,36 +65,42 @@ public class shopButtons : MonoBehaviour
         shopTab = true;
         if (returnButtonSwitch == "Opend Upgrades") //
         {
+            upgradesTab = true;
             SHOP.SetActive(enabled);
             UPGRADES.SetActive(!enabled); 
         }
 
         if (returnButtonSwitch == "Opend UP_Offensive") //
         {
+            upgradesOffensiveTab = true;
             UPGRADES.SetActive(enabled);
             UP_OFFENSIVE.SetActive(!enabled);
         }
 
         if (returnButtonSwitch == "Opend UP_Defensive") //
         {
+            upgradesDefensiveTab = true;
             UPGRADES.SetActive(enabled);
             UP_DEFENSIVE.SetActive(!enabled);
         }
 
         if (returnButtonSwitch == "Opend Repairs") //
         {
+            repairsTab = true;
             SHOP.SetActive(enabled);
             REPAIRS.SetActive(!enabled);
         }
 
         if (returnButtonSwitch == "Opend Abilities") //
         {
+            abilitiesTab = true;
             SHOP.SetActive(enabled);
             ABILITIES.SetActive(!enabled);
         }
 
         if (returnButtonSwitch == "Opend Ammo") //
         {
+            abilitiesTab = true;
             SHOP.SetActive(enabled);
             AMMO.SetActive(!enabled);
         }

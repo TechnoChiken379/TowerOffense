@@ -2743,6 +2743,8 @@ GameObject:
   - component: {fileID: 875990503}
   - component: {fileID: 875990502}
   - component: {fileID: 875990501}
+  - component: {fileID: 875990505}
+  - component: {fileID: 875990504}
   m_Layer: 5
   m_Name: SHIELD
   m_TagString: Untagged
@@ -2864,6 +2866,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875990499}
   m_CullTransparentMesh: 1
+--- !u!114 &875990504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875990499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 379104928}
+          m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
+          m_MethodName: Shield
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 379104928}
+          m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
+          m_MethodName: OnCursorEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 379104928}
+          m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
+          m_MethodName: OnCursorExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &875990505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875990499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac2bfb6e82e65d49a9c22699abb5e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &878930459
 GameObject:
   m_ObjectHideFlags: 0
@@ -3972,7 +4043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1004283695
 Transform:
   m_ObjectHideFlags: 0
@@ -4727,6 +4798,8 @@ GameObject:
   - component: {fileID: 1338074526}
   - component: {fileID: 1338074525}
   - component: {fileID: 1338074524}
+  - component: {fileID: 1338074528}
+  - component: {fileID: 1338074527}
   m_Layer: 5
   m_Name: SELF REPAIR
   m_TagString: Untagged
@@ -4848,6 +4921,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1338074522}
   m_CullTransparentMesh: 1
+--- !u!114 &1338074527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338074522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 379104928}
+          m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
+          m_MethodName: SelfRepair
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 379104928}
+          m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
+          m_MethodName: OnCursorEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 379104928}
+          m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
+          m_MethodName: OnCursorExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1338074528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338074522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac2bfb6e82e65d49a9c22699abb5e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1393472133
 GameObject:
   m_ObjectHideFlags: 0
@@ -6348,6 +6490,8 @@ GameObject:
   - component: {fileID: 1547086520}
   - component: {fileID: 1547086519}
   - component: {fileID: 1547086518}
+  - component: {fileID: 1547086522}
+  - component: {fileID: 1547086521}
   m_Layer: 5
   m_Name: HEALTH
   m_TagString: Untagged
@@ -6469,6 +6613,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547086516}
   m_CullTransparentMesh: 1
+--- !u!114 &1547086521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547086516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 379104928}
+          m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
+          m_MethodName: Health
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 379104928}
+          m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
+          m_MethodName: OnCursorEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 379104928}
+          m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
+          m_MethodName: OnCursorExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1547086522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547086516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac2bfb6e82e65d49a9c22699abb5e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1577673522
 GameObject:
   m_ObjectHideFlags: 0
@@ -7686,6 +7899,8 @@ GameObject:
   - component: {fileID: 1903772553}
   - component: {fileID: 1903772552}
   - component: {fileID: 1903772551}
+  - component: {fileID: 1903772555}
+  - component: {fileID: 1903772554}
   m_Layer: 5
   m_Name: CATAPULTS
   m_TagString: Untagged
@@ -7807,6 +8022,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903772549}
   m_CullTransparentMesh: 1
+--- !u!114 &1903772554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903772549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 379104928}
+          m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
+          m_MethodName: Catapult
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 379104928}
+          m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
+          m_MethodName: OnCursorEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 379104928}
+          m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
+          m_MethodName: OnCursorExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1903772555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903772549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac2bfb6e82e65d49a9c22699abb5e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1920992139
 GameObject:
   m_ObjectHideFlags: 0
