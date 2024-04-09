@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
+using TMPro;
 
 public class shopButtons : MonoBehaviour
 {
@@ -22,10 +25,23 @@ public class shopButtons : MonoBehaviour
     public GameObject ABILITIES;
     public GameObject AMMO;
 
+    public TMP_Text itemName;
+    public TMP_Text itemCost;
+    public TMP_Text itemDescription;
+
+    private string itemDescription1;
+    private string itemName1;
+    private string itemCost1;
+    private Vector2 buttonPos;
+
     private void Start()
     {
         DisableBools();
         shopTab = true;
+
+        itemName1 = itemName.ToString();
+        itemCost1 = itemCost.ToString();
+        itemDescription1 = itemDescription.ToString();
     }
 
     public void CloseShop()
@@ -165,5 +181,20 @@ public class shopButtons : MonoBehaviour
             AMMO.SetActive(enabled);
             returnButtonSwitch = "Opend Ammo";
         }
+    }
+
+    public virtual string GetItemDescription()
+    {
+        return itemDescription1;
+    }
+
+    public void OnCursorEnter()
+    {
+        DescriptionManager.Instance.DisplayItemInfo(itemName1, itemCost1, itemDescription1, buttonPos);
+    }
+
+    public void OnCursorExit()
+    {
+        DescriptionManager.Instance.DestroyItemInfo();
     }
 }
