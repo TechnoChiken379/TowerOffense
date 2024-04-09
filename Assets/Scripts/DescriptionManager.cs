@@ -35,7 +35,7 @@ public class DescriptionManager : MonoBehaviour
         }
 
         buttonPos.x = 5.5f;
-        buttonPos.y = -4;
+        buttonPos.y = -3.5f;
 
         currentItemInfo = Instantiate(itemInfoPrefab, buttonPos, Quaternion.identity, canvas);
         currentItemInfo.GetComponent<ItemInfoScript>().SetUp(itemName, itemCost, itemDescription);

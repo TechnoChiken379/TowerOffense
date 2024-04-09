@@ -3554,7 +3554,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &952421692
 Transform:
   m_ObjectHideFlags: 0
@@ -8194,6 +8194,9 @@ GameObject:
   - component: {fileID: 1937394106}
   - component: {fileID: 1937394105}
   - component: {fileID: 1937394111}
+  - component: {fileID: 1937394114}
+  - component: {fileID: 1937394113}
+  - component: {fileID: 1937394112}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -8361,6 +8364,50 @@ MonoBehaviour:
   itemName: {fileID: 0}
   itemCost: {fileID: 0}
   itemDescription: {fileID: 0}
+--- !u!114 &1937394112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937394104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4175bd21cee859740bffa137dacf98b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1937394113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937394104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555b9d5f5e4441448a3887fa3ffa100e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1937394114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937394104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ada5bffbdb5e6f45a6e453f1535677a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showedWood: 0
+  showedStone: 0
+  showedSteel: 0
+  showedGold: 0
+  woodText: {fileID: 0}
+  stoneText: {fileID: 0}
+  steelText: {fileID: 0}
+  goldText: {fileID: 0}
 --- !u!1 &2016964896
 GameObject:
   m_ObjectHideFlags: 0
