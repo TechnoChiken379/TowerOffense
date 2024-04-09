@@ -89,9 +89,16 @@ public class upgradeWeapons : MonoBehaviour
 
     void Start()
     {
-        bowLevel = 5;
-        culverinLevel = 5;
-        onagerLevel= 5;
+        bowLevel = bowLevel;
+        culverinLevel = culverinLevel;
+        onagerLevel = onagerLevel;
+
+        ballista = ballista;
+        hwacha = hwacha;
+        bombard = bombard;
+        falconet = falconet;
+        trebuchet = trebuchet;
+        mangonel = mangonel;
 
         ArchersUpgrades();
         CannonsUpgrades();
