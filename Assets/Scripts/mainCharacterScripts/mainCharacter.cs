@@ -127,21 +127,52 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
     }
     void movementAnimator()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
+            mainCharacterAnimations.speed = 1;
             mainCharacterAnimations.SetInteger("AnimationIdicator", 3);
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        else if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
         {
+            mainCharacterAnimations.speed = 1;
             mainCharacterAnimations.SetInteger("AnimationIdicator", 4);
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        else if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
+            mainCharacterAnimations.speed = 1;
+            mainCharacterAnimations.SetInteger("AnimationIdicator", 2);
+        }
+        else if (!Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+        {
+            mainCharacterAnimations.speed = 1;
             mainCharacterAnimations.SetInteger("AnimationIdicator", 1);
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        else
         {
-            mainCharacterAnimations.SetInteger("AnimationIdicator", 2);
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                mainCharacterAnimations.speed = 1;
+                mainCharacterAnimations.SetInteger("AnimationIdicator", 3);
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                mainCharacterAnimations.speed = 1;
+                mainCharacterAnimations.SetInteger("AnimationIdicator", 4);
+            }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                mainCharacterAnimations.speed = 1;
+                mainCharacterAnimations.SetInteger("AnimationIdicator", 2);
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                mainCharacterAnimations.speed = 1;
+                mainCharacterAnimations.SetInteger("AnimationIdicator", 1);
+            }
+        }
+        if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+        {
+            mainCharacterAnimations.speed = 0;
         }
     }
 
