@@ -10,12 +10,127 @@ public class DescriptionScript : MonoBehaviour
     private string itemCost;
     private Vector2 buttonPos;
 
+    public GameObject Archers0;
+    public GameObject Archers1;
+    public GameObject Archers2;
+
+    public GameObject Cannons0;
+    public GameObject Cannons1;
+    public GameObject Cannons2;
+
+    public GameObject Catapult0;
+    public GameObject Catapult1;
+    public GameObject Catapult2;
+
+    public GameObject Health0;
+    public GameObject Health1;
+    public GameObject Health2;
+
+    public GameObject Shield0;
+    public GameObject Shield1;
+    public GameObject Shield2;
+
+    public GameObject Repair0;
+    public GameObject Repair1;
+    public GameObject Repair2;
+
     public static DescriptionScript Instance;
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+        }
+    }
+
+    private void Start()
+    {
+        PathButtons();
+    }
+
+    private void Update()
+    {
+        
+    }
+
+    public void PathButtons()
+    {
+        if (upgradeWeapons.bowLevel == 3)
+        {
+            Archers0.SetActive(!enabled);
+            Archers1.SetActive(enabled);
+            Archers2.SetActive(enabled);
+        }
+        else
+        {
+            Archers0.SetActive(enabled);
+            Archers1.SetActive(!enabled);
+            Archers2.SetActive(!enabled);
+        }
+
+        if (upgradeWeapons.culverinLevel == 3)
+        {
+            Cannons0.SetActive(!enabled);
+            Cannons1.SetActive(enabled);
+            Cannons2.SetActive(enabled);
+        }
+        else
+        {
+            Cannons0.SetActive(enabled);
+            Cannons1.SetActive(!enabled);
+            Cannons2.SetActive(!enabled);
+        }
+
+        if (upgradeWeapons.onagerLevel == 3)
+        {
+            Catapult0.SetActive(!enabled);
+            Catapult1.SetActive(enabled);
+            Catapult2.SetActive(enabled);
+        }
+        else
+        {
+            Catapult0.SetActive(enabled);
+            Catapult1.SetActive(!enabled);
+            Catapult2.SetActive(!enabled);
+        }
+
+        if (upgradeArmor.healthLevel == 3)
+        {
+            Health0.SetActive(!enabled);
+            Health1.SetActive(enabled);
+            Health2.SetActive(enabled);
+        }
+        else
+        {
+            Health0.SetActive(enabled);
+            Health1.SetActive(!enabled);
+            Health2.SetActive(!enabled);
+        }
+
+        if (upgradeArmor.shieldLevel == 3)
+        {
+            Shield0.SetActive(!enabled);
+            Shield1.SetActive(enabled);
+            Shield2.SetActive(enabled);
+        }
+        else
+        {
+            Shield0.SetActive(enabled);
+            Shield1.SetActive(!enabled);
+            Shield2.SetActive(!enabled);
+        }
+
+        if (upgradeArmor.selfRepairLevel == 3)
+        {
+            Repair0.SetActive(!enabled);
+            Repair1.SetActive(enabled);
+            Repair2.SetActive(enabled);
+        }
+        else
+        {
+            Repair0.SetActive(enabled);
+            Repair1.SetActive(!enabled);
+            Repair2.SetActive(!enabled);
         }
     }
 
@@ -27,6 +142,7 @@ public class DescriptionScript : MonoBehaviour
     #region Weapon Description
     public void Archers()
     {
+        PathButtons();
         if (upgradeWeapons.bowLevel == 1)
         {
             itemName = "Archers Upgrade";
@@ -41,18 +157,32 @@ public class DescriptionScript : MonoBehaviour
             itemDescription = "Get acces to Archers LV3! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
-        else if (upgradeWeapons.bowLevel == 3)
+        //else if (upgradeWeapons.bowLevel == 3)
+        //{
+        //    itemName = "Archers Upgrade";
+        //    itemCost = "2400 wood, 800 stone, 1600 steel";
+        //    itemDescription = "Get acces to Archers LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+        //    DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        //}
+        //else if (upgradeWeapons.bowLevel == 4)
+        //{
+        //    itemName = "Archers Upgrade";
+        //    itemCost = "4800 wood, 1600 stone, 3200 steel";
+        //    itemDescription = "Get acces to Archers LV5! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+        //    DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        //}
+        else if (upgradeWeapons.bowLevel == 4 && upgradeWeapons.hwacha == true)
         {
-            itemName = "Archers Upgrade";
-            itemCost = "2400 wood, 800 stone, 1600 steel";
-            itemDescription = "Get acces to Archers LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            itemName = "Hwach Upgrade";
+            itemCost = "4800 wood, 1600 stone, 3200 steel";
+            itemDescription = "Get acces to fast firing Hwach LV5! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
-        else if (upgradeWeapons.bowLevel == 4)
+        else if (upgradeWeapons.bowLevel == 4 && upgradeWeapons.ballista == true)
         {
-            itemName = "Archers Upgrade";
+            itemName = "Balista Upgrade";
             itemCost = "4800 wood, 1600 stone, 3200 steel";
-            itemDescription = "Get acces to Archers LV5! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            itemDescription = "Get acces to strong Balista LV5! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
         else
@@ -64,8 +194,49 @@ public class DescriptionScript : MonoBehaviour
         }
     }
 
+    public void ArchersPath1()
+    {
+        PathButtons();
+        if (upgradeWeapons.bowLevel == 3)
+        {
+            itemName = "Hwach Upgrade";
+            itemCost = "2400 wood, 800 stone, 1600 steel";
+            itemDescription = "Get acces to fast firing Hwach LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+        
+        else
+        {
+            itemName = "Hwach Upgrade";
+            itemCost = string.Empty;
+            itemDescription = "Max Hwach Upgrade " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+    }
+
+    public void ArchersPath2()
+    {
+        PathButtons();
+        if (upgradeWeapons.bowLevel == 3)
+        {
+            itemName = "Balista Upgrade";
+            itemCost = "2400 wood, 800 stone, 1600 steel";
+            itemDescription = "Get acces to strong Balista LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+
+        else
+        {
+            itemName = "Balista Upgrade";
+            itemCost = string.Empty;
+            itemDescription = "Max Balista Upgrade " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+    }
+
     public void Cannons()
     {
+        PathButtons();
         if (upgradeWeapons.culverinLevel == 0)
         {
             itemName = "CANNONS Upgrade";
@@ -112,6 +283,7 @@ public class DescriptionScript : MonoBehaviour
 
     public void Catapult()
     {
+        PathButtons();
         if (upgradeWeapons.onagerLevel == 0)
         {
             itemName = "Catapult Upgrade";
@@ -159,6 +331,7 @@ public class DescriptionScript : MonoBehaviour
     #region Aromr Description
     public void SelfRepair()
     {
+        PathButtons();
         if (upgradeArmor.selfRepairLevel == 0)
         {
             itemName = "Self Repair Upgrade";
@@ -205,6 +378,7 @@ public class DescriptionScript : MonoBehaviour
 
     public void Health()
     {
+        PathButtons();
         if (upgradeArmor.healthLevel == 0)
         {
             itemName = "Health Upgrade Upgrade";
@@ -251,6 +425,7 @@ public class DescriptionScript : MonoBehaviour
 
     public void Shield()
     {
+        PathButtons();
         if (upgradeArmor.shieldLevel == 0)
         {
             itemName = "Shield Upgrade";
