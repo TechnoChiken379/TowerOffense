@@ -110,7 +110,12 @@ public class upgradeWeapons : MonoBehaviour, IDataPersistance
     #region archer
     void ArchersUpgrades()
     {
-        if (bowLevel == 1) //10 dps
+        if (bowLevel == 0) //0 dps
+        { 
+            canFireArchers = 9999999f;
+            damageAmountArrows = 0f;
+        }
+        else if (bowLevel == 1) //10 dps
         {
             canFireArchers = 0.6f;
             damageAmountArrows = 6f;
@@ -177,7 +182,12 @@ public class upgradeWeapons : MonoBehaviour, IDataPersistance
     #region cannon
     void CannonsUpgrades()
     {
-        if (culverinLevel == 1)
+        if (culverinLevel == 0)
+        {
+            canFireCannons = 9999999f;
+            damageAmountRound = 0f;
+        }
+        else if (culverinLevel == 1)
         {
             canFireCannons = 3f;
             damageAmountRound = 30f;
@@ -254,7 +264,12 @@ public class upgradeWeapons : MonoBehaviour, IDataPersistance
     #region catapult
     void CatapultUpgrades()
     {
-        if (onagerLevel == 1)
+        if (onagerLevel == 0)
+        {
+            canFireCatapult = 9999999f;
+            damageAmountPayload = 0f;
+        }
+        else if (onagerLevel == 1)
         {
             canFireCatapult = 4f;
             damageAmountPayload = 40f;

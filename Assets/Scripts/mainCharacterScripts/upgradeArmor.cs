@@ -99,7 +99,11 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
         leftCombat += Time.deltaTime;
 
         //
-        if (healthLevel == 1) 
+        if (healthLevel == 0)
+        {
+            maxHealth = 100f;
+        }
+        else if (healthLevel == 1) 
         {
             maxHealth = 100f;
         } 
@@ -158,7 +162,11 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
         //
 
         //
-        if (shieldLevel == 1)
+        if (shieldLevel == 0)
+        {
+            maxShieldHealth = 0f;
+        }
+        else if (shieldLevel == 1)
         {
             maxShieldHealth = 50f;
         }
@@ -226,6 +234,11 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
         repairTimeBase = maxHealth * 0.025f;
 
         //
+        if (selfRepairLevel == 0)
+        {
+            repairCompensation = 0f;
+            repairTime = repairTimeBase * 0f;
+        }
         if (selfRepairLevel == 1)
         {
             repairCompensation = 0.20f;
