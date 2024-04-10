@@ -531,8 +531,8 @@ public class shopButtons : MonoBehaviour
             resources.stoneAmount -= 800;
             resources.steelAmount -= 1600;
             upgradeArmor.selfRepairLevel = 4;
-            upgradeArmor.selfRepairLightRepair = true;
-            upgradeArmor.selfRepairHeavyRepair = false;
+            upgradeArmor.selfRepairLightRepair = false;
+            upgradeArmor.selfRepairHeavyRepair = true;
         }
         else
         {
@@ -554,8 +554,8 @@ public class shopButtons : MonoBehaviour
             resources.stoneAmount -= 800;
             resources.steelAmount -= 1600;
             upgradeArmor.selfRepairLevel = 4;
-            upgradeArmor.selfRepairLightRepair = false;
-            upgradeArmor.selfRepairHeavyRepair = true;
+            upgradeArmor.selfRepairLightRepair = true;
+            upgradeArmor.selfRepairHeavyRepair = false;
         }
         else
         {
