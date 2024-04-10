@@ -130,6 +130,8 @@ public class buttons : MonoBehaviour
     {
         mainMenuAnimation.SetBool("MainMenu-GoBack", true);
         mainMenuAnimation.SetBool("Play", false);
+        mainMenuAnimation.SetBool("Settings", false);
+        mainMenuAnimation.SetBool("Credits", false);
 
     }
     public void Play() 
@@ -147,7 +149,8 @@ public class buttons : MonoBehaviour
     }
     public void Settings() 
     {
-        mainMenuAnimation.SetBool("Settings", true); 
+        mainMenuAnimation.SetBool("Settings", true);
+        mainMenuAnimation.SetBool("MainMenu-GoBack", false);
     }
     public void SettingsAudio() 
     {
@@ -168,7 +171,8 @@ public class buttons : MonoBehaviour
     }
     public void Credits() 
     {
-        mainMenuAnimation.SetBool("Credits", true); 
+        mainMenuAnimation.SetBool("Credits", true);
+        mainMenuAnimation.SetBool("MainMenu-GoBack", false);
     }
     public void LoadLastSave()
     {
