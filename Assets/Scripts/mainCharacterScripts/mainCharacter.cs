@@ -80,7 +80,7 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
         //Movement speed
         speed = 4;
 
-        setValuesStart();
+        //setValuesStart();
 
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
@@ -246,27 +246,27 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
         //hotKeyTimer = 0;
     }
 
-    void setValuesStart()
-    {
-        //Starting health = Current health
-        totalCurrentHealth = upgradeArmor.maxHealth;
-        healthBar.maxValue = upgradeArmor.maxHealth;
-        healthBar.minValue = 0;
-        healthBar.value = totalCurrentHealth;
+    //void setValuesStart()
+    //{
+    //    //Starting health = Current health
+    //    totalCurrentHealth = upgradeArmor.maxHealth;
+    //    healthBar.maxValue = upgradeArmor.maxHealth;
+    //    healthBar.minValue = 0;
+    //    healthBar.value = totalCurrentHealth;
 
-        //Starting shield health = Current shield health
-        totalCurrentShieldHealth = upgradeArmor.maxShieldHealth;
-        shieldBar.maxValue = upgradeArmor.maxShieldHealth;
-        shieldBar.minValue = 0;
-        shieldBar.value = totalCurrentShieldHealth;
+    //    //Starting shield health = Current shield health
+    //    totalCurrentShieldHealth = upgradeArmor.maxShieldHealth;
+    //    shieldBar.maxValue = upgradeArmor.maxShieldHealth;
+    //    shieldBar.minValue = 0;
+    //    shieldBar.value = totalCurrentShieldHealth;
 
-        //starting repair health = current repair health
-        maxRepairHealth = upgradeArmor.maxHealth;
-        healthRepairBar.maxValue = maxRepairHealth;
-        healthRepairBar.minValue = 0;
-        healthRepairBar.value = totalCurrentRepairHealth;
-        totalCurrentRepairHealth = maxRepairHealth;
-    }
+    //    //starting repair health = current repair health
+    //    maxRepairHealth = upgradeArmor.maxHealth;
+    //    healthRepairBar.maxValue = maxRepairHealth;
+    //    healthRepairBar.minValue = 0;
+    //    healthRepairBar.value = totalCurrentRepairHealth;
+    //    totalCurrentRepairHealth = maxRepairHealth;
+    //}
 
     void setValuesUpdate()
     {
