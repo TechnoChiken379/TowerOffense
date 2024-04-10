@@ -48,8 +48,7 @@ public class bossProjectileGrapeshot : MonoBehaviour
     {
         if (other.gameObject.CompareTag("mainCharacter"))
         {
-            mainCharacter.TakenDamageCalculation(damageAmount);
-            mainCharacter.DetermineTotalRepairValue(damageAmount);
+            mainCharacter.CalculateDamageAndRepairValues(damageAmount);
 
             if (upgradeArmor.deflectDamage)
             {

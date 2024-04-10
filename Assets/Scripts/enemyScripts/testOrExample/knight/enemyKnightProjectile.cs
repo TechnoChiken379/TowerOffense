@@ -53,8 +53,7 @@ public class enemyKnightProjectile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("mainCharacter"))
         {
-            mainCharacter.TakenDamageCalculation(enemyProjectileDamageAmount);
-            mainCharacter.DetermineTotalRepairValue(enemyProjectileDamageAmount);
+            mainCharacter.CalculateDamageAndRepairValues(enemyProjectileDamageAmount);
             Destroy(gameObject);
 
             if (upgradeArmor.deflectDamage)

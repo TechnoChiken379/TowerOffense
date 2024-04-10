@@ -222,8 +222,7 @@ public class bossProjectile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("mainCharacter"))
         {
-            mainCharacter.TakenDamageCalculation(enemyProjectileDamageAmount);
-            mainCharacter.DetermineTotalRepairValue(enemyProjectileDamageAmount);
+            mainCharacter.CalculateDamageAndRepairValues(enemyProjectileDamageAmount);
 
             if (upgradeArmor.deflectDamage)
             {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Animations;
@@ -344,7 +345,12 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
             totalRepairCompensation -= excess;
         }
     }
-
+    public static void CalculateDamageAndRepairValues(float damageTaken)
+    {
+        randomNumber = Random.Range(1, 101);
+        DetermineTotalRepairValue(damageTaken);
+        TakenDamageCalculation(damageTaken);
+    }
     public static void TakenDamageCalculation(float damageTaken)
     {
         damageTaken *= upgradeArmor.deflectDamageNotTaken;
@@ -353,7 +359,6 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
         {
             if (damageTaken <= upgradeArmor.ricochetDamageLimit) 
             {
-                randomNumber = Random.Range(1, 101);
                 if (randomNumber <= upgradeArmor.ricochetchange)
                 {
                     damageTaken = 0;

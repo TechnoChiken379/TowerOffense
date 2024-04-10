@@ -128,8 +128,7 @@ public class enemyRogueRProjectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("mainCharacter"))
         {
-            mainCharacter.TakenDamageCalculation(enemyProjectileDamageAmount);
-            mainCharacter.DetermineTotalRepairValue(enemyProjectileDamageAmount);
+            mainCharacter.CalculateDamageAndRepairValues(enemyProjectileDamageAmount);
             Destroy(gameObject); Destroy(targetSpawn); Destroy(projectileSpawn);
 
             if (upgradeArmor.deflectDamage)
