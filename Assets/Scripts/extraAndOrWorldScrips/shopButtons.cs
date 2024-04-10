@@ -35,7 +35,9 @@ public class shopButtons : MonoBehaviour
     private Vector2 buttonPos;
 
     public static float healthToRepair;
-    public static float ShieldToRepair;
+    public static float shieldToRepair;
+    public static float airStrikeTotal;
+    public static float supplyDropTotal;
 
     private void Start()
     {
@@ -761,16 +763,41 @@ public class shopButtons : MonoBehaviour
     public void ShieldRepair()
     {
         DescriptionManager.Instance.DestroyItemInfo();
-        ShieldToRepair = (upgradeArmor.maxShieldHealth - mainCharacter.totalCurrentShieldHealth);
-        if (ShieldToRepair < resources.woodAmount && ShieldToRepair < resources.stoneAmount && ShieldToRepair < resources.steelAmount)
+        shieldToRepair = (upgradeArmor.maxShieldHealth - mainCharacter.totalCurrentShieldHealth);
+        if (shieldToRepair < resources.woodAmount && shieldToRepair < resources.stoneAmount && shieldToRepair < resources.steelAmount)
         {
-            resources.woodAmount -= ShieldToRepair;
-            resources.stoneAmount -= ShieldToRepair;
-            resources.steelAmount -= ShieldToRepair;
-            mainCharacter.totalCurrentShieldHealth = (mainCharacter.totalCurrentShieldHealth + ShieldToRepair);
+            resources.woodAmount -= shieldToRepair;
+            resources.stoneAmount -= shieldToRepair;
+            resources.steelAmount -= shieldToRepair;
+            mainCharacter.totalCurrentShieldHealth = (mainCharacter.totalCurrentShieldHealth + shieldToRepair);
             DataPersistanceManager.saveGameBool = true;
         }
         DescriptionScript.Instance.RepairShieldHealthOnCursorEnter();
+    }
+    #endregion
+
+
+    #region buyable Abilities
+    public void Abilitie1AirStrike()
+    {
+        DescriptionManager.Instance.DestroyItemInfo();
+        if (100 <= resources.goldAmount)
+        {
+            resources.goldAmount -= 100;
+            DataPersistanceManager.saveGameBool = true;
+        }
+        DescriptionScript.Instance.RepairHealthOnCursorEnter();
+    }
+
+    public void Abilitie2SupplyDrop()
+    {
+        DescriptionManager.Instance.DestroyItemInfo();
+        if (100 <= resources.goldAmount)
+        {
+            resources.goldAmount -= 100;
+            DataPersistanceManager.saveGameBool = true;
+        }
+        DescriptionScript.Instance.RepairHealthOnCursorEnter();
     }
     #endregion
 }

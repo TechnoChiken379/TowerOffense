@@ -698,7 +698,7 @@ public class DescriptionScript : MonoBehaviour
 
     public void RepairShieldHealthOnCursorEnter()
     {
-        if (shopButtons.ShieldToRepair < resources.woodAmount && shopButtons.ShieldToRepair < resources.stoneAmount && shopButtons.ShieldToRepair < resources.steelAmount && upgradeArmor.shieldLevel >= 1)
+        if (shopButtons.shieldToRepair < resources.woodAmount && shopButtons.shieldToRepair < resources.stoneAmount && shopButtons.shieldToRepair < resources.steelAmount && upgradeArmor.shieldLevel >= 1)
         {
             itemName = "Repair Your Shield";
             itemCost = "Your current Shield = " + mainCharacter.totalCurrentShieldHealth;
