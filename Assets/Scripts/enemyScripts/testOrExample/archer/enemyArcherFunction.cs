@@ -19,9 +19,9 @@ public class enemyArcherFunction : MonoBehaviour
     private float generalSpeed = 3.5f; //movement speed
     private float combatSpeed = 4f; //movement speed
 
-    private float closeEnough = 5.2f; //how close does the enemy want to get
-    private float optimalDistance = 3.2f;
-    private float toClose = 2.2f; //how far does the enemy want to stay away from player
+    private float closeEnough = 5f; //how close does the enemy want to get
+    private float optimalDistance = 3f;
+    private float toClose = 2f; //how far does the enemy want to stay away from player
 
     private float timer = 0f; //timer to keep track of time before moving
     private float moveTime = 0.1f; //time to start moving

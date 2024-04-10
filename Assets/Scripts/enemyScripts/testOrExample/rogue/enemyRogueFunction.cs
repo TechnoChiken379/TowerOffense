@@ -17,9 +17,9 @@ public class enemyRogueFunction : MonoBehaviour
     private float combatSpeed = 4.5f; //movement speed
 
     private float closeEnough = 3f; //how close does the enemy want to get
-    private float melee = 1.3f;
-    private float optimalDistance = 1.2f;
-    private float toClose = 1.1f; //how far does the enemy want to stay away from player
+    private float melee = 1.4f;
+    private float optimalDistance = 1.3f;
+    private float toClose = 1.2f; //how far does the enemy want to stay away from player
 
     private float timer = 0f; //timer to keep track of time before moving
     private float moveTime = 0.0f; //time to start moving

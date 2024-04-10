@@ -137,7 +137,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1.75}
+  m_Size: {x: 0.5, y: 1.5}
   m_EdgeRadius: 0
 --- !u!50 &2517511659281857664
 Rigidbody2D:
@@ -204,6 +204,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArtilleryArrow: {fileID: 3069797098432816370, guid: b4d808a7a43606c409a38e017a93d8d3, type: 3}
   supplyDrop: {fileID: 369345172923266339, guid: 1c1f5fb800c670246819d4604c4cd59f, type: 3}
+  artyIcon: {fileID: 0}
+  SupplyIcon: {fileID: 0}
 --- !u!114 &2092075706204604541
 MonoBehaviour:
   m_ObjectHideFlags: 0
