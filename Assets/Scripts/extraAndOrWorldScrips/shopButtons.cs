@@ -376,8 +376,8 @@ public class shopButtons : MonoBehaviour
             resources.stoneAmount -= 1600;
             resources.steelAmount -= 2400;
             upgradeWeapons.culverinLevel = 4;
-            upgradeWeapons.falconet = true;
-            upgradeWeapons.bombard = false;
+            upgradeWeapons.falconet = false;
+            upgradeWeapons.bombard = true;
         }
         else
         {
@@ -442,6 +442,8 @@ public class shopButtons : MonoBehaviour
             resources.stoneAmount -= 2400;
             resources.steelAmount -= 800;
             upgradeWeapons.onagerLevel = 4;
+            upgradeWeapons.mangonel = false;
+            upgradeWeapons.trebuchet = true;
         }
         else
         {
@@ -463,6 +465,8 @@ public class shopButtons : MonoBehaviour
             resources.stoneAmount -= 2400;
             resources.steelAmount -= 800;
             upgradeWeapons.onagerLevel = 4;
+            upgradeWeapons.mangonel = true;
+            upgradeWeapons.trebuchet = false;
         }
         else
         {

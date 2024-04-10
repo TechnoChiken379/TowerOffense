@@ -276,25 +276,6 @@ public class DescriptionScript : MonoBehaviour
         PathButtons();
         if (upgradeWeapons.culverinLevel == 3)
         {
-            itemName = "bombard Upgrade";
-            itemCost = "800 wood, 1600 stone, 2400 steel";
-            itemDescription = "Get acces to bombard LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
-            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
-        }
-
-        else
-        {
-            itemName = "bombard Upgrade";
-            itemCost = string.Empty;
-            itemDescription = "Max bombard Upgrade " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
-            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
-        }
-    }
-    public void CannonsPath2()
-    {
-        PathButtons();
-        if (upgradeWeapons.culverinLevel == 3)
-        {
             itemName = "falconet Upgrade";
             itemCost = "800 wood, 1600 stone, 2400 steel";
             itemDescription = "Get acces to falconet LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
@@ -306,6 +287,25 @@ public class DescriptionScript : MonoBehaviour
             itemName = "falconet Upgrade";
             itemCost = string.Empty;
             itemDescription = "Max falconet Upgrade " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+    }
+    public void CannonsPath2()
+    {
+        PathButtons();
+        if (upgradeWeapons.culverinLevel == 3)
+        {
+            itemName = "bombard Upgrade";
+            itemCost = "800 wood, 1600 stone, 2400 steel";
+            itemDescription = "Get acces to bombard LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+
+        else
+        {
+            itemName = "bombard Upgrade";
+            itemCost = string.Empty;
+            itemDescription = "Max bombard Upgrade " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
     }

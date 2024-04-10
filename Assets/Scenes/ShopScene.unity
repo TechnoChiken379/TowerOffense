@@ -182,7 +182,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1937394114}
           m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
-          m_MethodName: Health
+          m_MethodName: HealthPath1
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -254,7 +254,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1937394111}
         m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
-        m_MethodName: HealthUpgrade
+        m_MethodName: HealthUpgradePath1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -720,7 +720,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1937394114}
           m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
-          m_MethodName: Health
+          m_MethodName: HealthPath2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -792,7 +792,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1937394111}
         m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
-        m_MethodName: HealthUpgrade
+        m_MethodName: HealthUpgradePath2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1657,7 +1657,6 @@ GameObject:
   - component: {fileID: 379104926}
   - component: {fileID: 379104925}
   - component: {fileID: 379104924}
-  - component: {fileID: 379104928}
   - component: {fileID: 379104927}
   m_Layer: 5
   m_Name: ARCHERS
@@ -1825,36 +1824,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &379104928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 379104922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aac2bfb6e82e65d49a9c22699abb5e68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Archers0: {fileID: 0}
-  Archers1: {fileID: 0}
-  Archers2: {fileID: 0}
-  Cannons0: {fileID: 0}
-  Cannons1: {fileID: 0}
-  Cannons2: {fileID: 0}
-  Catapult0: {fileID: 0}
-  Catapult1: {fileID: 0}
-  Catapult2: {fileID: 0}
-  Health0: {fileID: 0}
-  Health1: {fileID: 0}
-  Health2: {fileID: 0}
-  Shield0: {fileID: 0}
-  Shield1: {fileID: 0}
-  Shield2: {fileID: 0}
-  Repair0: {fileID: 0}
-  Repair1: {fileID: 0}
-  Repair2: {fileID: 0}
 --- !u!1 &383875714
 GameObject:
   m_ObjectHideFlags: 0
@@ -3069,7 +3038,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1937394114}
           m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
-          m_MethodName: SelfRepair
+          m_MethodName: RepairPath2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3141,7 +3110,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1937394111}
         m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
-        m_MethodName: SelfRepairUpgrade
+        m_MethodName: RepairUpgradePath2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4455,7 +4424,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1937394114}
           m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
-          m_MethodName: Shield
+          m_MethodName: ShieldPath2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4527,7 +4496,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1937394111}
         m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
-        m_MethodName: ShieldUpgrade
+        m_MethodName: ShieldUpgradePath2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5435,7 +5404,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1937394114}
           m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
-          m_MethodName: Catapult
+          m_MethodName: CatapultPath1
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -5507,7 +5476,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1937394111}
         m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
-        m_MethodName: CatapultUpgrade
+        m_MethodName: CatapultUpgradePath1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6646,7 +6615,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1937394114}
           m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
-          m_MethodName: Cannons
+          m_MethodName: CannonsPath2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6718,7 +6687,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1937394111}
         m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
-        m_MethodName: CannonsUpgrade
+        m_MethodName: CannonsUpgradePath2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6959,7 +6928,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1937394114}
           m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
-          m_MethodName: SelfRepair
+          m_MethodName: RepairPath1
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -7031,7 +7000,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1937394111}
         m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
-        m_MethodName: SelfRepairUpgrade
+        m_MethodName: RepairUpgradePath1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9866,7 +9835,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1937394114}
           m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
-          m_MethodName: Shield
+          m_MethodName: ShieldPath1
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -9938,7 +9907,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1937394111}
         m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
-        m_MethodName: ShieldUpgrade
+        m_MethodName: ShieldUpgradePath1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11843,7 +11812,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1937394114}
           m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
-          m_MethodName: Cannons
+          m_MethodName: CannonsPath1
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -11915,7 +11884,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1937394111}
         m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
-        m_MethodName: CannonsUpgrade
+        m_MethodName: CannonsUpgradePath1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12334,7 +12303,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1937394114}
           m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
-          m_MethodName: Catapult
+          m_MethodName: CatapultPath2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -12406,7 +12375,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1937394111}
         m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
-        m_MethodName: CatapultUpgrade
+        m_MethodName: CatapultUpgradePath2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
