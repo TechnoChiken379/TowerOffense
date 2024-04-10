@@ -155,19 +155,23 @@ public class buttons : MonoBehaviour
     public void SettingsAudio() 
     {
         mainMenuTabList.SetActive(false);
-        mainMenuAnimation.SetBool("Settings-Audio", true); 
+        mainMenuAnimation.SetBool("Settings-Audio", true);
+        mainMenuAnimation.SetBool("Audio-GoBack", false);
     }
     public void AudioGoBack() 
     {
-        mainMenuAnimation.SetBool("Audio-GoBack", true); 
+        mainMenuAnimation.SetBool("Audio-GoBack", true);
+        mainMenuAnimation.SetBool("Settings-Audio", false);
     }
     public void SettingsKeyBinds() 
     {
-        mainMenuAnimation.SetBool("Settings-KeyBinds", true); 
+        mainMenuAnimation.SetBool("Settings-KeyBinds", true);
+        mainMenuAnimation.SetBool("KeyBinds-GoBack", false);
     }
     public void KeyBindsGoBack() 
     {
-        mainMenuAnimation.SetBool("KeyBinds-GoBack", true); 
+        mainMenuAnimation.SetBool("KeyBinds-GoBack", true);
+        mainMenuAnimation.SetBool("Settings-KeyBinds", false);
     }
     public void Credits() 
     {
