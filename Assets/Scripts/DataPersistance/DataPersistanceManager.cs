@@ -47,6 +47,7 @@ public class DataPersistanceManager : MonoBehaviour
             if (mainCharacter.openShop == true)
             {
                 SceneManager.LoadScene("ShopScene");
+                mainCharacter.openShop = false;
             }
             if (deathScreenManager.saveOnDeath == true)
             {
