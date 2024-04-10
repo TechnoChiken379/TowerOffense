@@ -139,7 +139,10 @@ public class DescriptionScript : MonoBehaviour
         return itemDescription;
     }
 
+
     #region Weapon Description
+
+    #region Archers
     public void Archers()
     {
         PathButtons();
@@ -219,7 +222,8 @@ public class DescriptionScript : MonoBehaviour
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
     }
-
+    #endregion
+    #region Cannons
     public void Cannons()
     {
         PathButtons();
@@ -244,18 +248,18 @@ public class DescriptionScript : MonoBehaviour
             itemDescription = "Get acces to cannons LV3! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
-        else if (upgradeWeapons.culverinLevel == 3)
+        else if (upgradeWeapons.culverinLevel == 4 && upgradeWeapons.bombard == true)
         {
-            itemName = "CANNONS Upgrade";
-            itemCost = "800 wood, 1600 stone, 2400 steel";
-            itemDescription = "Get acces to cannons LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            itemName = "bombard Upgrade";
+            itemCost = "1600 wood, 3200 stone, 4800 steel";
+            itemDescription = "Get acces to bombard LV5! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
-        else if (upgradeWeapons.culverinLevel == 4)
+        else if (upgradeWeapons.culverinLevel == 4 && upgradeWeapons.falconet == true)
         {
-            itemName = "CANNONS Upgrade";
+            itemName = "falconet Upgrade";
             itemCost = "1600 wood, 3200 stone, 4800 steel";
-            itemDescription = "Get acces to cannons LV5! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            itemDescription = "Get acces to falconet LV5! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
         else
@@ -267,6 +271,46 @@ public class DescriptionScript : MonoBehaviour
         }
     }
 
+    public void CannonsPath1()
+    {
+        PathButtons();
+        if (upgradeWeapons.culverinLevel == 3)
+        {
+            itemName = "bombard Upgrade";
+            itemCost = "800 wood, 1600 stone, 2400 steel";
+            itemDescription = "Get acces to bombard LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+
+        else
+        {
+            itemName = "bombard Upgrade";
+            itemCost = string.Empty;
+            itemDescription = "Max bombard Upgrade " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+    }
+    public void CannonsPath2()
+    {
+        PathButtons();
+        if (upgradeWeapons.culverinLevel == 3)
+        {
+            itemName = "falconet Upgrade";
+            itemCost = "800 wood, 1600 stone, 2400 steel";
+            itemDescription = "Get acces to falconet LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+
+        else
+        {
+            itemName = "falconet Upgrade";
+            itemCost = string.Empty;
+            itemDescription = "Max falconet Upgrade " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+    }
+    #endregion
+    #region Catapult
     public void Catapult()
     {
         PathButtons();
@@ -291,18 +335,18 @@ public class DescriptionScript : MonoBehaviour
             itemDescription = "Get acces to Catapult LV3! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
-        else if (upgradeWeapons.onagerLevel == 3)
+        else if (upgradeWeapons.onagerLevel == 4 && upgradeWeapons.trebuchet == true)
         {
-            itemName = "Catapult Upgrade";
-            itemCost = "1600 wood, 2400 stone, 800 steel";
-            itemDescription = "Get acces to Catapult LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            itemName = "trebuchet Upgrade";
+            itemCost = "3200 wood, 4800 stone, 1600 steel";
+            itemDescription = "Get acces to trebuchet LV5! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
-        else if (upgradeWeapons.onagerLevel == 4)
+        else if (upgradeWeapons.onagerLevel == 4 && upgradeWeapons.mangonel == true)
         {
-            itemName = "Catapult Upgrade";
+            itemName = "mangonel Upgrade";
             itemCost = "3200 wood, 4800 stone, 1600 steel";
-            itemDescription = "Get acces to Catapult LV5! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            itemDescription = "Get acces to mangonel LV5! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
         else
@@ -313,8 +357,54 @@ public class DescriptionScript : MonoBehaviour
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
     }
+
+    public void CatapultPath1()
+    {
+        PathButtons();
+        if (upgradeWeapons.onagerLevel == 3)
+        {
+            itemName = "trebuchet Upgrade";
+            itemCost = "1600 wood, 2400 stone, 800 steel";
+            itemDescription = "Get acces to trebuchet LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+
+        else
+        {
+            itemName = "trebuchet Upgrade";
+            itemCost = string.Empty;
+            itemDescription = "Max trebuchet Upgrade " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+    }
+
+    public void CatapultPath2()
+    {
+        PathButtons();
+        if (upgradeWeapons.onagerLevel == 3)
+        {
+            itemName = "mangonel Upgrade";
+            itemCost = "1600 wood, 2400 stone, 800 steel";
+            itemDescription = "Get acces to mangonel LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+
+        else
+        {
+            itemName = "mangonel Upgrade";
+            itemCost = string.Empty;
+            itemDescription = "Max mangonel Upgrade " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+    }
     #endregion
+
+    #endregion
+
+
     #region Aromr Description
+
+    #region Repair
     public void SelfRepair()
     {
         PathButtons();
@@ -339,18 +429,18 @@ public class DescriptionScript : MonoBehaviour
             itemDescription = "Get acces to Self Repair LV3! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
-        else if (upgradeArmor.selfRepairLevel == 3)
+        else if (upgradeArmor.selfRepairLevel == 4 && upgradeArmor.selfRepairHeavyRepair == true)
         {
-            itemName = "Self Repair Upgrade";
-            itemCost = "2400 wood, 800 stone, 1600 steel";
-            itemDescription = "Get acces to Self Repair LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            itemName = "Heavy Self Repair Upgrade";
+            itemCost = "4800 wood, 1600 stone, 3200 steel";
+            itemDescription = "Get acces to Heavy Self Repair LV5! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
-        else if (upgradeArmor.selfRepairLevel == 4)
+        else if (upgradeArmor.selfRepairLevel == 4 && upgradeArmor.selfRepairLightRepair == true)
         {
-            itemName = "Self Repair Upgrade";
+            itemName = "Light Self Repair Upgrade";
             itemCost = "4800 wood, 1600 stone, 3200 steel";
-            itemDescription = "Get acces to Self Repair LV5! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            itemDescription = "Get acces to Light Self Repair LV5! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
         else
@@ -362,6 +452,47 @@ public class DescriptionScript : MonoBehaviour
         }
     }
 
+    public void RepairPath1()
+    {
+        PathButtons();
+        if (upgradeArmor.selfRepairLevel == 3)
+        {
+            itemName = "Heavy Self Repair Upgrade";
+            itemCost = "2400 wood, 800 stone, 1600 steel";
+            itemDescription = "Get acces to Heavy Self Repair LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+
+        else
+        {
+            itemName = "Heavy Upgrade";
+            itemCost = string.Empty;
+            itemDescription = "Max Heavy Upgrade " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+    }
+
+    public void RepairPath2()
+    {
+        PathButtons();
+        if (upgradeArmor.selfRepairLevel == 3)
+        {
+            itemName = "Light Self Repair Upgrade";
+            itemCost = "2400 wood, 800 stone, 1600 steel";
+            itemDescription = "Get acces to Light Self Repair LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+
+        else
+        {
+            itemName = "Light Upgrade";
+            itemCost = string.Empty;
+            itemDescription = "Max Light Upgrade " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+    }
+    #endregion
+    #region Health
     public void Health()
     {
         PathButtons();
@@ -386,18 +517,18 @@ public class DescriptionScript : MonoBehaviour
             itemDescription = "Get acces to Health Upgrade LV3! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
-        else if (upgradeArmor.healthLevel == 3)
+        else if (upgradeArmor.healthLevel == 4 && upgradeArmor.healthHeavyTank == true)
         {
-            itemName = "Health Upgrade Upgrade";
-            itemCost = "800 wood, 1600 stone, 2400 steel";
-            itemDescription = "Get acces to Health Upgrade LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            itemName = "heavy tank Upgrade Upgrade";
+            itemCost = "1600 wood, 3200 stone, 4800 steel";
+            itemDescription = "Get acces to heavy tank Upgrade LV5! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
-        else if (upgradeArmor.healthLevel == 4)
+        else if (upgradeArmor.healthLevel == 4 && upgradeArmor.healthLightTank == true)
         {
-            itemName = "Health Upgrade Upgrade";
+            itemName = "Light tank Upgrade Upgrade";
             itemCost = "1600 wood, 3200 stone, 4800 steel";
-            itemDescription = "Get acces to Health Upgrade LV5! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            itemDescription = "Get acces to light tank Upgrade LV5! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
         else
@@ -409,6 +540,47 @@ public class DescriptionScript : MonoBehaviour
         }
     }
 
+    public void HealthPath1()
+    {
+        PathButtons();
+        if (upgradeArmor.healthLevel == 3)
+        {
+            itemName = "Heavy tank Upgrade Upgrade";
+            itemCost = "800 wood, 1600 stone, 2400 steel";
+            itemDescription = "Get acces to heavy tank Upgrade LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+
+        else
+        {
+            itemName = "heavy trank Upgrade";
+            itemCost = string.Empty;
+            itemDescription = "Max heavy tank Upgrade " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+    }
+
+    public void HealthPath2()
+    {
+        PathButtons();
+        if (upgradeArmor.healthLevel == 3)
+        {
+            itemName = "light tank Upgrade Upgrade";
+            itemCost = "800 wood, 1600 stone, 2400 steel";
+            itemDescription = "Get acces to light tank Upgrade LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+
+        else
+        {
+            itemName = "light tank Upgrade";
+            itemCost = string.Empty;
+            itemDescription = "Max light tank Upgrade " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+    }
+    #endregion
+    #region Shield
     public void Shield()
     {
         PathButtons();
@@ -433,18 +605,18 @@ public class DescriptionScript : MonoBehaviour
             itemDescription = "Get acces to Shield LV3! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
-        else if (upgradeArmor.shieldLevel == 3)
+        else if (upgradeArmor.shieldLevel == 4 && upgradeArmor.shieldHeavyArmor == true)
         {
-            itemName = "Shield Upgrade";
-            itemCost = "1600 wood, 2400 stone, 800 steel";
-            itemDescription = "Get acces to Shield LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            itemName = "heavy Shield Upgrade";
+            itemCost = "3200 wood, 4800 stone, 1600 steel";
+            itemDescription = "Get acces to heavy Shield LV5! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
-        else if (upgradeArmor.shieldLevel == 4)
+        else if (upgradeArmor.shieldLevel == 4 && upgradeArmor.shieldLightArmor == true)
         {
-            itemName = "Shield Upgrade";
+            itemName = "Light Shield Upgrade";
             itemCost = "3200 wood, 4800 stone, 1600 steel";
-            itemDescription = "Get acces to Shield LV5! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            itemDescription = "Get acces to light Shield LV5! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
         else
@@ -455,7 +627,50 @@ public class DescriptionScript : MonoBehaviour
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
     }
+
+    public void ShieldPath1()
+    {
+        PathButtons();
+        if (upgradeArmor.shieldLevel == 3)
+        {
+            itemName = "Heavy Shield Upgrade";
+            itemCost = "1600 wood, 2400 stone, 800 steel";
+            itemDescription = "Get acces to heavy Shield LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+
+        else
+        {
+            itemName = "heavy shield Upgrade";
+            itemCost = string.Empty;
+            itemDescription = "Max heavy shield Upgrade " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+    }
+
+    public void ShieldPath2()
+    {
+        PathButtons();
+        if (upgradeArmor.shieldLevel == 3)
+        {
+            itemName = "light Shield Upgrade";
+            itemCost = "1600 wood, 2400 stone, 800 steel";
+            itemDescription = "Get acces to light Shield LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+
+        else
+        {
+            itemName = "light shield Upgrade";
+            itemCost = string.Empty;
+            itemDescription = "Max light shield Upgrade " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+    }
     #endregion
+
+    #endregion
+
 
     public void OnCursorEnter()
     {
