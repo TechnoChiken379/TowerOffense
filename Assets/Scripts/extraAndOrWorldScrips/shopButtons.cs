@@ -34,6 +34,30 @@ public class shopButtons : MonoBehaviour
     private string itemCost1;
     private Vector2 buttonPos;
 
+    //public GameObject Archers0;
+    //public GameObject Archers1;
+    //public GameObject Archers2;
+
+    //public GameObject Cannons0;
+    //public GameObject Cannons1;
+    //public GameObject Cannons2;
+
+    //public GameObject Catapult0;
+    //public GameObject Catapult1;
+    //public GameObject Catapult2;
+
+    //public GameObject Health0;
+    //public GameObject Health1;
+    //public GameObject Health2;
+
+    //public GameObject Shield0;
+    //public GameObject Shield1;
+    //public GameObject Shield2;
+
+    //public GameObject Repair0;
+    //public GameObject Repair1;
+    //public GameObject Repair2;
+
     private void Start()
     {
         DisableBools();
@@ -212,13 +236,13 @@ public class shopButtons : MonoBehaviour
             resources.steelAmount -= 800;
             upgradeWeapons.bowLevel = 3;
         }
-        else if (upgradeWeapons.bowLevel == 3 && resources.woodAmount >= 2400 && resources.stoneAmount >= 800 && resources.steelAmount >= 1600)
-        {
-            resources.woodAmount -= 2400;
-            resources.stoneAmount -= 800;
-            resources.steelAmount -= 1600;
-            upgradeWeapons.bowLevel = 4;
-        }
+        //else if (upgradeWeapons.bowLevel == 3 && resources.woodAmount >= 2400 && resources.stoneAmount >= 800 && resources.steelAmount >= 1600)
+        //{
+        //    resources.woodAmount -= 2400;
+        //    resources.stoneAmount -= 800;
+        //    resources.steelAmount -= 1600;
+        //    upgradeWeapons.bowLevel = 4;
+        //}
         else if (upgradeWeapons.bowLevel == 4 && resources.woodAmount >= 4800 && resources.stoneAmount >= 1600 && resources.steelAmount >= 3200)
         {
             resources.woodAmount -= 4800;
@@ -226,6 +250,98 @@ public class shopButtons : MonoBehaviour
             resources.steelAmount -= 3200;
             upgradeWeapons.bowLevel = 5;
         }
+        else
+        {
+            if (upgradeWeapons.bowLevel <= 0)
+            {
+                upgradeWeapons.bowLevel = 1;
+            }
+        }
+        DataPersistanceManager.saveGameBool = true;
+        DescriptionScript.Instance.Archers();
+    }
+
+    public void ArchersUpgradePath1()
+    {
+        DescriptionManager.Instance.DestroyItemInfo();
+        //if (upgradeWeapons.bowLevel == 1 && resources.woodAmount >= 600 && resources.stoneAmount >= 200 && resources.steelAmount >= 400)
+        //{
+        //    resources.woodAmount -= 600;
+        //    resources.stoneAmount -= 200;
+        //    resources.steelAmount -= 400;
+        //    upgradeWeapons.bowLevel = 2;
+        //}
+        //else if (upgradeWeapons.bowLevel == 2 && resources.woodAmount >= 1200 && resources.stoneAmount >= 400 && resources.steelAmount >= 800)
+        //{
+        //    resources.woodAmount -= 1200;
+        //    resources.stoneAmount -= 400;
+        //    resources.steelAmount -= 800;
+        //    upgradeWeapons.bowLevel = 3;
+        //}
+        if (upgradeWeapons.bowLevel == 3 && resources.woodAmount >= 2400 && resources.stoneAmount >= 800 && resources.steelAmount >= 1600)
+        {
+            resources.woodAmount -= 2400;
+            resources.stoneAmount -= 800;
+            resources.steelAmount -= 1600;
+            upgradeWeapons.bowLevel = 4;
+            upgradeWeapons.hwacha = true;
+            upgradeWeapons.ballista = false;
+        }
+        //else if (upgradeWeapons.bowLevel == 4 && resources.woodAmount >= 4800 && resources.stoneAmount >= 1600 && resources.steelAmount >= 3200)
+        //{
+        //    resources.woodAmount -= 4800;
+        //    resources.stoneAmount -= 1600;
+        //    resources.steelAmount -= 3200;
+        //    upgradeWeapons.bowLevel = 5;
+        //    upgradeWeapons.hwacha = true;
+        //    upgradeWeapons.ballista = false;
+        //}
+        else
+        {
+            if (upgradeWeapons.bowLevel <= 0)
+            {
+                upgradeWeapons.bowLevel = 1;
+            }
+        }
+        DataPersistanceManager.saveGameBool = true;
+        DescriptionScript.Instance.Archers();
+    }
+
+    public void ArchersUpgradePath2()
+    {
+        DescriptionManager.Instance.DestroyItemInfo();
+        //if (upgradeWeapons.bowLevel == 1 && resources.woodAmount >= 600 && resources.stoneAmount >= 200 && resources.steelAmount >= 400)
+        //{
+        //    resources.woodAmount -= 600;
+        //    resources.stoneAmount -= 200;
+        //    resources.steelAmount -= 400;
+        //    upgradeWeapons.bowLevel = 2;
+        //}
+        //else if (upgradeWeapons.bowLevel == 2 && resources.woodAmount >= 1200 && resources.stoneAmount >= 400 && resources.steelAmount >= 800)
+        //{
+        //    resources.woodAmount -= 1200;
+        //    resources.stoneAmount -= 400;
+        //    resources.steelAmount -= 800;
+        //    upgradeWeapons.bowLevel = 3;
+        //}
+        if (upgradeWeapons.bowLevel == 3 && resources.woodAmount >= 2400 && resources.stoneAmount >= 800 && resources.steelAmount >= 1600)
+        {
+            resources.woodAmount -= 2400;
+            resources.stoneAmount -= 800;
+            resources.steelAmount -= 1600;
+            upgradeWeapons.bowLevel = 4;
+            upgradeWeapons.hwacha = false;
+            upgradeWeapons.ballista = true;
+        }
+        //else if (upgradeWeapons.bowLevel == 4 && resources.woodAmount >= 4800 && resources.stoneAmount >= 1600 && resources.steelAmount >= 3200)
+        //{
+        //    resources.woodAmount -= 4800;
+        //    resources.stoneAmount -= 1600;
+        //    resources.steelAmount -= 3200;
+        //    upgradeWeapons.bowLevel = 5;
+        //    upgradeWeapons.hwacha = false;
+        //    upgradeWeapons.ballista = true;
+        //}
         else
         {
             if (upgradeWeapons.bowLevel <= 0)
