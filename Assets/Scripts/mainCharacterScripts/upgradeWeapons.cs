@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Profiling;
 using UnityEngine;
 
-public class upgradeWeapons : MonoBehaviour
+public class upgradeWeapons : MonoBehaviour, IDataPersistance
 {
     //weapon upgrades
     //archers
