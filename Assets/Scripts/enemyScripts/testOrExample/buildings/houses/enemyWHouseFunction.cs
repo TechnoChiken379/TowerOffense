@@ -22,7 +22,7 @@ public class enemyWHouseFunction : MonoBehaviour
     public GameObject deathDropStone;
     public GameObject deathDropSteel;
 
-    private float DroppedGold = 0;
+    //private float DroppedGold = 0;
     private float DroppedWood = 16.8f;
     private float DroppedStone = 16.8f;
     private float DroppedSteel = 12;

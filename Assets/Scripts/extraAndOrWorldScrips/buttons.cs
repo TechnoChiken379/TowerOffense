@@ -128,7 +128,9 @@ public class buttons : MonoBehaviour
     }
     public void MainMenuGoBack()
     {
-        mainMenuAnimation.SetBool("MainMenu-GoBack", true); 
+        mainMenuAnimation.SetBool("MainMenu-GoBack", true);
+        mainMenuAnimation.SetBool("Play", false);
+
     }
     public void Play() 
     {

@@ -38,7 +38,7 @@ public class enemyCannonFunction : MonoBehaviour
     private float DroppedGold = 1;
     private float DroppedWood = 12;
     private float DroppedStone = 12;
-    private float DroppedSteel = 0;
+    //private float DroppedSteel = 0;
 
     public Transform deathDropPoint;
 

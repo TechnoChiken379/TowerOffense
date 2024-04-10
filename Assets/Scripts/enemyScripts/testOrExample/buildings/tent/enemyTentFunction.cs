@@ -22,7 +22,7 @@ public class enemyTentFunction : MonoBehaviour
     public GameObject deathDropStone;
     public GameObject deathDropSteel;
 
-    private float DroppedGold = 0;
+    //private float DroppedGold = 0;
     private float DroppedWood = 18;
     private float DroppedStone = 18;
     private float DroppedSteel = 9;
