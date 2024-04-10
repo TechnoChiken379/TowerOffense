@@ -34,29 +34,8 @@ public class shopButtons : MonoBehaviour
     private string itemCost1;
     private Vector2 buttonPos;
 
-    //public GameObject Archers0;
-    //public GameObject Archers1;
-    //public GameObject Archers2;
-
-    //public GameObject Cannons0;
-    //public GameObject Cannons1;
-    //public GameObject Cannons2;
-
-    //public GameObject Catapult0;
-    //public GameObject Catapult1;
-    //public GameObject Catapult2;
-
-    //public GameObject Health0;
-    //public GameObject Health1;
-    //public GameObject Health2;
-
-    //public GameObject Shield0;
-    //public GameObject Shield1;
-    //public GameObject Shield2;
-
-    //public GameObject Repair0;
-    //public GameObject Repair1;
-    //public GameObject Repair2;
+    public static float healthToRepair;
+    public static float ShieldToRepair;
 
     private void Start()
     {
@@ -74,6 +53,7 @@ public class shopButtons : MonoBehaviour
     {
         SceneManager.LoadScene("tilemapTesting");
     }
+
 
     #region ShopButtons
     private void DisableBools()
@@ -218,6 +198,8 @@ public class shopButtons : MonoBehaviour
         }
     }
     #endregion
+
+
     #region Buy Upgrades
     #region Archers Upgrade
     public void ArchersUpgrade()
@@ -740,6 +722,8 @@ public class shopButtons : MonoBehaviour
     }
     #endregion
     #endregion
+
+
     #region Item Descriptions
     public virtual string GetItemDescription()
     {
@@ -756,10 +740,37 @@ public class shopButtons : MonoBehaviour
         DescriptionManager.Instance.DestroyItemInfo();
     }
     #endregion
+
+
     #region Repair
     public void HealthRepair()
     {
-        mainCharacter.Instance.Repairing();
+        DescriptionManager.Instance.DestroyItemInfo();
+        healthToRepair = (upgradeArmor.maxHealth - mainCharacter.totalCurrentHealth);
+        if (healthToRepair < resources.woodAmount && healthToRepair < resources.stoneAmount && healthToRepair < resources.steelAmount)
+        {
+            resources.woodAmount -= healthToRepair;
+            resources.stoneAmount -= healthToRepair;
+            resources.steelAmount -= healthToRepair;
+            mainCharacter.totalCurrentHealth = (mainCharacter.totalCurrentHealth + healthToRepair);
+            DataPersistanceManager.saveGameBool = true;
+        }
+        DescriptionScript.Instance.RepairHealthOnCursorEnter();
+    }
+
+    public void ShieldRepair()
+    {
+        DescriptionManager.Instance.DestroyItemInfo();
+        ShieldToRepair = (upgradeArmor.maxShieldHealth - mainCharacter.totalCurrentShieldHealth);
+        if (ShieldToRepair < resources.woodAmount && ShieldToRepair < resources.stoneAmount && ShieldToRepair < resources.steelAmount)
+        {
+            resources.woodAmount -= ShieldToRepair;
+            resources.stoneAmount -= ShieldToRepair;
+            resources.steelAmount -= ShieldToRepair;
+            mainCharacter.totalCurrentShieldHealth = (mainCharacter.totalCurrentShieldHealth + ShieldToRepair);
+            DataPersistanceManager.saveGameBool = true;
+        }
+        DescriptionScript.Instance.RepairShieldHealthOnCursorEnter();
     }
     #endregion
 }

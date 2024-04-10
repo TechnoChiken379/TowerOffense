@@ -677,6 +677,44 @@ public class DescriptionScript : MonoBehaviour
         DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
     }
 
+    public void RepairHealthOnCursorEnter()
+    {
+        if (shopButtons.healthToRepair < resources.woodAmount && shopButtons.healthToRepair < resources.stoneAmount && shopButtons.healthToRepair < resources.steelAmount)
+        {
+            itemName = "Repair Your Health";
+            itemCost = "Your current health = " + mainCharacter.totalCurrentHealth;
+            itemDescription = "Current resources: Wood = " + resources.showedWood + ", Stone = " + resources.showedStone + ", Steel = " + resources.showedSteel + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+        else
+        {
+            itemName = "Repair Your Health";
+            itemCost = "Your current health = " + mainCharacter.totalCurrentHealth;
+            itemDescription = "Current resources: Wood = " + resources.showedWood + ", Stone = " + resources.showedStone + ", Steel = " + resources.showedSteel + ", Gold = " + resources.showedGold
+                + "Not enough resources to repair";
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+    }
+
+    public void RepairShieldHealthOnCursorEnter()
+    {
+        if (shopButtons.ShieldToRepair < resources.woodAmount && shopButtons.ShieldToRepair < resources.stoneAmount && shopButtons.ShieldToRepair < resources.steelAmount && upgradeArmor.shieldLevel >= 1)
+        {
+            itemName = "Repair Your Shield";
+            itemCost = "Your current Shield = " + mainCharacter.totalCurrentShieldHealth;
+            itemDescription = "Current resources: Wood = " + resources.showedWood + ", Stone = " + resources.showedStone + ", Steel = " + resources.showedSteel + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+        else
+        {
+            itemName = "Repair Your Shield";
+            itemCost = "Your current Shield = " + mainCharacter.totalCurrentShieldHealth;
+            itemDescription = "Current resources: Wood = " + resources.showedWood + ", Stone = " + resources.showedStone + ", Steel = " + resources.showedSteel + ", Gold = " + resources.showedGold
+            + "Not enough resources to repair";
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+    }
+
     public void OnCursorExit()
     {
         DescriptionManager.Instance.DestroyItemInfo();

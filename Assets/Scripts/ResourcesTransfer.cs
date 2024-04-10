@@ -12,6 +12,10 @@ public class ResourcesTransfer : MonoBehaviour, IDataPersistance
     public static float storedSteelSended;
     private float storedGold;
     public static float storedGoldSended;
+    private float storedHealth;
+    public static float storedHealthSended;
+    private float storedShield;
+    public static float storedShieldSended;
 
     public void LoadData(GameData data)
     {
@@ -19,6 +23,8 @@ public class ResourcesTransfer : MonoBehaviour, IDataPersistance
         storedStone = data.stoneAmount;
         storedSteel = data.steelAmount;
         storedGold = data.goldAmount;
+        mainCharacter.totalCurrentHealth = data.totalCurrentHealth;
+        mainCharacter.totalCurrentShieldHealth = data.totalCurrentShieldHealth;
     }
 
     public void SaveData(ref GameData data)
@@ -27,6 +33,8 @@ public class ResourcesTransfer : MonoBehaviour, IDataPersistance
         data.stoneAmount = storedStone;
         data.steelAmount = storedSteel;
         data.goldAmount = storedGold;
+        data.totalCurrentHealth = mainCharacter.totalCurrentHealth;
+        data.totalCurrentShieldHealth = mainCharacter.totalCurrentShieldHealth;
     }
 
     void Update()
@@ -55,5 +63,15 @@ public class ResourcesTransfer : MonoBehaviour, IDataPersistance
         storedGoldSended = storedGold;
         storedGold = storedGoldSended;
         resources.goldAmount = storedGold;
+
+        storedHealth = mainCharacter.totalCurrentHealth;
+        storedHealthSended = storedHealth;
+        storedHealth = storedHealthSended;
+        mainCharacter.totalCurrentHealth = storedHealth;
+
+        storedShield = mainCharacter.totalCurrentShieldHealth;
+        storedShieldSended = storedShield;
+        storedShield = storedShieldSended;
+        mainCharacter.totalCurrentShieldHealth = storedShield;
     }
 }
