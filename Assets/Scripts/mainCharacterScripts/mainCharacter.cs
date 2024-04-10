@@ -164,22 +164,22 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.A) && !Input.GetKey(KeyCode.D))
             {
                 mainCharacterAnimations.speed = 1;
                 mainCharacterAnimations.SetInteger("AnimationIdicator", 3);
             }
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(KeyCode.D) && !Input.GetKey(KeyCode.A))
             {
                 mainCharacterAnimations.speed = 1;
                 mainCharacterAnimations.SetInteger("AnimationIdicator", 4);
             }
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) && !Input.GetKey(KeyCode.S))
             {
                 mainCharacterAnimations.speed = 1;
                 mainCharacterAnimations.SetInteger("AnimationIdicator", 2);
             }
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.S) && !Input.GetKey(KeyCode.W))
             {
                 mainCharacterAnimations.speed = 1;
                 mainCharacterAnimations.SetInteger("AnimationIdicator", 1);
