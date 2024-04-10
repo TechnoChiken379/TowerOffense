@@ -376,8 +376,8 @@ public class shopButtons : MonoBehaviour
             resources.stoneAmount -= 1600;
             resources.steelAmount -= 2400;
             upgradeWeapons.culverinLevel = 4;
-            upgradeWeapons.falconet = true;
-            upgradeWeapons.bombard = false;
+            upgradeWeapons.falconet = false;
+            upgradeWeapons.bombard = true;
         }
         else
         {
@@ -442,6 +442,8 @@ public class shopButtons : MonoBehaviour
             resources.stoneAmount -= 2400;
             resources.steelAmount -= 800;
             upgradeWeapons.onagerLevel = 4;
+            upgradeWeapons.mangonel = false;
+            upgradeWeapons.trebuchet = true;
         }
         else
         {
@@ -463,6 +465,8 @@ public class shopButtons : MonoBehaviour
             resources.stoneAmount -= 2400;
             resources.steelAmount -= 800;
             upgradeWeapons.onagerLevel = 4;
+            upgradeWeapons.mangonel = true;
+            upgradeWeapons.trebuchet = false;
         }
         else
         {
@@ -609,8 +613,8 @@ public class shopButtons : MonoBehaviour
             resources.stoneAmount -= 1600;
             resources.steelAmount -= 2400;
             upgradeArmor.healthLevel = 4;
-            upgradeArmor.healthLightTank = true;
-            upgradeArmor.healthHeavyTank = false;
+            upgradeArmor.healthLightTank = false;
+            upgradeArmor.healthHeavyTank = true;
         }
         else
         {
@@ -632,8 +636,8 @@ public class shopButtons : MonoBehaviour
             resources.stoneAmount -= 1600;
             resources.steelAmount -= 2400;
             upgradeArmor.healthLevel = 4;
-            upgradeArmor.healthLightTank = false;
-            upgradeArmor.healthHeavyTank = true;
+            upgradeArmor.healthLightTank = true;
+            upgradeArmor.healthHeavyTank = false;
         }
         else
         {
@@ -698,8 +702,8 @@ public class shopButtons : MonoBehaviour
             resources.stoneAmount -= 2400;
             resources.steelAmount -= 800;
             upgradeArmor.shieldLevel = 4;
-            upgradeArmor.shieldLightArmor = true;
-            upgradeArmor.shieldHeavyArmor = false;
+            upgradeArmor.shieldLightArmor = false;
+            upgradeArmor.shieldHeavyArmor = true;
         }
         else
         {
@@ -721,8 +725,8 @@ public class shopButtons : MonoBehaviour
             resources.stoneAmount -= 2400;
             resources.steelAmount -= 800;
             upgradeArmor.shieldLevel = 4;
-            upgradeArmor.shieldLightArmor = false;
-            upgradeArmor.shieldHeavyArmor = true;
+            upgradeArmor.shieldLightArmor = true;
+            upgradeArmor.shieldHeavyArmor = false;
         }
         else
         {
