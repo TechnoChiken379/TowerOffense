@@ -157,20 +157,6 @@ public class DescriptionScript : MonoBehaviour
             itemDescription = "Get acces to Archers LV3! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
-        //else if (upgradeWeapons.bowLevel == 3)
-        //{
-        //    itemName = "Archers Upgrade";
-        //    itemCost = "2400 wood, 800 stone, 1600 steel";
-        //    itemDescription = "Get acces to Archers LV4! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
-        //    DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
-        //}
-        //else if (upgradeWeapons.bowLevel == 4)
-        //{
-        //    itemName = "Archers Upgrade";
-        //    itemCost = "4800 wood, 1600 stone, 3200 steel";
-        //    itemDescription = "Get acces to Archers LV5! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
-        //    DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
-        //}
         else if (upgradeWeapons.bowLevel == 4 && upgradeWeapons.hwacha == true)
         {
             itemName = "Hwach Upgrade";

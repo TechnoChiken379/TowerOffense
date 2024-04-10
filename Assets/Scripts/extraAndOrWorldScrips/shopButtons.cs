@@ -219,6 +219,7 @@ public class shopButtons : MonoBehaviour
     }
     #endregion
     #region Buy Upgrades
+    #region Archers Upgrade
     public void ArchersUpgrade()
     {
         DescriptionManager.Instance.DestroyItemInfo();
@@ -236,13 +237,6 @@ public class shopButtons : MonoBehaviour
             resources.steelAmount -= 800;
             upgradeWeapons.bowLevel = 3;
         }
-        //else if (upgradeWeapons.bowLevel == 3 && resources.woodAmount >= 2400 && resources.stoneAmount >= 800 && resources.steelAmount >= 1600)
-        //{
-        //    resources.woodAmount -= 2400;
-        //    resources.stoneAmount -= 800;
-        //    resources.steelAmount -= 1600;
-        //    upgradeWeapons.bowLevel = 4;
-        //}
         else if (upgradeWeapons.bowLevel == 4 && resources.woodAmount >= 4800 && resources.stoneAmount >= 1600 && resources.steelAmount >= 3200)
         {
             resources.woodAmount -= 4800;
@@ -264,20 +258,6 @@ public class shopButtons : MonoBehaviour
     public void ArchersUpgradePath1()
     {
         DescriptionManager.Instance.DestroyItemInfo();
-        //if (upgradeWeapons.bowLevel == 1 && resources.woodAmount >= 600 && resources.stoneAmount >= 200 && resources.steelAmount >= 400)
-        //{
-        //    resources.woodAmount -= 600;
-        //    resources.stoneAmount -= 200;
-        //    resources.steelAmount -= 400;
-        //    upgradeWeapons.bowLevel = 2;
-        //}
-        //else if (upgradeWeapons.bowLevel == 2 && resources.woodAmount >= 1200 && resources.stoneAmount >= 400 && resources.steelAmount >= 800)
-        //{
-        //    resources.woodAmount -= 1200;
-        //    resources.stoneAmount -= 400;
-        //    resources.steelAmount -= 800;
-        //    upgradeWeapons.bowLevel = 3;
-        //}
         if (upgradeWeapons.bowLevel == 3 && resources.woodAmount >= 2400 && resources.stoneAmount >= 800 && resources.steelAmount >= 1600)
         {
             resources.woodAmount -= 2400;
@@ -287,15 +267,6 @@ public class shopButtons : MonoBehaviour
             upgradeWeapons.hwacha = true;
             upgradeWeapons.ballista = false;
         }
-        //else if (upgradeWeapons.bowLevel == 4 && resources.woodAmount >= 4800 && resources.stoneAmount >= 1600 && resources.steelAmount >= 3200)
-        //{
-        //    resources.woodAmount -= 4800;
-        //    resources.stoneAmount -= 1600;
-        //    resources.steelAmount -= 3200;
-        //    upgradeWeapons.bowLevel = 5;
-        //    upgradeWeapons.hwacha = true;
-        //    upgradeWeapons.ballista = false;
-        //}
         else
         {
             if (upgradeWeapons.bowLevel <= 0)
@@ -310,20 +281,6 @@ public class shopButtons : MonoBehaviour
     public void ArchersUpgradePath2()
     {
         DescriptionManager.Instance.DestroyItemInfo();
-        //if (upgradeWeapons.bowLevel == 1 && resources.woodAmount >= 600 && resources.stoneAmount >= 200 && resources.steelAmount >= 400)
-        //{
-        //    resources.woodAmount -= 600;
-        //    resources.stoneAmount -= 200;
-        //    resources.steelAmount -= 400;
-        //    upgradeWeapons.bowLevel = 2;
-        //}
-        //else if (upgradeWeapons.bowLevel == 2 && resources.woodAmount >= 1200 && resources.stoneAmount >= 400 && resources.steelAmount >= 800)
-        //{
-        //    resources.woodAmount -= 1200;
-        //    resources.stoneAmount -= 400;
-        //    resources.steelAmount -= 800;
-        //    upgradeWeapons.bowLevel = 3;
-        //}
         if (upgradeWeapons.bowLevel == 3 && resources.woodAmount >= 2400 && resources.stoneAmount >= 800 && resources.steelAmount >= 1600)
         {
             resources.woodAmount -= 2400;
@@ -333,15 +290,6 @@ public class shopButtons : MonoBehaviour
             upgradeWeapons.hwacha = false;
             upgradeWeapons.ballista = true;
         }
-        //else if (upgradeWeapons.bowLevel == 4 && resources.woodAmount >= 4800 && resources.stoneAmount >= 1600 && resources.steelAmount >= 3200)
-        //{
-        //    resources.woodAmount -= 4800;
-        //    resources.stoneAmount -= 1600;
-        //    resources.steelAmount -= 3200;
-        //    upgradeWeapons.bowLevel = 5;
-        //    upgradeWeapons.hwacha = false;
-        //    upgradeWeapons.ballista = true;
-        //}
         else
         {
             if (upgradeWeapons.bowLevel <= 0)
@@ -352,7 +300,8 @@ public class shopButtons : MonoBehaviour
         DataPersistanceManager.saveGameBool = true;
         DescriptionScript.Instance.Archers();
     }
-
+    #endregion
+    #region Cannons Upgrade
     public void CannonsUpgrade()
     {
         DescriptionManager.Instance.DestroyItemInfo();
@@ -377,13 +326,6 @@ public class shopButtons : MonoBehaviour
             resources.steelAmount -= 1200;
             upgradeWeapons.culverinLevel = 3;
         }
-        else if (upgradeWeapons.culverinLevel == 3 && resources.woodAmount >= 800 && resources.stoneAmount >= 1600 && resources.steelAmount >= 2400)
-        {
-            resources.woodAmount -= 800;
-            resources.stoneAmount -= 1600;
-            resources.steelAmount -= 2400;
-            upgradeWeapons.culverinLevel = 4;
-        }
         else if (upgradeWeapons.culverinLevel == 4 && resources.woodAmount >= 1600 && resources.stoneAmount >= 3200 && resources.steelAmount >= 4800)
         {
             resources.woodAmount -= 1600;
@@ -402,6 +344,53 @@ public class shopButtons : MonoBehaviour
         DescriptionScript.Instance.Cannons();
     }
 
+    public void CannonsUpgradePath1()
+    {
+        DescriptionManager.Instance.DestroyItemInfo();
+        if (upgradeWeapons.culverinLevel == 3 && resources.woodAmount >= 800 && resources.stoneAmount >= 1600 && resources.steelAmount >= 2400)
+        {
+            resources.woodAmount -= 800;
+            resources.stoneAmount -= 1600;
+            resources.steelAmount -= 2400;
+            upgradeWeapons.culverinLevel = 4;
+            upgradeWeapons.falconet = true;
+            upgradeWeapons.bombard = false;
+        }
+        else
+        {
+            if (upgradeWeapons.culverinLevel < 0)
+            {
+                upgradeWeapons.culverinLevel = 0;
+            }
+        }
+        DataPersistanceManager.saveGameBool = true;
+        DescriptionScript.Instance.Cannons();
+    }
+
+    public void CannonsUpgradePath2()
+    {
+        DescriptionManager.Instance.DestroyItemInfo();
+        if (upgradeWeapons.culverinLevel == 3 && resources.woodAmount >= 800 && resources.stoneAmount >= 1600 && resources.steelAmount >= 2400)
+        {
+            resources.woodAmount -= 800;
+            resources.stoneAmount -= 1600;
+            resources.steelAmount -= 2400;
+            upgradeWeapons.culverinLevel = 4;
+            upgradeWeapons.falconet = true;
+            upgradeWeapons.bombard = false;
+        }
+        else
+        {
+            if (upgradeWeapons.culverinLevel < 0)
+            {
+                upgradeWeapons.culverinLevel = 0;
+            }
+        }
+        DataPersistanceManager.saveGameBool = true;
+        DescriptionScript.Instance.Cannons();
+    }
+    #endregion
+    #region Catapult Upgrade
     public void CatapultUpgrade()
     {
         DescriptionManager.Instance.DestroyItemInfo();
@@ -426,13 +415,6 @@ public class shopButtons : MonoBehaviour
             resources.steelAmount -= 400;
             upgradeWeapons.onagerLevel = 3;
         }
-        else if (upgradeWeapons.onagerLevel == 3 && resources.woodAmount >= 1600 && resources.stoneAmount >= 2400 && resources.steelAmount >= 800)
-        {
-            resources.woodAmount -= 1600;
-            resources.stoneAmount -= 2400;
-            resources.steelAmount -= 800;
-            upgradeWeapons.onagerLevel = 4;
-        }
         else if (upgradeWeapons.onagerLevel == 4 && resources.woodAmount >= 3200 && resources.stoneAmount >= 4800 && resources.steelAmount >= 1600)
         {
             resources.woodAmount -= 3200;
@@ -451,6 +433,49 @@ public class shopButtons : MonoBehaviour
         DescriptionScript.Instance.Catapult();
     }
 
+    public void CatapultUpgradePath1()
+    {
+        DescriptionManager.Instance.DestroyItemInfo();
+        if (upgradeWeapons.onagerLevel == 3 && resources.woodAmount >= 1600 && resources.stoneAmount >= 2400 && resources.steelAmount >= 800)
+        {
+            resources.woodAmount -= 1600;
+            resources.stoneAmount -= 2400;
+            resources.steelAmount -= 800;
+            upgradeWeapons.onagerLevel = 4;
+        }
+        else
+        {
+            if (upgradeWeapons.onagerLevel < 0)
+            {
+                upgradeWeapons.onagerLevel = 0;
+            }
+        }
+        DataPersistanceManager.saveGameBool = true;
+        DescriptionScript.Instance.Catapult();
+    }
+
+    public void CatapultUpgradePath2()
+    {
+        DescriptionManager.Instance.DestroyItemInfo();
+        if (upgradeWeapons.onagerLevel == 3 && resources.woodAmount >= 1600 && resources.stoneAmount >= 2400 && resources.steelAmount >= 800)
+        {
+            resources.woodAmount -= 1600;
+            resources.stoneAmount -= 2400;
+            resources.steelAmount -= 800;
+            upgradeWeapons.onagerLevel = 4;
+        }
+        else
+        {
+            if (upgradeWeapons.onagerLevel < 0)
+            {
+                upgradeWeapons.onagerLevel = 0;
+            }
+        }
+        DataPersistanceManager.saveGameBool = true;
+        DescriptionScript.Instance.Catapult();
+    }
+    #endregion
+    #region Repair Upgrade
     public void SelfRepairUpgrade()
     {
         DescriptionManager.Instance.DestroyItemInfo();
@@ -475,13 +500,6 @@ public class shopButtons : MonoBehaviour
             resources.steelAmount -= 800;
             upgradeArmor.selfRepairLevel = 3;
         }
-        else if (upgradeArmor.selfRepairLevel == 3 && resources.woodAmount >= 2400 && resources.stoneAmount >= 800 && resources.steelAmount >= 1600)
-        {
-            resources.woodAmount -= 2400;
-            resources.stoneAmount -= 800;
-            resources.steelAmount -= 1600;
-            upgradeArmor.selfRepairLevel = 4;
-        }
         else if (upgradeArmor.selfRepairLevel == 4 && resources.woodAmount >= 4800 && resources.stoneAmount >= 1600 && resources.steelAmount >= 3200)
         {
             resources.woodAmount -= 4800;
@@ -500,6 +518,53 @@ public class shopButtons : MonoBehaviour
         DescriptionScript.Instance.SelfRepair();
     }
 
+    public void RepairUpgradePath1()
+    {
+        DescriptionManager.Instance.DestroyItemInfo();
+        if (upgradeArmor.selfRepairLevel == 3 && resources.woodAmount >= 2400 && resources.stoneAmount >= 800 && resources.steelAmount >= 1600)
+        {
+            resources.woodAmount -= 2400;
+            resources.stoneAmount -= 800;
+            resources.steelAmount -= 1600;
+            upgradeArmor.selfRepairLevel = 4;
+            upgradeArmor.selfRepairLightRepair = true;
+            upgradeArmor.selfRepairHeavyRepair = false;
+        }
+        else
+        {
+            if (upgradeArmor.selfRepairLevel < 0)
+            {
+                upgradeArmor.selfRepairLevel = 0;
+            }
+        }
+        DataPersistanceManager.saveGameBool = true;
+        DescriptionScript.Instance.SelfRepair();
+    }
+
+    public void RepairUpgradePath2()
+    {
+        DescriptionManager.Instance.DestroyItemInfo();
+        if (upgradeArmor.selfRepairLevel == 3 && resources.woodAmount >= 2400 && resources.stoneAmount >= 800 && resources.steelAmount >= 1600)
+        {
+            resources.woodAmount -= 2400;
+            resources.stoneAmount -= 800;
+            resources.steelAmount -= 1600;
+            upgradeArmor.selfRepairLevel = 4;
+            upgradeArmor.selfRepairLightRepair = false;
+            upgradeArmor.selfRepairHeavyRepair = true;
+        }
+        else
+        {
+            if (upgradeArmor.selfRepairLevel < 0)
+            {
+                upgradeArmor.selfRepairLevel = 0;
+            }
+        }
+        DataPersistanceManager.saveGameBool = true;
+        DescriptionScript.Instance.SelfRepair();
+    }
+    #endregion
+    #region Health Upgrade
     public void HealthUpgrade()
     {
         DescriptionManager.Instance.DestroyItemInfo();
@@ -516,13 +581,6 @@ public class shopButtons : MonoBehaviour
             resources.stoneAmount -= 800;
             resources.steelAmount -= 1200;
             upgradeArmor.healthLevel = 3;
-        }
-        else if (upgradeArmor.healthLevel == 3 && resources.woodAmount >= 800 && resources.stoneAmount >= 1600 && resources.steelAmount >= 2400)
-        {
-            resources.woodAmount -= 800;
-            resources.stoneAmount -= 1600;
-            resources.steelAmount -= 2400;
-            upgradeArmor.healthLevel = 4;
         }
         else if (upgradeArmor.healthLevel == 4 && resources.woodAmount >= 1600 && resources.stoneAmount >= 3200 && resources.steelAmount >= 4800)
         {
@@ -542,6 +600,53 @@ public class shopButtons : MonoBehaviour
         DescriptionScript.Instance.Health();
     }
 
+    public void HealthUpgradePath1()
+    {
+        DescriptionManager.Instance.DestroyItemInfo();
+        if (upgradeArmor.healthLevel == 3 && resources.woodAmount >= 800 && resources.stoneAmount >= 1600 && resources.steelAmount >= 2400)
+        {
+            resources.woodAmount -= 800;
+            resources.stoneAmount -= 1600;
+            resources.steelAmount -= 2400;
+            upgradeArmor.healthLevel = 4;
+            upgradeArmor.healthLightTank = true;
+            upgradeArmor.healthHeavyTank = false;
+        }
+        else
+        {
+            if (upgradeArmor.healthLevel <= 0)
+            {
+                upgradeArmor.healthLevel = 1;
+            }
+        }
+        DataPersistanceManager.saveGameBool = true;
+        DescriptionScript.Instance.Health();
+    }
+
+    public void HealthUpgradePath2()
+    {
+        DescriptionManager.Instance.DestroyItemInfo();
+        if (upgradeArmor.healthLevel == 3 && resources.woodAmount >= 800 && resources.stoneAmount >= 1600 && resources.steelAmount >= 2400)
+        {
+            resources.woodAmount -= 800;
+            resources.stoneAmount -= 1600;
+            resources.steelAmount -= 2400;
+            upgradeArmor.healthLevel = 4;
+            upgradeArmor.healthLightTank = false;
+            upgradeArmor.healthHeavyTank = true;
+        }
+        else
+        {
+            if (upgradeArmor.healthLevel <= 0)
+            {
+                upgradeArmor.healthLevel = 1;
+            }
+        }
+        DataPersistanceManager.saveGameBool = true;
+        DescriptionScript.Instance.Health();
+    }
+    #endregion
+    #region Shield Upgrade
     public void ShieldUpgrade()
     {
         DescriptionManager.Instance.DestroyItemInfo();
@@ -566,13 +671,6 @@ public class shopButtons : MonoBehaviour
             resources.steelAmount -= 400;
             upgradeArmor.shieldLevel = 3;
         }
-        else if (upgradeArmor.shieldLevel == 3 && resources.woodAmount >= 1600 && resources.stoneAmount >= 2400 && resources.steelAmount >= 800)
-        {
-            resources.woodAmount -= 1600;
-            resources.stoneAmount -= 2400;
-            resources.steelAmount -= 800;
-            upgradeArmor.shieldLevel = 4;
-        }
         else if (upgradeArmor.shieldLevel == 4 && resources.woodAmount >= 3200 && resources.stoneAmount >= 4800 && resources.steelAmount >= 1600)
         {
             resources.woodAmount -= 3200;
@@ -591,6 +689,52 @@ public class shopButtons : MonoBehaviour
         DescriptionScript.Instance.Shield();
     }
 
+    public void ShieldUpgradePath1()
+    {
+        DescriptionManager.Instance.DestroyItemInfo();
+        if (upgradeArmor.shieldLevel == 3 && resources.woodAmount >= 1600 && resources.stoneAmount >= 2400 && resources.steelAmount >= 800)
+        {
+            resources.woodAmount -= 1600;
+            resources.stoneAmount -= 2400;
+            resources.steelAmount -= 800;
+            upgradeArmor.shieldLevel = 4;
+            upgradeArmor.shieldLightArmor = true;
+            upgradeArmor.shieldHeavyArmor = false;
+        }
+        else
+        {
+            if (upgradeArmor.shieldLevel < 0)
+            {
+                upgradeArmor.shieldLevel = 0;
+            }
+        }
+        DataPersistanceManager.saveGameBool = true;
+        DescriptionScript.Instance.Shield();
+    }
+
+    public void ShieldUpgradePath2()
+    {
+        DescriptionManager.Instance.DestroyItemInfo();
+        if (upgradeArmor.shieldLevel == 3 && resources.woodAmount >= 1600 && resources.stoneAmount >= 2400 && resources.steelAmount >= 800)
+        {
+            resources.woodAmount -= 1600;
+            resources.stoneAmount -= 2400;
+            resources.steelAmount -= 800;
+            upgradeArmor.shieldLevel = 4;
+            upgradeArmor.shieldLightArmor = false;
+            upgradeArmor.shieldHeavyArmor = true;
+        }
+        else
+        {
+            if (upgradeArmor.shieldLevel < 0)
+            {
+                upgradeArmor.shieldLevel = 0;
+            }
+        }
+        DataPersistanceManager.saveGameBool = true;
+        DescriptionScript.Instance.Shield();
+    }
+    #endregion
     #endregion
     #region Item Descriptions
     public virtual string GetItemDescription()
