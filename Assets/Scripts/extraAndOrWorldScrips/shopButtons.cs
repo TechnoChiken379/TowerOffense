@@ -492,4 +492,7 @@ public class shopButtons : MonoBehaviour
         DescriptionManager.Instance.DestroyItemInfo();
     }
     #endregion
+    #region Repair
+
+    #endregion
 }

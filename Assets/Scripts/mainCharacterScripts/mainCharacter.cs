@@ -9,6 +9,15 @@ using UnityEngine.UI;
 
 public class mainCharacter : MonoBehaviour, IDataPersistance
 {
+    public static mainCharacter Instance;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
     //Movement vars
     public static float speed;
     private float moveX;
@@ -60,6 +69,8 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     public Animator mainCharacterAnimations;
     public AnimationClip mainCharacterTest;
+
+    public static bool shopRepair = false;
 
     void Start() //Happens on start
     {
@@ -310,7 +321,7 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     public void Repairing()
     {
-        if (Input.GetKey(KeyCode.F) 
+        if ((Input.GetKey(KeyCode.F) || shopRepair == true) 
             && totalRepairCompensation > 0f 
             && resources.woodAmount > 0f
             && resources.stoneAmount > 0f
