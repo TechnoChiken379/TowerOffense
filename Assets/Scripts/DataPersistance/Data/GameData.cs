@@ -56,7 +56,7 @@ public class GameData
         playerPosition = new Vector3();
 
         healthLevel = 1;
-        totalCurrentHealth = 1;
+        totalCurrentHealth = 100;
         heavyTank = false;
         lightTank = false;
 

@@ -27,7 +27,7 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     //Health, Shield vars
     //public float maxHealth;
-    public static float totalCurrentHealth = 1;
+    public static float totalCurrentHealth;
     public Slider healthBar;
 
    //public float maxShieldHealth;
@@ -81,7 +81,6 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
         speed = 4;
 
         //setValuesStart();
-
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
         //if (hotKey1 == true) { buttons.buttonImage1.color = buttons.colorButtonOnTrue; } else { buttons.buttonImage1.color = buttons.colorButtonOnFalse; }
