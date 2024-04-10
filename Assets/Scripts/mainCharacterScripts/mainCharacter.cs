@@ -81,11 +81,15 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     public void LoadData(GameData data)
     {
+        totalCurrentHealth = data.totalCurrentHealth;
+        totalCurrentShieldHealth = data.totalCurrentShieldHealth;
         transform.position = data.playerPosition;
     }
 
     public void SaveData(ref GameData data)
     {
+        data.totalCurrentHealth = totalCurrentHealth;
+        data.totalCurrentShieldHealth = totalCurrentShieldHealth;
         data.playerPosition = findNearestShop.closestShop.transform.position;
     }
 

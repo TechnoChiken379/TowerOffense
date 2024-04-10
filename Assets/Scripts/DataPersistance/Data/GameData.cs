@@ -17,10 +17,12 @@ public class GameData
 
     //script: upgradeArmour
     public int healthLevel;
+    public float totalCurrentHealth;
     public bool heavyTank;
     public bool lightTank;
 
     public int shieldLevel;
+    public float totalCurrentShieldHealth;
     public bool heavyShield;
     public bool lightShield;
 
@@ -41,6 +43,9 @@ public class GameData
     public bool trebuchet;
     public bool mangonel;
 
+    public int artilleryStrikeAmount;
+    public int supplyDropAmount;
+
     public GameData()
     {
         this.woodAmount = 0;
@@ -51,10 +56,12 @@ public class GameData
         playerPosition = new Vector3();
 
         healthLevel = 1;
+        totalCurrentHealth = 1;
         heavyTank = false;
         lightTank = false;
 
         shieldLevel = 0;
+        totalCurrentShieldHealth = 0;
         heavyShield = false;
         lightShield = false;
 
@@ -73,5 +80,8 @@ public class GameData
         onagerLevel = 0;
         trebuchet = false;
         mangonel = false;
+
+        artilleryStrikeAmount = 0;
+        supplyDropAmount = 0;
     }
 }

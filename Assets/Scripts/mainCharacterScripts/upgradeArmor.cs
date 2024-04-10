@@ -77,6 +77,8 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
 
     void Start()
     {
+        DataPersistanceManager.saveGameBool = true;
+
         HealthUpgrades();
         ShieldUpgrades();
         SelfRepairUpgrades();

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.PackageManager;
 using UnityEngine;
 
-public class abilityScript : MonoBehaviour
+public class abilityScript : MonoBehaviour, IDataPersistance
 {
     //idea's
     //arty strike (probably arrow's that rain down on enemies)
@@ -16,7 +16,7 @@ public class abilityScript : MonoBehaviour
     private float abilityCoolDown = 60f;
 
     //artillery strike
-    public static int artilleryStrikeAmount = 10;
+    public static int artilleryStrikeAmount = 0;
     private int artilleryStrikeArrowAmountFired = 25;
 
     public GameObject ArtilleryArrow;
@@ -46,6 +46,21 @@ public class abilityScript : MonoBehaviour
     public static float supplyDistance = 5f;
     public static float timeAlive = 10f;
 
+    public GameObject artyIcon;
+    public GameObject SupplyIcon;
+
+    public void LoadData(GameData data)
+    {
+        artilleryStrikeAmount = data.artilleryStrikeAmount;
+        supplyDropAmount = data.supplyDropAmount;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.artilleryStrikeAmount = artilleryStrikeAmount;
+        data.supplyDropAmount = supplyDropAmount;
+    }
+
     void Start()
     {
         abilityTimer = abilityCoolDown;
@@ -53,6 +68,23 @@ public class abilityScript : MonoBehaviour
 
     void Update()
     {
+        if (artilleryStrikeAmount >= 1)
+        {
+            artyIcon.SetActive(enabled);
+        }
+        else
+        {
+            artyIcon.SetActive(!enabled);
+        }
+        if (supplyDropAmount >= 1)
+        {
+            SupplyIcon.SetActive(enabled);
+        }
+        else
+        {
+            SupplyIcon.SetActive(!enabled);
+        }
+
         abilityTimer += Time.deltaTime;
         Abilities();
         AbilityStrength();

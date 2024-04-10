@@ -89,6 +89,8 @@ public class upgradeWeapons : MonoBehaviour
 
     void Start()
     {
+        DataPersistanceManager.saveGameBool = true;
+
         ArchersUpgrades();
         CannonsUpgrades();
         CatapultUpgrades();
