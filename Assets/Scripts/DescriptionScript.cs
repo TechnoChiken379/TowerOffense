@@ -715,6 +715,44 @@ public class DescriptionScript : MonoBehaviour
         }
     }
 
+    public void ArtileryOnCursorEnter()
+    {
+        if (100 <= resources.goldAmount)
+        {
+            itemName = "Get a artilery strike abilitie!";
+            itemCost = "Your current  = " + mainCharacter.totalCurrentShieldHealth;
+            itemDescription = "Current resources: Wood = " + resources.showedWood + ", Stone = " + resources.showedStone + ", Steel = " + resources.showedSteel + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+        else
+        {
+            itemName = "Repair Your Shield";
+            itemCost = "Your current Shield = " + mainCharacter.totalCurrentShieldHealth;
+            itemDescription = "Current resources: Wood = " + resources.showedWood + ", Stone = " + resources.showedStone + ", Steel = " + resources.showedSteel + ", Gold = " + resources.showedGold
+            + "Not enough resources to repair";
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+    }
+
+    public void SupplyDropHealthOnCursorEnter()
+    {
+        if (100 <= resources.goldAmount)
+        {
+            itemName = "Repair Your Shield";
+            itemCost = "Your current Shield = " + mainCharacter.totalCurrentShieldHealth;
+            itemDescription = "Current resources: Wood = " + resources.showedWood + ", Stone = " + resources.showedStone + ", Steel = " + resources.showedSteel + ", Gold = " + resources.showedGold;
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+        else
+        {
+            itemName = "Repair Your Shield";
+            itemCost = "Your current Shield = " + mainCharacter.totalCurrentShieldHealth;
+            itemDescription = "Current resources: Wood = " + resources.showedWood + ", Stone = " + resources.showedStone + ", Steel = " + resources.showedSteel + ", Gold = " + resources.showedGold
+            + "Not enough resources to repair";
+            DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        }
+    }
+
     public void OnCursorExit()
     {
         DescriptionManager.Instance.DestroyItemInfo();
