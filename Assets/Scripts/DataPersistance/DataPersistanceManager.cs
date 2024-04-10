@@ -54,6 +54,7 @@ public class DataPersistanceManager : MonoBehaviour
                 SceneManager.LoadScene("DeathScreen");
                 mainCharacter.totalCurrentHealth = upgradeArmor.maxHealth;
                 mainCharacter.totalCurrentShieldHealth = 0;
+                deathScreenManager.saveOnDeath = false;
             }
             if (mainCharacter.backToMainMenu == true)
             {
