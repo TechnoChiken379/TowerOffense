@@ -22,10 +22,10 @@ public class enemyWWallFunction : MonoBehaviour
     public GameObject deathDropStone;
     public GameObject deathDropSteel;
 
-    private float DroppedGold = 0;
-    private float DroppedWood = 0;
-    private float DroppedStone = 0;
-    private float DroppedSteel = 0;
+    //private float DroppedGold = 0;
+    //private float DroppedWood = 0;
+    //private float DroppedStone = 0;
+    //private float DroppedSteel = 0;
 
     public Transform deathDropPoint;
 

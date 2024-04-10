@@ -98,17 +98,6 @@ public class upgradeWeapons : MonoBehaviour, IDataPersistance
     // Update is called once per frame
     void Update()
     {
-        bowLevel = bowLevel;
-        culverinLevel = culverinLevel;
-        onagerLevel = onagerLevel;
-
-        ballista = ballista;
-        hwacha = hwacha;
-        bombard = bombard;
-        falconet = falconet;
-        trebuchet = trebuchet;
-        mangonel = mangonel;
-
         ArchersUpgrades();
         CannonsUpgrades();
         CatapultUpgrades();

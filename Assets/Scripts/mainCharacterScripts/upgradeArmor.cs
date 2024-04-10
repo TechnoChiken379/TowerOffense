@@ -86,17 +86,6 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
 
     void Update()
     {
-        healthLevel = healthLevel;
-        shieldLevel = shieldLevel;
-        selfRepairLevel = selfRepairLevel;
-
-        healthHeavyTank = healthHeavyTank;
-        healthLightTank = healthLightTank;
-        shieldHeavyArmor = shieldHeavyArmor;
-        shieldLightArmor = shieldLightArmor;
-        selfRepairHeavyRepair = selfRepairHeavyRepair;
-        selfRepairLightRepair = selfRepairLightRepair;
-
         HealthUpgrades();
         ShieldUpgrades();
         SelfRepairUpgrades();
