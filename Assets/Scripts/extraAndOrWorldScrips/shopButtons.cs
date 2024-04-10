@@ -493,6 +493,9 @@ public class shopButtons : MonoBehaviour
     }
     #endregion
     #region Repair
-
+    public void HealthRepair()
+    {
+        mainCharacter.Instance.Repairing();
+    }
     #endregion
 }
