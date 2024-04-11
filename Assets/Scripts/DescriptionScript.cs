@@ -744,7 +744,7 @@ public class DescriptionScript : MonoBehaviour
             itemName = "Get a artilery strike ability!";
             itemCost = "Cost = 100 gold";
             itemDescription = "Current resources: Gold = " + resources.showedGold
-            + "Not enough resources to buy";
+            + " Not enough resources to buy";
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
     }
@@ -763,7 +763,7 @@ public class DescriptionScript : MonoBehaviour
             itemName = "Get a supply drop ability!";
             itemCost = "Cost = 100 gold";
             itemDescription = "Current resources: Gold = " + resources.showedGold
-            + "Not enough resources to repair";
+            + " Not enough resources to repair";
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
     }
