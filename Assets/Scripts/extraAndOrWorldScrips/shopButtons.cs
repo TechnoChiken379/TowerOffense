@@ -788,6 +788,11 @@ public class shopButtons : MonoBehaviour
             abilityScript.artilleryStrikeAmount = abilityScript.supplyDropAmount + 1;
             abilityScript.supplyDropAmount = 0;
             DataPersistanceManager.saveGameBool = true;
+        } else
+        {
+            abilityScript.artilleryStrikeAmount = abilityScript.supplyDropAmount;
+            abilityScript.supplyDropAmount = 0;
+            DataPersistanceManager.saveGameBool = true;
         }
         DescriptionScript.Instance.ArtileryOnCursorEnter();
     }
@@ -798,6 +803,11 @@ public class shopButtons : MonoBehaviour
         if (100 <= resources.goldAmount)
         {
             resources.goldAmount -= 100;
+            abilityScript.supplyDropAmount = abilityScript.artilleryStrikeAmount + 1;
+            abilityScript.artilleryStrikeAmount = 0;
+            DataPersistanceManager.saveGameBool = true;
+        } else
+        {
             abilityScript.supplyDropAmount = abilityScript.artilleryStrikeAmount + 1;
             abilityScript.artilleryStrikeAmount = 0;
             DataPersistanceManager.saveGameBool = true;
