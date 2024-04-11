@@ -97,6 +97,7 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
         if (totalCurrentHealth <= 0)
         {
             totalCurrentHealth = upgradeArmor.maxHealth;
+            totalCurrentShieldHealth = 0;
         }
     }
 
