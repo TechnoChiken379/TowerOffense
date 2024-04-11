@@ -2644,7 +2644,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &524221804
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2734,7 +2734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3794,7 +3794,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ABILITY 2
+  m_text: ABILITY 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -5051,7 +5051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &952421692
 Transform:
   m_ObjectHideFlags: 0
@@ -6042,8 +6042,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 0
+  m_fontColor: {r: 0, g: 0, b: 0, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6176,8 +6176,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 0
+  m_fontColor: {r: 0, g: 0, b: 0, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7617,6 +7617,7 @@ GameObject:
   - component: {fileID: 1416785343}
   - component: {fileID: 1416785342}
   - component: {fileID: 1416785341}
+  - component: {fileID: 1416785344}
   m_Layer: 5
   m_Name: ABILITY2
   m_TagString: Untagged
@@ -7688,9 +7689,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1937394106}
+      - m_Target: {fileID: 1937394104}
         m_TargetAssemblyTypeName: buttons, Assembly-CSharp
-        m_MethodName: CloseShop
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7738,6 +7739,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416785339}
   m_CullTransparentMesh: 1
+--- !u!114 &1416785344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416785339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1937394104}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &1446529225
 GameObject:
   m_ObjectHideFlags: 0
@@ -7795,7 +7829,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ABILITY 3
+  m_text: ABILITY 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -10199,7 +10233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1834648517
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10289,7 +10323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11432,9 +11466,6 @@ MonoBehaviour:
   REPAIRS: {fileID: 726180170}
   ABILITIES: {fileID: 2124457555}
   AMMO: {fileID: 1920992139}
-  itemName: {fileID: 0}
-  itemCost: {fileID: 0}
-  itemDescription: {fileID: 0}
 --- !u!114 &1937394112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11471,24 +11502,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac2bfb6e82e65d49a9c22699abb5e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Archers0: {fileID: 379104922}
-  Archers1: {fileID: 1940243396}
-  Archers2: {fileID: 1664179869}
-  Cannons0: {fileID: 923388200}
-  Cannons1: {fileID: 2012520400}
-  Cannons2: {fileID: 1211203769}
-  Catapult0: {fileID: 1903772549}
-  Catapult1: {fileID: 984176090}
-  Catapult2: {fileID: 2071208773}
-  Health0: {fileID: 1547086516}
-  Health1: {fileID: 32417901}
-  Health2: {fileID: 165096446}
-  Shield0: {fileID: 875990499}
-  Shield1: {fileID: 1681577671}
-  Shield2: {fileID: 901379708}
-  Repair0: {fileID: 1338074522}
-  Repair1: {fileID: 1273393154}
-  Repair2: {fileID: 602499170}
 --- !u!114 &1937394115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12531,7 +12544,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2124457556
 Transform:
   m_ObjectHideFlags: 0
