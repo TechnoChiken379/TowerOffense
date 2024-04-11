@@ -53,7 +53,7 @@ public class GameData
         this.steelAmount = 0;
         this.goldAmount = 0;
 
-        playerPosition = new Vector3();
+        playerPosition = new Vector3(-14.089996337890625f, 0, 0);
 
         healthLevel = 1;
         totalCurrentHealth = 100;
