@@ -2771,6 +2771,7 @@ GameObject:
   - component: {fileID: 587320778}
   - component: {fileID: 587320777}
   - component: {fileID: 587320776}
+  - component: {fileID: 587320779}
   m_Layer: 5
   m_Name: ABILITY3
   m_TagString: Untagged
@@ -2842,9 +2843,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1937394106}
-        m_TargetAssemblyTypeName: buttons, Assembly-CSharp
-        m_MethodName: CloseShop
+      - m_Target: {fileID: 1937394111}
+        m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
+        m_MethodName: Abilitie2SupplyDrop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2892,6 +2893,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587320774}
   m_CullTransparentMesh: 1
+--- !u!114 &587320779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587320774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1937394114}
+          m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
+          m_MethodName: SupplyDropHealthOnCursorEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1937394114}
+          m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
+          m_MethodName: OnCursorExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &598482626
 GameObject:
   m_ObjectHideFlags: 0
@@ -5051,7 +5097,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &952421692
 Transform:
   m_ObjectHideFlags: 0
@@ -7689,9 +7735,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1937394104}
-        m_TargetAssemblyTypeName: buttons, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1937394111}
+        m_TargetAssemblyTypeName: shopButtons, Assembly-CSharp
+        m_MethodName: Abilitie1AirStrike
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7756,13 +7802,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1937394104}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 1937394114}
+          m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
+          m_MethodName: ArtileryOnCursorEnter
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -7771,7 +7817,19 @@ MonoBehaviour:
   - eventID: 1
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1937394114}
+          m_TargetAssemblyTypeName: DescriptionScript, Assembly-CSharp
+          m_MethodName: OnCursorExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1446529225
 GameObject:
   m_ObjectHideFlags: 0
@@ -11466,6 +11524,9 @@ MonoBehaviour:
   REPAIRS: {fileID: 726180170}
   ABILITIES: {fileID: 2124457555}
   AMMO: {fileID: 1920992139}
+  itemName: {fileID: 0}
+  itemCost: {fileID: 0}
+  itemDescription: {fileID: 0}
 --- !u!114 &1937394112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11502,6 +11563,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac2bfb6e82e65d49a9c22699abb5e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Archers0: {fileID: 379104922}
+  Archers1: {fileID: 1940243396}
+  Archers2: {fileID: 1664179869}
+  Cannons0: {fileID: 923388200}
+  Cannons1: {fileID: 2012520400}
+  Cannons2: {fileID: 1211203769}
+  Catapult0: {fileID: 1903772549}
+  Catapult1: {fileID: 984176090}
+  Catapult2: {fileID: 2071208773}
+  Health0: {fileID: 1547086516}
+  Health1: {fileID: 32417901}
+  Health2: {fileID: 165096446}
+  Shield0: {fileID: 875990499}
+  Shield1: {fileID: 1681577671}
+  Shield2: {fileID: 901379708}
+  Repair0: {fileID: 1338074522}
+  Repair1: {fileID: 1273393154}
+  Repair2: {fileID: 602499170}
 --- !u!114 &1937394115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12544,7 +12623,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2124457556
 Transform:
   m_ObjectHideFlags: 0
