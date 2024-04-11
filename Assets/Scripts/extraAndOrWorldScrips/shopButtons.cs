@@ -769,7 +769,7 @@ public class shopButtons : MonoBehaviour
             //resources.woodAmount -= shieldToRepair;
             //resources.stoneAmount -= shieldToRepair;
             //resources.steelAmount -= shieldToRepair;
-            resources.goldAmount -= shieldToRepair;
+            resources.goldAmount -= shieldToRepair * 0.5f;
             mainCharacter.totalCurrentShieldHealth = (mainCharacter.totalCurrentShieldHealth + shieldToRepair);
             DataPersistanceManager.saveGameBool = true;
         }
