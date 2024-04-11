@@ -16,6 +16,10 @@ public class ResourcesTransfer : MonoBehaviour, IDataPersistance
     public static float storedHealthSended;
     private float storedShield;
     public static float storedShieldSended;
+    private int storedArtillery;
+    public static int storedArtillerySended;
+    private int storedSupply;
+    public static int storedSupplySended;
 
     public void LoadData(GameData data)
     {
@@ -77,5 +81,15 @@ public class ResourcesTransfer : MonoBehaviour, IDataPersistance
         storedShieldSended = storedShield;
         storedShield = storedShieldSended;
         mainCharacter.totalCurrentShieldHealth = storedShield;
+
+        storedArtillery = abilityScript.artilleryStrikeAmount;
+        storedArtillerySended = storedArtillery;
+        storedArtillery = storedArtillerySended;
+        abilityScript.artilleryStrikeAmount = storedArtillery;
+
+        storedSupply = abilityScript.supplyDropAmount;
+        storedSupplySended = storedSupply;
+        storedSupply = storedSupplySended;
+        abilityScript.supplyDropAmount = storedSupply;
     }
 }
