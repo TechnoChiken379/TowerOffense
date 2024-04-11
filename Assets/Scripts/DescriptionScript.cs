@@ -719,17 +719,17 @@ public class DescriptionScript : MonoBehaviour
     {
         if (100 <= resources.goldAmount)
         {
-            itemName = "Get a artilery strike abilitie!";
-            itemCost = "Your current  = " + mainCharacter.totalCurrentShieldHealth;
-            itemDescription = "Current resources: Wood = " + resources.showedWood + ", Stone = " + resources.showedStone + ", Steel = " + resources.showedSteel + ", Gold = " + resources.showedGold;
+            itemName = "Get a artilery strike ability!";
+            itemCost = "Cost = 100 gold";
+            itemDescription = "Current resources: Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
         else
         {
-            itemName = "Repair Your Shield";
-            itemCost = "Your current Shield = " + mainCharacter.totalCurrentShieldHealth;
-            itemDescription = "Current resources: Wood = " + resources.showedWood + ", Stone = " + resources.showedStone + ", Steel = " + resources.showedSteel + ", Gold = " + resources.showedGold
-            + "Not enough resources to repair";
+            itemName = "Get a artilery strike ability!";
+            itemCost = "Cost = 100 gold";
+            itemDescription = "Current resources: Gold = " + resources.showedGold
+            + "Not enough resources to buy";
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
     }
@@ -738,16 +738,16 @@ public class DescriptionScript : MonoBehaviour
     {
         if (100 <= resources.goldAmount)
         {
-            itemName = "Repair Your Shield";
-            itemCost = "Your current Shield = " + mainCharacter.totalCurrentShieldHealth;
-            itemDescription = "Current resources: Wood = " + resources.showedWood + ", Stone = " + resources.showedStone + ", Steel = " + resources.showedSteel + ", Gold = " + resources.showedGold;
+            itemName = "Get a supply drop ability!";
+            itemCost = "Cost = 100 gold";
+            itemDescription = "Current resources: Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
         else
         {
-            itemName = "Repair Your Shield";
-            itemCost = "Your current Shield = " + mainCharacter.totalCurrentShieldHealth;
-            itemDescription = "Current resources: Wood = " + resources.showedWood + ", Stone = " + resources.showedStone + ", Steel = " + resources.showedSteel + ", Gold = " + resources.showedGold
+            itemName = "Get a supply drop ability!";
+            itemCost = "Cost = 100 gold";
+            itemDescription = "Current resources: Gold = " + resources.showedGold
             + "Not enough resources to repair";
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
