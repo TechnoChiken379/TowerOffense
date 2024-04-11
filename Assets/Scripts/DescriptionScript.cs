@@ -411,7 +411,7 @@ public class DescriptionScript : MonoBehaviour
         if (upgradeArmor.selfRepairLevel == 0)
         {
             itemName = "Self Repair Upgrade";
-            itemCost = "300 wood, 200 stone, 300 steel";
+            itemCost = "300 wood, 100 stone, 200 steel";
             itemDescription = "Get acces to Self Repair LV1! " + " Current resources: Wood = " + ResourcesTransfer.storedWoodSended + ", Stone = " + ResourcesTransfer.storedStoneSended + ", Steel = " + ResourcesTransfer.storedSteelSended + ", Gold = " + resources.showedGold;
             DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
         }
