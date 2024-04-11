@@ -789,7 +789,7 @@ public class shopButtons : MonoBehaviour
             abilityScript.supplyDropAmount = 0;
             DataPersistanceManager.saveGameBool = true;
         }
-        DescriptionScript.Instance.RepairHealthOnCursorEnter();
+        DescriptionScript.Instance.ArtileryOnCursorEnter();
     }
 
     public void Abilitie2SupplyDrop()
@@ -802,7 +802,7 @@ public class shopButtons : MonoBehaviour
             abilityScript.artilleryStrikeAmount = 0;
             DataPersistanceManager.saveGameBool = true;
         }
-        DescriptionScript.Instance.RepairHealthOnCursorEnter();
+        DescriptionScript.Instance.SupplyDropHealthOnCursorEnter();
     }
     #endregion
 }
