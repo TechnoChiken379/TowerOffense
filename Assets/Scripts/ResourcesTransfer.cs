@@ -25,6 +25,8 @@ public class ResourcesTransfer : MonoBehaviour, IDataPersistance
         storedGold = data.goldAmount;
         mainCharacter.totalCurrentHealth = data.totalCurrentHealth;
         mainCharacter.totalCurrentShieldHealth = data.totalCurrentShieldHealth;
+        abilityScript.artilleryStrikeAmount = data.artilleryStrikeAmount;
+        abilityScript.supplyDropAmount = data.supplyDropAmount;
     }
 
     public void SaveData(ref GameData data)
@@ -35,6 +37,8 @@ public class ResourcesTransfer : MonoBehaviour, IDataPersistance
         data.goldAmount = storedGold;
         data.totalCurrentHealth = mainCharacter.totalCurrentHealth;
         data.totalCurrentShieldHealth = mainCharacter.totalCurrentShieldHealth;
+        data.artilleryStrikeAmount = abilityScript.artilleryStrikeAmount;
+        data.supplyDropAmount = abilityScript.supplyDropAmount;
     }
 
     void Update()
