@@ -698,7 +698,22 @@ public class DescriptionScript : MonoBehaviour
 
     public void RepairShieldHealthOnCursorEnter()
     {
-        if (shopButtons.shieldToRepair < resources.woodAmount && shopButtons.shieldToRepair < resources.stoneAmount && shopButtons.shieldToRepair < resources.steelAmount && upgradeArmor.shieldLevel >= 1)
+        //if (shopButtons.shieldToRepair < resources.woodAmount && shopButtons.shieldToRepair < resources.stoneAmount && shopButtons.shieldToRepair < resources.steelAmount && upgradeArmor.shieldLevel >= 1)
+        //{
+        //    itemName = "Repair Your Shield";
+        //    itemCost = "Your current Shield = " + mainCharacter.totalCurrentShieldHealth;
+        //    itemDescription = "Current resources: Wood = " + resources.showedWood + ", Stone = " + resources.showedStone + ", Steel = " + resources.showedSteel + ", Gold = " + resources.showedGold;
+        //    DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        //}
+        //else
+        //{
+        //    itemName = "Repair Your Shield";
+        //    itemCost = "Your current Shield = " + mainCharacter.totalCurrentShieldHealth;
+        //    itemDescription = "Current resources: Wood = " + resources.showedWood + ", Stone = " + resources.showedStone + ", Steel = " + resources.showedSteel + ", Gold = " + resources.showedGold
+        //    + "Not enough resources to repair";
+        //    DescriptionManager.Instance.DisplayItemInfo(itemName, itemCost, itemDescription, buttonPos);
+        //}
+        if (shopButtons.shieldToRepair < resources.goldAmount/*shopButtons.shieldToRepair < resources.woodAmount && shopButtons.shieldToRepair < resources.stoneAmount && shopButtons.shieldToRepair < resources.steelAmount*/ && upgradeArmor.shieldLevel >= 1)
         {
             itemName = "Repair Your Shield";
             itemCost = "Your current Shield = " + mainCharacter.totalCurrentShieldHealth;

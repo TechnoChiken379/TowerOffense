@@ -764,11 +764,12 @@ public class shopButtons : MonoBehaviour
     {
         DescriptionManager.Instance.DestroyItemInfo();
         shieldToRepair = (upgradeArmor.maxShieldHealth - mainCharacter.totalCurrentShieldHealth);
-        if (shieldToRepair < resources.woodAmount && shieldToRepair < resources.stoneAmount && shieldToRepair < resources.steelAmount)
+        if (shieldToRepair < resources.goldAmount/*shieldToRepair < resources.woodAmount && shieldToRepair < resources.stoneAmount && shieldToRepair < resources.steelAmount*/)
         {
-            resources.woodAmount -= shieldToRepair;
-            resources.stoneAmount -= shieldToRepair;
-            resources.steelAmount -= shieldToRepair;
+            //resources.woodAmount -= shieldToRepair;
+            //resources.stoneAmount -= shieldToRepair;
+            //resources.steelAmount -= shieldToRepair;
+            resources.goldAmount -= shieldToRepair * 0.5f;
             mainCharacter.totalCurrentShieldHealth = (mainCharacter.totalCurrentShieldHealth + shieldToRepair);
             DataPersistanceManager.saveGameBool = true;
         }
