@@ -94,6 +94,10 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
         totalCurrentHealth = data.totalCurrentHealth;
         totalCurrentShieldHealth = data.totalCurrentShieldHealth;
         transform.position = data.playerPosition;
+        if (totalCurrentHealth <= 0)
+        {
+            totalCurrentHealth = upgradeArmor.maxHealth;
+        }
     }
 
     public void SaveData(ref GameData data)
