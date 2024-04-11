@@ -150,6 +150,8 @@ public class abilityScript : MonoBehaviour, IDataPersistance
         mousePosition = Input.mousePosition;
         worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
+        supplyDropAmount--;
+
         Vector2 supplyDropSpawnPosition = new Vector2(worldMousePosition.x, worldMousePosition.y + SupplyDrophight);
         GameObject spawnedBullet = Instantiate(supplyDrop, supplyDropSpawnPosition, Quaternion.Euler(0, 0, 0));
     }
