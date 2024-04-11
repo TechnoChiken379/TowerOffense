@@ -90,7 +90,7 @@ public class upgradeArmor : MonoBehaviour, IDataPersistance
         ShieldUpgrades();
         SelfRepairUpgrades();
 
-        LevelUp(); //for testing
+        //LevelUp(); //for testing
     }
     #region Upgrades
     void HealthUpgrades()

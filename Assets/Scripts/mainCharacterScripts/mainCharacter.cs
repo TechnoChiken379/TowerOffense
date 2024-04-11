@@ -114,7 +114,7 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
         OpenShop();
         GoBackToMainMenu();
-        Test(); //for testing
+        //Test(); //for testing
 
         setValuesUpdate();
 

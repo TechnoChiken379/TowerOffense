@@ -102,7 +102,7 @@ public class upgradeWeapons : MonoBehaviour, IDataPersistance
         CannonsUpgrades();
         CatapultUpgrades();
 
-        LevelUp(); //for testing
+        //LevelUp(); //for testing
     }
 
     #region Upgrades
