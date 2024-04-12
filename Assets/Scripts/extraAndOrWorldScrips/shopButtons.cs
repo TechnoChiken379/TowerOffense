@@ -764,12 +764,12 @@ public class shopButtons : MonoBehaviour
     {
         DescriptionManager.Instance.DestroyItemInfo();
         shieldToRepair = (upgradeArmor.maxShieldHealth - mainCharacter.totalCurrentShieldHealth);
-        if (shieldToRepair < resources.goldAmount/*shieldToRepair < resources.woodAmount && shieldToRepair < resources.stoneAmount && shieldToRepair < resources.steelAmount*/)
+        if (/*shieldToRepair < resources.goldAmount*/shieldToRepair < resources.woodAmount && shieldToRepair < resources.stoneAmount && shieldToRepair < resources.steelAmount)
         {
-            //resources.woodAmount -= shieldToRepair;
-            //resources.stoneAmount -= shieldToRepair;
-            //resources.steelAmount -= shieldToRepair;
-            resources.goldAmount -= shieldToRepair * 0.5f;
+            resources.woodAmount -= shieldToRepair;
+            resources.stoneAmount -= shieldToRepair;
+            resources.steelAmount -= shieldToRepair;
+            //resources.goldAmount -= shieldToRepair * 0.5f;
             mainCharacter.totalCurrentShieldHealth = (mainCharacter.totalCurrentShieldHealth + shieldToRepair);
             DataPersistanceManager.saveGameBool = true;
         }
@@ -785,12 +785,12 @@ public class shopButtons : MonoBehaviour
         if (100 <= resources.goldAmount)
         {
             resources.goldAmount -= 100;
-            abilityScript.artilleryStrikeAmount = abilityScript.supplyDropAmount + 1;
+            abilityScript.artilleryStrikeAmount = abilityScript.artilleryStrikeAmount + abilityScript.supplyDropAmount + 1;
             abilityScript.supplyDropAmount = 0;
             DataPersistanceManager.saveGameBool = true;
         } else
         {
-            abilityScript.artilleryStrikeAmount = abilityScript.supplyDropAmount;
+            abilityScript.artilleryStrikeAmount = abilityScript.artilleryStrikeAmount + abilityScript.supplyDropAmount;
             abilityScript.supplyDropAmount = 0;
             DataPersistanceManager.saveGameBool = true;
         }
@@ -803,12 +803,12 @@ public class shopButtons : MonoBehaviour
         if (100 <= resources.goldAmount)
         {
             resources.goldAmount -= 100;
-            abilityScript.supplyDropAmount = abilityScript.artilleryStrikeAmount + 1;
+            abilityScript.supplyDropAmount = abilityScript.supplyDropAmount + abilityScript.artilleryStrikeAmount + 1;
             abilityScript.artilleryStrikeAmount = 0;
             DataPersistanceManager.saveGameBool = true;
         } else
         {
-            abilityScript.supplyDropAmount = abilityScript.artilleryStrikeAmount + 1;
+            abilityScript.supplyDropAmount = abilityScript.supplyDropAmount + abilityScript.artilleryStrikeAmount;
             abilityScript.artilleryStrikeAmount = 0;
             DataPersistanceManager.saveGameBool = true;
         }

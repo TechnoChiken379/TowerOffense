@@ -128,34 +128,34 @@ public class mainCharacter : MonoBehaviour, IDataPersistance
 
     public void Upgrade()
     {
-        if (Input.GetKeyDown(KeyCode.Backspace)) 
-        {
-            upgradeArmor.healthLevel = 3;
-            upgradeArmor.shieldLevel = 3;
-            upgradeArmor.selfRepairLevel = 3;
-            upgradeWeapons.bowLevel = 3;
-            upgradeWeapons.culverinLevel = 3;
-            upgradeWeapons.onagerLevel = 3;
-            upgradeArmor.healthHeavyTank = false;
-            upgradeArmor.healthLightTank = false;
-            upgradeArmor.shieldHeavyArmor = false;
-            upgradeArmor.shieldLightArmor = false;
-            upgradeArmor.selfRepairHeavyRepair = false;
-            upgradeArmor.selfRepairLightRepair = false;
-            upgradeWeapons.ballista = false;
-            upgradeWeapons.hwacha = false;
-            upgradeWeapons.bombard = false;
-            upgradeWeapons.falconet = false;
-            upgradeWeapons.trebuchet = false;
-            upgradeWeapons.mangonel = false;
-            resources.goldAmount += 1000;
-            resources.woodAmount += 5000;
-            resources.stoneAmount += 5000;
-            resources.steelAmount += 5000;
-            totalCurrentHealth = upgradeArmor.maxHealth; 
-            totalCurrentShieldHealth = upgradeArmor.maxShieldHealth;
+        //if (Input.GetKeyDown(KeyCode.Backspace)) 
+        //{
+        //    upgradeArmor.healthLevel = 3;
+        //    upgradeArmor.shieldLevel = 3;
+        //    upgradeArmor.selfRepairLevel = 3;
+        //    upgradeWeapons.bowLevel = 3;
+        //    upgradeWeapons.culverinLevel = 3;
+        //    upgradeWeapons.onagerLevel = 3;
+        //    upgradeArmor.healthHeavyTank = false;
+        //    upgradeArmor.healthLightTank = false;
+        //    upgradeArmor.shieldHeavyArmor = false;
+        //    upgradeArmor.shieldLightArmor = false;
+        //    upgradeArmor.selfRepairHeavyRepair = false;
+        //    upgradeArmor.selfRepairLightRepair = false;
+        //    upgradeWeapons.ballista = false;
+        //    upgradeWeapons.hwacha = false;
+        //    upgradeWeapons.bombard = false;
+        //    upgradeWeapons.falconet = false;
+        //    upgradeWeapons.trebuchet = false;
+        //    upgradeWeapons.mangonel = false;
+        //    resources.goldAmount += 1000;
+        //    resources.woodAmount += 5000;
+        //    resources.stoneAmount += 5000;
+        //    resources.steelAmount += 5000;
+        //    totalCurrentHealth = upgradeArmor.maxHealth; 
+        //    totalCurrentShieldHealth = upgradeArmor.maxShieldHealth;
             
-        }
+        //}
     }
 
     void OpenShop()
