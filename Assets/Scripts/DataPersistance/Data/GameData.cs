@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class GameData
 {
     public float woodAmount;
-    public float stoneAmount;
+    public float stoneAmount;       //public statements zijn niet veilig genoeg je moet uitkijken dat je ook dingen "protected" of "private" maakt dit gaat om veiligheid tegen hackers of exploiters
     public float steelAmount;
     public float goldAmount;
 
@@ -47,7 +47,7 @@ public class GameData
     public int supplyDropAmount;
 
     public GameData()
-    {
+    { // waarom is de naam van de file en dit stukje code zijn zelfde naam denk aan Pascal en Camle cases
         this.woodAmount = 0;
         this.stoneAmount = 0;
         this.steelAmount = 0;

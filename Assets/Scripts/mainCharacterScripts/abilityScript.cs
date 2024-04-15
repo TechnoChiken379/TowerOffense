@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class abilityScript : MonoBehaviour, IDataPersistance
 {
-    //idea's
-    //arty strike (probably arrow's that rain down on enemies)
-    //supply drop (probably for health and shield)
+    /*idea's
+    arty strike (probably arrow's that rain down on enemies)
+    supply drop (probably for health and shield) */
 
     private Vector2 worldMousePosition;
     private Vector2 mousePosition;
@@ -109,7 +109,7 @@ public class abilityScript : MonoBehaviour, IDataPersistance
             abilityTimer = 0f;
         }
     }
-
+    // maak de region benaming duidelijker 
     #region ability method's
     public void ArtilleryStrike()
     {

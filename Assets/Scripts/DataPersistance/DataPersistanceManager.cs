@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 using System.IO;
 
 public class DataPersistanceManager : MonoBehaviour
-{
+{ /// <summary>
+/// Regions meer gebruiken!
+/// </summary>
     [Header("File Storage Config")]
     private string fileName = "data.games_on_your_phone";
 

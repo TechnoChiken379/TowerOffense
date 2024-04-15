@@ -21,10 +21,10 @@ public class resources : MonoBehaviour, IDataPersistance
     public TMPro.TMP_Text steelText;
     public TMPro.TMP_Text goldText;
 
-    void Start()
+    /*void Start()
     {
         
-    }
+    } */
 
     public void LoadData(GameData data)
     {
