@@ -9,10 +9,6 @@ using UnityEngine.UIElements;
 
 public class enemyWHouseFunction : MonoBehaviour
 {
-    public string state = "State.Idle"; //what does the enemy want to do
-
-    private Transform player;
-    public float distanceToPlayer;
     //health
     private float enemyHP, enemyMaxHP = 50f;
 
@@ -28,10 +24,6 @@ public class enemyWHouseFunction : MonoBehaviour
     private float DroppedSteel = 12;
 
     public Transform deathDropPoint;
-
-    //spreat out from other enemies
-    private GameObject[] enemies;
-    private Transform closestEnemy;
 
     //encampment
     public GameObject Encampment;
@@ -49,47 +41,15 @@ public class enemyWHouseFunction : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("mainCharacter").transform;
-
         enemyHP = enemyMaxHP;
 
         CalculateLevel();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        FindClosestEnemies(); //locate closest enemy
         IfDeadDie();
-    }
-
-    void FindClosestEnemies()
-    {
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-        closestEnemy = GetClosestEnemy(enemies);
-    }
-
-    Transform GetClosestEnemy(GameObject[] enemiesArray)
-    {
-        float closestDistance = Mathf.Infinity;
-
-        foreach (GameObject enemy in enemiesArray)
-        {
-            if (enemy != gameObject)
-            {
-                float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
-
-                if (distanceToEnemy < closestDistance)
-                {
-                    closestDistance = distanceToEnemy;
-                    closestEnemy = enemy.transform;
-                }
-            }
-        }
-
-        return closestEnemy;
     }
 
     void IfDeadDie()
