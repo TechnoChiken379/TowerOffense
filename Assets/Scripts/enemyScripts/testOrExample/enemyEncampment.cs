@@ -27,7 +27,7 @@ public class enemyEncampment : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("mainCharacter").transform;
     }
-    void Update()
+    void FixedUpdate()
     {
         distanceToPlayer = Vector2.Distance(transform.position, player.position);
         ReplaceEncampment();
