@@ -76,8 +76,6 @@ public class enemyCannonFunction : MonoBehaviour
     void Update()
     {
         distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        FindClosestEnemies(); //locate closest enemy
-        SpreadOut();
         TurnAround();
         StateConditions(); //check what should the enemy should want to do
         ExecuteConditions(); //try to do what the enemy should want to do
@@ -114,42 +112,6 @@ public class enemyCannonFunction : MonoBehaviour
                 
             break;
         }
-    }
-    public void SpreadOut()
-    {
-        if (closestEnemy != null && Vector2.Distance(closestEnemy.position, transform.position) < 1f)
-        {
-            //Vector3 directionToEnemy = (transform.position - closestEnemy.position).normalized;
-            //transform.Translate(directionToEnemy * Time.deltaTime * speed);
-        }
-    }
-
-    void FindClosestEnemies()
-    {
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-        closestEnemy = GetClosestEnemy(enemies);
-    }
-
-    Transform GetClosestEnemy(GameObject[] enemiesArray)
-    {
-        float closestDistance = Mathf.Infinity;
-
-        foreach (GameObject enemy in enemiesArray)
-        {
-            if (enemy != gameObject)
-            {
-                float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
-
-                if (distanceToEnemy < closestDistance)
-                {
-                    closestDistance = distanceToEnemy;
-                    closestEnemy = enemy.transform;
-                }
-            }
-        }
-
-        return closestEnemy;
     }
     public void Attack()
     {
